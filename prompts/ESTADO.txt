@@ -8,9 +8,9 @@ angel: Sachiel
 numero_angel: 3
 archivo_episodio: prompts/ep01_sachiel.txt
 secciones_totales: 12
-seccion_completada: 02
-seccion_siguiente: 03
+seccion_completada: 03
+seccion_siguiente: 04
 estado: en_curso
-ultima_entrega: docs/episodios/ep01_aparicion.md
-ultima_nota: Sección 02 cerrada. Spec de aparición (minuto cero): ONU ve enemigo, NERV nombra Pattern Blue, silueta/escala/movimiento/fluido/máscara listos para dibujar y para detección. Sin N², sin core, sin código, sin imagen generada. Siguiente: anatomía (cuerpo, máscara, AT Field, core) como tabla de partes.
+ultima_entrega: docs/episodios/ep01_anatomia.md
+ultima_nota: Sección 03 cerrada. Anatomía operativa: cuerpo=payload, máscara=decoy, AT Field=aislamiento del atacante, core=persistencia raíz / kill condition (hipótesis, no doctrina). Nombres Ruby listos para la 10. AT Field ≠ Core. Sin clases, sin mutate!, sin N². Siguiente: persistencia post-wipe.
 bloqueadores: ninguno
