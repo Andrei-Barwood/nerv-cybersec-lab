@@ -8,9 +8,9 @@ angel: Sachiel
 numero_angel: 3
 archivo_episodio: prompts/ep01_sachiel.txt
 secciones_totales: 12
-seccion_completada: 01
-seccion_siguiente: 02
+seccion_completada: 02
+seccion_siguiente: 03
 estado: en_curso
-ultima_entrega: docs/episodios/ep01_briefing.md
-ultima_nota: Sección 01 cerrada. Contrato del ep 01 escrito: tutorial de persistencia, victoria del lab = fallo reproducible, sin berserk ni contención. Sin código. Siguiente: recreación de la aparición (prosa, sin N² ni anatomía interna).
+ultima_entrega: docs/episodios/ep01_aparicion.md
+ultima_nota: Sección 02 cerrada. Spec de aparición (minuto cero): ONU ve enemigo, NERV nombra Pattern Blue, silueta/escala/movimiento/fluido/máscara listos para dibujar y para detección. Sin N², sin core, sin código, sin imagen generada. Siguiente: anatomía (cuerpo, máscara, AT Field, core) como tabla de partes.
 bloqueadores: ninguno
