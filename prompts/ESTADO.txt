@@ -2,15 +2,15 @@
 # Grok Build DEBE leer este archivo al arrancar y reescribirlo al cerrar cada sección.
 # Formato: clave: valor  (sin YAML fancy; una línea por campo)
 
-episodio_activo: 01
-titulo_canon: Angel Attack
-angel: Sachiel
-numero_angel: 3
-archivo_episodio: prompts/ep01_sachiel.txt
+episodio_activo: 03
+titulo_canon: A Transfer
+angel: Shamshel
+numero_angel: 4
+archivo_episodio: prompts/ep03_shamshel.txt
 secciones_totales: 12
-seccion_completada: 03
-seccion_siguiente: 04
-estado: en_curso
-ultima_entrega: docs/episodios/ep01_anatomia.md
-ultima_nota: Sección 03 cerrada. Anatomía operativa: cuerpo=payload, máscara=decoy, AT Field=aislamiento del atacante, core=persistencia raíz / kill condition (hipótesis, no doctrina). Nombres Ruby listos para la 10. AT Field ≠ Core. Sin clases, sin mutate!, sin N². Siguiente: persistencia post-wipe.
+seccion_completada: 12
+seccion_siguiente: 01
+estado: episodio_completo
+ultima_entrega: docs/episodios/ep02_aar.md
+ultima_nota: INC-SACHIEL-001 cerrado contained_uncontrolled (exit 1). Tests del 01 siguen unresolved (exit 2). prompts/ep03_shamshel.txt ya existe en disco (no reescrito este turno); el runbook del 02 pedía declararlo faltante — no lo está. Siguiente: ejecutar ep 03 sección 01. Beast no es plan de victoria para Shamshel.
 bloqueadores: ninguno

@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+#
+# NERV lab runner.
+#   ruby -Ilib bin/episodio 01
+#   ruby -Ilib bin/episodio 02
+#   ruby -Ilib bin/episodio        # defaults to 01
+#
+# Exit codes:
+#   0  :contained_controlled   — operator + MAGI + playbook aligned (not these eps)
+#   1  :contained_uncontrolled — ep 02 (angel dead; defender incident open)
+#   2  :unresolved             — ep 01 (Sachiel still standing; wipe was theatre)
+#   3  usage / unknown episode
+#
+# Do not treat a zero as "the command ran". Zero means contained_controlled.
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "nerv"
+require_relative "../lib/nerv/scenarios/ep01"
+require_relative "../lib/nerv/scenarios/ep02"
+
+module Nerv
+  module Runner
+    EXIT = {
+      contained_controlled: 0,
+      contained: 0,
+      contained_uncontrolled: 1,
+      unresolved: 2
+    }.freeze
+
+    def self.main(argv)
+      episode = argv[0] || "01"
+      case episode
+      when "01", "1"
+        run_ep01
+      when "02", "2"
+        run_ep02
+      else
+        warn "unknown episode: #{episode} (try 01 or 02)"
+        3
+      end
+    end
+
+    def self.run_ep01
+      scenario = Scenarios::Ep01.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 01 Angel Attack"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 3)
+    end
+
+    def self.run_ep02
+      scenario = Scenarios::Ep02.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 02 The Beast"
+      $stdout.puts "--- splice INC-SACHIEL-001 from ep 01 ---"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 3)
+    end
+  end
+end
+
+exit Nerv::Runner.main(ARGV) if $PROGRAM_NAME == __FILE__
