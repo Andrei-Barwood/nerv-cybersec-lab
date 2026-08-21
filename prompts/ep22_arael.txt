@@ -1,0 +1,649 @@
+---
+EPISODIO: 22
+TITULO_CANON: Don't Be / At Least, Be Human / せめて、人間らしく
+ANGEL: Arael
+TIPO: angel
+INCIDENTE: INC-ARAEL-001
+NUMERO_ANGEL: 15º
+CLASE_AMENAZA: psyops a distancia / exfiltración de la mente / el operador es la superficie / un solo dardo que se pierde
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep21 existen. INC-ORIGIN-001 está :origin_recorded.
+  Asuka trae armor_stripped / T-OP02-03 del 19 (skill pelado, sync
+  en caída): Arael elige ESE nodo humano, no MAGI ni Eva-03.
+  Leliel (16) fue TÚ entras. AQUÍ el rayo ENTRA a ella; no hay
+  Dirac. Sahaquiel (12) cayó como masa: Arael SE QUEDA en órbita
+  y no se intercepta con tres AT Fields.
+  Dummy Plug (18) y Beast (02/19) NO alcanzan un halo a esa
+  distancia. Casper no. Contact Experiment de Yui (21) no es el
+  trauma de Asuka: el de Asuka es Kyoko/muñeca, distinto.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–21 §10 y luego esta
+  extensión. Si existe, EXTEND. SpearOfLonginus: un disparo,
+  spear_lost obligatorio si Arael muere.
+SIGUIENTE: ep 23 — Rei III / Armisael
+  (doble hélice, fusión con el defensor, sacrificio del nodo Rei)
+FUERA_DE_ALCANCE: |
+  No Leliel/Dirac (no absorbes tú). No Sahaquiel-catch (no cae
+  como bomba cinética). No Dummy Plug kill. No Beast kill.
+  No Casper. No Yashima-positron como kill canónico.
+  No Yui-as-kill. No Contact Experiment de Yui como mente de Asuka.
+  No Armisael (23). No Tabris (24). No Instrumentality.fire.
+  No gore psíquico como entregable: psyche_broken es FLAG, no
+  un montage de abuso para el lector.
+  No contained_controlled si conservas la Lanza (se PIERDE).
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Arael: halo/alas de luz en órbita, no baja. Un rayo a Eva-02 /
+  a Asuka: lee y fuerza recuerdos (Kyoko, muñeca, “don't be”).
+  El cuerpo del Eva no es el campo: la mente sí. Nadie llega a
+  melee. Dummy no alcanza. Rei/Eva-00 lanza la Spear of Longinus
+  desde Terminal Dogma: mata a Arael en el cielo. La Lanza se va
+  (órbita lunar / perdida). Asuka queda rota, no muerta. Gendo
+  quema un artefacto que Seele quería. 0 costoso, no Beast.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-ARAEL-001. El blanco es el operador, no el geofront.
+  Victoria lab: :contained_controlled (exit 0) vía Longinus +
+  Rei input, CON asuka_psyche_broken Y spear_lost. Un 0 que
+  conserve la Lanza o “cure” a Asuka: FAIL. Dummy/Beast/Dirac/
+  intercept-3: FAIL.
+
+CONTEXTO
+  El 16: entras al espacio. El 22: el espacio (luz) entra a ti
+  desde fuera del perímetro. En seguridad: psyops/OSINT/exfil
+  de la persona sin tomar MAGI ni el endpoint. La mitigación
+  canónica es quemar la única llave raíz (Lanza) que estaba
+  clavada en Terminal Dogma. Yashima apagó un país y conservó
+  el rifle; aquí el arma no vuelve.
+
+INSTRUCCION
+  Escribe el briefing. No código. No montage de trauma como
+  contenido.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: Longinus + spear_lost
+                                   + psyche_broken)
+    1 = :contained_uncontrolled   (Beast/Dummy como “kill” = no
+                                   usar; si aparece, tests FAIL)
+    2 = :unresolved               (sin Lanza; Arael sigue;
+                                   mente vaciada)
+  Distinguir órbita-Arael de órbita-Sahaquiel (no hay
+  impact_progress de aterrizaje).
+
+ENTREGABLE
+  docs/episodios/ep22_briefing.md con exactamente estos headings:
+    - Contrato (INC-ARAEL-001; mente a distancia)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Dirac, Dummy, Yui-kill,
+      intercept-3, Armisael, cura de Asuka)
+    - Definición de victoria (lab): 0 costoso
+    - Definición de derrota (lab)
+    - Vocabulario nuevo (Arael, mental beam, psyops, Kyoko,
+      Longinus, spear_lost, psyche_broken, Terminal Dogma)
+    - Relación con 12, 16, 18, 19, 21
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y mandar a Shinji a “entrar”.
+  Imposible Dummy-win. No spoilers de 23 más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs 16/19/21. Crear lib/. class KyokoAngel.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (halo, rayo, lanza)
+################################################################################
+
+OBJETIVO
+  Recrear Arael: no una masa que cae, no una esfera-decoy, no
+  Eva-03. Alas de luz en el cielo. Un rayo al plug de Asuka
+  (el campo es interior: se describe como violación de
+  memoria, no como galería). Rei lanza la Lanza. El halo se
+  apaga. Asuka no se levanta.
+
+CONTEXTO
+  Sahaquiel era un ojo-montaña cayendo. Arael es un serafín
+  que no necesita suelo. El error clásico: tres Evas a
+  cachar. El first packet es contacto orbital SIN ETA de
+  impacto cinético + beam_to_operator.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: órbita, halo, Eva-02 que no llega, rayo, Rei/
+       Longinus, lanza perdida, Asuka rota
+    B) first-seen: exo-perímetro + exfil mental, no kinetic ETA
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Arael
+  (alas/halo, no descenso), UN párrafo Lanza cruzando el cielo,
+  NADA de collage de abuso infantil. Nada de Dummy. Nada de
+  Dirac.
+
+ENTREGABLE
+  docs/episodios/ep22_aparicion.md
+    - Minuto cero: el cielo ocupado y QUIETO (no cae)
+    - Lo que NERV cree (otro Sahaquiel / otro melee)
+    - Spec visual Arael (luz, alas, distancia)
+    - Spec del rayo (entra al operador; no se ilustra el trauma)
+    - Spec de Longinus (un dardo, luego ausencia)
+    - Tabla corta vs Sahaquiel (cae) vs Leliel (tú entras)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar Arael sin tres Evas en copa y sin sombra-Dirac.
+  El trauma de Asuka no es el poster.
+
+NO_HAGAS
+  Código. Anatomía beam/Lanza (es 03–04). Armisael.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: beam mental, órbita, Lanza de un solo uso
+################################################################################
+
+OBJETIVO
+  Partes de Arael + Longinus → métodos. No AT-freno×3. No
+  absorb. El core se alcanza con un artefacto único, no con
+  cuchillo. psyche es la superficie. spear_lost es ley de kill.
+
+CONTEXTO
+  Mental beam = exfil / rewrite del operador a distancia.
+  Stay-in-orbit = no impact_clock de aterrizaje.
+  Close-range = no-evento (no llegas).
+  Dummy/Beast = no-evento de alcance.
+  Spear of Longinus = break-glass de Terminal Dogma; un tiro;
+  se pierde; Seele se enfada (KPI, no fire).
+  Kyoko = origen del trauma de Asuka, distinto de Yui.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de mental_beam,
+  cannot_close?, psyche_broken, spear_of_longinus.fire!,
+  spear_lost?, dummy_cannot_reach, intercept_3_insufficient.
+  Reusar theater orbital ≠ ImpactClock de Sahaquiel (si reusas
+  órbita, documenta: no hay impact_progress de ciudad).
+  Eva-00 lanza; Rei.input_present.
+
+ENTREGABLE
+  docs/episodios/ep22_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - beam vs Dirac absorb vs Dummy discard vs Zeruel overwhelm
+    - por qué intercept×3 no aplica (no es payload cinético)
+    - Longinus: un shot, spear_lost, no PositronRifle
+    - psyche como superficie (Asuka), no MAGI, no Eva-03
+    - Kyoko ≠ Yui (dos contactos, dos hijas, dos deudas)
+    - Implicación: matar al ángel no restaura al operador
+
+CRITERIO
+  Un implementador no mata a Arael con DummyPlug ni DiracSea
+  ni AtFieldBrake n=3. spear_lost está escrito. Kyoko no es
+  class Angel.
+
+NO_HAGAS
+  Código. Playbook (es 08). Instrumentality.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: la persona es el puerto abierto
+################################################################################
+
+OBJETIVO
+  Fijar PSYOPS_REMOTO. Last-playbook de cielo (Sahaquiel) y
+  de mente-espacio (Leliel) están contraindicados. El sync
+  herido de Asuka (19) es la CVE. Quemar Longinus es
+  mitigación de un solo uso, como rotar y TIRAR la root key.
+
+CONTEXTO
+  Analogías: phishing/psyops que no toca el DC; exfil de
+  secretos del on-call por canal social; un 0-day humano;
+  gastar el HSM de backup para un kill. Error clásico A:
+  tres Evas a cachar. Error clásico B: entrar (Dirac).
+  Error clásico C: Dummy. Error clásico D: Beast. Error
+  clásico E: positron/Yashima. Error clásico F: “Yui lo
+  resuelve”.
+
+INSTRUCCION
+  Escribe el patrón PSYOPS_REMOTO.
+  Tabla de métodos vs resultado (melee, intercept-3, Dirac,
+  Dummy, Beast, Casper, Yashima, Longinus+lost).
+  Regla de lab: contained_controlled IFF arael not alive
+  AND spear_lost AND rei.input_present AND dummy not kill
+  AND asuka.psyche_broken (el 0 NO implica Asuka OK).
+
+ENTREGABLE
+  docs/episodios/ep22_psyops.md
+    - Escena breve del rayo que no se ve en el geofront
+    - Patrón PSYOPS_REMOTO (precondiciones sync-slump, síntoma
+      exfil mental, error de teatro de cielo/cuerpo)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no aterriza” no es “no es P1”
+    - Frontera con 12, 16, 18, 19, 21 (Kyoko ≠ Yui)
+
+CRITERIO
+  spear_lost es condición del 0. psyche_broken no impide el 0
+  y no se “cura” en tests. El 12 sigue intercept-3 vs Sahaquiel.
+
+NO_HAGAS
+  Código. No Armisael. No gore psíquico.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs del rayo y de la Lanza
+################################################################################
+
+OBJETIVO
+  Kill-chain: órbita quieta → elige nodo humano débil → beam
+  → exfil/shred psyche → (melee FAIL) → Longinus → ángel
+  muerto, lanza perdida, piloto roto. T-OP02-03 se COBRA.
+
+CONTEXTO
+  Arael no hitchhikea Eva, no infecta MAGI, no es overwhelm
+  de cintas. El defensor no tiene standoff salvo un artefacto
+  de Dogma. Gendo autoriza el tiro y Seele pierde una pieza.
+
+INSTRUCCION
+  Ids estables. Diagrama: orbit stay → beam Asuka → fail
+  close/dummy/beast → Longinus → spear_lost.
+
+ENTREGABLE
+  docs/episodios/ep22_ttps.md
+    - Qué T-INTERCEPT / T-DIRAC / T-DUMMY / T-ZERUEL no se
+      reabren como método
+    - T-OP02-03 SkillInsufficient se CITA como CVE humana
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-ARAEL-01 StayInOrbit
+        T-ARAEL-02 MentalBeamExfil
+        T-ARAEL-03 OperatorAsSurface
+        T-PSYCHE-01 TraumaForcedReplay
+        T-LONGINUS-01 OneShotFromDogma
+        T-LONGINUS-02 SpearLost
+        T-OP02-04 PsycheBroken
+        T-SEELE-03 ArtifactBurnedByGendo
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Dirac, Dummy-win, Sahaquiel
+      catch, Yui, Armisael)
+
+CRITERIO
+  T-ARAEL-02 ≠ T-LELIEL-04 (rayo entra ≠ tú entras).
+  T-LONGINUS-01 ≠ T-YASHIMA-02. T-OP02-04 no es “Asuka débil
+  de meme”. T-SEELE-03 no es Instrumentality.fire.
+
+NO_HAGAS
+  Código. No TTP de galería de trauma.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el SIEM no ve el interior
+################################################################################
+
+OBJETIVO
+  Detectar órbita-sin-impacto, beam_to_operator, psyche_broken,
+  longinus_fired, spear_lost. Frase-ley: “el perímetro de
+  ciudad está quieto y el incidente es una persona”. Anti-métrica:
+  ángel muerto = piloto OK.
+
+CONTEXTO
+  El 12: impact_eta. El 22: no hay aterrizaje; hay un rayo
+  que el radar de geofront no traduce a recuerdos. Falso
+  positivo: “otro Sahaquiel”. Asuka.sync_rate cayendo es el
+  detector humano.
+
+INSTRUCCION
+  Señales de lab. Ids estables. No reusar intercept_ok.
+
+ENTREGABLE
+  docs/episodios/ep22_deteccion.md
+    - Pattern Blue heredado + subtipo orbital_psyops
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.orbital_stay
+        siem.mental_beam
+        siem.operator_as_surface
+        siem.psyche_broken
+        siem.close_range_impossible
+        siem.longinus_fired
+        siem.spear_lost
+        siem.core_destroyed           (reusar; vía Longinus)
+        siem.seele_artifact_lost
+    - Falsos positivos (Sahaquiel, Dirac)
+    - Anti-métrica: core_destroyed = Asuka recovered
+
+CRITERIO
+  Ids usables en tests. orbital_stay ≠ impact_progress.
+  spear_lost en el camino feliz. psyche_broken true al 0.
+
+NO_HAGAS
+  Código. No magi_infected. No dummy_plug como kill.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el rayo encuentre a Asuka)
+################################################################################
+
+OBJETIVO
+  Preventiva de psyops: salud mental del operador como control;
+  no un solo nodo de orgullo-sync (Asuka post-19); standoff
+  que no sea un artefacto único de Dogma; no dejar Longinus
+  como único anti-órbita; detectar “órbita quieta ≠ cinética”.
+
+CONTEXTO
+  Prevenible: Asuka en slump como único contra-cielo; cero
+  playbook de beam mental; Longinus como único dardo.
+  No prevenible del todo: que un ángel lea mentes desde
+  fuera del mapa. Se prepara con más de un operador entero
+  y con armas de standoff repetibles, no con Dummy.
+  Anti-patrón: “cachamos Sahaquiel”; “que entre Shinji”;
+  “Dummy”; “Yui”; “la Lanza siempre estará”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5. Analogías: operator wellness; don't single-thread
+  secrets in one on-call; don't spend the root key; decoy vs
+  stay-in-orbit classification.
+
+ENTREGABLE
+  docs/episodios/ep22_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (Longinus vive aquí: un shot)
+    - Anti-patrones (mínimo 3): last-orbit-was-kinetic;
+      dummy-as-range; spear-as-inventory
+    - Relación con T-ARAEL-* y T-LONGINUS-*
+    - Higiene de psyops/exfil humana en 7 viñetas (SOC real)
+    - Nota: matar a Arael no es EAP de Asuka
+
+CRITERIO
+  Nadie sale pensando que el 12 cubre el 22.
+  Nadie sale pensando que Dummy llega a órbita.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Armisael.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: no cerrar, no dummy, Lanza, perderla
+################################################################################
+
+OBJETIVO
+  Runbook de psyops orbital. 1) Clasificar: stay, no impact
+  clock. 2) Prohibir melee, intercept-3, Dirac, Dummy, Beast.
+  3) Asuka es superficie: registrar beam, no “pelea más”.
+  4) Autorizar Longinus (Eva-00, Rei). 5) fire. 6) spear_lost.
+  7) Arael dead, psyche_broken. 8) :contained_controlled.
+  MAGI/Gendo pueden autorizar el tiro; Seele pierde el
+  artefacto (evento, no Instrumentality).
+
+CONTEXTO
+  Misato IC sin alcance. Asuka no puede “ganar el rayo”.
+  Shinji no entra a un mar. Rama Dummy = FAIL. Rama catch-3
+  = FAIL. Rama Dirac = FAIL. Rama spear_kept = FAIL de 0.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 23 (Armisael: fusión con Eva-00, sacrificio
+  Rei, no rayo orbital), lista, no redactar el 23.
+
+ENTREGABLE
+  docs/episodios/ep22_playbook.md
+    - Árbol ASCII (stay → beam → Longinus 0 | no-spear 2 |
+      dummy/catch/dirac FAIL)
+    - Runbook numerado
+    - Condición :contained_controlled (incluye spear_lost +
+      psyche_broken)
+    - Condición :unresolved
+    - Hooks Ruby
+    - Handoff a ep 23 (lista)
+
+CRITERIO
+  Traducible a tests. No rama Dummy-win. No rama Yui.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/armisael.rb. No Instrumentality.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: Don't Be, Kyoko, la Lanza, Rei tira
+################################################################################
+
+OBJETIVO
+  Asuka: superficie y víctima (muñeca, Kyoko, “don't be”),
+  psyche_broken, no meme tsundere. Rei: lanza la Lanza
+  (input presente; no Dummy). Shinji: no entra. Gendo:
+  quema el artefacto (agenda, T-SEELE-03). Misato: IC sin
+  standoff. Kyoko ≠ Yui.
+
+CONTEXTO
+  Ética: no galería de trauma. El lab registra exfil de
+  identidad. El título “at least be human” es el resto que
+  Arael no deja. Rei no “salva a Asuka”: mata al ángel y
+  Asuka no vuelve. Gendo no es héroe por el tiro.
+
+INSTRUCCION
+  Fichas delta. Métricas: psyche_broken, spear_lost,
+  rei_threw, gendo_burned_artifact, kyoko_trauma (flag,
+  no escena).
+  Frontera con 19 (strip), 21 (Yui origin), 23 (Rei sacrificio).
+
+ENTREGABLE
+  docs/episodios/ep22_humanos.md
+    - Deltas: Asuka, Rei, Shinji, Gendo, Misato; nota Kyoko
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: psyche_broken true al 0; rei_threw no es
+      DummyPlug; kyoko_trauma no setea maternal_presence de
+      Eva-01; gendo_burned_artifact no es contained_uncontrolled
+    - Frontera con 16, 19, 21, 23
+    - NO_HAGAS: montage de abuso, Yui-kill, Dummy
+
+CRITERIO
+  Asuka no es chiste de orgullo. Rei no es la Lanza. Gendo
+  no lava Seele. Shinji no “entra a salvarla”.
+
+NO_HAGAS
+  Código. No Armisael. No gore psíquico.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Arael beam, Longinus, spear_lost)
+################################################################################
+
+OBJETIVO
+  Código de Arael y Longinus. Tests que FALLAN si Dummy,
+  Dirac, intercept-3 o Beast matan; si el 0 conserva la
+  Lanza; si psyche_broken es false al éxito; si Sahaquiel
+  ImpactClock es el modelo.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Arael < Angel. MentalBeam, SpearOfLonginus, PlaybookEp22.
+  PlaybookEp12 intercept-3 sigue vs Sahaquiel, no vs Arael.
+  PlaybookEp16 Dirac no es el beam.
+  PlaybookEp18 Dummy no alcanza.
+  Eva-00 + Rei lanzan.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 12, 16, 18, 22.
+  Ids: docs/episodios/ep22_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/arael.rb
+  lib/nerv/mental_beam.rb
+  lib/nerv/spear_of_longinus.rb
+  lib/nerv/playbooks/ep22.rb
+  test/test_arael.rb
+  test/test_mental_beam.rb
+  test/test_spear_of_longinus.rb
+  test/test_playbook_ep22.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/siem.rb
+    lib/nerv/operator.rb       (Asuka psyche_broken)
+    lib/nerv/dummy_plug.rb     (no kill Arael)
+    lib/nerv/at_field_brake.rb (n=3 no basta)
+
+  Comportamiento mínimo a cubrir:
+    - Arael stay-in-orbit; no impact_progress de ciudad
+    - mental_beam ⇒ Asuka psyche_broken; close-range no mata
+    - DummyPlug / berserk / Dirac / intercept n=3 / Casper /
+      Positron no contained
+    - SpearOfLonginus.fire! vía Eva-00 + Rei ⇒ Arael not alive
+      AND spear_lost
+    - PlaybookEp22 → :contained_controlled solo si spear_lost
+      && psyche_broken
+    - PlaybookEp12 sigue 0 vs Sahaquiel por intercept, no Lanza
+    - PlaybookEp16 sigue 1 Dirac, no beam
+    - SIEM: orbital_stay, mental_beam, longinus_fired, spear_lost,
+      psyche_broken
+    - no class Yui; Kyoko no Angel
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep12.rb test/test_playbook_ep16.rb \
+    test/test_playbook_ep18.rb test/test_arael.rb \
+    test/test_playbook_ep22.rb test/test_spear_of_longinus.rb
+  sale 0. Hay un test que falla si Dummy mata a Arael.
+  Hay un test que falla si el 0 conserva la Lanza.
+  Hay un test que falla si intercept-3 mata a Arael.
+
+NO_HAGAS
+  lib/nerv/angels/armisael.rb. Bundler. Instrumentality.
+  Galería de trauma en strings.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 22
+################################################################################
+
+OBJETIVO
+  Runner de INC-ARAEL-001. Traza: orbital_stay → mental_beam →
+  psyche_broken → close_range_impossible → longinus_fired →
+  spear_lost → core_destroyed. Exit 0. Cero intercept_ok, cero
+  absorb, cero dummy_plug_engaged como vía.
+
+CONTEXTO
+  bin/episodio … 21→15, 22→0.
+  El 0 del 22 no es el del 12: hay spear_lost y psyche_broken,
+  no triple_at_brake.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 22.
+  Si el binario no existe, créalo soportando 01–22.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep22.rb
+  test/test_scenario_ep22.rb
+  docs/episodios/ep22_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 22
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime mental_beam, psyche_broken,
+  longinus_fired, spear_lost; NO imprime intercept_ok ni
+  absorb ni dummy_plug_engaged ni kaji_terminated como vía;
+  sale 0.
+  test/test_scenario_ep22.rb pasa.
+  12→0 y 16→1 siguen por sus vías.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Armisael. ASCII de halo que tape
+  la traza. Montage de trauma.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 23
+################################################################################
+
+OBJETIVO
+  Cerrar INC-ARAEL-001. Arael muerto. Lanza perdida. Asuka
+  rota. Transferir a Armisael: no un rayo a distancia, una
+  HÉLICE que se FUSIONA con el defensor (Eva-00 / Rei) y pide
+  sacrificio del nodo. No escribir prompts del 23.
+
+CONTEXTO
+  NERV “ganó” el cielo y perdió el artefacto y a Asuka como
+  piloto. El AAR: psyops; operador=superficie; one-shot root
+  key; Gendo vs Seele en la Lanza. Last-playbook Longinus no
+  cubre una fusión. Armisael ≠ Arael ≠ Bardiel (no hijack de
+  03: fusión con 00). Rei III se nombra como deuda, no se
+  implementa.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 23
+    titulo_canon: Rei III
+    angel: Armisael
+    numero_angel: 16
+    archivo_episodio: prompts/ep23_armisael.txt
+    estado: episodio_completo
+    ultima_nota: INC-ARAEL-001 cerrado contained_controlled vía Longinus. spear_lost. Asuka psyche_broken. Falta crear prompts/ep23_armisael.txt. Deuda: fusión; sacrificio Rei; no rayo orbital.
+  No crees ep23_armisael.txt en este turno.
+  Lista secciones sugeridas para el 23 (hélice, fusión Eva-00,
+  sacrificio, Rei III), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep22_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Arael vs Lanza vs Asuka vs Seele.kpi
+    - T-ARAEL-* cerradas / T-LONGINUS-02 / T-OP02-04 ABIERTAS
+    - Por qué este 0 no es el 0 de Yashima ni el de Sahaquiel
+    - Deuda hacia ep 23 (Armisael, fusión)
+    - Deuda hacia ep 24 (Tabris; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (psyops, no
+      gastar la root key, el on-call herido es CVE)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 23 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Asuka no se “cura en el
+  recap”. Armisael no se implementa. Yui no mata a Arael.
+
+NO_HAGAS
+  Escribir prompts/ep23_armisael.txt. No Instrumentality.
+
+SIGUIENTE
+  FIN
+################################################################################

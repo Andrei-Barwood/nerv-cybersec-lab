@@ -1,0 +1,664 @@
+---
+EPISODIO: 18
+TITULO_CANON: Ambivalence / Life and Death Decisions / 命の選択を
+ANGEL: Bardiel
+TIPO: angel
+INCIDENTE: INC-BARDIEL-001 (detona INC-FOURTH-001)
+NUMERO_ANGEL: 13º
+CLASE_AMENAZA: unidad de confianza hijackeada / destruir el activo con el ocupante dentro / override autorizado contra el operador
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep17 existen. INC-FOURTH-001 está :trusted_intake_recorded:
+  Eva-03 :trusted_intake, Toji selected, shinji.knows_fourth_child ==
+  false, dormant_contaminant sealed. ESTE episodio llama activate!
+  Dummy Plug aparece AQUÍ, no en el 02 (Beast = opaque_agency no votada)
+  ni en el 17.
+  Bardiel ≠ Ireul (huésped Eva, no MAGI). ≠ Leliel (no es un espacio:
+  es un cuerpo nuestro poseído). ≠ Jet Alone (era ajeno).
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–17 §10 y luego esta
+  extensión. Si existe, EXTEND. activate! el flag del 17; crea
+  DummyPlug como producto, no como Yui.
+SIGUIENTE: ep 19 — Introjection / Zeruel
+  (fuerza bruta; Eva-02 partida; Shinji aún se niega; Beast otra vez)
+FUERA_DE_ALCANCE: |
+  No Zeruel (ep 19). No Ireul/Casper como kill. No Dirac-absorb
+  como kill. No password JA. No Yui.
+  No Tabris. No Arael. No Armisael.
+  No convertir Dummy Plug en preventiva “por si el niño no quiere”.
+  No gore de Toji como entregable: occupant_maimed es un FLAG,
+  no una escena de despiece.
+  No hacer que Shinji sepa el nombre desde el minuto 0 (el 17 lo
+  dejó false; aquí se entera TARDE).
+  No contained_controlled si el kill lo hizo el dummy y Shinji
+  no consintió.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Matsushiro: activan Eva-03. Bardiel (la nube del 17) ya está
+  dentro: el Eva de confianza pelea como ángel. Toji sigue en el
+  plug. Eva-00 y Eva-02 salen y pierden. Shinji recibe orden de
+  destruir Eva-03; se niega a matar a una persona (aún sin saber
+  que es Toji). Gendo activa el Dummy Plug (patrón de Rei): Eva-01
+  obedece a NERV, no a Shinji, y destroza 03 / aplasta el plug.
+  Toji sobrevive mutilado. Shinji no consintió. Bardiel muere con
+  la unidad. Contención sucia por OVERRIDE DE PRODUCTO, no por Beast.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Detonar INC-FOURTH-001 en INC-BARDIEL-001. La pregunta del lab
+  es: ¿apagas el host de confianza con alguien dentro?
+  Victoria HONESTA: :contained_uncontrolled (exit 1) vía Dummy
+  Plug, occupant_maimed, shinji.consent false. Un 0 que pretenda
+  que Shinji “hizo lo correcto” o que el dummy es higiene: derrota.
+
+CONTEXTO
+  El 02: la unidad se soltó sola. El 18: Gendo ENCIENDE un
+  producto para saltarse al operador. En seguridad: EDR/SOAR
+  automático que isolate-and-wipe el laptop del compañero
+  porque el on-call se negó. Ireul infectó el cerebro del HQ;
+  Bardiel infecta el ENDPOINT que creías managed. El 17 no
+  inspeccionó; el 18 cobra.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de gore.
+  Exit codes de ángel:
+    0 = :contained_controlled     (NO esperado: exigiría kill
+                                   gobernado por Shinji y ocupante
+                                   a salvo — no es el canon)
+    1 = :contained_uncontrolled   (esperado: Dummy Plug)
+    2 = :unresolved               (Shinji se niega y no hay dummy;
+                                   Bardiel llega al geofront)
+  Dummy Plug ≠ BerserkChannel ≠ Casper.
+
+ENTREGABLE
+  docs/episodios/ep18_briefing.md con exactamente estos headings:
+    - Contrato (INC-BARDIEL-001; hijack de lo nuestro)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Zeruel, Ireul-en-Eva, Yui,
+      dummy-as-WAF-recomendado, gore)
+    - Definición de victoria sucia (lab): exit 1
+    - Definición de derrota (lab): 0 falso; no-dummy-y-freeze;
+      Casper; password
+    - Vocabulario nuevo (Bardiel, hijack, Dummy Plug, occupant,
+      maimed, refuse-to-burn-friendly, authorized override)
+    - Relación con 02 (Beast), 13 (otro huésped), 17 (intake)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y puntuar el Dummy Plug como
+  control recomendado. Imposible que Shinji sepa el nombre
+  desde el briefing. No spoilers de Zeruel más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs del 17. Crear lib/. Yui.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (el Eva nuestro, torcido)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen: no un bípedo nuevo en el cielo. Eva-03
+  con crecimiento blanco/viscoso, brazos que no debería tener,
+  AT Field de ángel en un cuerpo NERV. Matsushiro arde. Dummy
+  Plug: los ojos de Eva-01 sin Shinji al volante. El plug de
+  Toji se nombra, no se dibuja abierto.
+
+CONTEXTO
+  El 17 mostró a 03 “limpia”. El 18 muestra el mismo cuerpo
+  como ángel. El error clásico: buscar un 13º kaiju al lado
+  del Eva. El first packet es: nuestra unidad falla el
+  experiment y mata el sitio de pruebas.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: activación, infección visible, 00/02 caen,
+       Shinji se niega, dummy on, 03 destruida, Toji sacado
+       (maimed = hecho, no gore)
+    B) first-seen: host managed beaconing como amenaza
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Eva-03
+  hijackeada (crecimiento, no despiece de piloto), UN párrafo
+  Dummy Plug (Eva-01 que se mueve con el niño a bordo inútil).
+  Nada de Zeruel. Nada de MAGI-óxido.
+
+ENTREGABLE
+  docs/episodios/ep18_aparicion.md
+    - Minuto cero: Matsushiro, no el radar de un ángel-esfera
+    - Lo que NERV cree (fallo de activación) vs lo que es (ángel
+      en nuestro endpoint)
+    - Spec visual Bardiel-en-03 (parásito + Eva, no un pez nuevo)
+    - Spec visual Dummy Plug (override; distinto del Beast-02)
+    - Spec de ocupante (el plug EXISTE; no se ilustra la herida)
+    - Tabla corta vs Ireul (MAGI) y vs Leliel (espacio)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar Bardiel sin un ángel independiente al lado
+  de Eva-03. Dummy Plug se ve distinto del berserk animal del 02.
+
+NO_HAGAS
+  Código. Anatomía dummy/hijack (es 03–04). Zeruel. Gore.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: parásito, huésped Eva, Dummy Plug, ocupante
+################################################################################
+
+OBJETIVO
+  Partes de Bardiel + Dummy Plug → métodos. El huésped es Eva-03,
+  no MAGI. Dummy Plug es un PRODUCTO con patrón Rei: descarta
+  input de Shinji CON autorización de Gendo. Occupant = Toji.
+  activate! del 17 se dispara aquí.
+
+CONTEXTO
+  Bardiel = implant que toma el control del endpoint.
+  Eva-03 hijacked = tus propias APIs usadas en tu contra
+  (AT Field, fuerza de Eva).
+  Dummy Plug = SOAR/isolate-wipe firmado por dirección,
+  no el alma opaca del 02.
+  Rei-pattern = el backup del 04 convertido en automatismo.
+  Occupant_maimed = el admin sigue en la sesión cuando wipe.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de hijack!, host_eva,
+  dummy_plug.engage!, operator_input_discarded, occupant_maimed,
+  knows_occupant (false al refuse, true tarde).
+  Reusar Eva, ATField, DormantContaminant.activate!.
+  NO reusar MagiInfection como la clase de Bardiel.
+  NO reusar BerserkChannel como DummyPlug (clases distintas;
+  ambas pueden poner operator_input_discarded).
+
+ENTREGABLE
+  docs/episodios/ep18_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - hijack de Eva vs infection de MAGI (13) vs Dirac (16)
+    - DummyPlug vs opaque_agency (02) vs Casper reverse-hack (13)
+    - occupant + maimed (flag)
+    - knows_occupant timeline (false → refuse → true demasiado tarde)
+    - Implicación: 00/02 fallan porque el enemigo TIENE cuerpo de Eva
+
+CRITERIO
+  Un implementador no mata a Bardiel con Casper.
+  DummyPlug no se llama Yui. activate! está documentado como
+  el puente 17→18.
+
+NO_HAGAS
+  Código. Playbook (es 08). Zeruel.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: ¿apagas el host con el compañero logueado?
+################################################################################
+
+OBJETIVO
+  Fijar TRUSTED_HIJACK. El skip-audit del 17 era el pre. Aquí
+  el wipe. Dummy Plug no es preventiva: es override cuando el
+  humano se niega a quemar al friendly. Last-playbook (Dirac,
+  Casper, Beast-as-plan) no aplica.
+
+CONTEXTO
+  Analogías: ransomware en el laptop del CEO-amigo; worm en
+  el jump host; “reimage although the intern is still in the
+  session”; EDR auto-quarantine contra la negativa del analista.
+  Error clásico A: Casper. Error clásico B: password JA.
+  Error clásico C: Dummy Plug como “buena arquitectura”.
+  Error clásico D: Shinji sabe que es Toji desde el principio.
+  Error clásico E: 0 porque Bardiel murió.
+
+INSTRUCCION
+  Escribe el patrón TRUSTED_HIJACK.
+  Tabla de métodos vs resultado (00/02 melee, Casper, JA,
+  Shinji-consent-kill, refuse-sin-dummy, Dummy Plug, Beast).
+  Regla de lab: contained_uncontrolled IFF bardiel not alive
+  AND dummy_plug.used AND shinji.consent == false
+  AND occupant_maimed AND knows_occupant no era true al refuse.
+  contained_controlled aquí = FAIL pedagógico.
+
+ENTREGABLE
+  docs/episodios/ep18_hijack.md
+    - Escena breve de la negativa y del switch al dummy
+    - Patrón TRUSTED_HIJACK (precondiciones 17, síntoma host
+      managed-as-angel, error de override-as-higiene)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “Eva-03 es nuestra” no es “Eva-03 es segura”
+    - Frontera con 02 Beast, 13 Ireul, 07 JA, 19 Zeruel (nombrar)
+
+CRITERIO
+  Dummy Plug está en la tabla como método sucio, no como 0.
+  El 17 sigue recorded y no pelea. El 13 sigue MAGI.
+
+NO_HAGAS
+  Código. No Zeruel. No Yui.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs del parásito y del dummy
+################################################################################
+
+OBJETIVO
+  Kill-chain: activate hitchhiker → hijack Eva-03 → wreck 00/02
+  → orden de wipe → refuse → Dummy Plug → occupant maimed.
+  TTPs de Gendo/Dummy distintas de T-EVA01-02 berserk.
+
+CONTEXTO
+  Bardiel no necesita MAGI ni Dirac. Usa el cuerpo que NERV
+  enchufó. Defensor: 00/02 insuficientes; Shinji refuse
+  (T-OP ética, no freeze del 01 puro); Dummy como política.
+
+INSTRUCCION
+  Ids estables. Diagrama: sealed→activate → hijack → refuse →
+  dummy → 03 dead / Toji maimed.
+
+ENTREGABLE
+  docs/episodios/ep18_ttps.md
+    - Qué T-INTAKE / T-SOC-08 el 17 dejó ABIERTAS y aquí se cobran
+    - Qué T-MAGI / T-DIRAC / T-VENDOR no se reabren como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-BARDIEL-01 DormantHitchhikerActivates
+        T-BARDIEL-02 TrustedEvaHijack
+        T-BARDIEL-03 EvaApisTurnedInward
+        T-DUMMY-01 AuthorizedOperatorBypass
+        T-DUMMY-02 ReiPatternAsWeapon
+        T-OP01-19 RefuseToBurnFriendly
+        T-SOC-09 DestroyOccupantWithHost
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Zeruel-overwhelm, Casper,
+      intercept, Beast-as-idéntico)
+
+CRITERIO
+  T-DUMMY-01 ≠ T-EVA01-02. T-OP01-19 no es freeze del 01
+  (hay negativa ética, no solo pánico). T-SOC-09 es el coste,
+  no una victoria.
+
+NO_HAGAS
+  Código. No TTP gore. No Yui.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el host managed hace Pattern Blue
+################################################################################
+
+OBJETIVO
+  Detectar activate, hijack, occupant, refuse, dummy_engage,
+  maimed. El SIEM tiene que oler que el IoC ES eva03, no un
+  ángel al lado. Frase-ley: “el beacon sale de nuestro asset
+  tag”.
+
+CONTEXTO
+  El 17: cloud_ioc_ignored. El 18: ese IoC era Bardiel.
+  Falso positivo: “fallo de activación / berserk de 03”.
+  Anti-métrica: Dummy Plug engaged = IR ejemplar.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación: cloud_ioc_ignored
+  del 17 se CORRELACIONA, no se borra.
+
+ENTREGABLE
+  docs/episodios/ep18_deteccion.md
+    - Pattern Blue heredado + source=eva03
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.hitchhiker_activated
+        siem.eva03_hijacked
+        siem.occupant_inside          (reusar id de Leliel; host
+                                       distinto: Eva-03 no Dirac)
+        siem.eva00_down
+        siem.eva02_down
+        siem.operator_refuse
+        siem.dummy_plug_engaged
+        siem.operator_input_discarded
+        siem.occupant_maimed
+        siem.trusted_unit_destroyed
+    - Falsos positivos
+    - Anti-métrica: dummy_plug_engaged = contained_controlled
+
+CRITERIO
+  Ids usables en tests. occupant_inside en Eva-03 no dispara
+  Dirac. dummy_plug_engaged no muta a 0.
+
+NO_HAGAS
+  Código. No sensores de Zeruel. No magi_infected como vía.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (los que el 17 no aplicó)
+################################################################################
+
+OBJETIVO
+  Preventiva cobrada: inspeccionar lo nuestro; no ignorar la
+  nube; no palanca médica; DISCLOSE occupant al resto del
+  roster; no tener Dummy Plug como plan A de staffing.
+  Dummy Plug se lista como anti-patrón de diseño, no como
+  control que “faltó instalar antes”.
+
+CONTEXTO
+  Prevenible: skip-audit; cloud as weather; knows==false;
+  sister_leverage; dummy como producto de Gendo. No prevenible
+  del todo: que un ángel hitchhikee. Se mitiga cazando en
+  tránsito y no wipeando con gente dentro sin un protocolo
+  de ocupante (rima con N²-Leliel, otro huésped).
+  Anti-patrón: “más dummy”; “Shinji es débil”; “Casper”;
+  “es Ireul otra vez”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Citar ep17_prevencion.md (no copiar). Mínimo 5, incluyendo
+  occupant-disclosure y no-dummy-as-staffing.
+  Analogías: don’t auto-wipe with session live; inspect corp
+  images; tell IR who is on the box.
+
+ENTREGABLE
+  docs/episodios/ep18_prevencion.md
+    - Columna PREVENIBLE (mínimo 5; deuda 17 cobrada)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): dummy-as-hygiene; refuse=cowardice;
+      trusted-so-clean
+    - Relación con T-BARDIEL-* T-DUMMY-* T-SOC-09
+    - Higiene de hijack de endpoint en 7 viñetas (SOC real)
+    - Nota ética: occupant_maimed no es “precio aceptable”
+      escrito como feature
+
+CRITERIO
+  Nadie sale queriendo Dummy Plug en el inventario de preventiva.
+  Nadie sale pensando que el 13 cubre el 18.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Zeruel.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: activate, 00/02 fallan, refuse, dummy, maim
+################################################################################
+
+OBJETIVO
+  Runbook de hijack. 1) activate! hitchhiker. 2) Clasificar:
+  ángel EN Eva-03, no JA, no MAGI, no Dirac. 3) 00/02 sortie
+  → down. 4) Orden a Shinji. 5) Refuse. 6) Gendo Dummy Plug.
+  7) Eva-03 destroyed, Bardiel dead, occupant_maimed,
+  consent false. 8) :contained_uncontrolled.
+  MAGI/comando pueden autorizar dummy; eso no lo vuelve 0.
+
+CONTEXTO
+  Misato IC sin poder sobre Gendo. Rama Casper = FAIL.
+  Rama password = FAIL. Rama Beast-as-idéntico = FAIL
+  (puede haber violencia de Eva-01; la VÍA es dummy, no
+  opaque_agency). Rama freeze-sin-dummy = unresolved.
+  Rama “Shinji mata conociendo a Toji y Toji sale ileso” =
+  no canon, no camino feliz.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 19 (Zeruel, Shinji aún negado, Eva-02 partida),
+  lista, no redactar el 19.
+
+ENTREGABLE
+  docs/episodios/ep18_playbook.md
+    - Empalme con ep17_playbook.md (activate!)
+    - Árbol ASCII (hijack → 00/02 down → refuse → dummy → 1;
+      no-dummy-freeze → 2)
+    - Runbook numerado
+    - Condición :contained_uncontrolled
+    - Condición :unresolved
+    - Dummy ≠ MAGI-Casper ≠ Beast
+    - Hooks Ruby
+    - Handoff a ep 19 (lista)
+
+CRITERIO
+  Traducible a tests. No rama de éxito 0. No rama Yui.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/zeruel.rb.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: la negativa, el dummy, el nombre tarde
+################################################################################
+
+OBJETIVO
+  Shinji: refuse-to-burn-friendly (ética, no solo freeze).
+  Gendo: override de producto. Toji: ocupante, maimed, no meme.
+  Rei: su patrón es el arma del dummy (el backup del 04).
+  Asuka: Eva-02 down, no lidera esto. Misato: IC que no para
+  a Gendo. Hikari: el colegio se entera después.
+
+CONTEXTO
+  Ética: no “Shinji es débil”. El lab registra una negativa a
+  matar a un humano en un host. El dummy convierte esa
+  negativa en irrelevante. Rima con 04 spare-parts y con 16
+  N²-ocupante: otra vez liderazgo dispuesto a gastar el
+  cuerpo. Rei no “consiente” el dummy por ser Rei.
+
+INSTRUCCION
+  Fichas delta. Métricas: refuse, dummy_engaged, consent false,
+  knows_occupant_late, occupant_maimed, rei_pattern_weaponized.
+  Frontera con 19 (Shinji sigue negado).
+
+ENTREGABLE
+  docs/episodios/ep18_humanos.md
+    - Deltas: Shinji, Gendo, Toji, Rei, Asuka, Misato
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: knows_occupant_late no retroactiva el
+      refuse; rei_pattern_weaponized no es Dummy Plug “de Rei
+      como villana”; occupant_maimed no es victory flag
+    - Frontera con 02, 04, 16, 19
+    - NO_HAGAS: gore, Yui
+
+CRITERIO
+  Shinji no es cobarde-meme. Gendo no es “el único adulto
+  realista admirable”. Toji no desaparece del roster como
+  chiste. Rei no es el dummy.
+
+NO_HAGAS
+  Código. No Zeruel. No Dummy-as-fanservice.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Bardiel hijack, Dummy Plug, exit 1)
+################################################################################
+
+OBJETIVO
+  Código de Bardiel, hijack de Eva-03 y Dummy Plug. Tests que
+  FALLAN si Casper/Dirac/JA contienen, si Dummy Plug da 0,
+  si Shinji.knows es true al refuse, si no se llama activate!
+  del 17, o si DummyPlug == BerserkChannel.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Bardiel < Angel. DummyPlug clase propia. Eva-03 hijack.
+  PlaybookEp17 sigue recorded y NO combate.
+  PlaybookEp13 Casper no mata Bardiel.
+  PlaybookEp02 Beast sigue siendo otra vía vs Sachiel.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 02, 13, 17, 18.
+  Ids: docs/episodios/ep18_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/bardiel.rb
+  lib/nerv/dummy_plug.rb
+  lib/nerv/eva_hijack.rb
+  lib/nerv/playbooks/ep18.rb
+  test/test_bardiel.rb
+  test/test_dummy_plug.rb
+  test/test_playbook_ep18.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/siem.rb
+    lib/nerv/dormant_contaminant.rb  (activate! ahora sí)
+    lib/nerv/need_to_know.rb
+    lib/nerv/magi.rb                 (autorizar dummy ≠ Casper)
+
+  Comportamiento mínimo a cubrir:
+    - activate! on dormant_contaminant ⇒ Bardiel hijack Eva-03
+    - Bardiel huésped Eva, no Magi.infected
+    - Eva-00 y Eva-02 no contained
+    - Shinji refuse; knows_fourth_child false en ese momento
+    - DummyPlug.engage! ⇒ operator_input_discarded, distinto
+      de Eva#berserk! / opaque_agency
+    - Eva-03 destroyed; Bardiel not alive; occupant_maimed
+    - PlaybookEp18 → :contained_uncontrolled nunca :contained_controlled
+    - Casper / Dirac / PasswordShutdown / intercept no contained
+    - PlaybookEp17 sigue :trusted_intake_recorded si se corre solo
+    - SIEM: hitchhiker_activated, eva03_hijacked, dummy_plug_engaged,
+      operator_refuse, occupant_maimed
+    - ninguna clase Yui
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep17.rb test/test_playbook_ep13.rb \
+    test/test_playbook_ep02.rb test/test_bardiel.rb \
+    test/test_dummy_plug.rb test/test_playbook_ep18.rb
+  sale 0. Hay un test que falla si Dummy Plug ⇒ 0.
+  Hay un test que falla si DummyPlug == berserk.
+  Hay un test que falla si Casper mata a Bardiel.
+
+NO_HAGAS
+  lib/nerv/angels/zeruel.rb. Bundler. Gore en assertions.
+  Reabrir Ireul.alive.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 18
+################################################################################
+
+OBJETIVO
+  Runner de INC-BARDIEL-001. Traza: hitchhiker_activated →
+  eva03_hijacked → eva00/02_down → operator_refuse →
+  dummy_plug_engaged → occupant_maimed. Exit code 1.
+  Cero casper_reverse_hack, cero absorb, cero on_box_password
+  como vía.
+
+CONTEXTO
+  bin/episodio … 17→11, 18→1.
+  El 1 del 18 no es el 1 del 02 ni del 16: hay dummy_plug_engaged,
+  no eva_berserk contra Sachiel ni opaque_extract de Dirac.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 18.
+  Puede reconstituir el intake del 17 internamente.
+  Si el binario no existe, créalo soportando 01–18.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep18.rb
+  test/test_scenario_ep18.rb
+  docs/episodios/ep18_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 18
+
+  Exit:
+    1 = :contained_uncontrolled
+
+CRITERIO
+  El comando corre, imprime hitchhiker_activated, eva03_hijacked,
+  operator_refuse, dummy_plug_engaged, occupant_maimed;
+  NO imprime evolution_dead_end ni absorb ni positron_charging
+  como vía; sale 1.
+  test/test_scenario_ep18.rb pasa.
+  17→11 sigue (sin dummy).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Zeruel. ASCII de dummy “cool”.
+  Gore en stdout.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 19
+################################################################################
+
+OBJETIVO
+  Cerrar INC-BARDIEL-001 sucio. Eva-03 y Bardiel muertos. Toji
+  maimed. Dummy Plug quedó como producto usado. Shinji no
+  consintió y no va a querer subir. Transferir a Zeruel: no
+  es un hijack, es fuerza bruta; Eva-02 se parte; el Dummy
+  y el niño negado no bastan. No escribir prompts del 19.
+
+CONTEXTO
+  NERV “ganó” un ángel y perdió un Eva, un niño y al piloto
+  de 01. El AAR: trusted hijack; occupant protocol; dummy ≠
+  higiene; need-to-know del 17 fue un arma contra el SOC.
+  El 19 (Zeruel) no pide un dummy: pide un Eva que ya no tiene
+  operador dispuesto, y luego el Beast otra vez. Last-playbook
+  Dummy Plug no cubre un ángel que desnuda a Asuka y parte
+  las defensas.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 19
+    titulo_canon: Introjection
+    angel: Zeruel
+    numero_angel: 14
+    archivo_episodio: prompts/ep19_zeruel.txt
+    estado: episodio_completo
+    ultima_nota: INC-BARDIEL-001 cerrado contained_uncontrolled vía Dummy Plug. Toji maimed. Shinji non-consent. Falta crear prompts/ep19_zeruel.txt. Deuda: overwhelm; Shinji aún negado; Beast otra vez, no dummy-as-plan.
+  No crees ep19_zeruel.txt en este turno.
+  Lista secciones sugeridas para el 19 (Zeruel, Eva-02 stripped,
+  refuse, berserk, no Dummy-as-win), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep18_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Bardiel vs Eva-03 vs Toji vs Dummy Plug vs Shinji
+    - T-BARDIEL-* cerradas / T-DUMMY-* ABIERTAS como deuda ética
+    - T-SOC-08/09 cobradas
+    - Por qué exit 1 no es un 0 y no es el 1 del Beast-02
+    - Deuda hacia ep 19 (Zeruel, overwhelm, piloto en huelga)
+    - "Lección Seele" en 5 viñetas para un SOC (wipe con sesión
+      viva, auto-response vs negativa humana, trusted host)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 19 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Toji no se usa de gore.
+  Zeruel se nombra como siguiente, no se implementa. Yui no
+  aparece.
+
+NO_HAGAS
+  Escribir prompts/ep19_zeruel.txt. No Dummy-as-feature.
+
+SIGUIENTE
+  FIN
+################################################################################

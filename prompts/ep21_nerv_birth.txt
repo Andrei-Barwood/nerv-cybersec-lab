@@ -1,0 +1,647 @@
+---
+EPISODIO: 21
+TITULO_CANON: He was aware that he was still a child / The Birth of NERV / ネルフ、誕生
+ANGEL: (ninguno)
+TIPO: sin_angel
+INCIDENTE: INC-ORIGIN-001
+NUMERO_ANGEL:
+CLASE_AMENAZA: origen del control plane / rebrand ≠ higiene / Contact Experiment / el liaison se termina
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep20 existen. INC-ORAL-001 está :operator_recovered_fragile;
+  S2 still in prod; maternal_presence era etiqueta. ESTE episodio
+  documenta el ORIGEN de esa presencia (Yui / Contact Experiment)
+  sin convertirla en class Beast ni Dummy Plug.
+  MAGI (13) eran particiones Naoko: ahora hay historia, no Ireul.
+  Kaji multi-principal (15): aquí se TERMINA. No es Pattern Blue.
+  El 14 Seele.kpi se CITA: ahora hay Gehirn→NERV.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–20 §10 y luego esta
+  extensión. Si existe, EXTEND. Origin file + liaison_terminated.
+SIGUIENTE: ep 22 — Don't Be / せめて、人間らしく
+  (Arael: ataque psicológico a distancia; mente de Asuka; no contacto)
+FUERA_DE_ALCANCE: |
+  No ángel de combate. No Pattern Blue de silueta. No Arael (22).
+  No Armisael. No Tabris. No Instrumentality 25–26 / Third Impact
+  como código (Seele.kpi sigue siendo intención, no fire()).
+  No Ireul. No Dummy Plug. No Dirac. No re-pelear Zeruel.
+  No class YuiBeast / Yui no es opaque_agency implementada.
+  No gore: Rei I / Naoko / Kaji son FLAGS (rei_i_killed,
+  naoko_dead, kaji_terminated), no escenas de despiece.
+  No “Shinji ya es adulto”: el título dice lo contrario.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Dos tiempos. Presente: Kaji sigue el rastro de Seele/NERV y
+  es asesinado (liaison que sabía demasiado). Shinji, de vuelta
+  del Eva, sigue siendo un niño.
+  Pasado: Second Impact; Gehirn; Yui, Gendo, Fuyutsuki; Contact
+  Experiment — Yui queda en Eva-01. Naoko construye MAGI como
+  tres aspectos de sí; ve a Rei I (clon de Yui), la mata, se
+  mata. Gehirn se rebrandea NERV. El organigrama oficial nunca
+  fue el grafo.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar INC-ORIGIN-001: archivo forense de cómo se construyó
+  el infierno. Victoria lab: :origin_recorded (exit 15) —
+  Gehirn→NERV, Contact Experiment, MAGI=Naoko, Rei I flag,
+  Kaji terminated, Shinji still child, cero ángel. Derrota:
+  Arael; Yui-as-Beast; Dummy; Ireul; saltarse la muerte de Kaji.
+
+CONTEXTO
+  El 14 tejió incidentes. El 15 mapeó canales. El 20 nombró
+  una presencia. El 21 explica de dónde salieron MAGI, Rei,
+  Eva-01-con-madre y un liaison de tres jefes. En seguridad:
+  post-mortem de fundación; IAM escrito con la psique de una
+  persona; el auditor muere; rebrand de la misma org. Second
+  Impact es el P0 original que normalizó todo esto.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de asesinato-poster.
+  Códigos NUEVOS (no chocar con 0–14):
+    15 = :origin_recorded    (éxito: archivo + kaji_terminated)
+    16 = :origin_denied      (Arael; YuiBeast; skip Kaji; Pattern Blue)
+  0–2 no aplican. 13 del 20 sigue cerrado.
+
+ENTREGABLE
+  docs/episodios/ep21_briefing.md con exactamente estos headings:
+    - Contrato (INC-ORIGIN-001; historia, no combate)
+    - Subtipo origin-file (vs recap 14 vs canales 15 vs oral 20)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Arael, Instrumentality-fire,
+      Yui-as-Dummy, Ireul, adulthood)
+    - Definición de victoria (lab): exit 15
+    - Definición de derrota (lab): exit 16
+    - Vocabulario nuevo (Gehirn, Contact Experiment, Rei I,
+      Naoko partitions, liaison_terminated, Second Impact,
+      rebrand)
+    - Relación con MAGI 13, Kaji 15, maternal_presence 20, Seele 14
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y esperar un rayo mental.
+  Imposible puntuar a Yui como clase de combate.
+  No spoilers de 22 más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs 13/15/20. Crear lib/. class AngelKaji.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del archivo (no de un ángel)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: laboratorios de Gehirn, MAGI en
+  construcción, Yui que deja de estar en la sala (Contact
+  Experiment), Rei I, Naoko, Kaji en un pasillo oscuro que
+  no es un sortie. First-seen de un expediente, no de un cielo.
+  Muertes = corte a negro / flags, no ilustración gore.
+
+CONTEXTO
+  El 20 era LCL interior. El 21 es el VHS de la empresa.
+  El error clásico: “flashback = filler”. El first packet es
+  un log histórico que explica el COI y el Eva con madre.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: Gehirn, Contact Experiment, MAGI, Rei I/Naoko
+       (sin gore), Kaji terminated, Shinji niño
+    B) first-seen: origin log + liaison down
+  Prompt de imagen opcional (NO ejecutar): UN párrafo sala
+  Gehirn / MAGI naciendo, UN párrafo Contact Experiment
+  (ausencia de Yui, no Beast), UN párrafo pasillo de Kaji
+  (vacío, no disparo-poster). Nada de Arael. Nada de Dummy.
+
+ENTREGABLE
+  docs/episodios/ep21_aparicion.md
+    - Minuto cero: no hay Pattern Blue
+    - Lo que NERV cuenta (org oficial) vs lo que el archivo muestra
+    - Spec visual Gehirn vs NERV (rebrand, mismo infierno)
+    - Spec visual Contact Experiment (Yui deja de estar fuera)
+    - Spec visual MAGI-as-persona (tres cajas, una autora)
+    - Spec de Kaji terminated (ausencia, no gore)
+    - Firma SIEM de origin/liaison, no de cielo
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel de combate.
+  Kaji/Naoko/Rei I no son posters de violencia.
+
+NO_HAGAS
+  Código. Anatomía origin (es 03–04). Arael.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: Gehirn, Contact Experiment, MAGI-Naoko, liaison kill
+################################################################################
+
+OBJETIVO
+  Partes del ORIGEN → métodos. Gehirn.rename NERV. Yui entra
+  a Eva-01 (documenta maternal_presence). MAGI.builder = Naoko
+  (tres particiones ya existían; ahora hay autor). Rei I flag.
+  Kaji.terminated. Second Impact como P0 fundacional.
+  Nada de esto es Angel#attack.
+
+CONTEXTO
+  Contact Experiment = el 20 no fue el primer merge: el producto
+  se construyó absorbiendo a una investigadora.
+  MAGI = IAM/quorum con la psique de la constructora.
+  Rei I = backup-clon asesinado por quien construyó el cluster.
+  Kaji kill = terminar al auditor multi-principal.
+  Rebrand = mismo directorio, nuevo logo.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de gehirn, rebrand!,
+  contact_experiment!, maternal_presence_origin, magi.builder,
+  rei_i_killed, kaji.terminated, second_impact (evento histórico,
+  no replay).
+  Nombres Ruby: Gehirn, ContactExperiment, OriginFile,
+  LiaisonTermination.
+  Yui: campo de origen, NO class Angel/DummyPlug/Beast.
+
+ENTREGABLE
+  docs/episodios/ep21_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Gehirn→NERV (rebrand ≠ control nuevo)
+    - Contact Experiment vs introjection 19/20 (origen vs aftermath)
+    - MAGI builder vs MAGI infected (13)
+    - Rei I vs Rei-palanca (04) vs Dummy-pattern (18)
+    - Kaji.terminated vs missing_log (15)
+    - Implicación: opaque_agency tiene expediente; no es magia
+
+CRITERIO
+  Un implementador documenta Yui sin class YuiBeast.
+  Ireul no se reabre. Kaji.terminated es un método, no un combate.
+
+NO_HAGAS
+  Código. Playbook (es 08). Instrumentality.fire.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el infierno se diseñó así
+################################################################################
+
+OBJETIVO
+  Fijar ORIGEN_DEL_CONTROL. Rebrand no es higiene. Codificar a
+  una persona en el quorum no es “AI”. Absorber a la
+  investigadora en el producto no es un bug del 19: es spec.
+  Matar al liaison no es Pattern Blue: es insiders cerrando
+  el canal del 15.
+
+CONTEXTO
+  Analogías: IAM diseñado como copia de un CEO; supply-chain
+  de clones; el investigator de terceros que aparece en un
+  callejón; Second Impact = el breach fundacional que nadie
+  tabletop-ea porque ES la empresa.
+  Error clásico A: Arael. Error clásico B: YuiBeast.
+  Error clásico C: Ireul otra vez. Error clásico D: Dummy
+  “porque Rei I”. Error clásico E: skip Kaji.
+
+INSTRUCCION
+  Escribe el patrón ORIGEN_DEL_CONTROL.
+  Tabla de métodos vs resultado (sortie, Ireul, Dummy, Arael,
+  origin_file+liaison_term, skip-history).
+  Regla de lab: origin_recorded IFF gehirn recorded AND
+  contact_experiment recorded AND magi.builder == naoko AND
+  rei_i_killed AND kaji.terminated AND angel.nil? AND
+  yui no is_a Angel/DummyPlug AND seele.kpi sigue ≠ containment.
+
+ENTREGABLE
+  docs/episodios/ep21_origen.md
+    - Escena breve de un logo que cambia y un hombre que no
+    - Patrón ORIGEN_DEL_CONTROL (precondiciones Second Impact,
+      síntoma rebrand, error de “siempre fue así”)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no hay ángel hoy” no es “no hay incidente”
+    - Frontera con 13, 14, 15, 18 Dummy-pattern, 20 presencia
+
+CRITERIO
+  Kaji.terminated es obligatorio en el 15 canónico.
+  Yui no combate. Seele.kpi no se implementa como Third Impact.
+
+NO_HAGAS
+  Código. No Arael. No gore.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs de la fundación y del cierre del auditor
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Técnicas de Contact Experiment, MAGI
+  antropomorfo, clon/backup asesinado, rebrand, liaison kill.
+  T-KAJI-01 se CIERRA como vivo y se abre T-KAJI-03 terminated.
+  T-COI-01 se profundiza, no se borra.
+
+CONTEXTO
+  Quien dispare T-ZERUEL o T-IREUL como combate se equivoca.
+  El atacante de este episodio, si hay, es la propia org.
+
+INSTRUCCION
+  Ids estables. Diagrama: Second Impact → Gehirn → Contact
+  Experiment / MAGI / Rei I → rebrand NERV → Kaji investiga
+  → terminated.
+
+ENTREGABLE
+  docs/episodios/ep21_ttps.md
+    - Qué T-ángel no se reabren
+    - T-SEELE-01/02 se CITAN (KPI, disolución-intención)
+    - T-KAJI-01 sigue como historia; el presente es terminación
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-ORIGIN-01 GehirnRebrand
+        T-ORIGIN-02 ContactExperimentAbsorption
+        T-ORIGIN-03 MagiBuiltFromOnePsyche
+        T-ORIGIN-04 BackupCloneKilledByBuilder
+        T-KAJI-03 LiaisonTerminated
+        T-SOC-11 FoundationalBreachAsNormal
+        T-OP01-22 StillAChild
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Arael, Dummy-win, Ireul,
+      Beast-as-Yui)
+
+CRITERIO
+  T-ORIGIN-02 ≠ T-EVA01-09 (origen vs aftermath 19).
+  T-ORIGIN-03 ≠ T-IREUL-04. T-KAJI-03 ≠ Pattern Blue.
+  T-OP01-22 contradice cualquier “manhood” del 19.
+
+NO_HAGAS
+  Código. No TTP gore. No Instrumentality.fire.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: logs que la org no quería
+################################################################################
+
+OBJETIVO
+  Detectar origin_file, rebrand, contact_experiment,
+  magi.builder, rei_i_killed, kaji_terminated. El SIEM de
+  cielo está mudo. El SIEM útil es archivo y personal:
+  un liaison que deja de emitir missing_log y pasa a
+  terminated. Frase-ley: “el investigador calló para siempre”.
+
+CONTEXTO
+  El 15: silence-as-policy. El 21: silence-as-homicide (flag).
+  Falso positivo: “capítulo de flashbacks”. Anti-métrica:
+  “ya sabemos quién es Gendo”.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación con shadow_graph:
+  el edge de Kaji se cierra por death, no por declaración.
+
+ENTREGABLE
+  docs/episodios/ep21_deteccion.md
+    - Qué NO dispara (pattern_blue, magi_infected, dummy_failed)
+    - Ids obligatorios:
+        siem.origin_file_opened
+        siem.gehirn_rebrand
+        siem.contact_experiment
+        siem.magi_builder_naoko
+        siem.rei_i_killed
+        siem.kaji_terminated
+        siem.liaison_channel_closed
+        siem.still_a_child
+        siem.origin_recorded
+        siem.false_pattern_blue
+    - Falsos positivos
+    - Anti-métrica: flashback = sin trabajo
+
+CRITERIO
+  Ids usables en tests. kaji_terminated en el camino feliz.
+  magi_builder_naoko no es magi_brain_infected.
+
+NO_HAGAS
+  Código. No sensores de Arael. No Third Impact.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de nacer así)
+################################################################################
+
+OBJETIVO
+  Preventiva de origen podrido: no construir quorum con una
+  psique; no absorber investigadores en el producto; no clonar
+  a la esposa como backup; proteger al liaison/auditor; rebrand
+  no cierra findings; Second Impact se tabletop-ea, no se
+  mitologiza. Dummy Plug no “nace” de Rei I como higiene.
+
+CONTEXTO
+  Prevenible: MAGI-as-Naoko sin aislamiento de autora; Contact
+  Experiment sin kill-switch de persona; Rei I sin gobierno;
+  Kaji sin protección. No prevenible del todo: que Seele
+  exista. Se registra KPI, no se implementa Instrumentality.
+  Anti-patrón: “Yui es el antivirus”; “Naoko era histérica”;
+  “Kaji se lo buscó”; “NERV ≠ Gehirn”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5. Analogías: no encode founder into root; protect
+  whistleblowers; clone-governance; reorg ≠ remediation.
+
+ENTREGABLE
+  docs/episodios/ep21_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): rebrand-as-fix; psyche-as-IAM;
+      kill-the-auditor; Yui-as-control
+    - Relación con T-ORIGIN-* y T-KAJI-03
+    - Higiene de origen org en 7 viñetas (SOC/empresa real)
+    - Nota: maternal_presence ahora tiene causa; no es feature
+
+CRITERIO
+  Nadie sale pensando que Eva-01+Yui es el plan A de Arael.
+  Nadie sale pensando que matar a Kaji cerró Seele.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Arael.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: abrir el archivo, no sortie, registrar la muerte
+################################################################################
+
+OBJETIVO
+  Runbook de origin. 1) Prohibir new Angel y Arael y Dummy y
+  Ireul. 2) Abrir OriginFile (Gehirn, Contact Experiment,
+  MAGI builder, Rei I). 3) Actualizar shadow graph: Kaji
+  terminated. 4) maternal_presence_origin = contact_experiment.
+  5) still_a_child. 6) :origin_recorded.
+  MAGI no se infecta ni se usa de Casper contra el pasado.
+
+CONTEXTO
+  Fuyutsuki teje. Gendo no se confiesa. Misato pierde el
+  canal de Kaji. Shinji no entiende el archivo entero.
+  Rama Arael = FAIL. Rama YuiBeast = FAIL. Rama skip-Kaji = FAIL.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 22 (Arael: psyops a distancia, Asuka; no
+  Contact Experiment), lista, no redactar el 22.
+
+ENTREGABLE
+  docs/episodios/ep21_playbook.md
+    - Árbol ASCII (origin file | fail-Arael | fail-YuiBeast)
+    - Runbook numerado
+    - Condición :origin_recorded
+    - Condición :origin_denied
+    - Hooks Ruby
+    - Handoff a ep 22 (lista: rayo mental, no pasillo de Kaji)
+
+CRITERIO
+  Traducible a tests. No rama Pattern Blue. No rama
+  Instrumentality.fire.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/arael.rb.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: todavía un niño; los que construyeron esto
+################################################################################
+
+OBJETIVO
+  Shinji: still a child (título). Gendo: arquitecto del archivo.
+  Yui: presencia con origen, no arma. Naoko: builder y homicidio
+  en lab (flags). Fuyutsuki: testigo. Kaji: liaison_terminated.
+  Misato: pierde el edge. Rei: hay un I muerto en el origen
+  (sin abrir Rei III).
+
+CONTEXTO
+  Ética: no “Naoko histérica”. El lab registra builder que
+  mata al backup y se mata (flags). No “Kaji héroe de acción”.
+  No “Yui se sacrificó para ser antivirus”. Shinji no madura
+  por ver flashbacks.
+
+INSTRUCCION
+  Fichas. Métricas: still_a_child, kaji_terminated,
+  maternal_presence_origin, magi_builder, rei_i_killed,
+  gendo_archive_owner.
+  Frontera con 22 (Asuka/Arael) y 23 (Rei III).
+
+ENTREGABLE
+  docs/episodios/ep21_humanos.md
+    - Fichas: Shinji, Gendo, Yui, Naoko, Fuyutsuki, Kaji, Misato
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: still_a_child true en el 15 canónico;
+      kaji_terminated no es pattern_blue; Yui no es DummyPlug;
+      rei_i_killed no dispara Dummy del 18
+    - Frontera con 13, 15, 18, 20, 22
+    - NO_HAGAS: gore, adulthood, Instrumentality
+
+CRITERIO
+  Shinji no se hace hombre. Yui no es el Beast. Kaji no es
+  un ángel caído. Naoko no es Ireul.
+
+NO_HAGAS
+  Código. No Arael. No Rei III.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (OriginFile, Gehirn, Kaji terminated)
+################################################################################
+
+OBJETIVO
+  Código del archivo de origen. Tests que FALLAN si aparece
+  Arael, si Yui is_a Angel/DummyPlug, si MAGI se infecta, si
+  Kaji sigue alive al cierre, o si Dummy “nace” de Rei I.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  OriginFile, Gehirn, ContactExperiment, LiaisonTermination,
+  PlaybookEp21.
+  Magi.builder; Liaison Kaji del 15; maternal_presence del 20.
+  PlaybookEp13 Ireul sigue distinto.
+  PlaybookEp15 shadow graph: edge Kaji cierra.
+  PlaybookEp20 S2/return intactos.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 13, 15, 20, 21.
+  Ids: docs/episodios/ep21_*.md.
+
+ENTREGABLE
+  lib/nerv/origin_file.rb
+  lib/nerv/gehirn.rb
+  lib/nerv/contact_experiment.rb
+  lib/nerv/liaison_termination.rb
+  lib/nerv/playbooks/ep21.rb
+  test/test_origin_file.rb
+  test/test_gehirn.rb
+  test/test_playbook_ep21.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/magi.rb           (builder naoko; no infected)
+    lib/nerv/liaison.rb        (terminated)
+    lib/nerv/shadow_graph.rb   (cerrar edge Kaji)
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb            (maternal_presence origin; no Yui class)
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp21.angel.nil?
+    - no pattern_blue de silueta / no Arael
+    - Gehirn.rebrand → NERV; mismo infierno
+    - contact_experiment ⇒ maternal_presence_origin
+    - Yui no is_a Angel ni DummyPlug
+    - magi.builder == :naoko; majority_owner no :ireul
+    - rei_i_killed flag
+    - kaji.terminated; principals ya no emiten canal vivo
+    - PlaybookEp21 → :origin_recorded
+    - skip Kaji o YuiBeast o Arael ⇒ :origin_denied
+    - PlaybookEp20 sigue :operator_recovered_fragile
+    - PlaybookEp13 Casper vs Ireul intacto
+    - SIEM: origin_file_opened, contact_experiment,
+      magi_builder_naoko, kaji_terminated, still_a_child
+    - Seele.kpi sigue ≠ containment; no Instrumentality.fire
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep20.rb test/test_playbook_ep15.rb \
+    test/test_playbook_ep13.rb test/test_origin_file.rb \
+    test/test_playbook_ep21.rb test/test_gehirn.rb
+  sale 0. Hay un test que falla si Kaji.alive al cierre.
+  Hay un test que falla si Yui is_a Angel.
+  Hay un test que falla si aparece Arael.
+
+NO_HAGAS
+  lib/nerv/angels/arael.rb. Bundler. Instrumentality.
+  Gore en assertions. class Yui.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 21
+################################################################################
+
+OBJETIVO
+  Runner de INC-ORIGIN-001. Traza: origin_file_opened →
+  gehirn_rebrand → contact_experiment → magi_builder_naoko →
+  rei_i_killed → kaji_terminated → still_a_child. Exit 15.
+  Cero pattern_blue de combate, cero magi_infected, cero
+  dummy_plug, cero Arael.
+
+CONTEXTO
+  bin/episodio … 20→13, 21→15.
+  El 15 no es un 0 de ángel: es archivo de origen.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 21.
+  Si el binario no existe, créalo soportando 01–21.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep21.rb
+  test/test_scenario_ep21.rb
+  docs/episodios/ep21_lab.md
+  docs/episodios/ep21_origin_file.md
+    (línea de tiempo Gehirn→NERV; CITA 13/14/15/20, no reescribe)
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 21
+
+  Exit:
+    15 = :origin_recorded
+
+CRITERIO
+  El comando corre, imprime contact_experiment,
+  magi_builder_naoko, kaji_terminated, still_a_child;
+  NO imprime pattern_blue de silueta ni dummy_plug_engaged
+  ni evolution_dead_end; sale 15.
+  test/test_scenario_ep21.rb pasa.
+  20→13 sigue.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Arael. ASCII de disparo. Gore.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 22
+################################################################################
+
+OBJETIVO
+  Cerrar INC-ORIGIN-001. El archivo existe. Kaji no. MAGI tiene
+  autora. Eva-01 tiene origen de presencia. Transferir a Arael:
+  un ángel que NO entra al plug ni al MAGI — pega a la mente
+  desde órbita (Asuka). No escribir prompts del 22.
+
+CONTEXTO
+  NERV cree que “ya se reveló el pasado”. El AAR: el infierno
+  es spec; el auditor está muerto; still_a_child; S2 sigue.
+  Last-playbook origin-file no cubre un rayo psicológico.
+  Arael ≠ Leliel (no entras tú) ≠ Dummy ≠ Casper. Asuka, strip
+  del 19 y skill-techo, es el blanco.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 22
+    titulo_canon: Don't Be
+    angel: Arael
+    numero_angel: 15
+    archivo_episodio: prompts/ep22_arael.txt
+    estado: episodio_completo
+    ultima_nota: INC-ORIGIN-001 cerrado origin_recorded. Kaji terminated. MAGI builder Naoko. Yui origin documented, not Beast. Falta crear prompts/ep22_arael.txt. Deuda: psyops orbital; Asuka; no Contact Experiment.
+  No crees ep22_arael.txt en este turno.
+  Lista secciones sugeridas para el 22 (Arael, rayo mental,
+  Asuka, no Yui-kill), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep21_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Kaji vs MAGI vs Yui-origin vs Shinji-child
+    - T-ORIGIN-* / T-KAJI-03
+    - Por qué exit 15 no es un 0
+    - Deuda hacia ep 22 (Arael, mente, distancia)
+    - Deuda hacia 23–24 (Rei III, Tabris; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (rebrand, IAM
+      antropomorfo, no matar al auditor, clones/backups)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 22 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Yui no combate. Arael no
+  se implementa. Instrumentality no se dispara.
+
+NO_HAGAS
+  Escribir prompts/ep22_arael.txt. No gore. No Third Impact.
+
+SIGUIENTE
+  FIN
+################################################################################

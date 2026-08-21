@@ -1,0 +1,672 @@
+---
+EPISODIO: 06
+TITULO_CANON: Rei II / Decisive Battle in Tokyo-3 / 決戦、第三新東京市
+ANGEL: Ramiel (mismo incidente que ep 05; el ángel no es nuevo)
+TIPO: angel
+INCIDENTE: INC-RAMIEL-001 (arco de dos episodios; este es el cierre)
+NUMERO_ANGEL: 5º
+CLASE_AMENAZA: standoff masivo / un disparo que cuesta un país / operador como escudo ablativo
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep05 existen. INC-RAMIEL-001 está :unresolved al cierre
+  del 05: Eva-01 melted, drill_progress < 1, standoff_capability_missing,
+  operator_opaque. Este episodio NO reabre rush/knife/Beast como kill.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01–05 §10 y luego esta extensión.
+  Si existe, EXTEND, don't rewrite. Reusa KillZone, Drill, Ramiel vivos.
+SIGUIENTE: ep 07 — A Human Work / Jet Alone (defensa de terceros no auditada)
+FUERA_DE_ALCANCE: |
+  No rush, no cuchillo, no N², no BerserkChannel como victoria.
+  No baile sincronizado de Israfel (ep 09): aquí hay coordinación
+  francotirador/escudo, no dual-wield contra un ángel partido.
+  No Jet Alone (ep 07). No Dummy Plug. No Yui. No clones de Rei.
+  No reescribir la anatomía del octaedro (ya está en ep 05 §03).
+  No tratar 「ありがとう」 como condición de kill.
+  No celebrar el escudo humano como control recomendado: se documenta
+  como lo que hicieron, residual horror, no doctrina.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Ramiel sigue taladrando. Misato propone Operación Yashima:
+  rifle de positrones a distancia, alimentado con la electricidad
+  de Japón. Eva-01 (Shinji) dispara desde la montaña. Eva-00 (Rei)
+  se pone delante: el octaedro va a devolver el rayo contra la carga.
+  Primer disparo: no basta; el AT Field aguanta. Ramiel contraataca.
+  Rei/Eva-00 absorbe. Segundo disparo, con el escudo ya muriendo:
+  el core interno cae. El octaedro muere.
+  Shinji abre el plug de Rei, llora, 「ありがとう」. Rei no sabe qué
+  hacer cuando alguien llora. Una sonrisa. Rei II: compañera a
+  distancia, ya no palanca ni caja negra pura.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Cerrar INC-RAMIEL-001. El 05 demostró que close-range funde.
+  El 06 construye el standoff y dispara DOS veces. Victoria lab:
+  :contained_controlled (exit 0) SOLO por PositronRifle + PowerGrid
+  + escudo Eva-00 + input de ambos operadores. El escudo no se
+  puntúa como "buena arquitectura".
+
+CONTEXTO
+  Mitigación a escala de país: apagar Japón para un paquete.
+  Analogía: ventana única de cambio, todo el poder de la org en
+  un exploit de precisión contra un perímetro que ya te fundió.
+  El primer disparo falla (subestimaste el aislamiento). El
+  contra-fuego automático busca al francotirador. Alguien se pone
+  en medio. Eso es Rei II, no "Rei-pieza". El thank-you no mata
+  al ángel: reconoce a la otra operadora.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec del rifle todavía.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado AQUÍ, vía Yashima)
+    1 = :contained_uncontrolled   (Beast = FAIL pedagógico)
+    2 = :unresolved               (si no hay segundo disparo,
+                                   no hay grid, o no hay escudo y
+                                   el nido se funde)
+  El 05 sigue saliendo 2 si se corre solo.
+
+ENTREGABLE
+  docs/episodios/ep06_briefing.md con exactamente estos headings:
+    - Contrato (mismo incidente, capacidad nueva, dos disparos)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Israfel, Jet Alone, clones,
+      escudo-humano-as-WAF-recomendado)
+    - Definición de victoria (lab)
+    - Definición de derrota (lab): un disparo "mágico"; ganancia
+      sin escudo; ganancia sin grid; rush; Beast
+    - Vocabulario nuevo (Yashima, positron rifle, power grid,
+      blackout nacional, escudo ablativo, segundo disparo,
+      Rei II, thank_you)
+    - Relación con ep 05 (qué se reusa, qué se prohíbe como método)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y clavar el octaedro con el cuchillo.
+  Imposible tratar thank_you como kill condition.
+  No spoilers post-ep 07 salvo nombrarlo como siguiente.
+
+NO_HAGAS
+  Reescribir docs del 05. Crear lib/. Fundir Yashima con el baile
+  del ep 09.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición de Yashima (el disparo, no el ángel)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE en el 06. Ramiel ya tiene spec en el 05;
+  aquí vive su muerte y nace la imagen de la operación: montaña,
+  rifle enorme, Japón a oscuras, dos Evas, rayo contra rayo,
+  Eva-00 ardiendo, octaedro que se parte, plug abierto, sonrisa.
+
+CONTEXTO
+  First-seen de una capacidad que el 05 marcó missing. El país
+  entero se apaga: eso es observable desde cualquier SIEM civil.
+  El octaedro no se mueve; dispara al nido cuando detecta la carga.
+  La aparición pedagógica es el CONTRADISPARO y el cuerpo que lo
+  para, no otra ficha de sólido platónico.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: blackout, montaña, primer rayo, contra-rayo, escudo,
+       segundo rayo, muerte del octaedro, plug, thank-you
+    B) first-seen de seguridad: firma de carga masiva, firma de
+       contra-fuego al francotirador, firma de segundo intento
+  Prompt de imagen opcional (NO ejecutar): UN párrafo nido+rifle+blackout,
+  UN párrafo Eva-00 absorbiendo el beam, UN párrafo octaedro muriendo.
+  Nada de Jet Alone. Nada de baile.
+
+ENTREGABLE
+  docs/episodios/ep06_aparicion.md
+    - Empalme visual con ep05_aparicion.md (citar, no copiar el octaedro)
+    - Spec visual Yashima (montaña, rifle, cables, oscuridad nacional)
+    - Spec visual primer disparo vs segundo
+    - Spec visual del escudo (Eva-00, no un "campo mágico extra")
+    - Spec visual de la muerte de Ramiel (geometría que falla, no un bípedo
+      descuartizado: distinto al crush del 02)
+    - Spec breve plug / thank-you (humano, no OP)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar Yashima sin repetir el poster del 05.
+  Se distingue muerte-por-standoff de muerte-por-Beast.
+  No hay tercer Eva. No hay robot de la ONU.
+
+NO_HAGAS
+  Código. Anatomía del rifle/grid (es 03). Ética larga del escudo (es 09).
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía de la operación (rifle, grid, escudo, dos disparos)
+################################################################################
+
+OBJETIVO
+  Partes de YASHIMA, no re-anatomía de Ramiel. Cada parte será
+  clase o flag. Citar ep05_anatomia.md: kill_zone y drill siguen
+  vigentes hasta que el core cae.
+
+CONTEXTO
+  PositronRifle = exploit de precisión / herramienta de standoff.
+  PowerGrid = presupuesto energético de toda la org; sin él el
+  paquete no atraviesa el aislamiento.
+  Eva-00 shield = reverse-proxy / WAF humano: absorbe el
+  auto-response para que el disparo 2 exista. No es un control
+  que queramos clonar.
+  Shot 1 = reconocimiento violento: mediste mal el AT Field.
+  Shot 2 = el kill, con el escudo ya degradado.
+  Reloj drill_progress: Yashima tarda; el tesoro no espera.
+
+INSTRUCCION
+  Tabla de partes de la operación → analogía → símbolo Ruby.
+  Nombres: PositronRifle, PowerGrid, AblativeShield, Yashima,
+  fire_first!, fire_second!. Relación con ATField máximo y
+  core interno (el 06 los VENCE, no los reescribe).
+  Umbral: primer disparo NO mata; segundo sí, si grid+escudo+input.
+
+ENTREGABLE
+  docs/episodios/ep06_anatomia_yashima.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Por qué el rifle sin grid es teatro (como N² al core equivocado)
+    - Por qué el rifle sin escudo re-funde al francotirador (kill zone
+      del 05 aplicada al nido)
+    - Por qué un solo disparo no basta (regla de lab explícita)
+    - Relación con KillZone / Drill / Core del 05
+    - Implicación: standoff no es "un botón"; es una operación
+
+CRITERIO
+  Un implementador saca clases sin inventar un tercer disparo
+  mágico. Ramiel no gana un látigo. El escudo es Eva-00, no Dummy Plug.
+
+NO_HAGAS
+  Código. No reescribir ep05_anatomia.md. No Jet Alone.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: standoff masivo (Yashima)
+################################################################################
+
+OBJETIVO
+  Fijar STANDOFF_MASIVO. Distinto de C2_LARGO_ALCANCE (03), de
+  FORTALEZA_KILLZONE_DRILL (05) y de CONTENCION_NO_AUTORIZADA (02).
+  Aquí el defensor construye un canal de kill FUERA de la zona
+  de muerte, pagando con grid + escudo + tiempo.
+
+CONTEXTO
+  Analogías: ventana de change congelando producción; un único
+  payload de red team contra un WAF real; rotar claves apagando
+  el estate; "disparamos el 0-day con toda la org detrás".
+  Error clásico A: volver a rush porque el primer disparo falló.
+  Error clásico B: disparar sin escudo ("esta vez el beam no nos
+  ve"). Error clásico C: celebrar el ablative human como runbook.
+  El taladro sigue durante el setup: mitigación con SLA.
+
+INSTRUCCION
+  Escribe el patrón STANDOFF_MASIVO.
+  Tabla de métodos vs resultado en el 06 (hereda la tabla del 05
+  y AÑADE Yashima shot1/shot2, con/sin grid, con/sin escudo).
+  Regla de lab: Ramiel muere solo si fire_second! con
+  national_power && shield_up (aunque shield_degraded) &&
+  operator_input_present en el rifle.
+  drill_progress no debe llegar a 1 antes del kill.
+
+ENTREGABLE
+  docs/episodios/ep06_standoff.md
+    - Escena breve del primer disparo que no basta
+    - Patrón STANDOFF_MASIVO (precondiciones, coste, fallo del shot1,
+      contra-fuego, shot2)
+    - Tabla de métodos (05 + 06)
+    - Reloj del taladro vs duración de Yashima
+    - Analogías (máximo 3)
+    - Señal SIEM: blackout nacional no es victoria; es el PRECIO
+    - Anti-regla: no copiar este patrón como "pongan un humano delante"
+
+CRITERIO
+  Las condiciones de kill son implementables y no incluyen thank_you.
+  Shot1 ≠ kill está escrito. El 05 sigue sin poder matar a Ramiel.
+
+NO_HAGAS
+  Código. No Israfel. No apagar MAGI (eso sería Ireul, ep 13).
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs: el defensor construye un arma (y Ramiel cierra)
+################################################################################
+
+OBJETIVO
+  TTPs de YASHIMA + cierre de T-RAMIEL-*. Como el 02 catalogó al
+  Beast, el 06 cataloga al standoff. El ángel no inventa látigos
+  nuevos: contraataca al nido (kill zone aplicada).
+
+CONTEXTO
+  T-RAMIEL-05 CrownJewelDrill se CORTA si el core cae a tiempo.
+  T-RAMIEL-03 se redirige al francotirador: por eso existe el escudo.
+  T-OP01-08 CloseRangeReapplied sigue contraindicada: si el shot1
+  falla y alguien ordena rush, el 06 se pudre en un 05.
+
+INSTRUCCION
+  Ids estables. Diagrama: deuda standoff → grid → shot1 fail →
+  counter-beam → shield → shot2 → core down → thank_you (humano,
+  fuera de la kill-chain del ángel).
+
+ENTREGABLE
+  docs/episodios/ep06_ttps.md
+    - Qué T-RAMIEL-* se cierran y bajo qué condición
+    - T-OP01-08/09 siguen contraindicadas
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-YASHIMA-01 NationalPowerRedirect
+        T-YASHIMA-02 StandoffPositron
+        T-YASHIMA-03 AblativeOperatorShield
+        T-YASHIMA-04 SecondShotWhileShieldDies
+        T-RAMIEL-06 CounterFireOnSniperNest
+        T-OP01-10 ThankYouAsTeammate
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (látigos, Beast-win, baile
+      Israfel, virus MAGI)
+
+CRITERIO
+  T-YASHIMA-03 y T-OP01-10 son ids distintos: escudo ≠ thank-you.
+  El diagrama tiene rama rush=FAIL y rama sin-escudo=melt.
+
+NO_HAGAS
+  Código. No TTP "Rei es el arma". El arma es el rifle.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: la carga alerta al enemigo
+################################################################################
+
+OBJETIVO
+  Detectar blackout, carga del rifle, contra-fuego al nido,
+  degradación del escudo, shot1 miss, shot2 kill, drill clock.
+  Ramiel DETECTA la carga: tu mitigación es observable.
+  thank_you es evento humano, no firma de ángel.
+
+CONTEXTO
+  El 05 veía la fortaleza y no podía tocarla. El 06 hace ruido
+  de país entero. Cualquier SIEM civil ve el apagón. El ángel
+  ve el nido. No existe disparo silencioso contra este AT Field.
+  Frase-ley: "tu exploit de standoff tiene firma".
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación con ids del 05
+  (standoff_capability_missing se CIERRA cuando el rifle existe
+  y el grid se asigna; no borres el id, emite el cierre).
+
+ENTREGABLE
+  docs/episodios/ep06_deteccion.md
+    - Ids obligatorios:
+        siem.yashima_declared
+        siem.national_blackout
+        siem.positron_charging      (observable por Ramiel)
+        siem.positron_shot
+        siem.shot_insufficient
+        siem.counterfire_on_nest
+        siem.shield_absorbed
+        siem.shield_degraded
+        siem.core_destroyed         (reusar id; vía standoff, no Beast)
+        siem.drill_stopped
+        siem.thank_you
+        siem.standoff_capability_present
+    - Falsos positivos (apagón civil vs Yashima)
+    - Firma: charging ⇒ contra-fuego (causa-efecto)
+    - Anti-métrica: blackout como "éxito de mitigación"
+
+CRITERIO
+  Ids usables en tests. charging dispara contra-fuego en el modelo.
+  thank_you no altera ContainmentResult.
+
+NO_HAGAS
+  Código. No sensores de Jet Alone. No Dummy Plug.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (para no tener que apagar un país)
+################################################################################
+
+OBJETIVO
+  Yashima es MITIGACIÓN. La preventiva es haber tenido standoff
+  antes del taladro, no reaplicar rush, no diseñar un nido que
+  solo sobrevive con un humano delante, no depender de un único
+  grid nacional para un único disparo.
+
+CONTEXTO
+  Prevenible: standoff_capability_missing del 05; un solo rifle;
+  un solo escudo humano; cero ensayo de shot2; geofront taladrable
+  sin delay; Rei todavía opaca el día del disparo.
+  No prevenible del todo: que el AT Field máximo exista. Se
+  prepara con capacidad y con no-rush.
+  Anti-patrón: "siempre podemos apagar Japón"; "Rei se pone
+  delante, ya lo hizo"; "el primer disparo iba a bastar".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Distinguir T-YASHIMA-03
+  (hecho) de "nunca más un escudo ablativo" (deber).
+  Analogías: no human-WAF; no unique-path change window;
+  tabletop de primer-fallo; capacidad de standoff en inventario.
+
+ENTREGABLE
+  docs/episodios/ep06_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (Yashima misma vive aquí)
+    - Anti-patrones (mínimo 3): blackout-as-habit; human-shield-as-WAF;
+      one-shot-optimism
+    - Relación con T-YASHIMA-* y con ep05_prevencion.md
+    - Higiene de standoff en 7 viñetas (sirve a un SOC/red team real)
+    - Nota ética: documentar el escudo ≠ adoptarlo
+
+CRITERIO
+  Nadie sale queriendo "más Reis delante del beam".
+  Nadie llama prevención al apagón.
+
+NO_HAGAS
+  Runbook del disparo (es 08). Código.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: Operación Yashima (shot1 → escudo → shot2)
+################################################################################
+
+OBJETIVO
+  Runbook que EMPIEZA en el ABORT del 05. MAGI autoriza Yashima
+  (mayoría). Grid se asigna. Escudo se despliega ANTES de la carga
+  (si cargas sin escudo, melt). Shot1 insuficiente. Contra-fuego.
+  Shot2. Drill se para. contained_controlled. thank_you después
+  del kill, no como paso de kill.
+
+CONTEXTO
+  Misato es autora del plan (IC de verdad, no casera del 04).
+  Shinji dispara con miedo post-melt. Rei acepta el escudo;
+  eso no es un "sí" libre de Gendo — se registra, no se lava.
+  Rama rush = FAIL. Rama Beast = FAIL. Rama sin grid = shot
+  inútil, drill sigue. Rama drill_progress >= 1 = tesoro caído
+  (staffing/ángel peor que unresolved: documenta geofront_compromised
+  como fallo; no hace falta un exit code nuevo si :unresolved
+  + evento bastan — decide y sé explícito para la §10).
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables.
+  Hooks Ruby. Handoff a ep 07 (Jet Alone: "un arma sin niños"),
+  lista corta, no redactar el 07.
+
+ENTREGABLE
+  docs/episodios/ep06_playbook.md
+    - Empalme con ep05_playbook.md (standoff_capability_missing)
+    - Árbol ASCII
+    - Runbook numerado (MAGI, grid, posiciones, escudo UP, charge,
+      shot1, miss, counterfire, shield, shot2, core, drill_stop,
+      plug, thank_you)
+    - Condición :contained_controlled
+    - Condiciones :unresolved / melt / geofront_compromised
+    - MAGI mayoría para Yashima, no para rush
+    - Hooks Ruby
+    - Handoff a ep 07 (lista)
+
+CRITERIO
+  Traducible a tests. No rama "shot1 mata". No rama "Shinji
+  aúlla y parte el octaedro". thank_you no está en la condición
+  de contained.
+
+NO_HAGAS
+  Código. No Jet Alone implementado. No baile.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: Rei II y el precio del escudo
+################################################################################
+
+OBJETIVO
+  Rei deja de ser solo opaca/palanca: es la otra operadora del
+  disparo. Shinji no "entiende a Rei"; le agradece. Misato
+  apuesta un país. Gendo cede el plan y sigue siendo dueño de
+  Rei de un modo que el lab debe OLER, no resolver.
+
+CONTEXTO
+  Rei II ≠ clones. Es la primera vez que el roster la usa como
+  compañera de standoff y no como amenaza de recambio. El escudo
+  es consentimiento dudoso (vive para el Eva/Gendo). Ética del
+  repo: 「ありがとう」 es el mínimo humano DESPUÉS de haberla
+  puesto delante del beam. No lava T-YASHIMA-03.
+  Shinji: input en el rifle, no en un rush; panic post-melt.
+  Misato: IC con plan real. Ritsuko: números del AT Field /
+  positrones. hedgehog_distance: a DISTANCIA (montaña vs escudo)
+  logran lo que el close-range del 05 no pudo — rima con el erizo
+  sin reabrir el 04.
+
+INSTRUCCION
+  Ficha Rei II (delta de Rei I) + deltas Shinji/Misato/Gendo.
+  Métricas: shield_operator, ablative_consent_ambiguous,
+  thank_you, operator_opaque puede bajar sin ir a 0,
+  backup_used_as_leverage debe ser false al cierre si el lab
+  es honesto.
+  Frontera con clones/Dummy Plug: NO.
+
+ENTREGABLE
+  docs/episodios/ep06_humanos.md
+    - Ficha Rei II vs Rei I (citar ep05_humanos.md)
+    - Deltas: Shinji (francotirador, thank_you), Misato (plan),
+      Gendo (cede Yashima, no cede a Rei), Ritsuko (números)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: thank_you no mata a Ramiel; shield_degraded
+      no aborta shot2; ablative_consent_ambiguous queda true
+    - Frontera con ep 07 (humanos-sin-niños / Jet Alone) y ep 09
+      (dos Evas bailando: NO es esto)
+
+CRITERIO
+  Rei no es arma. Shinji no es héroe de anime que "salva a la
+  chica". Misato no es genio infalible: el shot1 falla.
+  Gendo no se redime.
+
+NO_HAGAS
+  Código. No escena clone. No Yui. No fanservice del plug.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Yashima mata; el 05 sigue sin poder)
+################################################################################
+
+OBJETIVO
+  Código que mata a Ramiel SOLO por el canal Yashima (grid +
+  escudo + shot2). Tests que FALLAN si shot1 basta, si no hay
+  escudo, si no hay grid, si el 05 deja de ser unresolved, o
+  si thank_you cambia ContainmentResult.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Reusar Ramiel, KillZone, Drill, ATField, Core, Magi, Eva,
+  Operator. Eva-00 entra como segunda unidad. PowerGrid y
+  PositronRifle son nuevos. PlaybookEp06 encadena el unresolved
+  del 05.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests 01–06.
+  Ids: los de docs/episodios/ep06_*.md.
+
+ENTREGABLE
+  lib/nerv/attacks/positron_rifle.rb
+  lib/nerv/power_grid.rb
+  lib/nerv/ablative_shield.rb
+  lib/nerv/operation_yashima.rb
+  lib/nerv/playbooks/ep06.rb
+  test/test_positron_rifle.rb
+  test/test_power_grid.rb
+  test/test_yashima.rb
+  test/test_playbook_ep06.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/angels/ramiel.rb     (ahora PUEDE morir, solo por este canal)
+    lib/nerv/eva.rb               (unidad 00 + 01)
+    lib/nerv/siem.rb
+    lib/nerv/drill.rb
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp05 sigue :unresolved; Ramiel.alive allí
+    - ProgressiveKnife / BerserkChannel / N2 no matan a Ramiel en el 06
+    - PositronRifle sin PowerGrid.national no perfora AT Field
+    - Charge/shot sin AblativeShield ⇒ nido melted; Ramiel.alive
+    - fire_first! ⇒ shot_insufficient; Ramiel.alive; contra-fuego
+    - fire_second! con shield_degraded permitido ⇒ core destroyed;
+      drill stopped
+    - PlaybookEp06 → :contained_controlled
+    - thank_you no muta el ContainmentResult
+    - drill_progress no alcanza 1.0 en el camino feliz
+    - MAGI mayoría para Yashima
+    - SIEM: national_blackout, positron_charging, shot_insufficient,
+      shield_absorbed, core_destroyed, thank_you
+    - Tests 01–05 intactos
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep05.rb test/test_ramiel.rb \
+    test/test_playbook_ep06.rb test/test_yashima.rb \
+    test/test_positron_rifle.rb test/test_power_grid.rb
+  sale 0. Hay un test que falla si shot1 mata. Hay un test que
+  falla si no hay escudo y aun así contained_controlled.
+  Hay un test que falla si el 05 contiene a Ramiel.
+
+NO_HAGAS
+  Bundler. Borrar tests del 05. Clase ThankYouKill. Eva-02/Asuka.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 06
+################################################################################
+
+OBJETIVO
+  Runner que continúa INC-RAMIEL-001. Traza: taladro → Yashima →
+  blackout → charge → shot1 miss → counterfire → shield → shot2 →
+  core → thank_you. Exit code 0.
+
+CONTEXTO
+  bin/episodio 01→2, 02→1, 03→0, 04→3, 05→2, 06→0.
+  El 0 del 06 no es el 0 del 03: aquí hay national_blackout y
+  shield_absorbed; allá había c2_channel_severed. Misma clase
+  de exit, distinta vía.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 06.
+  Puede reconstituir el unresolved del 05 internamente.
+  Si el binario no existe, créalo soportando 01–06.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep06.rb
+  test/test_scenario_ep06.rb
+  docs/episodios/ep06_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 06
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime positron_charging, shot_insufficient,
+  shield_absorbed, core_destroyed, thank_you;
+  NO imprime eva_berserk ni progressive_knife como vía de éxito;
+  sale 0.
+  test/test_scenario_ep06.rb pasa.
+  05 sigue saliendo 2.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Jet Alone en la traza. ASCII-art de
+  "todo Japón".
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 07
+################################################################################
+
+OBJETIVO
+  Cerrar INC-RAMIEL-001. El octaedro está muerto. El país se
+  apagó. Rei es compañera y sigue siendo alguien a quien pusieron
+  delante de un rayo. Transferir a Jet Alone sin escribir su
+  archivo: la política va a querer un arma SIN estos niños.
+
+CONTEXTO
+  NERV demostró standoff a un coste que nadie quiere repetir
+  cada semana. Eso invita a un tercero (Jet Alone) que promete
+  lo mismo sin sync, sin Rei, sin apagón... y sin auditoría.
+  El AAR debe dejar T-YASHIMA-03 abierta como deuda ética, no
+  como feature. operator_opaque bajó; no llegó a cero. El
+  geofront no fue taladrado. El rush sigue contraindicado.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 07
+    titulo_canon: A Human Work
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep07_jet_alone.txt
+    estado: episodio_completo
+    ultima_nota: INC-RAMIEL-001 cerrado contained_controlled vía Yashima. Falta crear prompts/ep07_jet_alone.txt. Deuda: escudo ablativo no doctrina; terceros van a vender un Eva sin niños.
+  No crees ep07_jet_alone.txt en este turno.
+  Lista secciones sugeridas para el 07 (TIPO=sin_angel, arma de
+  terceros, backdoor, no Pattern Blue de ángel), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep06_aar.md
+    - Resumen del incidente 05+06 (15 líneas máximo)
+    - Estado del ángel vs estado del grid vs estado de Rei
+    - T-RAMIEL-* cerradas / T-YASHIMA-* cuáles siguen como deuda
+    - T-OP01-08 sigue contraindicada
+    - Por qué el 0 de exit no lava el escudo
+    - Deuda hacia ep 07 (Jet Alone, recambio no auditado)
+    - Deuda hacia ep 09 (dos Evas; NO es Yashima)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 07 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Ramiel no reaparece.
+  No spoilers de Gaghiel/Asuka más allá de no mencionarlos
+  si no hace falta. Jet Alone se nombra como siguiente, no
+  se implementa.
+
+NO_HAGAS
+  Escribir prompts/ep07_jet_alone.txt. No reabrir el octaedro.
+  No clonar a Rei "en el recap".
+
+SIGUIENTE
+  FIN
+################################################################################

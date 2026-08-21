@@ -1,0 +1,688 @@
+---
+EPISODIO: 13
+TITULO_CANON: Lilliputian Hitcher / Angel Invasion / 使徒、侵入
+ANGEL: Ireul
+TIPO: angel
+INCIDENTE: INC-IREUL-001
+NUMERO_ANGEL: 11º
+CLASE_AMENAZA: el ángel ES software / control plane / consenso bizantino / polimorfismo
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep12 existen. MAGI se diseñó desde el ep 01 para poder
+  infectarse AQUÍ (constitución §4): tres votos, mayoría. No reescribir
+  Magi desde cero; EXTEND con infection por cerebro
+  (melchior / balthasar / casper).
+  INC-SAHAQUIEL-001 está :contained_controlled; MAGI estaba SANO y
+  compute_impact. Unpowered (ep 11) ≠ infected (este episodio).
+  Jet Alone (ep 07) fue virus HUMANO (T-NERV-01). Ireul no es eso:
+  el ángel es el código.
+  Eva-00/01/02 NO son el método de kill. Si el playbook sortea un Eva
+  para "pegarle al MAGI", FALLÓ la tesis del repo.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–12 §10 (en especial magi.rb)
+  y luego esta extensión. Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 14 — Weaving a Story / recap (tabletop / AAR de la primera mitad)
+FUERA_DE_ALCANCE: |
+  No Eva como kill. No AT Field-freno (12). No analog_launch (11).
+  No Yashima. No baile. No DualPlug. No magma. No Jet Alone-as-Ireul.
+  No Dummy Plug. No Yui. No Bardiel (ep 18: hijack de Eva-03, otra
+  infección, otro huésped).
+  No dump de Naoko Akagi / ep 21: las MAGI son tres particiones
+  (científica / madre / mujer); se NOMBRAN, no se biografía.
+  No Instrumentality. No recap del 14 (eso es el siguiente archivo).
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Ireul aparece en la Pribnow Box: colonia microscópica, óxido/coral.
+  AT Field confirma que es ángel. Evoluciona en minutos contra ozono,
+  químicos, láser (cada firma muere). Salta a las MAGI.
+  Melchior, Balthasar, Casper: si infecta 2 de 3, la mayoría ya no
+  es NERV (autodestrucción / control del HQ). Los pilotos miran.
+  Ritsuko combate en el plano de control. Plan: con Casper (aún
+  NERV) forzar la evolución de Ireul hasta un callejón sin salida
+  (sterile / dead-end). Ireul "muere" de tanto adaptarse. Cero
+  sortie. Cero cuchillo. Cero intercept cinético.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Declarar el corazón del repo: INC-IREUL-001. El ángel no tiene
+  silueta de combate útil. Es código (y biología que se comporta
+  como código). Victoria lab: :contained_controlled (exit 0) con
+  Eva unused, MAGI majority NERV, Ireul sterile/dead, y el origen
+  NO marcado como :nerv_sabotage. Derrota: 2 de 3 MAGI owned,
+  self-destruct, o "sacamos el Eva".
+
+CONTEXTO
+  Constitución: Casper el Ruby, Melchior el canon, Balthasar la
+  amenaza. Este episodio es cuando el objeto de estudio infecta
+  a los tres jueces. En seguridad: compromiso del control plane
+  (etcd, AD, IAM, MAGI). Polimorfismo que quema firmas. Consenso
+  2-de-3 que, infectado, MENTE. El 07 fue un wiper de competidor.
+  El 11 fue MAGI sin luz. El 12 usó MAGI como radar. El 13 usa
+  MAGI como huésped.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual de la colonia aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: reverse-hack / dead-end
+                                   sin Eva)
+    1 = :contained_uncontrolled   (Beast = FAIL; no aplica)
+    2 = :unresolved               (majority Ireul; self-destruct;
+                                   Eva-as-kill)
+  Magi.majority sigue significando 2 de 3; ahora el dueño del
+  voto puede ser :nerv o :ireul.
+
+ENTREGABLE
+  docs/episodios/ep13_briefing.md con exactamente estos headings:
+    - Contrato (INC-IREUL-001; corazón del repo; ángel=software)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Eva-punch, Jet Alone, outage,
+      Bardiel, biografía de Naoko, recap)
+    - Definición de victoria (lab)
+    - Definición de derrota (lab)
+    - Vocabulario nuevo (Pribnow Box, Lilliputian, MAGI infection,
+      majority hijack, polimorfismo, forced evolution, dead-end,
+      Casper reverse-hack, self-destruct)
+    - Relación con 01 (Magi stub), 07 (virus humano), 11 (unpowered),
+      12 (compute_impact sano)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y sortear un Eva. Imposible llamar
+  a Ireul "el virus de Ritsuko". No spoilers de Bardiel/14 más
+  allá de nombrarlos.
+
+NO_HAGAS
+  Reescribir docs 01–12. Crear lib/. Infectar Eva-03.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (no hay gigante)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen: óxido en un tanque, no un bípedo en el
+  cielo. Luego la mancha en las MAGI, las pantallas de voto,
+  Ritsuko frente al terminal. La imagen pedagógica es MICRO y
+  de consola. Lilliputian: el hitcher no se ve hasta que el
+  control plane miente.
+
+CONTEXTO
+  Sahaquiel ocupó el cielo. Ireul ocupa un cultivo y luego un
+  voto. El error clásico: buscar Pattern Blue de silueta. El
+  first packet es corrosión / biomasa / un AT Field que no
+  debería estar en un tubo.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: Pribnow, coral/óxido, firmas que fallan, cables
+       hacia MAGI, tres núcleos, countdown de mayoría, Casper,
+       la colonia que se apaga
+    B) first-seen de seguridad: IoC de lab + drift de consenso
+  Prompt de imagen opcional (NO ejecutar): UN párrafo colonia
+  en tanque (micro, no kaiju), UN párrafo MAGI físicas con
+  infección naranja y una operadora en la sala. Nada de Eva
+  peleando. Nada de ojo-órbita.
+
+ENTREGABLE
+  docs/episodios/ep13_aparicion.md
+    - Minuto cero: el tanque, no el radar de cielo
+    - Lo que el perímetro cree (contaminante, corrosión)
+    - Pattern Blue que no cabe en el template de silueta
+    - Spec visual colonia (óxido, coral, crecimiento, escala)
+    - Spec visual MAGI (tres cuerpos, infección, votos en pantalla)
+    - Spec visual de la "muerte" (evolución estéril, no un core
+      aplastado)
+    - Tabla corta vs Jet Alone (mecha+password) y vs Matarael
+      (apagón)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un Eva en el encuadre de kill.
+  Se distingue infección-de-voto de robot-con-virus-humano.
+
+NO_HAGAS
+  Código. Anatomía de consenso (es 03–04). Recap.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: colonia, evolución, tres cerebros, mayoría
+################################################################################
+
+OBJETIVO
+  Partes de Ireul y de MAGI-infectable → métodos. Cada MAGI es
+  un voto con owner. Ireul no usa CoreStrike de Eva. El "core"
+  del incidente es el consenso. Casper es herramienta de
+  reverse-hack, no un Eva-00.
+
+CONTEXTO
+  Colonia = initial access pequeño, lateral movement grande.
+  Evolución = polimorfismo que quema controles (ozono = firma 1).
+  MAGI×3 = quorum. owner :nerv | :ireul. majority_owner.
+  self_destruct si majority_owner == :ireul.
+  ForcedEvolution = gastar el presupuesto de mutación hasta
+  dead_end.
+  Naoko-particiones: scientist/mother/woman como ETIQUETAS de
+  los tres cerebros, no como plot.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de infect!(brain),
+  owner(brain), majority_owner, evolve!, adapt_to(control),
+  reverse_hack_via_casper!, dead_end?, self_destruct?.
+  Regla: 2 de 3 :ireul ⇒ majority hijack. 1 de 3 no basta.
+  Reusar lib/nerv/magi.rb. No reusar VendorVirus del 07 como
+  la clase de Ireul (puede compartir una interfaz de "código
+  que corre", no la misma clase ni origin :nerv_sabotage).
+
+ENTREGABLE
+  docs/episodios/ep13_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Los tres cerebros (nombre, partición Naoko-etiqueta, voto)
+    - majority_owner vs Magi.majority? del 01 (ahora hay dueño)
+    - evolve! / adapt_to (por qué las firmas mueren)
+    - Casper como canal de reverse-hack
+    - Frontera: unpowered (11) / compute_impact (12) / infected (13)
+    - Implicación: AT Field-freno y ProgressiveKnife no tienen
+      coordenadas que golpear
+
+CRITERIO
+  Un implementador extiende Magi sin borrar compute_impact.
+  Ireul no hereda JetAlone. Eva#sortie no aparece como método
+  de kill.
+
+NO_HAGAS
+  Código. Playbook (es 08). Bardiel. Ep 21.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el control plane miente
+################################################################################
+
+OBJETIVO
+  Fijar CONTROL_PLANE_INFECTION. Last-playbook cinético es
+  incompetencia. Firmar y parchear en caliente es alimento
+  (evolve!). El consenso infectado no se "reinicia" como un
+  outage. Reverse-hack es mitigación peligrosa (usas un cerebro
+  aún tuyo para quemar al huésped).
+
+CONTEXTO
+  Analogías: domain controller caído en manos del atacante;
+  etcd 2/3; IAM root; pipeline que firma malware; polimórfico
+  que sobrevive al AV del martes. Jet Alone: password on-box
+  a un producto. Ireul: no hay password; hay quorum.
+  Error clásico A: sacar el Eva.
+  Error clásico B: tratarlo como apagón (reboot MAGI).
+  Error clásico C: ozono/firma/láser en bucle (alimentar evolve!).
+  Error clásico D: origin :nerv_sabotage.
+  Error clásico E: dejar que infecte el segundo cerebro y "ya
+  veremos el tercero".
+
+INSTRUCCION
+  Escribe el patrón CONTROL_PLANE_INFECTION.
+  Tabla de métodos vs resultado (Eva, reboot-as-11, firmas
+  repetidas, password-07, isolate+Casper reverse-hack,
+  Beast, intercept-12).
+  Regla de lab: contained_controlled IFF majority_owner == :nerv
+  AND ireul.dead_end? (o not alive) AND eva_sortie == false
+  AND origin != :nerv_sabotage.
+  2 cerebros :ireul ⇒ unresolved + self_destruct risk.
+
+ENTREGABLE
+  docs/episodios/ep13_control_plane.md
+    - Escena breve de la firma que deja de funcionar en minutos
+    - Patrón CONTROL_PLANE_INFECTION (precondiciones Pribnow,
+      síntoma de voto, error cinético, error de firma)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: "no hay ángel en el cielo" no es "no hay ángel"
+    - Frontera con TERCERO_NO_AUDITADO (07) y con INCIDENTE_EN_APAGON
+      (11) y PAYLOAD_CINETICO (12)
+
+CRITERIO
+  Las condiciones de kill no incluyen CoreStrike ni analog_launch.
+  El 07 sigue ganando con password y origin NERV. El 13 no.
+
+NO_HAGAS
+  Código. No Dummy Plug. No Bardiel.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de Ireul y del reverse-hack
+################################################################################
+
+OBJETIVO
+  Kill-chain de initial access micro → evolución → MAGI →
+  majority. TTPs del defensor: dejar de firmar, aislar, Casper,
+  forced evolution. Ritsuko no es TTP del ángel.
+
+CONTEXTO
+  Ireul: hitchhike en lab, AT Field micro, polimorfismo,
+  lateral a control plane, hijack de quorum, (amenaza)
+  self-destruct. Defensor: identificación de ángel-sin-silueta,
+  parar el bucle de firmas, proteger el tercer voto, reverse-hack.
+
+INSTRUCCION
+  Ids estables. Diagrama: Pribnow → evolve vs controls → MAGI-1
+  → MAGI-2 threat → Casper reverse-hack → dead-end.
+  Rama 2/3 = self_destruct.
+
+ENTREGABLE
+  docs/episodios/ep13_ttps.md
+    - Qué T-VENDOR / T-NERV-01 / T-OUTAGE / T-INTERCEPT / T-ANALOG
+      no se reabren como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-IREUL-01 LilliputianInitialAccess
+        T-IREUL-02 SignatureBurningEvolution
+        T-IREUL-03 ControlPlaneLateral
+        T-IREUL-04 QuorumHijack
+        T-MAGI-01 IsolateInfectedBrain
+        T-MAGI-02 CasperReverseHack
+        T-MAGI-03 ForcedEvolutionDeadEnd
+        T-OP03-01 EvaSortieMisapplied
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (cinética, ácido, password
+      de vendor, Dummy Plug, Bardiel)
+
+CRITERIO
+  T-IREUL-* ≠ T-NERV-01. T-OP03-01 es rama de FALLO.
+  T-MAGI-02 no es Yashima. El diagrama no tiene caja Eva-punch.
+
+NO_HAGAS
+  Código. No TTP "Ritsuko fuma" como técnica.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el voto se desvía
+################################################################################
+
+OBJETIVO
+  Detectar colonia, AT Field en tanque, evolve, infection por
+  cerebro, majority_owner, dead_end. El SIEM de cielo está
+  inútil. El SIEM útil es el de consenso: drift de votos,
+  firmas que dejan de matar, self_destruct_timer.
+
+CONTEXTO
+  El 12: visibilidad perfecta de un proyectil. El 13: el radar
+  de cielo está aburrido y el cluster miente. Frase-ley:
+  "un ángel que cabe en un tubo no pide Pattern Blue de silueta;
+  pide integridad de quorum".
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falsos positivos: corrosión;
+  outage; "es Jet Alone otra vez".
+
+ENTREGABLE
+  docs/episodios/ep13_deteccion.md
+    - Pattern Blue sin silueta (subtipo microscopic / software)
+    - Ids obligatorios:
+        siem.pattern_blue_micro
+        siem.pribnow_contaminant
+        siem.signature_failed
+        siem.ireul_evolved
+        siem.magi_brain_infected     (con cual cerebro)
+        siem.majority_owner          (con valor :nerv|:ireul|:split)
+        siem.self_destruct_armed
+        siem.casper_reverse_hack
+        siem.evolution_dead_end
+        siem.eva_sortie_misapplied
+    - Falsos positivos
+    - Anti-métrica: "no hay ángel en el geofront" = paz
+    - Relación: magi_infected ≠ magi_unpowered ≠ magi_impact_predict
+
+CRITERIO
+  Ids usables en tests. majority_owner es observable.
+  eva_sortie_misapplied no es vía de éxito.
+
+NO_HAGAS
+  Código. No orbital_contact. No hq_power_lost como firma de este 0.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el tubo toque MAGI)
+################################################################################
+
+OBJETIVO
+  Preventiva de control plane: segmentar MAGI (air gap entre
+  lab y quorum); no poner Pribnow en la misma red de votos;
+  rate-limit de evolución (no alimentar firmas a lo loco);
+  quorum que no se infecta en cadena; analog/break-glass que
+  NO dependa de MAGI para apagar un lab (el 11 al revés);
+  ensayo de "qué pasa si 1 cerebro miente".
+
+CONTEXTO
+  Prevenible: lab biológico ruteado al cluster; tres MAGI
+  simétricas sin aislamiento; AV-as-bucle; Eva como plan A
+  de todo Pattern Blue; cero playbook de reverse-hack.
+  No prevenible del todo: que un ángel sea código. Se prepara
+  segmentando el cerebro, no con un rifle de positrones.
+  Anti-patrón: "Sahaquiel se interceptó"; "apagamos y ya"
+  (11); "Ritsuko lo sabotea" (07).
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: tiering de IAM,
+  air gap lab/prod, canary en quorum, no-signature-only,
+  tabletop Byzantine.
+
+ENTREGABLE
+  docs/episodios/ep13_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (reverse-hack vive aquí: peligroso)
+    - Anti-patrones (mínimo 3): Eva-for-everything; reboot-as-cure;
+      signature-whack-a-mole
+    - Relación con T-IREUL-* y T-MAGI-*
+    - Higiene de control plane en 7 viñetas (SOC/plataforma real)
+    - Nota: Casper reverse-hack es mitigación de último recurso,
+      no preventiva elegante
+
+CRITERIO
+  Nadie sale pensando que un Eva antivirus basta.
+  Nadie sale pensando que el 07 cubre el 13.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Bardiel.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: no Eva, aislar, Casper, quemar la evolución
+################################################################################
+
+OBJETIVO
+  Runbook de control plane. 1) Identificar ángel-sin-silueta.
+  2) Prohibir sortie. 3) Parar el bucle de firmas. 4) Aislar
+  cerebro(s) infectado(s). 5) Si Casper sigue :nerv, reverse-hack
+  / forced evolution. 6) dead_end. 7) majority_owner :nerv.
+  MAGI no vota el kill del ángel a lo Yashima: MAGI ES el campo
+  de batalla.
+
+CONTEXTO
+  Ritsuko es IC de código (Misato no puede coreografiar esto
+  con tres Evas). Rama Eva = FAIL (T-OP03-01). Rama reboot =
+  FAIL. Rama password = FAIL. Rama intercept = FAIL.
+  Rama 2/3 Ireul = self_destruct / unresolved.
+  El countdown de self-destruct es el impact_clock de este
+  episodio (no cinético: administrativo).
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables de la §03.
+  Hooks Ruby. Handoff a ep 14 (recap/tabletop: tejer la historia
+  de 01–13, no un ángel nuevo), lista, no redactar el 14.
+
+ENTREGABLE
+  docs/episodios/ep13_playbook.md
+    - Árbol ASCII (Pribnow → evolve → MAGI → isolate/Casper
+      → dead_end; 2/3 → self_destruct; Eva → FAIL)
+    - Runbook numerado
+    - Condición :contained_controlled
+    - Condición :unresolved
+    - MAGI como campo, no como autorizador del intercept
+    - Hooks Ruby
+    - Handoff a ep 14 (lista: AAR de mitad de serie, Seele,
+      no Ireul 2)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con Eva#sortie.
+  No rama origin :nerv_sabotage.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/bardiel.rb. No recap-dump.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: Ritsuko vs el fantasma en el cluster
+################################################################################
+
+OBJETIVO
+  Ritsuko es la operadora de ESTE ángel. Los pilotos son
+  espectadores (capacidad cinética inútil). Gendo observa el
+  sistema que no es un Eva. Las MAGI llevan particiones de
+  Naoko: se nombra el conflicto (hija / madre-en-el-voto) sin
+  abrir ep 21. Misato no puede Yashima-ar esto.
+
+CONTEXTO
+  El 06: Ritsuko números de positrones. El 07: Ritsuko sabotea.
+  El 13: Ritsuko defiende el cluster y no puede permitirse el
+  truco del 07 (no es un vendor). Ética: no "girlboss hacker".
+  Es la dueña del control plane en un P1 Byzantine. Los niños
+  en el puente aprendiendo que hay Pattern Blue sin robot.
+
+INSTRUCCION
+  Ficha Ritsuko (IC de código) + deltas Gendo, Misato, pilotos.
+  Métricas: ritsuko_at_console, eva_unused, naoko_partition_used
+  (Casper), spectators, self_destruct_fear.
+  Frontera con ep 07 (sabotaje) y ep 21 (Naoko).
+
+ENTREGABLE
+  docs/episodios/ep13_humanos.md
+    - Ficha Ritsuko 13 vs Ritsuko 07 (no es el mismo TTP)
+    - Deltas: Gendo, Misato (IC sin Eva), Shinji/Asuka/Rei
+      (espectadores), Fuyutsuki
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: eva_unused requerido para el 0;
+      naoko_partition_used es Casper reverse-hack, no biografía;
+      spectators no es freeze del 01
+    - Frontera con Bardiel (el huésped será un Eva, no MAGI)
+
+CRITERIO
+  Ritsuko no es Tokita ni "cool hacker" del 07. Shinji no
+  salva el cluster. Naoko no se convierte en Yui.
+
+NO_HAGAS
+  Código. No ep 21. No Dummy Plug.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Ireul infecta Magi; Eva no mata)
+################################################################################
+
+OBJETIVO
+  Código de Ireul y de MAGI infectable. Tests que FALLAN si un
+  Eva contiene a Ireul, si 2/3 owned y aun así contained, si
+  origin es :nerv_sabotage, si reboot/unpowered "cura", o si
+  compute_impact del 12 se rompe cuando MAGI está sano.
+
+CONTEXTO
+  Constitución §4. EXTEND magi.rb. minitest. Sin gems.
+  Ireul < Angel (sí es ángel; no es JetAlone).
+  PlaybookEp07 sigue ganando JA con password y origin NERV.
+  PlaybookEp11 sigue unpowered ≠ infected.
+  PlaybookEp12 sigue compute_impact con MAGI sano.
+  01 Magi.majority? sigue válido en estado :nerv.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 01/07/11/12/13.
+  Ids: docs/episodios/ep13_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/ireul.rb
+  lib/nerv/magi_infection.rb
+  lib/nerv/forced_evolution.rb
+  lib/nerv/playbooks/ep13.rb
+  test/test_ireul.rb
+  test/test_magi_infection.rb
+  test/test_forced_evolution.rb
+  test/test_playbook_ep13.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/magi.rb           (owner por cerebro; infect!;
+                                majority_owner; compute_impact
+                                sigue si sano)
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb            (sortie contra Ireul = misapplied)
+
+  Comportamiento mínimo a cubrir:
+    - Ireul.is_a?(Angel) && no is_a JetAlone
+    - origin != :nerv_sabotage
+    - adapt_to(control) quema firmas; repetir ozono no mata
+    - infect! un cerebro no da majority; infect! dos sí
+    - majority_owner :ireul ⇒ self_destruct_armed; Playbook
+      no contained
+    - Eva sortie ⇒ eva_sortie_misapplied; not contained_controlled
+    - reverse_hack_via_casper! (Casper :nerv) ⇒ dead_end
+      ⇒ majority :nerv ⇒ :contained_controlled
+    - HqOutage / analog_launch / intercept brake / password
+      no contained aquí
+    - PlaybookEp12: Magi.compute_impact sigue en MAGI sano
+    - PlaybookEp07: virus.origin :nerv_sabotage sigue siendo
+      el 07, no el 13
+    - SIEM: pattern_blue_micro, magi_brain_infected,
+      majority_owner, casper_reverse_hack, evolution_dead_end
+    - Magi unpowered (11) distinto de infected
+
+CRITERIO
+  ruby -Ilib:test test/test_magi.rb test/test_playbook_ep07.rb \
+    test/test_playbook_ep12.rb test/test_ireul.rb \
+    test/test_playbook_ep13.rb test/test_magi_infection.rb \
+    test/test_forced_evolution.rb
+  sale 0. Hay un test que falla si Eva mata a Ireul.
+  Hay un test que falla si 2/3 Ireul y contained.
+  Hay un test que falla si Ireul.origin == :nerv_sabotage.
+
+NO_HAGAS
+  Bundler. Borrar compute_impact. lib/nerv/angels/bardiel.rb.
+  Clase Recap.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 13
+################################################################################
+
+OBJETIVO
+  Runner de INC-IREUL-001. Traza: pribnow → pattern_blue_micro →
+  signature_failed → magi_brain_infected → casper_reverse_hack →
+  evolution_dead_end. Exit 0. Cero Eva-kill, cero intercept_ok,
+  cero on_box_password, cero analog_launch, cero hq_power_lost
+  como vía.
+
+CONTEXTO
+  bin/episodio … 12→0, 13→0.
+  El 0 del 13 no es el del 12: hay evolution_dead_end y
+  majority_owner :nerv, no triple_at_brake.
+  Este es el lab que justifica el repo: un ángel que solo se
+  contiene con código.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 13.
+  Si el binario no existe, créalo soportando 01–13.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep13.rb
+  test/test_scenario_ep13.rb
+  docs/episodios/ep13_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 13
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime pattern_blue_micro, signature_failed,
+  magi_brain_infected, casper_reverse_hack, evolution_dead_end;
+  NO imprime eva_berserk ni intercept_ok ni analog_launch ni
+  virus_origin_nerv como vía; sale 0.
+  eva_sortie ausente o misapplied nunca como éxito.
+  test/test_scenario_ep13.rb pasa.
+  07→5, 11→0, 12→0 siguen por sus vías.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Bardiel/recap. ASCII de "hacker movie"
+  que tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 14
+################################################################################
+
+OBJETIVO
+  Cerrar INC-IREUL-001. MAGI majority NERV. Ireul en dead-end.
+  El repo demostró que un ángel puede ser software. Transferir
+  al 14: recap / Weaving a Story — tabletop, Seele, tejer 01–13.
+  No escribir prompts del 14. No abrir Bardiel.
+
+CONTEXTO
+  Primera mitad de la TV: de first-seen a control plane. El AAR
+  del 13 es también el prefacio del 14: qué playbooks existen,
+  cuáles están contraindicados como navaja suiza, MAGI es
+  juez y superficie. Seele va a querer oír el recap. Last
+  playbook (reverse-hack) no cubre Leliel ni Bardiel ni al
+  humano que entra por la puerta (Tabris).
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 14
+    titulo_canon: Weaving a Story
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep14_weaving.txt
+    estado: episodio_completo
+    ultima_nota: INC-IREUL-001 cerrado contained_controlled vía Casper reverse-hack / dead-end. Eva unused. MAGI majority NERV. Falta crear prompts/ep14_weaving.txt (recap/tabletop). Deuda: no navaja suiza; Bardiel ≠ Ireul.
+  No crees ep14_weaving.txt en este turno.
+  Lista secciones sugeridas para el 14 (TIPO=sin_angel, AAR
+  mitad de serie, Seele, tabletop, no ángel nuevo), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep13_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Ireul vs MAGI vs Eva unused
+    - T-IREUL-* cerradas / T-MAGI-* cuáles siguen como higiene
+    - Fronteras que el 14 debe tejer: 07 virus humano, 11 unpowered,
+      12 compute, 13 infected
+    - Deuda hacia ep 14 (recap) y hacia ep 18 (Bardiel: otro huésped)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+      (esta es la lección más "SOC" de la serie: control plane)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 14 y declara que falta el archivo.
+  El AAR se entiende sin la serie y es el corazón pedagógico.
+  Ireul no reaparece como kaiju. Bardiel se nombra solo como
+  frontera. El 14 no se escribe.
+
+NO_HAGAS
+  Escribir prompts/ep14_weaving.txt. No Eva-03. No Naoko-biografía.
+
+SIGUIENTE
+  FIN
+################################################################################

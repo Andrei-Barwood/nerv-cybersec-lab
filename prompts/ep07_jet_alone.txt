@@ -1,0 +1,643 @@
+---
+EPISODIO: 07
+TITULO_CANON: A Human Work / 人の造りしもの
+ANGEL: (ninguno)
+TIPO: sin_angel
+INCIDENTE: INC-JETALONE-001
+NUMERO_ANGEL:
+CLASE_AMENAZA: defensa de terceros no auditada / supply chain / caja mágica post-IR / backdoor
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep06 existen. INC-RAMIEL-001 está :contained_controlled
+  vía Yashima (apagón nacional, escudo ablativo, niños en el nido).
+  Este episodio es la REACCIÓN POLÍTICA a ese coste: un arma sin
+  sync, sin Rei, sin apagón. NO es un ángel. NO emite pattern_blue.
+  NO es Ireul (ep 13: el ángel que SÍ es software contra MAGI).
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–06 §10 y luego esta
+  extensión. Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 08 — Asuka Strikes! / Gaghiel (ataque en tránsito / convoy / Eva-02)
+FUERA_DE_ALCANCE: |
+  No ángel. No Pattern Blue. No instanciar class Angel para Jet Alone.
+  No Ireul / infección MAGI (el virus de JA es humano, de NERV).
+  No Dummy Plug (esto NO es "Eva sin piloto" canónico; es un mecha
+  industrial con reactor). No Yui. No Asuka. No Gaghiel.
+  No reabrir Yashima para "dispararle al robot". No Beast contra JA.
+  No celebrar el sabotaje de Ritsuko/Gendo como control de calidad.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Tras Yashima, industria y gobierno presentan Jet Alone: robot
+  nuclear, sin niños, "obra humana". Demo pública. Tokita vs Ritsuko.
+  Un virus (NERV lo plantó) mata el control remoto. JA camina solo
+  hacia zona poblada con el reactor a bordo.
+  Misato y Shinji ENTICEN al robot y teclean el password de apagado
+  en la caja. No sale un Eva a pelearlo como ángel.
+  El proyecto se cancela. NERV conserva el monopolio. El AAR sucio:
+  pararon el reactor y nadie audita quién soltó el virus.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar el segundo subtipo sin_angel: no es deserción del on-call
+  (04), es un VENDOR que entra a reemplazar el control doloroso.
+  El lab no gana "matando un ángel". Gana si clasifica bien,
+  entra a la caja y apaga el reactor — y registra el sabotaje
+  como incidente propio, no como milagro.
+
+CONTEXTO
+  Yashima costó un país y un escudo humano. La política pide un
+  producto: autónomo, nuclear, demo-ready. En un SOC: el EDR/SOAR
+  "sin analistas" que llega el lunes después de un P1 miserable.
+  Obra humana ⇒ se puede apagar con una obra humana (password).
+  Eso no la vuelve segura. El virus no es Pattern Blue: es supply
+  chain o insider. Aquí son las dos cosas a la vez.
+  Exit codes de ángel (0/1/2) y de staffing (3/4) NO clasifican
+  este playbook.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual de JA todavía.
+  Códigos NUEVOS:
+    5 = :third_party_stopped     (éxito del 07: password on-box;
+                                  virus_origin queda registrado)
+    6 = :third_party_runaway     (sigue andando / reactor no apagado
+                                  / se le trata como ángel y se
+                                  dispara un Eva)
+  Prohibido emitir pattern_blue. Prohibido que JetAlone < Angel.
+
+ENTREGABLE
+  docs/episodios/ep07_briefing.md con exactamente estos headings:
+    - Contrato (INC-JETALONE-001; no hay amenaza adámica)
+    - Subtipo sin_angel-vendor (vs hedgehog del 04)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Ireul, Dummy Plug, Gaghiel,
+      "el sabotaje nos salvó")
+    - Definición de victoria (lab): third_party_stopped + origen
+      del virus nombrado
+    - Definición de derrota (lab): runaway; Pattern Blue; Eva-vs-JA;
+      virus_origin omitido
+    - Vocabulario nuevo (Jet Alone, vendor, demo, kill-switch ajeno,
+      on-box password, reactor, virus humano, monopolio)
+    - Relación con Yashima (el coste que invita al producto)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y esperar un octaedro. Imposible
+  puntuar el virus de NERV como "mitigación elegante".
+  No spoilers post-ep 08 salvo nombrarlo.
+
+NO_HAGAS
+  Reescribir docs 01–06. Crear lib/. Clase AngelJetAlone.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del producto (demo → marcha)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: no un ángel, un mecha de feria industrial.
+  Escenario, periodistas, "sin niños", luego la marcha autónoma
+  con un reactor dentro. First-seen de vendor gone-wrong.
+
+CONTEXTO
+  Eva es biomecánico, sucio, de niños. Jet Alone se vende limpio,
+  humano, adulto. La aparición pedagógica es el DEMO que se
+  convierte en incidente: el slide del vendedor anda hacia la
+  ciudad. Contraste visual obligatorio con Eva-01/00.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: escenario, JA erguido, aplausos, glitch, primer paso,
+       Misato y Shinji trepando por dentro
+    B) first-seen de seguridad: alerta de producto, no de cielo
+  Prompt de imagen opcional (NO ejecutar): UN párrafo demo/prensa,
+  UN párrafo interior-reactor-consola. Nada de Pattern Blue.
+  Nada de Asuka.
+
+ENTREGABLE
+  docs/episodios/ep07_aparicion.md
+    - Minuto cero: la feria / la rueda de prensa
+    - Lo que el público cree que es (el reemplazo humano del Eva)
+    - Lo que NERV sabe (competidor) vs lo que el SIEM debería ver
+      (caja autónoma privilegiada)
+    - Spec visual JA vs Eva (tabla corta)
+    - Spec visual de la marcha y del interior (pasillos, núcleo,
+      teclado del kill-switch)
+    - Firma SIEM de producto, no de ángel
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel en el encuadre.
+  Se puede escribir una alerta de vendor con esa spec.
+
+NO_HAGAS
+  Código. Anatomía virus/password (es 03–04). Gaghiel.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: reactor, remoto, virus, password, no-AT-Field
+################################################################################
+
+OBJETIVO
+  Partes de Jet Alone → funciones de seguridad → futuros métodos.
+  NO hereda AT Field ni Core adámico. El "core" es un reactor
+  civil. El kill es un password, no un cuchillo.
+
+CONTEXTO
+  Cuerpo mecha = payload autónomo con privilegio de ciudad.
+  Control remoto = kill-switch que crees tener y no tienes.
+  Virus = implant en la cadena; origen NERV (sabotaje), no Ireul.
+  Password on-box = break-glass que exige presencia física.
+  Reactor = blast radius propio (el producto TRAE su Third Impact
+  chiquito). Sin MAGI: el vendor no pasa por los tres cerebros.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de remote_kill,
+  on_box_shutdown, virus_origin, nuclear_progress (0.0–1.0).
+  Nombres Ruby (solo nombres): JetAlone, VendorVirus,
+  remote_shutdown!, enter_password!.
+  Frase: is_a?(Angel) == false es ley de lab.
+
+ENTREGABLE
+  docs/episodios/ep07_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Por qué NO es Nerv::Angel / Nerv::ATField / Nerv::Core
+    - remote_kill vs on_box_shutdown
+    - virus_origin (:nerv_sabotage) como campo, no como easter egg
+    - nuclear_progress (qué es 1.0)
+    - Implicación: Yashima no es el playbook; trepar sí
+
+CRITERIO
+  Un implementador no puede hacer class JetAlone < Angel.
+  Ireul no aparece. Dummy Plug no aparece.
+
+NO_HAGAS
+  Código. Playbook de trepar (es 08). Asuka.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: la caja mágica después del P1
+################################################################################
+
+OBJETIVO
+  Fijar TERCERO_NO_AUDITADO. El 06 hizo doler el control propio.
+  El 07 vende uno ajeno. El demo es producción. El kill-switch
+  remoto muere porque alguien (nosotros) puso un virus.
+
+CONTEXTO
+  Analogías: EDR/SOAR autónomo post-incidente; "IA que reemplaza
+  al SOC"; appliance con soporte del vendor y un backdoor; POC
+  que se queda en prod; competidor sabotado con un wiper que
+  luego anda hacia clientes.
+  Dos capas del patrón:
+    A) comprar autonomía privilegiada sin auditoría ni kill-switch
+       propio
+    B) plantar el virus al competidor y fingir que el mercado decidió
+  El lab tiene que modelar A y B. Parar el robot sin B es AAR
+  incompleto.
+  Contraste con DESERCION_POST_CONTENCION (04): allá se fue el
+  operador; acá entra un producto.
+
+INSTRUCCION
+  Escribe el patrón TERCERO_NO_AUDITADO.
+  Tabla: remote_shutdown | on_box_password | Eva-as-angel |
+  ignorar virus_origin.
+  Regla de lab: PlaybookEp07.angel.nil?; pattern_blue == false;
+  third_party_stopped exige password Y virus_origin seteado.
+
+ENTREGABLE
+  docs/episodios/ep07_tercero.md
+    - Escena breve del remoto que no responde
+    - Patrón TERCERO_NO_AUDITADO (precondiciones post-Yashima,
+      síntoma demo, error de clasificación, error de sabotaje)
+    - Capa A (vendor) vs capa B (insider NERV)
+    - Tabla de métodos vs resultado
+    - Analogías (máximo 3, concretas)
+    - Señal SIEM: "no es Pattern Blue" no es "no es incidente"
+    - Anti-regla: sabotear al vendor no es supply-chain-security
+
+CRITERIO
+  Las dos capas están escritas. Eva-vs-JA está prohibido como
+  éxito. Ireul no se usa como analogía central (una línea de
+  frontera basta).
+
+NO_HAGAS
+  Código. No MAGI-virus. No Gaghiel.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs del vendor, del virus y de la mala clasificación
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Técnicas de producto, de sabotaje y del
+  error de tratar JA como Sachiel. Ids T-VENDOR-* y T-NERV-*.
+
+CONTEXTO
+  Quien dispare T-RAMIEL-* o T-YASHIMA-* como método se equivoca
+  de episodio. Yashima es la CAUSA POLÍTICA, no el arma.
+  Tokita: demo privilegiada. Virus: persistencia en el control
+  plano. Misato trepando: physical access. Ritsuko: insider.
+
+INSTRUCCION
+  Fases del incidente de vendor. Ids estables.
+
+ENTREGABLE
+  docs/episodios/ep07_ttps.md
+    - Qué T-ángel / T-YASHIMA no se reabren como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-VENDOR-01 UnauditedAutonomy
+        T-VENDOR-02 DemoAsProduction
+        T-VENDOR-03 RemoteKillIllusion
+        T-VENDOR-04 BuiltInBlastRadius
+        T-NERV-01 CompetitorVirus
+        T-NERV-02 FalseMarketDecision
+        T-OP01-11 OnBoxPassword
+        T-OP01-12 MisclassifiedAsAngel
+    - Tabla de fases + diagrama ASCII
+      (Yashima duele → demo → virus → remote fail → (Eva FAIL) |
+       trepar+password → stop → origen)
+    - Qué NO es TTP de este episodio (octaedro, látigo, Ireul, mar)
+
+CRITERIO
+  T-NERV-01 y T-VENDOR-01 son ids distintos. MisclassifiedAsAngel
+  es rama de fallo. No hay caja pattern_blue de éxito.
+
+NO_HAGAS
+  Código. No TTP de Asuka. No Dummy Plug.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: producto, no cielo
+################################################################################
+
+OBJETIVO
+  Detectar demo, pérdida de remoto, marcha, nuclear_progress,
+  acceso físico, password, virus_origin. NO pattern_blue.
+  Clasificación errónea debe emitir evento, no matar al ángel
+  imaginario.
+
+CONTEXTO
+  El SIEM de 01–06 mira al cielo o al roster. Este mira al
+  inventario de terceros y al plano de control. Hallazgo sucio:
+  el mismo org que "responde" el incidente plantó el virus.
+  Frase-ley: "si lo construyó un humano, el log de quién lo
+  rompió también es humano".
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falso positivo: Pattern Blue
+  por "gigante andando".
+
+ENTREGABLE
+  docs/episodios/ep07_deteccion.md
+    - Qué NO dispara (pattern_blue, geometric_fortress)
+    - Ids obligatorios:
+        siem.vendor_demo
+        siem.remote_kill_failed
+        siem.autonomy_runaway
+        siem.nuclear_progress          (con valor)
+        siem.physical_access_vendor
+        siem.on_box_password
+        siem.vendor_stopped
+        siem.virus_detected
+        siem.virus_origin_nerv
+        siem.misclassified_as_angel
+    - Falsos positivos (gigante ≠ ángel)
+    - Reloj nuclear vs tiempo de trepar
+    - Anti-métrica: "el mercado rechazó Jet Alone" como cierre
+
+CRITERIO
+  Ids usables en tests. pattern_blue no se emite en el camino feliz.
+  virus_origin_nerv es obligatorio para third_party_stopped.
+
+NO_HAGAS
+  Código. No sensores de Gaghiel. No Ireul/MAGI.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de comprar el robot nuclear)
+################################################################################
+
+OBJETIVO
+  Preventiva de supply chain: no reemplazar un control doloroso
+  con una caja sin auditoría; kill-switch que sea TUYO; no
+  reactor-como-feature; no sabotear al competidor; no dejar que
+  un demo sea prod.
+
+CONTEXTO
+  Prevenible: firmar JA sin revisión; remoto solo del vendor;
+  nuclear_progress posible sobre ciudad; NERV escribiendo el
+  virus; clasificar gigantes como Pattern Blue por hábito.
+  No prevenible del todo: que la política pida magia después de
+  Yashima. Se mitiga con no-compra y con honestidad, no con
+  otro Eva.
+  Anti-patrón: "sin niños = más ético" ; "lo apagamos desde
+  el stand" ; "el virus era por seguridad nacional".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados de 01–06. Analogías: SBOM,
+  own break-glass, no POC-in-prod, no replacing people with
+  a black box the week after a P1, no insider wiper.
+
+ENTREGABLE
+  docs/episodios/ep07_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): magic-box-post-P1; remote-as-ours;
+      sabotage-as-governance
+    - Relación con T-VENDOR-* y T-NERV-*
+    - Higiene de terceros en 7 viñetas (sirve a un SOC real)
+    - Nota: trepar a teclear NO es prevención (es mitigación
+      vergonzosa y correcta)
+
+CRITERIO
+  Nadie sale queriendo "más Jet Alones pero con antivirus".
+  Nadie llama prevención al virus de Ritsuko.
+
+NO_HAGAS
+  Playbook del durante (es 08). Código. No Yashima 2.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: clasificar, no disparar, trepar, teclear, nombrar
+################################################################################
+
+OBJETIVO
+  Runbook de incidente de vendor. Primer paso: NO es un ángel.
+  Remoto falla. Se prohibe sortie Eva. Acceso físico. Password.
+  Reactor down. Registrar virus_origin. Monopolio de NERV no
+  es métrica de éxito.
+
+CONTEXTO
+  Misato entra a la caja (IC en el blast). Shinji la sigue
+  (operador que acaba de disparar Yashima, ahora sin Eva).
+  Ritsuko sabe más de lo que dice. Tokita pierde el producto.
+  MAGI no votan JA: ese hueco ES el bug de gobernanza.
+  Rama Pattern-Blue/Eva = :third_party_runaway o FAIL explícito
+  (decide para la §10; recomendación: misclassified_as_angel
+  impide third_party_stopped).
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables.
+  Hooks Ruby. Handoff a ep 08 (Gaghiel/Asuka/mar), lista, no
+  redactar el 08.
+
+ENTREGABLE
+  docs/episodios/ep07_playbook.md
+    - Árbol ASCII (demo → ¿ángel? NO → remote fail → trepar →
+      password → origen; rama Eva = FAIL)
+    - Runbook numerado
+    - Condición :third_party_stopped
+    - Condición :third_party_runaway
+    - MAGI: ausencia de voto como hallazgo, no como paso
+    - Hooks Ruby
+    - Handoff a ep 08 (lista: convoy, mar, Eva-02, no JA)
+
+CRITERIO
+  Traducible a tests. No existe rama de éxito "Eva parte a JA".
+  virus_origin es paso del runbook, no un comentario.
+
+NO_HAGAS
+  Código. No Gaghiel. No Ireul.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: el IC dentro de la caja, el vendor, el sabotaje
+################################################################################
+
+OBJETIVO
+  Fichas de un incidente político. Misato trepa (no es casera
+  ni genio de rifle: es adulta que se mete al reactor). Shinji
+  sin Eva. Ritsuko/Gendo: insider. Tokita: vendor que creyó su
+  demo. La prensa: métrica falsa.
+
+CONTEXTO
+  El 06 puso a Rei delante de un rayo. El 07 pone a Misato
+  delante de un núcleo porque el kill-switch era teatro.
+  Ética: no heroizar el trepar como cultura; es el síntoma de
+  no tener control propio. No lavar a Ritsuko como "protegió
+  NERV". Shinji aprende que hay amenazas que no son Pattern
+  Blue y que los adultos se mienten.
+  Frontera con ep 08: Asuka no existe aún.
+
+INSTRUCCION
+  Fichas: Misato, Shinji, Ritsuko, Gendo, Tokita, Prensa.
+  Métricas: inside_vendor_box, remote_kill_failed,
+  virus_origin_known, misclassified, monopoly_preserved
+  (bool que NO gana el playbook).
+
+ENTREGABLE
+  docs/episodios/ep07_humanos.md
+    - Fichas (las seis)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: monopoly_preserved no muta el resultado;
+      inside_vendor_box es necesario para el password;
+      virus_origin_known es necesario para stopped
+    - Frontera con ep 08 (Asuka/mar) y ep 13 (Ireul: otro virus,
+      otro sujeto)
+
+CRITERIO
+  Tokita no es payaso: es vendor. Ritsuko no es "cool hacker".
+  Misato no es mami-bomba. Shinji no "se hace hombre". Gendo
+  no "salvó Japón del robot malo".
+
+NO_HAGAS
+  Código. No Asuka. No Dummy Plug. No Yui.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (JetAlone no es Angel)
+################################################################################
+
+OBJETIVO
+  Código del producto y del playbook on-box. Tests que FALLAN
+  si JetAlone < Angel, si se emite pattern_blue, si Eva-vs-JA
+  da third_party_stopped, o si se omite virus_origin_nerv.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  JetAlone, VendorVirus, PasswordShutdown, PlaybookEp07.
+  NO reusar Core adámico como reactor (clase distinta).
+  01–06 siguen pasando. Ireul no se crea.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests 01–07 (los de ángel
+  relevantes + estos).
+  Ids: los de docs/episodios/ep07_*.md.
+
+ENTREGABLE
+  lib/nerv/jet_alone.rb
+  lib/nerv/vendor_virus.rb
+  lib/nerv/password_shutdown.rb
+  lib/nerv/playbooks/ep07.rb
+  test/test_jet_alone.rb
+  test/test_vendor_virus.rb
+  test/test_playbook_ep07.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb            (sortie contra JA no es éxito)
+
+  Comportamiento mínimo a cubrir:
+    - JetAlone.is_a?(Angel) == false (o equivalente del diseño)
+    - PlaybookEp07 no emite pattern_blue
+    - PlaybookEp07.angel.nil?
+    - remote_shutdown! falla si virus.present?
+    - enter_password! on-box apaga el reactor
+    - sin password, nuclear_progress puede subir; 1.0 ⇒ runaway
+    - virus.origin == :nerv_sabotage requerido para
+      :third_party_stopped
+    - si el playbook clasifica como ángel / sortee Eva,
+      resultado ≠ :third_party_stopped
+    - monopoly_preserved no cambia el resultado
+    - SIEM: vendor_demo, remote_kill_failed, physical_access_vendor,
+      on_box_password, virus_origin_nerv
+    - Tests de 03, 04, 06 intactos (ángel / staffing / Yashima)
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep06.rb test/test_playbook_ep04.rb \
+    test/test_jet_alone.rb test/test_vendor_virus.rb \
+    test/test_playbook_ep07.rb
+  sale 0. Hay un test que falla si JetAlone hereda Angel.
+  Hay un test que falla si el virus de NERV se omite y aun así
+  stopped.
+
+NO_HAGAS
+  lib/nerv/angels/ireul.rb. Bundler. Eva-02. Borrar tests viejos.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 07
+################################################################################
+
+OBJETIVO
+  Runner de INC-JETALONE-001. Traza: post-Yashima → demo → virus →
+  remote fail → (no Eva) → trepar → password → virus_origin_nerv.
+  Exit code 5. Cero pattern_blue.
+
+CONTEXTO
+  bin/episodio 01→2, 02→1, 03→0, 04→3, 05→2, 06→0, 07→5.
+  La traza es un incidente de producto, no un recap de combate.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 07.
+  Si el binario no existe, créalo soportando 01–07.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep07.rb
+  test/test_scenario_ep07.rb
+  docs/episodios/ep07_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 07
+
+  Exit:
+    5 = :third_party_stopped
+
+CRITERIO
+  El comando corre, imprime remote_kill_failed, on_box_password,
+  virus_origin_nerv; NO imprime pattern_blue ni eva_berserk ni
+  positron_charging como vía; sale 5.
+  test/test_scenario_ep07.rb pasa.
+  04→3 y 06→0 siguen.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Asuka/Gaghiel. ASCII de robot "gracioso"
+  que se coma el briefing.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 08
+################################################################################
+
+OBJETIVO
+  Cerrar INC-JETALONE-001. El reactor está apagado. El monopolio
+  de NERV sigue. El virus fue nuestro. Transferir a Gaghiel:
+  el siguiente problema NO es un vendor, es un ángel en el mar
+  contra un convoy, y llega un tercer operador (Asuka). No
+  escribir prompts del 08.
+
+CONTEXTO
+  NERV "ganó" el mercado. El AAR tiene que oler mal: T-NERV-01
+  queda como deuda ética igual que T-YASHIMA-03. La política
+  volverá a pedir cajas. El 08 sale de Tokio-3: tránsito, flota,
+  Eva-02. Clasificar bien (no todo gigante es ángel; no todo
+  ángel espera en el geofront) es la lección que se lleva el
+  roster.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 08
+    titulo_canon: Asuka Strikes!
+    angel: Gaghiel
+    numero_angel: 6
+    archivo_episodio: prompts/ep08_gaghiel.txt
+    estado: episodio_completo
+    ultima_nota: INC-JETALONE-001 cerrado third_party_stopped. Virus origin NERV registrado. Falta crear prompts/ep08_gaghiel.txt. Deuda: monopolio ≠ higiene; próximo ángel en tránsito/mar.
+  No crees ep08_gaghiel.txt en este turno.
+  Lista secciones sugeridas para el 08 (Gaghiel, convoy, Eva-02,
+  Asuka, no JA), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep07_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del producto vs estado de NERV vs origen del virus
+    - T-VENDOR-* / T-NERV-* cuáles siguen ABIERTAS
+    - Por qué exit 5 no es un 0 de ángel
+    - Deuda hacia ep 08 (mar, convoy, tercer piloto)
+    - Deuda hacia ep 13 (Ireul: el virus que SÍ es ángel; no mezclar)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 08 y declara que falta el archivo.
+  El AAR se entiende sin la serie. JA no se convierte en ángel
+  "en el recap". Ireul se nombra solo como frontera.
+
+NO_HAGAS
+  Escribir prompts/ep08_gaghiel.txt. No Asuka todavía. No MAGI-hack.
+
+SIGUIENTE
+  FIN
+################################################################################

@@ -1,0 +1,658 @@
+---
+EPISODIO: 14
+TITULO_CANON: Weaving a Story / SEELE, Throne of Souls / ゼーレ、魂の座
+ANGEL: (ninguno)
+TIPO: sin_angel
+INCIDENTE: INC-WEAVING-001
+NUMERO_ANGEL:
+CLASE_AMENAZA: AAR de mitad de serie / tabletop / el board no comparte el KPI del SOC / last-playbook-wins
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep13 existen. INC-IREUL-001 está :contained_controlled
+  vía reverse-hack, Eva unused. Este episodio NO inventa un ángel,
+  NO emite pattern_blue de silueta nueva, NO reabre cores, NO infecta
+  MAGI otra vez, NO reescribe docs/episodios/ep01–ep13_*.md: los CITA.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–13 §10 y luego esta
+  extensión. Si existe, EXTEND, don't rewrite. El entregable nuevo
+  es un CATÁLOGO de playbooks, no un Angel.
+SIGUIENTE: ep 15 — Those women longed for the touch of others' lips...
+  (sin ángel de combate; relaciones, Kaji, silencio; no Leliel)
+FUERA_DE_ALCANCE: |
+  No ángel nuevo. No Pattern Blue de kaiju. No Ireul 2. No Bardiel.
+  No Leliel / mar de Dirac (ep 16). No Dummy Plug. No Yui-biografía.
+  No Instrumentality / Third Impact (25–26): Seele se nombra como
+  stakeholder cuyo KPI DISUELVE aislamiento; no se implementa.
+  No reescribir ni “mejorar” los AAR de 01–13 en sus archivos.
+  No convertir el recap en un clip-show de fandom sin matriz.
+  El experimento Shinji-en-Eva-00 no es un ángel: es un test de
+  portabilidad de operador. No BerserkChannel-as-victoria.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Seele (comité, monolitos) revisa a NERV. Se TEJE la primera
+  mitad: Sachiel→Ireul, no como OP, como expediente. Fuyutsuki
+  / el board no miden contained_controlled: miden un plan que
+  más adelante querrá borrar los campos AT (identidad / aislamiento).
+  En paralelo: experimento, Shinji en Eva-00. La unidad no es la
+  suya. Reacciona mal (casi-berserk / visión). El AAR no es un
+  PowerPoint tranquilo: un control se porta distinto con otro
+  operador. Cero sortie contra un ángel nuevo.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar el subtipo recap/tabletop: INC-WEAVING-001. No hay amenaza
+  adámica nueva. El lab gana si produce un catálogo CITA-no-copia
+  de 01–13 y registra que Seele no comparte el KPI de contención.
+  Inventar un 12º ángel de combate o reescribir los docs viejos
+  es derrota.
+
+CONTEXTO
+  Constitución: los episodios sin ángel no son relleno. El 04 fue
+  deserción, el 07 vendor, el 14 es el AAR. En un SOC: tabletop
+  de mitad de año, comité directivo, correlacionar tickets. El
+  board (Seele) puede querer “sin perímetros, todos uno” — eso
+  es el anti-AT-Field. El IR no trabaja para ese OKR y tiene que
+  dejarlo escrito. Shinji-en-00: no asumas que el operador del
+  último P1 porta a otra unidad.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de Seele aún.
+  Códigos NUEVOS (no chocar con 0–6):
+    7 = :aar_complete     (éxito: catálogo + Seele-KPI registrado
+                           + cero ángel nuevo)
+    8 = :aar_failed       (ángel inventado; rewrite de 01–13;
+                           Seele tratado como Pattern Blue;
+                           Eva-00 berserk como victoria)
+  0/1/2 siguen siendo contención de ángel y aquí no se usan
+  como resultado del playbook.
+
+ENTREGABLE
+  docs/episodios/ep14_briefing.md con exactamente estos headings:
+    - Contrato (INC-WEAVING-001; tejer, no combatir)
+    - Subtipo recap/tabletop (vs hedgehog 04 vs vendor 07)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Leliel, Bardiel,
+      Instrumentality-as-código, clip-show)
+    - Definición de victoria (lab): :aar_complete
+    - Definición de derrota (lab): :aar_failed
+    - Vocabulario nuevo (weaving, tabletop, Seele, monolito,
+      playbook catalog, KPI conflict, operator-unit pairing)
+    - Relación con 01–13: CITA, no reescritura
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y esperar un Pattern Blue de cielo.
+  Imposible puntuar un rewrite de ep13_aar.md como trabajo del 14.
+  No spoilers post-ep 15 salvo nombrar Leliel como más allá.
+
+NO_HAGAS
+  Reescribir docs 01–13. Crear lib/. Clase AngelWeaving.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del board, no de un ángel
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: monolitos de Seele, la sala del comité,
+  el recap como TAPIZ (imágenes de 01–13 citadas, no un kaiju
+  nuevo). Y el plug de Eva-00 con Shinji: test, no sortie. First-seen
+  de un stakeholder que no está en el canal de P1.
+
+CONTEXTO
+  Ireul fue óxido en un tanque. El 14 es una mesa. El error
+  clásico: buscar al 12º ángel en las repeticiones. El first
+  packet es un monolito preguntando “¿y el plan?” mientras el
+  SOC cree que el plan es contained_controlled.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: Seele, recap-tapiz, Fuyutsuki, Shinji en Eva-00
+    B) first-seen de seguridad: alerta de board-review / tabletop,
+       no de cielo
+  Prompt de imagen opcional (NO ejecutar): UN párrafo monolitos
+  (comité, no ángel), UN párrafo tapiz de incidentes ya vistos
+  (mosaico, no criatura nueva). Nada de Leliel-esfera. Nada de
+  Eva-03.
+
+ENTREGABLE
+  docs/episodios/ep14_aparicion.md
+    - Minuto cero: la sala de Seele, no el radar
+    - Lo que NERV cree que es (recap aburrido) vs lo que es
+      (auditoría con KPI ajeno)
+    - Spec visual Seele (monolitos, sombras, no caras)
+    - Spec visual del tapiz (cómo se VE el recap: citas, no OP)
+    - Spec visual Eva-00 + Shinji (test, plug, no combate)
+    - Firma SIEM de tabletop / board, no pattern_blue de silueta
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel inédito.
+  Se puede escribir una alerta de “el board está en la llamada”.
+
+NO_HAGAS
+  Código. Anatomía del catálogo (es 03–04). Leliel.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: Seele, catálogo, pairing, no-Angel
+################################################################################
+
+OBJETIVO
+  Partes del AAR → métodos. Seele no es Angel. El catálogo es
+  una tabla incidente→playbook→contraindicación. Eva-00+Shinji
+  es un objeto de TEST (pairing), no un berserk de victoria.
+
+CONTEXTO
+  Seele = board / regulador / OKR de fusión (anti-aislamiento).
+  PlaybookCatalog = inventario de herramientas 01–13 con
+  last-use y never-as-default.
+  Tabletop = runner que no instancia amenazas nuevas.
+  PairingTest = operator×unit; fallar no es Pattern Blue.
+  AT Field como aislamiento (definición ya escrita): Seele
+  querrá apagarlos más adelante; aquí solo se registra el
+  conflicto de KPI.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de catalog.entry,
+  contraindicated_as_default?, seele.kpi, pairing_test,
+  aar_complete?.
+  Lista OBLIGATORIA de incidentes a citar (no reabrir):
+    INC-SACHIEL-001, INC-SHAMSHEL-001, INC-HEDGEHOG-001,
+    INC-RAMIEL-001, INC-JETALONE-001, INC-GAGHIEL-001,
+    INC-ISRAFEL-001, INC-SANDALPHON-001, INC-MATARAEL-001,
+    INC-SAHAQUIEL-001, INC-IREUL-001.
+  Nombres Ruby (solo nombres): PlaybookCatalog, Seele,
+  Tabletop, PairingTest.
+
+ENTREGABLE
+  docs/episodios/ep14_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Seele.kpi vs ContainmentResult (conflicto escrito)
+    - Catalog entry schema (incidente, método que ganó, métodos
+      contraindicados, teatro)
+    - PairingTest (Shinji×Eva-00) ≠ BerserkChannel-win
+    - is_a?(Angel) == false para Seele y para Weaving
+    - Implicación: tejer ≠ combatir; citar ≠ reescribir
+
+CRITERIO
+  El schema del catálogo es implementable. Un implementador no
+  puede hacer class Seele < Angel. Los 11 incidentes están
+  listados.
+
+NO_HAGAS
+  Código. Playbook del tabletop (es 08). Instrumentality.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el board no es el SOC; el último playbook no es ley
+################################################################################
+
+OBJETIVO
+  Fijar AAR_TABLETOP_BOARD. Last-playbook-wins es el bug que el
+  14 existe para nombrar. Seele.kpi ≠ contained. El experimento
+  Eva-00 es change-in-lab durante el review: la portabilidad
+  del operador no está demostrada.
+
+CONTEXTO
+  Analogías: QBR de seguridad vs OKR de producto que pide
+  “zero friction / sin MFA”; tabletop post-ransomware; no
+  copiar el IR de hace un mes al próximo. Error clásico A:
+  un ángel nuevo en el recap. Error clásico B: reescribir
+  historia. Error clásico C: tratar a Seele como Pattern Blue
+  (no es un atacante de silueta; es un principal). Error
+  clásico D: “Ireul se hackeó, MAGI es el plan A de todo”.
+  Error clásico E: Shinji-en-00 como “el Eva despertó, ganamos”.
+
+INSTRUCCION
+  Escribe el patrón AAR_TABLETOP_BOARD.
+  Tabla de métodos vs resultado (inventar ángel, rewrite,
+  Seele-as-Blue, last-playbook-default, catalog+KPI conflict,
+  pairing_test documentado).
+  Regla de lab: aar_complete IFF catalog tiene los 11 incidentes
+  AND seele.kpi != :containment AND angel.nil? AND
+  pairing_test.recorded AND ningún ep01–13 md reescrito.
+
+ENTREGABLE
+  docs/episodios/ep14_tabletop.md
+    - Escena breve del monolito vs el SOC
+    - Patrón AAR_TABLETOP_BOARD (precondiciones H1, síntoma
+      last-playbook, error de KPI)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no hay Pattern Blue” no es “no hay trabajo”
+    - Frontera con hedgehog (personas) y vendor (producto):
+      aquí el objeto es el EXPEDIENTE
+
+CRITERIO
+  last-playbook-wins está escrito como anti-patrón transversal.
+  Seele no es Ireul. El 13 sigue closed vía reverse-hack.
+
+NO_HAGAS
+  Código. No Leliel. No Dummy Plug.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs del board, del recap y del pairing
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Técnicas de comité, de tabletop mal
+  hecho, y del test Eva-00. El catálogo bien hecho es T-AAR,
+  no lore.
+
+CONTEXTO
+  Quien dispare T-IREUL-* como método del 14 se equivoca de
+  episodio. Ireul está cerrado. Seele no se “contiene” con
+  Casper. Shinji-en-00 no es T-EVA01-02 OperatorBypassBerserk
+  como victoria.
+
+INSTRUCCION
+  Ids estables. Diagrama: H1 closed → Seele review → catalog
+  OR (rewrite/ángel-nuevo = fail) → pairing_test Eva-00.
+
+ENTREGABLE
+  docs/episodios/ep14_ttps.md
+    - Qué T-ángel de 01–13 no se reabren como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-SEELE-01 BoardKpiNotContainment
+        T-SEELE-02 IsolationDissolutionIntent
+        T-AAR-01 CiteDoNotRewrite
+        T-AAR-02 PlaybookCatalog
+        T-AAR-03 LastPlaybookWins
+        T-OP01-16 OperatorUnitMispair
+        T-SOC-05 TabletopDuringLiveTest
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Leliel, Bardiel, Ireul-kill,
+      Instrumentality-as-código)
+
+CRITERIO
+  T-SEELE-02 es INTENCIÓN registrada, no un exploit implementado.
+  T-AAR-03 es el anti-patrón (como T-OP03-01 Eva misapplied).
+  T-OP01-16 ≠ berserk-win.
+
+NO_HAGAS
+  Código. No TTP “Fuyutsuki explica el lore”.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: correlacionar, no pintar un ángel
+################################################################################
+
+OBJETIVO
+  Detectar tabletop, board-on-call, catalog completeness,
+  pairing_test, KPI conflict. Cero pattern_blue de silueta
+  nueva. Frase-ley: “un recap sin matriz es un clip-show”.
+
+CONTEXTO
+  El SIEM de 01–13 mira cielo, magma, MAGI, órbita. El del 14
+  mira el EXPEDIENTE: ¿están todos los INC-*? ¿Se reabrió un
+  core? ¿Se instanció un Angel? El pairing_test puede emitir
+  eva00_anomaly sin ser Pattern Blue de ángel.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falsos positivos: “es relleno
+  de la TV”; “Seele es el 12º ángel”.
+
+ENTREGABLE
+  docs/episodios/ep14_deteccion.md
+    - Qué NO dispara (pattern_blue de kaiju, magi_infected,
+      orbital_contact)
+    - Ids obligatorios:
+        siem.tabletop_started
+        siem.seele_review
+        siem.catalog_entry           (con id de incidente)
+        siem.catalog_complete
+        siem.kpi_conflict
+        siem.pairing_test
+        siem.eva00_anomaly
+        siem.aar_complete
+        siem.rewrite_attempt         (fallo)
+        siem.false_pattern_blue      (fallo: ángel inventado)
+    - Falsos positivos
+    - Anti-métrica: “vimos los clips” = AAR hecho
+
+CRITERIO
+  Ids usables en tests. catalog_complete exige los 11 INC-*.
+  eva00_anomaly no cambia un ContainmentResult de ángel.
+
+NO_HAGAS
+  Código. No sensores de Leliel. No Ireul 2.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (para no llegar ciegos a la segunda mitad)
+################################################################################
+
+OBJETIVO
+  Preventiva de segunda mitad: catálogo vivo; tabletop
+  calendarizado; KPI del board explícito y no mezclado con
+  IR; pairing tests ANTES del P1 en unidad ajena; prohibición
+  de last-playbook-default. No “tener un Eva”. No “tener MAGI”.
+
+CONTEXTO
+  Prevenible: no tejer 01–13; tratar a Seele como fan service;
+  poner a Shinji en Eva-00 el mismo día del comité sin
+  hipótesis de pairing; copiar reverse-hack al próximo
+  incidente. No prevenible del todo: que el board quiera
+  disolver aislamiento. Se registra, no se implementa.
+  Anti-patrón: “el recap no enseña”; “Ireul cubre todo lo
+  digital”; “el Eva despertó otra vez, estamos bien”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: IR playbook
+  library, board-level risk register, purple-team tabletop,
+  operator certification per system, no-default-runbook.
+
+ENTREGABLE
+  docs/episodios/ep14_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (el KPI de Seele vive aquí)
+    - Anti-patrones (mínimo 3): clip-show-as-AAR;
+      last-playbook-default; board-as-angel
+    - Relación con T-AAR-* y T-SEELE-*
+    - Higiene de tabletop en 7 viñetas (SOC real)
+    - Nota: Instrumentality no se “previene” en este archivo
+      más que nombrando el conflicto de aislamiento
+
+CRITERIO
+  Nadie sale pensando que el 14 es relleno.
+  Nadie sale pensando que Casper es el plan A del 16.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Leliel.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: citar, catalogar, registrar Seele, testear pairing
+################################################################################
+
+OBJETIVO
+  Runbook de tabletop. 1) Abrir INC-WEAVING-001. 2) Prohibir
+  new Angel. 3) Cargar catálogo con 11 incidentes (cita).
+  4) Marcar contraindicaciones (last-playbook). 5) Registrar
+  seele.kpi. 6) PairingTest Shinji×Eva-00: registrar anomalía,
+  no celebrar berserk. 7) aar_complete. MAGI no se infecta ni
+  se apaga: si se usa, es para consultar el expediente.
+
+CONTEXTO
+  Fuyutsuki/Seele hablan. Ritsuko puede presentar MAGI como
+  dato, no como campo de batalla. Misato no lanza Evas contra
+  monolitos. Rama new-angel = aar_failed. Rama rewrite = failed.
+  Rama Eva-00-win = failed. Rama “Seele es Pattern Blue” = failed.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 15 (sin ángel de combate: relaciones, Kaji,
+  silencio; no Leliel), lista, no redactar el 15.
+
+ENTREGABLE
+  docs/episodios/ep14_playbook.md
+    - Árbol ASCII (review → catalog | fail-rewrite | fail-angel)
+    - Runbook numerado
+    - Condición :aar_complete
+    - Condición :aar_failed
+    - MAGI: consulta, no infected, no unpowered-required
+    - Hooks Ruby
+    - Handoff a ep 15 (lista)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con class Angel nueva.
+  No rama Instrumentality.fire.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/leliel.rb. No reescribir ep13_*.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: el comité, el test, el operador en unidad ajena
+################################################################################
+
+OBJETIVO
+  Seele como actor (no cara, sí KPI). Fuyutsuki teje. Gendo
+  responde al board, no al niño. Shinji en Eva-00: pairing,
+  visión/anomalía, no héroe. Rei: la unidad era suya. Ritsuko:
+  presenta el expediente (post-Ireul), no sabotea.
+
+CONTEXTO
+  El 04: Gendo como recambio. El 13: Ritsuko en consola. El 14:
+  el board entra al canal. Ética: no antropomorfizar monolitos
+  como “el villano hacker”. Son un principal con métrica
+  incompatible. El plug de 00 no es fanservice de Rei: es
+  mispair.
+
+INSTRUCCION
+  Fichas: Seele (institución), Fuyutsuki, Gendo, Shinji, Rei,
+  Ritsuko. Métricas: seele_present, catalog_owner, pairing_anomaly,
+  gendo_board_facing (no gendo_ack del 12).
+  Frontera con ep 15 (relaciones) y 16 (Leliel).
+
+ENTREGABLE
+  docs/episodios/ep14_humanos.md
+    - Fichas
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: seele_present no es pattern_blue;
+      pairing_anomaly no es contained_uncontrolled de Sachiel;
+      gendo_board_facing no cierra el AAR
+    - Frontera con 15 y 16
+
+CRITERIO
+  Seele no es un ángel. Shinji no “entiende a Rei” como kill.
+  Fuyutsuki no es el SIEM. Ritsuko no es Ireul.
+
+NO_HAGAS
+  Código. No Yui-nombre. No Leliel. No Dummy Plug.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (catálogo, Seele, cero Angel nuevo)
+################################################################################
+
+OBJETIVO
+  Código del tabletop. Tests que FALLAN si se instancia un Angel
+  nuevo, si el catálogo omite un INC-*, si seele.kpi ==
+  :containment, si se reabre Ireul.alive, o si pairing_test se
+  puntúa como contained_controlled de ángel.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  PlaybookCatalog, Seele, Tabletop, PairingTest, PlaybookEp14.
+  PlaybookEp13 sigue contained vía dead-end. 01–13 no se
+  reescriben; el catálogo LEE ids.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 13 + 14.
+  Los 11 INC-* de la §03 son la lista cerrada del catálogo.
+
+ENTREGABLE
+  lib/nerv/playbook_catalog.rb
+  lib/nerv/seele.rb
+  lib/nerv/tabletop.rb
+  lib/nerv/pairing_test.rb
+  lib/nerv/playbooks/ep14.rb
+  test/test_playbook_catalog.rb
+  test/test_seele.rb
+  test/test_tabletop.rb
+  test/test_playbook_ep14.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb            (Eva-00 + pairing; no new Angel)
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp14.angel.nil?
+    - no emite pattern_blue de silueta nueva
+    - catalog incluye exactamente los 11 INC-* listados en §03
+    - cada entry tiene method_that_won + contraindications
+    - last_playbook_as_default? == true ⇒ no aar_complete
+    - Seele.kpi != :containment (p.ej. :instrumentality_intent)
+    - T-SEELE-02 registrado, Third Impact NO ejecutado
+    - PairingTest Shinji×Eva-00 puede emitir eva00_anomaly
+      y no muta PlaybookEp02/Ep13 results
+    - rewrite de incidentes (API que “reopen” Ireul.alive)
+      ⇒ :aar_failed
+    - PlaybookEp14 → :aar_complete (exit 7 en el runner)
+    - PlaybookEp13 sigue :contained_controlled
+    - SIEM: tabletop_started, catalog_complete, kpi_conflict,
+      pairing_test, aar_complete
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep13.rb test/test_seele.rb \
+    test/test_playbook_catalog.rb test/test_playbook_ep14.rb \
+    test/test_tabletop.rb
+  sale 0. Hay un test que falla si aparece un Angel nuevo.
+  Hay un test que falla si el catálogo tiene 10 incidentes.
+  Hay un test que falla si Seele.kpi es contained_controlled.
+
+NO_HAGAS
+  lib/nerv/angels/leliel.rb. Bundler. Reabrir Ireul.alive.
+  Implementar Instrumentality.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 14
+################################################################################
+
+OBJETIVO
+  Runner de INC-WEAVING-001. Traza: tabletop_started →
+  seele_review → catalog_entry×11 → kpi_conflict → pairing_test
+  → aar_complete. Exit code 7. Cero pattern_blue de kaiju,
+  cero magi_infected como vía, cero intercept_ok.
+
+CONTEXTO
+  bin/episodio … 13→0, 14→7.
+  El 7 no es un 0 de ángel: es AAR. La traza debe listar ids
+  de incidente, no un combate.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 14.
+  Si el binario no existe, créalo soportando 01–14.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep14.rb
+  test/test_scenario_ep14.rb
+  docs/episodios/ep14_lab.md
+  docs/episodios/ep14_catalogo_playbooks.md
+    (matriz generada: incidente | teatro | método que ganó |
+     contraindicado como default — CITA ids, no reescribe AAR)
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 14
+
+  Exit:
+    7 = :aar_complete
+
+CRITERIO
+  El comando corre, imprime tabletop_started, catalog_complete,
+  kpi_conflict, aar_complete; lista los 11 INC-*; NO imprime
+  pattern_blue de silueta nueva ni evolution_dead_end como vía
+  de este episodio; sale 7.
+  test/test_scenario_ep14.rb pasa.
+  13→0 sigue.
+  ep14_catalogo_playbooks.md existe y no copia-pega los AAR viejos.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Leliel. ASCII de monolito que tape
+  la matriz.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 15
+################################################################################
+
+OBJETIVO
+  Cerrar INC-WEAVING-001 como :aar_complete. El tapiz de H1
+  existe. Seele quedó escrito como KPI ajeno. Transferir al 15:
+  sin ángel de combate; relaciones, Kaji, silencio, labios —
+  preventiva humana otra vez, no Leliel. No escribir prompts
+  del 15.
+
+CONTEXTO
+  NERV cree que “ya recapitulamos”. El AAR del AAR: el catálogo
+  no se usa solo; last-playbook-wins sigue siendo el riesgo de
+  H2; Seele no se fue; pairing Shinji×00 quedó frágil. El 15
+  no pide un Eva contra un monolito. El 16 (Leliel) será un
+  espacio que te absorbe: Casper no basta, el catálogo tendrá
+  que decir “ningún método H1 cubre un mar de Dirac”.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 15
+    titulo_canon: Those women longed for the touch of others' lips, and thus invited their kisses
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep15_those_women.txt
+    estado: episodio_completo
+    ultima_nota: INC-WEAVING-001 cerrado aar_complete. Catálogo H1 en disco. Seele.kpi ≠ containment. Falta crear prompts/ep15_those_women.txt. Deuda: H2 humana (15) luego Leliel (16); no last-playbook.
+  No crees ep15_those_women.txt en este turno.
+  Lista secciones sugeridas para el 15 (TIPO=sin_angel, Kaji,
+  relaciones, silencio, no Leliel), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep14_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del catálogo vs estado de Seele vs pairing Eva-00
+    - T-AAR-* / T-SEELE-* cuáles siguen ABIERTAS
+    - Por qué exit 7 no es un 0 de ángel
+    - Deuda hacia ep 15 (humano, no Dirac)
+    - Deuda hacia ep 16 (Leliel: ningún playbook H1; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC — ironía deliberada:
+      la lección ES sobre el board, en lenguaje de tabletop
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 15 y declara que falta el archivo.
+  El AAR se entiende sin la serie. No se inventa un ángel “para
+  que el recap pegue”. Leliel se nombra como frontera, no se
+  implementa.
+
+NO_HAGAS
+  Escribir prompts/ep15_those_women.txt. No lib/leliel. No
+  Third Impact.
+
+SIGUIENTE
+  FIN
+################################################################################

@@ -1,0 +1,651 @@
+---
+EPISODIO: 24
+TITULO_CANON: The Beginning and the End, or "Knockin' on Heaven's Door" / The Final Messenger / 最後のシ者
+ANGEL: Tabris (Kaworu Nagisa)
+TIPO: angel
+INCIDENTE: INC-TABRIS-001
+NUMERO_ANGEL: 17º (último ángel de combate de la TV)
+CLASE_AMENAZA: insider que debía estar / placa de Fifth Child / el phishing que te cae bien / free will
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep23 existen. INC-ARMISAEL-001 está :contained_controlled
+  con Rei III mismatch y CloneTank revealed. Shinji acaba de perder
+  a “su” Rei. El anhelo del 15 es la CVE: Kaworu entra por esa
+  puerta, no por una hélice.
+  Kaji (15/21) era liaison HUMANO multi-principal y lo mataron.
+  Tabris ES el ángel. No es Bardiel (no hijack de Eva-03). No es
+  fusión Armisael. Dummy Plug NO es el kill: Shinji tiene que
+  revocar al amigo con sus propias manos.
+  Longinus sigue perdida. Instrumentality NO se dispara: Kaworu
+  ABORTA el merge.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–23 §10 y luego esta
+  extensión. Si existe, EXTEND. Tabris is_a Angel y pasa el roster.
+SIGUIENTE: ep 25 — Do you love me? / 終わる世界
+  (Instrumentality TV; sin ángel de combate; el perímetro de identidad)
+FUERA_DE_ALCANCE: |
+  No Armisael-fusión. No Dummy Plug kill. No Beast-eat.
+  No Ireul. No Dirac. No Arael-beam. No Longinus (perdida).
+  No Instrumentality.fire / Third Impact como código (Kaworu lo
+  ABORTA; 25–26 lo viven de otro modo).
+  No tratar a Kaworu como Kaji (humano). No fanservice de baño/
+  piano: es canal de confianza / T-TRUST-01, no poster.
+  No contained_controlled si Dummy mata a Tabris.
+  No 0 si merge con Lilith/Adam se completa.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Kaworu llega como Fifth Child (Seele). Parece humano. Shinji
+  se acerca (piano, agua: cercanía, no OP). Es Tabris, alma de
+  Adam. Camina a Terminal Dogma; Shinji en Eva-01. En la cruz
+  no está Adam (el embrión está en Gendo): está Lilith. Kaworu
+  elige no completar. Pide que Shinji lo mate. Shinji aplasta.
+  El último ángel de combate muere por revocación del amigo.
+  Seele no obtiene su Impact. Shinji queda destrozado.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-TABRIS-001: el último Pattern Blue parece una
+  persona con badge. Victoria lab: :contained_controlled
+  (exit 0) vía input de Shinji que mata a Tabris, CON
+  kaworu_aborted_merge Y friend_revoked. Dummy-kill o merge
+  completado: FAIL. Instrumentality no corre.
+
+CONTEXTO
+  El 17 onboardeó a Toji (humano). El 24 onboardea al ángel.
+  El 15: anhelar abre un puerto. Kaworu es ese puerto con
+  alma de Adam. En seguridad: el insider que pasa IAM porque
+  el roster lo pidió; el phishing que te gusta; el threat
+  actor que PUEDE no apretar el detonador (free will) y aun
+  así tienes que revocar. Distinto de Dummy-Toji: aquí el
+  piloto consiente el crush, y eso es el horror.
+
+INSTRUCCION
+  Escribe el briefing. No código. No OP de cercanía.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: Shinji crush +
+                                   abort merge + dummy unused)
+    1 = :contained_uncontrolled   (Dummy/Beast como kill = no
+                                   usar; tests FAIL)
+    2 = :unresolved               (merge no abortado;
+                                   third_impact_risk)
+  Lilith vs Adam: documentar el error de objetivo; no
+  implementar Third Impact.
+
+ENTREGABLE
+  docs/episodios/ep24_briefing.md con exactamente estos headings:
+    - Contrato (INC-TABRIS-001; último ángel; insider)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (25–26 fire, Dummy-win,
+      fusión-hélice, Kaji-era-ángel, fanservice)
+    - Definición de victoria (lab): 0 con amigo revocado
+    - Definición de derrota (lab)
+    - Vocabulario nuevo (Tabris, Kaworu, Fifth Child, Adam soul,
+      Lilith, Terminal Dogma, free will, friend_revoke)
+    - Relación con 15 anhelo, 17 Fourth Child, 18 Dummy, 21 Kaji,
+      23 Rei III
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y mandar Dummy. Imposible
+  Instrumentality.fire. No spoilers de 25 más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs 15/17/18/23. Crear lib/. Third Impact.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (una persona, no un kaiju)
+################################################################################
+
+OBJETIVO
+  Recrear a Kaworu: First Child visual de un humano que el
+  SIEM debería haber pintado Pattern Blue y pintó “nuevo
+  piloto”. Piano, agua (distancia de erizo que se cierra).
+  Terminal Dogma, la cruz (Lilith), Eva-01, la mano que
+  cierra. El crush se nombra, no se ilustra como gore.
+
+CONTEXTO
+  Armisael era una hélice. Tabris es un chico en el locker.
+  El error clásico: buscar un 17º bípedo en el cielo. El
+  first packet es un alta de Fifth Child.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: llegada, Shinji, Dogma, Lilith no Adam, abort,
+       crush, silencio
+    B) first-seen: roster intake vs Pattern Blue de persona
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Kaworu
+  como persona (no halo, no hélice), UN párrafo Terminal Dogma
+  / cruz, NADA de baño-erótico, NADA de aplastamiento-gore.
+
+ENTREGABLE
+  docs/episodios/ep24_aparicion.md
+    - Minuto cero: la puerta, no el radar de cielo
+    - Lo que NERV/Shinji creen (Fifth Child, amigo)
+    - Spec visual Kaworu (humano; el ángel no se “ve” hasta Dogma)
+    - Spec de Terminal Dogma / cruz (Lilith, no Adam)
+    - Spec del crush (hecho, no poster)
+    - Tabla corta vs Kaji (humano) vs Armisael (hélice) vs
+      Bardiel (Eva-03)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un kaiju en el cielo.
+  La cercanía no es fanservice en el texto.
+
+NO_HAGAS
+  Código. Anatomía Adam/Lilith/free will (es 03–04). Ep 25.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: ángel-persona, badge, Adam/Lilith, free will
+################################################################################
+
+OBJETIVO
+  Partes de Tabris → métodos. is_a Angel && looks_human.
+  badge Fifth Child (pasa intake). walk_to_dogma. target
+  confusion Adam vs Lilith. abort_merge! (free will).
+  Shinji.crush! con input propio. Dummy no aplica.
+
+CONTEXTO
+  Soul of Adam = llave raíz distinta de Lilith (el tesoro
+  en la cruz). Contactar la cruz con alma de Adam = riesgo
+  de Impact. Kaworu ABORTA. Gendo tiene el embrión Adam
+  (se nombra, no se juega EoE).
+  Free will = el kill-chain puede pararse desde el atacante;
+  el defensor igual tiene que revocar.
+  Badge = skip-audit de persona (rima 17, peor).
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de looks_human,
+  roster_badge, dogma_walk, abort_merge!, third_impact_risk,
+  crush_by_operator!, dummy_forbidden.
+  Tabris < Angel. No Fusion de Armisael. No Liaison de Kaji
+  (Kaji no is_a Angel).
+  Lilith y Adam: entidades de tesoro/origen, NO class Angel
+  de combate en este episodio.
+
+ENTREGABLE
+  docs/episodios/ep24_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - looks_human vs Pattern Blue de silueta
+    - Adam soul vs Lilith on the cross (objetivo equivocado)
+    - abort_merge vs Instrumentality.fire (NO implementar fire)
+    - crush_by_operator vs DummyPlug vs Beast
+    - badge Fifth Child vs Eva-03 trusted_intake (17)
+    - Implicación: el último control es Shinji, no un producto
+
+CRITERIO
+  Un implementador no llama DummyPlug.engage! como kill.
+  Instrumentality no tiene fire() de éxito. Tabris is_a Angel.
+
+NO_HAGAS
+  Código. Playbook (es 08). EoE.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el que debía estar
+################################################################################
+
+OBJETIVO
+  Fijar INSIDER_INVITADO. Last-playbook (fusión, Dummy, Lanza,
+  Casper) no cubre a alguien con placa. El anhelo (15) es la
+  CVE. Free will no te ahorra la revocación: te obliga a que
+  sea personal.
+
+CONTEXTO
+  Analogías: contractor con badge; el pentest que era real;
+  el amigo en Slack que era el actor; revoke de una sesión
+  que querías; un malware que se detiene y aun así hay que
+  borrar la cuenta.
+  Error clásico A: Dummy (18). Error clásico B: es Kaji.
+  Error clásico C: fusión-hélice. Error clásico D: dejarlo
+  llegar a Lilith. Error clásico E: Beast-eat. Error clásico F:
+  Instrumentality.fire como “final del 24”.
+
+INSTRUCCION
+  Escribe el patrón INSIDER_INVITADO.
+  Tabla de métodos vs resultado (Dummy, Beast, fusion, Casper,
+  Longinus, leave-him, Shinji crush + abort).
+  Regla de lab: contained_controlled IFF tabris not alive
+  AND crush_by_operator (Shinji input) AND abort_merge
+  AND dummy unused AND third_impact_risk not fired.
+
+ENTREGABLE
+  docs/episodios/ep24_insider.md
+    - Escena breve de la puerta que nadie cerró
+    - Patrón INSIDER_INVITADO (precondiciones anhelo + badge,
+      síntoma “es bueno conmigo”, error Dummy, error merge)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no hay kaiju en el cielo” no es “no hay 17º”
+    - Frontera con 15 Kaji, 17 Toji, 18 Dummy, 23 fusión
+
+CRITERIO
+  El 0 exige las manos de Shinji. Dummy-kill FAIL. Merge
+  completado FAIL. El 21 Kaji.terminated no convierte a Kaji
+  en Tabris.
+
+NO_HAGAS
+  Código. No 25–26. No fanservice.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs del último mensajero
+################################################################################
+
+OBJETIVO
+  Kill-chain: badge on → trust Shinji → walk Dogma → (Adam
+  expected, Lilith found) → abort OR merge-risk → Shinji
+  crush. T-TRUST-01 se COBRA. T-SOC-08 need-to-know del 17
+  rima: nadie dijo a Shinji qué era Kaworu.
+
+CONTEXTO
+  Seele manda al Fifth Child. Gendo no lo controla. Tabris
+  puede no completar. El defensor útil es un niño que acaba
+  de perder a Rei II.
+
+INSTRUCCION
+  Ids estables. Diagrama: intake persona → trust → Dogma →
+  abort → crush 0 | merge 2 | dummy FAIL.
+
+ENTREGABLE
+  docs/episodios/ep24_ttps.md
+    - Qué T-ARMISAEL / T-DUMMY / T-KAJI no se reabren como método
+    - T-TRUST-01 UnauthTrustFromNeed se CITA (15)
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-TABRIS-01 HumanShapedAngel
+        T-TABRIS-02 FifthChildBadge
+        T-TABRIS-03 WalkToRootOfTrust
+        T-TABRIS-04 FreeWillAbort
+        T-INSIDER-01 InvitedByLoneliness
+        T-OP01-23 RevokeTheFriend
+        T-SEELE-04 FifthChildAsPayload
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (hélice, Dummy-kill,
+      Lanza, Ireul, Instrumentality.fire)
+
+CRITERIO
+  T-TABRIS-01 ≠ T-KAJI-01. T-TABRIS-04 no cancela T-OP01-23:
+  abort ≠ “no hay que matarlo”. T-SEELE-04 no es fire().
+
+NO_HAGAS
+  Código. No TTP de piano-erótico.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: Pattern Blue con cara
+################################################################################
+
+OBJETIVO
+  Detectar fifth_child_intake, human_shaped_pattern_blue,
+  dogma_walk, abort_merge, operator_crush. El SIEM que solo
+  pinta siluetas de kaiju llega tarde. Frase-ley: “el 17º
+  firmó la entrada”. Anti-métrica: Kaworu es simpático = seguro.
+
+CONTEXTO
+  El 17: Eva-03 trusted. El 24: persona trusted. Falso
+  positivo: “es el Fifth Child, Seele lo mandó, OK”.
+  Shinji.trust es el detector invertido (cuanto más confía,
+  peor).
+
+INSTRUCCION
+  Señales de lab. Ids estables. No helix, no dummy_kill.
+
+ENTREGABLE
+  docs/episodios/ep24_deteccion.md
+    - Pattern Blue heredado + subtipo human_shaped
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.fifth_child_intake
+        siem.human_shaped_angel
+        siem.trust_channel_shinji
+        siem.dogma_walk
+        siem.lilith_not_adam
+        siem.merge_aborted
+        siem.operator_crush
+        siem.friend_revoked
+        siem.third_impact_averted
+    - Falsos positivos (Kaji, Rei III, Fifth Child “sano”)
+    - Anti-métrica: like / closeness = cleared
+
+CRITERIO
+  Ids usables en tests. human_shaped_angel true. dummy no
+  aparece como kill. third_impact_averted en el 0.
+
+NO_HAGAS
+  Código. No magi_infected. No fusion eva00.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de darle la placa)
+################################################################################
+
+OBJETIVO
+  Preventiva de insider-ángel: no skip-audit de Fifth Child
+  porque Seele lo mandó; soledad del operador como CVE (15);
+  decir qué es (need-to-know invertido otra vez); no Dummy
+  como plan para “el niño no podrá”; Terminal Dogma no se
+  camina sin alarma de persona.
+
+CONTEXTO
+  Prevenible: alta de Kaworu sin Pattern Blue de persona;
+  Shinji sin briefing; Dogma accesible al “piloto nuevo”.
+  No prevenible del todo: que el 17º parezca humano. Se
+  prepara tratando al roster como superficie.
+  Anti-patrón: “Seele lo envió”; “Dummy si Shinji duda”;
+  “es como Kaji”; “fusión”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5. Analogías: identity proofing; don't onboard
+  loneliness; insider detection; revoke yourself not SOAR;
+  root-of-trust physical access.
+
+ENTREGABLE
+  docs/episodios/ep24_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (crush por el amigo vive aquí)
+    - Anti-patrones (mínimo 3): badge-as-clearance; dummy-for-
+      feelings; seele-sent-so-safe
+    - Relación con T-TABRIS-* T-INSIDER-01 T-OP01-23
+    - Higiene de insider en 7 viñetas (SOC real)
+    - Nota: free will del atacante no es un control tuyo
+
+CRITERIO
+  Nadie sale pensando que Dummy habría sido más misericordioso.
+  Nadie sale pensando que el 17 cubre el 24.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No 25–26.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: no Dummy, abort, revocar al amigo
+################################################################################
+
+OBJETIVO
+  Runbook de insider. 1) Clasificar: Angel human-shaped, no
+  Kaji, no hélice, no Eva-03. 2) Prohibir Dummy, Beast-eat,
+  fusion-playbook, Longinus, Instrumentality.fire. 3) Dogma:
+  Lilith ≠ Adam. 4) Kaworu abort_merge. 5) Shinji crush
+  (input presente, agonizing). 6) tabris dead,
+  third_impact_averted. 7) :contained_controlled.
+  MAGI no vota Dummy. Seele no obtiene Impact.
+
+CONTEXTO
+  Misato puede llegar tarde. Gendo observa su Adam. Rama
+  Dummy = FAIL. Rama merge = 2. Rama “no puedo, que lo haga
+  el dummy” = FAIL pedagógico (sería el 18 otra vez).
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 25 (Instrumentality TV, sin ángel de combate;
+  el perímetro de identidad), lista, no redactar el 25.
+
+ENTREGABLE
+  docs/episodios/ep24_playbook.md
+    - Árbol ASCII (badge → Dogma → abort+crush 0 | dummy FAIL |
+      merge 2)
+    - Runbook numerado
+    - Condición :contained_controlled
+    - Condición :unresolved / third_impact_risk
+    - Hooks Ruby
+    - Handoff a ep 25 (lista: Instrumentality como disolución
+      de AT Field, no Tabris 2)
+
+CRITERIO
+  Traducible a tests. No rama Dummy-win. No rama fire().
+
+NO_HAGAS
+  Código. No lib de ep 25. No EoE.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: “I like you” y la mano del Eva
+################################################################################
+
+OBJETIVO
+  Kaworu: ángel y cariño (free will, no meme). Shinji: anhelo
+  + crush (T-OP01-23), still a child (21). Seele: payload
+  Fifth Child. Gendo: Adam en la mano, otro plan. Rei III:
+  no es el interlocutor. Asuka: ausente/rota. Misato: el IC
+  no estaba en el piano.
+
+CONTEXTO
+  Ética: no reducir a ship. Operacionalizar: confianza no
+  autorizada que hay que revocar en persona. Dummy habría
+  sido más cruel-fácil; el 24 exige que el operador lo haga.
+  Kaworu no es redención de Gendo.
+
+INSTRUCCION
+  Fichas. Métricas: trust_channel, abort_merge, operator_crush,
+  friend_revoked, dummy_unused, still_a_child, seele_payload.
+  Frontera con 25 (Instrumentality) y 15 (anhelo).
+
+ENTREGABLE
+  docs/episodios/ep24_humanos.md
+    - Fichas: Kaworu/Tabris, Shinji, Gendo, Seele, Misato
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: trust_channel no limpia Pattern Blue;
+      abort_merge no evita crush; dummy_unused obligatorio
+      al 0; still_a_child sigue true
+    - Frontera con 15, 18, 21, 23, 25
+    - NO_HAGAS: fanservice, Dummy-misericordia, EoE
+
+CRITERIO
+  Kaworu no es “el novio”. Shinji no se hace adulto por matar.
+  Seele no gana. Gendo no es el héroe del abort.
+
+NO_HAGAS
+  Código. No Instrumentality. No gore de crush.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Tabris humano, abort, crush de Shinji)
+################################################################################
+
+OBJETIVO
+  Código de Tabris y del playbook de insider. Tests que FALLAN
+  si Dummy o Beast matan; si merge se completa; si Tabris no
+  is_a Angel; si se trata como Kaji; si Instrumentality.fire.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Tabris < Angel, looks_human, FifthChild badge.
+  PlaybookEp18 Dummy vs Bardiel intacto; Dummy vs Tabris FAIL.
+  PlaybookEp23 fusion no es este kill.
+  PlaybookEp15 Kaji no is_a Angel.
+  Seele.kpi no fire.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 15, 18, 23, 24.
+  Ids: docs/episodios/ep24_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/tabris.rb
+  lib/nerv/fifth_child.rb
+  lib/nerv/free_will.rb
+  lib/nerv/playbooks/ep24.rb
+  test/test_tabris.rb
+  test/test_fifth_child.rb
+  test/test_playbook_ep24.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/operator.rb
+    lib/nerv/siem.rb
+    lib/nerv/dummy_plug.rb     (no kill Tabris)
+    lib/nerv/seele.rb          (payload, no fire)
+    lib/nerv/liaison.rb        (Kaji ≠ Tabris)
+
+  Comportamiento mínimo a cubrir:
+    - Tabris.is_a?(Angel) && looks_human
+    - Kaji.is_a?(Angel) == false
+    - fifth_child badge pasa intake
+    - DummyPlug / Fusion / Dirac / Casper / Longinus /
+      Beast-eat no contained
+    - abort_merge! ⇒ third_impact not fired
+    - crush_by_operator Shinji ⇒ Tabris not alive
+    - PlaybookEp24 → :contained_controlled solo si dummy unused
+      && abort_merge && operator_crush
+    - merge without abort ⇒ not contained (risk flag)
+    - PlaybookEp18 Dummy vs Bardiel sigue 1
+    - PlaybookEp23 sacrifice sigue 0 por hélice, no por crush
+    - SIEM: human_shaped_angel, fifth_child_intake, dogma_walk,
+      merge_aborted, operator_crush, friend_revoked
+    - no Instrumentality.fire
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep18.rb test/test_playbook_ep23.rb \
+    test/test_liaison.rb test/test_tabris.rb \
+    test/test_playbook_ep24.rb test/test_fifth_child.rb
+  sale 0. Hay un test que falla si Dummy mata a Tabris.
+  Hay un test que falla si Kaji is_a Angel.
+  Hay un test que falla si Instrumentality corre.
+
+NO_HAGAS
+  Bundler. lib de ep 25. Gore. Fanservice en strings.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 24
+################################################################################
+
+OBJETIVO
+  Runner de INC-TABRIS-001. Traza: fifth_child_intake →
+  human_shaped_angel → trust_channel_shinji → dogma_walk →
+  lilith_not_adam → merge_aborted → operator_crush →
+  friend_revoked. Exit 0. Cero dummy_plug_engaged, cero
+  eva00_fused, cero kaji_terminated como vía de ESTE kill.
+
+CONTEXTO
+  bin/episodio … 23→0, 24→0.
+  El 0 del 24 no es el del 23: hay friend_revoked y
+  merge_aborted, no node_sacrifice.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 24.
+  Si el binario no existe, créalo soportando 01–24.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep24.rb
+  test/test_scenario_ep24.rb
+  docs/episodios/ep24_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 24
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime human_shaped_angel, merge_aborted,
+  operator_crush, friend_revoked; NO imprime dummy_plug_engaged
+  ni node_sacrifice ni intercept_ok como vía; sale 0.
+  test/test_scenario_ep24.rb pasa.
+  23→0 sigue (hélice, no Kaworu).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de 25–26. ASCII de crush. Baño-OP.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 25
+################################################################################
+
+OBJETIVO
+  Cerrar INC-TABRIS-001. El último ángel de combate está
+  muerto. No hubo Third Impact aquí. Shinji revocó al amigo.
+  Transferir a 25–26: Instrumentality TV — sin ángel de
+  combate; el fallo es de CONTENCIÓN DE IDENTIDAD (AT Field
+  como yo). No escribir prompts del 25.
+
+CONTEXTO
+  NERV “completó” la lista de ángeles. El AAR: insider con
+  placa; anhelo como CVE; Dummy no es misericordia; free will
+  del atacante no es tu control. Seele no fusionó el mundo
+  en el 24. El 25 no pide un 18º ángel: pide qué pasa cuando
+  no queda perímetro entre las personas. Last-playbook crush
+  no cubre Instrumentality. Lilith sigue en la cruz. S2 sigue
+  en Eva-01. Lanza sigue perdida.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 25
+    titulo_canon: Do you love me?
+    angel: (ninguno; Instrumentality)
+    numero_angel:
+    archivo_episodio: prompts/ep25_instrumentality.txt
+    estado: episodio_completo
+    ultima_nota: INC-TABRIS-001 cerrado contained_controlled vía operator crush. Merge aborted. Dummy unused. Falta crear prompts/ep25_instrumentality.txt. Deuda: TV Instrumentality; sin ángel; AT Field como identidad.
+  No crees ep25_instrumentality.txt ni ep26 en este turno.
+  Lista secciones sugeridas para el 25 (TIPO=sin_angel,
+  Instrumentality, complemento 26, no 18º ángel), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep24_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Tabris vs Shinji vs Seele vs Lilith/Adam
+    - T-TABRIS-* cerradas / T-OP01-23 / T-INSIDER-01
+    - Por qué este 0 no es Dummy-18 ni sacrifice-23
+    - Deuda hacia ep 25–26 (Instrumentality, identidad)
+    - "Lección Seele" en 5 viñetas para un SOC (insider con
+      badge, loneliness CVE, revoca tú no el SOAR, el actor
+      amable)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 25 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Third Impact no corre.
+  El 25 no se escribe. Kaworu no “era bueno luego no hay
+  que matarlo” como moraleja de skip.
+
+NO_HAGAS
+  Escribir prompts/ep25_instrumentality.txt. No EoE. No 18º ángel.
+
+SIGUIENTE
+  FIN
+################################################################################

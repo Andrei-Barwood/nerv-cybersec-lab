@@ -1,0 +1,660 @@
+---
+EPISODIO: 19
+TITULO_CANON: Introjection / A Man's Battle / 男の戦い
+ANGEL: Zeruel
+TIPO: angel
+INCIDENTE: INC-ZERUEL-001
+NUMERO_ANGEL: 14º
+CLASE_AMENAZA: overwhelm / el dummy no basta / Beast que se come el S2 y luego al operador
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep18 existen. INC-BARDIEL-001 está :contained_uncontrolled
+  vía Dummy Plug; Shinji.consent false; Toji maimed. ESTE episodio
+  prueba que Dummy Plug NO es el plan A: contra Zeruel FALLA.
+  Berserk/opaque_agency (02) se REÚSA como kill sucio, no como
+  doctrina. No nombrar a Yui.
+  Eva-02 se parte (armor strip). Eva-00 N²-suicida no mata.
+  Shinji, aún negado, termina subiendo; no gobierna el final:
+  Eva-01 berserk, come el S2, introyecta al piloto (absorción
+  al Eva, NO al Dirac de Leliel).
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–18 §10 y luego esta
+  extensión. Si existe, EXTEND. DummyPlug.engage! contra Zeruel
+  debe FALLAR (test).
+SIGUIENTE: ep 20 — Oral Stage / Weaving a Story 2
+  (Shinji dentro de Eva-01; sin ángel nuevo; aftermath de introyección)
+FUERA_DE_ALCANCE: |
+  No mes dentro del Eva (eso es el 20). Aquí empieza la absorción
+  al cuerpo de Eva-01; no se vive el Oral Stage.
+  No Arael (22). No Armisael (23). No Tabris (24).
+  No Dummy Plug como kill. No Casper. No Dirac como kill.
+  No Bardiel-hijack (Zeruel tiene CUERPO propio, no Eva-03).
+  No Yui. No password JA. No Yashima.
+  No contained_controlled: Shinji no “se hace hombre y gana”.
+  No gore de Asuka-desnuda-Eva como fanservice: armor_stripped
+  es un FLAG de competencia pelada, no un poster.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Zeruel: humanoide, láminas, brazos-cinta, rayo, AT Field máximo
+  de combate. Parte las defensas del geofront. Asuka/Eva-02 sale
+  y es despojada de armadura; no basta el skill del 08/09.
+  Rei/Eva-00 carga una N² a pecho: no mata a Zeruel.
+  Dummy Plug en Eva-01: no basta.
+  Shinji, tras Toji, se niega y al final sube. Pelea, le cortan
+  los brazos al Eva, entonces Beast: regenera, destroza, COME el
+  órgano S2. Shinji es absorbido al Eva (introyección). Zeruel
+  muerto. Contención sucia. El niño no vuelve al plug seco.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-ZERUEL-001. Overwhelm: los controles que “funcionaron”
+  (skill de Asuka, N², Dummy Plug) no escalan. Victoria HONESTA:
+  :contained_uncontrolled (exit 1) vía berserk + S2 ingest +
+  operador introyectado. Dummy Plug que mate a Zeruel = FAIL
+  de tests y de tesis del 18.
+
+CONTEXTO
+  El 18 usó un producto para saltarse a Shinji. El 19 enseña
+  que ese producto no es un Eva. En seguridad: wiper/brute
+  force que tumba EDR, playbooks y auto-response; el on-call
+  vuelve tarde; el sistema se suelta, se come el 0-day enemigo
+  (S2) y se come al analista. Introjection = el control te
+  incorpora. Distinto de Leliel (espacio del ángel) y de
+  Bardiel (Eva ajena poseída).
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de strip-fanservice.
+  Exit codes de ángel:
+    0 = :contained_controlled     (NO esperado)
+    1 = :contained_uncontrolled   (esperado: Beast + S2 + absorb)
+    2 = :unresolved               (dummy-only; Shinji no sube y
+                                   Beast no sale; geofront cae)
+  Dummy Plug fail es un HECHO del episodio, no un maybe.
+
+ENTREGABLE
+  docs/episodios/ep19_briefing.md con exactamente estos headings:
+    - Contrato (INC-ZERUEL-001; overwhelm; dummy fail)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Oral Stage mes, Arael,
+      Dummy-as-win, Yui, fanservice-strip)
+    - Definición de victoria sucia (lab): exit 1
+    - Definición de derrota (lab): Dummy mata; N² de Rei mata;
+      0 “Shinji ganó”
+    - Vocabulario nuevo (Zeruel, overwhelm, armor strip, S2,
+      ingest, introjection, dummy_fail)
+    - Relación con 02 (Beast), 18 (dummy), 16 (absorb ≠ Dirac)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y puntuar Dummy Plug como kill.
+  Imposible vivir el mes del 20. No spoilers de Arael.
+
+NO_HAGAS
+  Reescribir docs del 18. Crear lib/. Yui.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (láminas, strip, fauces)
+################################################################################
+
+OBJETIVO
+  Recrear Zeruel: no un parásito en Eva-03 ni una esfera-decoy.
+  Cuerpo propio, cintas que cortan, rayo, Eva-02 sin armadura,
+  N² de Rei que no basta, Dummy que no se mueve como Beast,
+  fauces de Eva-01 comiendo el core/S2, Shinji que deja de
+  estar “en el asiento”.
+
+CONTEXTO
+  Bardiel era nuestra unidad torcida. Zeruel es el ángel que
+  no necesita huésped. El error clásico: “sacamos el dummy
+  otra vez”. El first packet es un bípedo de combate que parte
+  el geofront como si el 18 no hubiera enseñado nada de productos.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: aparición, 02 stripped, 00 N², dummy fail,
+       Shinji, brazos cortados, Beast, ingest S2, introjection
+    B) first-seen: overwhelm en perímetro, no hijack de asset tag
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Zeruel
+  (láminas, no gore de piloto), UN párrafo Eva-02 sin armadura
+  como FLAG de skill pelado (no poster), UN párrafo Eva-01
+  comiendo S2. Nada de Dummy “cool”. Nada de Dirac-esfera.
+
+ENTREGABLE
+  docs/episodios/ep19_aparicion.md
+    - Minuto cero: el geofront agujereado
+    - Lo que NERV cree (otro Bardiel / dummy otra vez)
+    - Spec visual Zeruel (humanoide, cintas, core, S2)
+    - Spec visual armor_stripped (Eva-02; competencia, no erotismo)
+    - Spec visual dummy_fail vs Beast-02
+    - Spec visual ingest S2 + Shinji dejando el asiento
+    - Tabla corta vs Bardiel (huésped) y vs Sachiel (Beast sin S2)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar Zeruel sin Eva-03. El strip no es fanservice
+  en el texto. Dummy fail se VE.
+
+NO_HAGAS
+  Código. Anatomía S2/dummy_fail (es 03–04). Oral Stage mes.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: overwhelm, S2, dummy_fail, introyección
+################################################################################
+
+OBJETIVO
+  Partes de Zeruel y del Eva-01 que come → métodos. Dummy Plug
+  tiene un techo. N² no mata (rima Sachiel, otro teatro).
+  S2 ingest = el defensor se queda con el motor del atacante.
+  Introjection = occupant absorbed INTO Eva-01, no into Dirac.
+
+CONTEXTO
+  Overwhelm = fuerza que ignora playbooks.
+  Armor strip = quitar capas de control al operador hábil.
+  Dummy fail = auto-response que no escala.
+  S2 = capacidad infinita / 0-day comido (peligroso de poseer).
+  Introjection ≠ Leliel.occupant_inside (allá el espacio del
+  ángel; aquí el cuerpo del Eva se traga al niño).
+  Opaque_agency otra vez; no Yui.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de overwhelm?,
+  dummy_fails_against?, n2_suicide_fail, s2_ingest!,
+  introject_operator!, armor_stripped.
+  Reusar DummyPlug, N2Mine, Eva#berserk! / opaque_agency.
+  DummyPlug.engage!(zeruel) ⇒ fail (explícito para §10).
+  Distinguir introject (Eva←piloto) de absorb Dirac (ángel←Eva).
+
+ENTREGABLE
+  docs/episodios/ep19_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - dummy_fail vs dummy_success del 18 (mismo producto, otro techo)
+    - S2 ingest (qué se GANA y por qué no es higiene)
+    - introjection vs Dirac vs Dummy-discard-input
+    - armor_stripped como estado de Eva-02
+    - Implicación: last-playbook Dummy es incompetencia
+
+CRITERIO
+  Un implementador hace fallar DummyPlug contra Zeruel.
+  Introjection no llama DiracSea. Yui no aparece.
+
+NO_HAGAS
+  Código. Playbook (es 08). Ep 20 mes.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: nada de lo anterior escala
+################################################################################
+
+OBJETIVO
+  Fijar OVERWHELM. Skill, N², Dummy, rush, Casper: tabla de
+  no-eventos. El Beast mata Y se come el S2 Y se come al
+  operador. Un wipe que te deja un implant de poder y sin
+  analista no es un 0.
+
+CONTEXTO
+  Analogías: wiper que tumba EDR y SOAR; DDoS+payload que
+  no cabe en el runbook; auto-isolation que no pega; el
+  humano vuelve, el kernel se suelta, ingiere el malware y
+  al admin. Error clásico A: Dummy otra vez. Error clásico B:
+  N² de Rei como kill. Error clásico C: “Shinji se hizo
+  hombre”. Error clásico D: hijack-playbook 18. Error clásico E:
+  Dirac.
+
+INSTRUCCION
+  Escribe el patrón OVERWHELM.
+  Tabla de métodos vs resultado (Dummy, N² Rei, Asuka-skill,
+  Casper, intercept, JA, Shinji-governed, Beast+S2+introject).
+  Regla de lab: contained_uncontrolled IFF zeruel not alive
+  AND dummy_failed AND s2_ingested AND operator_introjected
+  AND shinji no gobernó el eat.
+  Dummy success contra Zeruel = FAIL de tests.
+
+ENTREGABLE
+  docs/episodios/ep19_overwhelm.md
+    - Escena breve de Eva-02 de rodillas sin armadura
+    - Patrón OVERWHELM (precondiciones post-18, síntoma dummy_fail,
+      error de producto-as-Eva)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “el dummy funcionó ayer” no es capacidad
+    - Frontera con 02 (Beast sin S2/introject), 18 (dummy win
+      vs Bardiel), 20 (mes)
+
+CRITERIO
+  Dummy fail está escrito como ley. El 18 sigue dummy-win vs
+  Bardiel. El 19 no.
+
+NO_HAGAS
+  Código. No Arael. No Yui.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de la fuerza y de la fauces
+################################################################################
+
+OBJETIVO
+  Kill-chain de Zeruel: perímetro → strip 02 → N² fail → dummy
+  fail → (Shinji tarde) → Beast → S2 ingest → introject.
+  TTPs del defensor sucio: opaque_agency + eat. Dummy es TTP
+  de FALLO aquí (T-DUMMY-01 reusada como fail).
+
+CONTEXTO
+  Zeruel no hitchhikea Eva-03. No es software en MAGI. Es
+  combate. Defensor: Asuka-skill contraindicada como suficiente;
+  Rei-sacrificio no-kill; Gendo-dummy no-kill; Shinji-sube-tarde.
+
+INSTRUCCION
+  Ids estables. Diagrama: overwhelm → controles caen → dummy
+  fail → berserk eat → introject → 1.
+
+ENTREGABLE
+  docs/episodios/ep19_ttps.md
+    - Qué T-DUMMY-01 el 18 dejó como “éxito sucio” y AQUÍ falla
+    - Qué T-BARDIEL / T-DIRAC / T-MAGI no se reabren como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-ZERUEL-01 PerimeterOverwhelm
+        T-ZERUEL-02 ArmorStrip
+        T-ZERUEL-03 SurviveN2Suicide
+        T-ZERUEL-04 DummyCeiling
+        T-EVA01-08 S2Ingest
+        T-EVA01-09 OperatorIntrojection
+        T-OP01-20 LateReturnAfterStrike
+        T-OP02-03 SkillInsufficientVsOverwhelm
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Arael-beam, Dummy-win,
+      Dirac, Casper)
+
+CRITERIO
+  T-ZERUEL-04 DummyCeiling ≠ T-DUMMY-01 success.
+  T-EVA01-09 ≠ T-DIRAC-01. T-OP02-03 no humilla a Asuka: nombra
+  un techo de skill.
+
+NO_HAGAS
+  Código. No TTP fanservice-strip.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el dummy no pinta kill
+################################################################################
+
+OBJETIVO
+  Detectar overwhelm, strip, n2_suicide_fail, dummy_fail,
+  berserk, s2_ingest, introject. Anti-métrica: dummy_engaged
+  = mitigación (aquí es un evento de FALLO). Frase-ley:
+  “auto-response engaged no es ángel muerto”.
+
+CONTEXTO
+  El 18: dummy_plug_engaged olía a override sucio que “funcionó”.
+  El 19: el mismo evento no mata. Falso positivo: “Eva-01
+  despertó, como el 02, estamos bien” — ahora hay S2 e
+  introyección, no es el mismo 1.
+
+INSTRUCCION
+  Señales de lab. Ids estables. dummy_fail id propio, no
+  reusar dummy_plug_engaged como éxito.
+
+ENTREGABLE
+  docs/episodios/ep19_deteccion.md
+    - Pattern Blue heredado + subtipo overwhelm
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.overwhelm
+        siem.armor_stripped
+        siem.n2_suicide_failed
+        siem.dummy_failed
+        siem.operator_late_sortie
+        siem.eva_berserk
+        siem.s2_ingested
+        siem.operator_introjected
+        siem.plug_empty
+    - Falsos positivos
+    - Anti-métrica: dummy_engaged = contained; berserk = 0
+
+CRITERIO
+  Ids usables en tests. dummy_failed ≠ dummy_plug_engaged del 18
+  como kill. plug_empty marca el handoff al 20.
+
+NO_HAGAS
+  Código. No Arael. No magi_infected como vía.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el techo se vea)
+################################################################################
+
+OBJETIVO
+  Preventiva de overwhelm: no tratar Dummy Plug como capacidad
+  de combate; no asumir que skill de un operador cubre brute
+  force; N² no es kill (ya lo dijo Sachiel); tener un operador
+  dispuesto ANTES del P1 (el 18 lo quemó); no celebrar S2
+  ingest como upgrade.
+
+CONTEXTO
+  Prevenible: dummy-as-plan-A; Shinji en huelga sin failover
+  humano real (Rei herida, Asuka no basta); cero hipótesis
+  “el auto-response tiene techo”. No prevenible del todo: que
+  exista un ángel de overwhelm. Se prepara con operador y con
+  no-producto-como-Eva, no con más dummy.
+  Anti-patrón: “ayer el dummy salvó”; “Asuka siempre gana”;
+  “Rei se sacrifica y listo”; “comimos el S2, upgrade”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5. Analogías: auto-response ceilings; don’t eat
+  attacker infra into prod; on-call after a traumatic wipe;
+  N²/wipe ≠ kill.
+
+ENTREGABLE
+  docs/episodios/ep19_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (Beast+S2 vive aquí, sucio)
+    - Anti-patrones (mínimo 3): dummy-as-capacity; skill-as-enough;
+      ingest-as-upgrade
+    - Relación con T-ZERUEL-* y T-EVA01-08/09
+    - Higiene de overwhelm en 7 viñetas (SOC real)
+    - Nota: introjection no es “el analista se fusionó con la
+      herramienta, qué profundo, 0”
+
+CRITERIO
+  Nadie sale queriendo más Dummy Plug. Nadie sale pensando
+  que el S2 es un bonus del inventario.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No ep 20.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: dummy fail, strip, N² fail, Beast, fauces, vacío
+################################################################################
+
+OBJETIVO
+  Runbook de overwhelm. 1) Pattern Blue. 2) Dummy Plug → fail.
+  3) Eva-02 → armor_stripped. 4) Eva-00 N² → fail. 5) Shinji
+  late sortie. 6) Eva-01 pierde brazos. 7) berserk + s2_ingest
+  + introject. 8) :contained_uncontrolled, plug_empty.
+  MAGI puede autorizar dummy; el fail se registra. No 0.
+
+CONTEXTO
+  Misato IC con piloto en huelga. Gendo dummy otra vez: no
+  basta. Rama Dummy-kill = FAIL. Rama N²-kill = FAIL.
+  Rama Casper/Dirac/Bardiel-playbook = FAIL de clasificación.
+  Rama “Shinji gobierna el eat” = FAIL pedagógico.
+  El corte del playbook ES el plug vacío: el 20 lo hereda.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 20 (Oral Stage: mes dentro, sin ángel nuevo),
+  lista, no redactar el 20.
+
+ENTREGABLE
+  docs/episodios/ep19_playbook.md
+    - Árbol ASCII (dummy fail → 02 strip → 00 n2 fail →
+      late Shinji → berserk eat introject → 1)
+    - Runbook numerado
+    - Condición :contained_uncontrolled
+    - Condición :unresolved (nadie berserkea, geofront)
+    - Dummy fail como PASO, no como kill
+    - Hooks Ruby
+    - Handoff a ep 20 (lista: plug_empty, no nuevo Pattern Blue)
+
+CRITERIO
+  Traducible a tests. No rama Dummy-win. No rama Yui.
+
+NO_HAGAS
+  Código. No lib de Oral Stage. No Arael.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: huelga, strip de orgullo, fauces
+################################################################################
+
+OBJETIVO
+  Shinji: refuse residual del 18, late return, no gobierna el
+  eat, introjected. Asuka: skill pelado (armor_stripped), no
+  meme de humillación erótica. Rei: sacrificio que no mata.
+  Gendo: dummy techo. Misato: IC sin piloto y luego sin piloto
+  otra vez (se lo tragó el Eva). Toji: hospital, no sale a
+  pelear.
+
+CONTEXTO
+  Ética: no “por fin Shinji es un hombre” (el título japonés
+  miente si se lee así). El lab registra late return y
+  introjection. Asuka no “se merecía” el strip. Rei no es
+  bomba. El Beast no es redención.
+
+INSTRUCCION
+  Fichas delta. Métricas: dummy_failed, armor_stripped,
+  n2_suicide_failed, late_sortie, s2_ingested,
+  operator_introjected, plug_empty.
+  Frontera con 20 (mes) y con 02 (Beast sin S2).
+
+ENTREGABLE
+  docs/episodios/ep19_humanos.md
+    - Deltas: Shinji, Asuka, Rei, Gendo, Misato
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: late_sortie no implica consent del eat;
+      armor_stripped no es fanservice flag; dummy_failed no
+      se reinterpreta como “casi”
+    - Frontera con 18, 20
+    - NO_HAGAS: Yui, strip-erótico, “manhood”
+
+CRITERIO
+  Shinji no se redime. Asuka no es chiste. Rei no “falla como
+  persona”. Gendo no acertó con el dummy.
+
+NO_HAGAS
+  Código. No ep 22. No Dummy-as-win.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Zeruel, dummy_fail, S2, introject)
+################################################################################
+
+OBJETIVO
+  Código de Zeruel y del playbook de overwhelm. Tests que
+  FALLAN si Dummy Plug mata a Zeruel, si N² de Eva-00 mata,
+  si el resultado es 0, si introject usa DiracSea, o si
+  Bardiel-hijack es el modelo.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Zeruel < Angel, cuerpo propio. DummyPlug.engage! vs Zeruel
+  falla. Eva#berserk! + s2_ingest! + introject_operator!.
+  PlaybookEp18 sigue dummy-win vs Bardiel.
+  PlaybookEp02 sigue Beast vs Sachiel SIN s2_ingest.
+  PlaybookEp16 Dirac no es introjection.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 02, 16, 18, 19.
+  Ids: docs/episodios/ep19_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/zeruel.rb
+  lib/nerv/s2_organ.rb
+  lib/nerv/introjection.rb
+  lib/nerv/playbooks/ep19.rb
+  test/test_zeruel.rb
+  test/test_s2_organ.rb
+  test/test_introjection.rb
+  test/test_playbook_ep19.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/dummy_plug.rb     (fail vs Zeruel; success vs Bardiel)
+    lib/nerv/siem.rb
+    lib/nerv/attacks/n2_mine.rb
+
+  Comportamiento mínimo a cubrir:
+    - Zeruel no is_a hijack de Eva-03
+    - DummyPlug.engage!(zeruel) no mata; dummy_failed
+    - N2Mine vía Eva-00 no mata a Zeruel
+    - Eva-02 armor_stripped; no contained
+    - berserk + s2_ingest ⇒ Zeruel not alive
+    - introject_operator! ⇒ plug_empty, occupant en Eva (no Dirac)
+    - PlaybookEp19 → :contained_uncontrolled nunca 0
+    - PlaybookEp18 Dummy vs Bardiel sigue 1 con dummy success
+    - PlaybookEp16 absorb sigue Dirac, no introject
+    - Casper / intercept / JA no contained
+    - SIEM: overwhelm, dummy_failed, s2_ingested,
+      operator_introjected, plug_empty
+    - ninguna clase Yui
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep18.rb test/test_playbook_ep16.rb \
+    test/test_playbook_ep02.rb test/test_zeruel.rb \
+    test/test_playbook_ep19.rb test/test_dummy_plug.rb \
+    test/test_introjection.rb
+  sale 0. Hay un test que falla si Dummy mata a Zeruel.
+  Hay un test que falla si el 19 sale 0.
+  Hay un test que falla si introject usa DiracSea.
+
+NO_HAGAS
+  lib/nerv/angels/arael.rb. Bundler. Implementar el mes del 20.
+  Clase Yui.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 19
+################################################################################
+
+OBJETIVO
+  Runner de INC-ZERUEL-001. Traza: overwhelm → armor_stripped →
+  n2_suicide_failed → dummy_failed → late_sortie → eva_berserk →
+  s2_ingested → operator_introjected → plug_empty. Exit code 1.
+  Cero dummy_plug_engaged como kill, cero absorb Dirac, cero
+  hitchhiker.
+
+CONTEXTO
+  bin/episodio … 18→1, 19→1.
+  El 1 del 19 no es el del 18: hay dummy_failed y s2_ingested,
+  no dummy_plug_engaged-as-kill.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 19.
+  Si el binario no existe, créalo soportando 01–19.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep19.rb
+  test/test_scenario_ep19.rb
+  docs/episodios/ep19_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 19
+
+  Exit:
+    1 = :contained_uncontrolled
+
+CRITERIO
+  El comando corre, imprime dummy_failed, armor_stripped,
+  s2_ingested, operator_introjected, plug_empty;
+  NO imprime dummy_plug_engaged como vía de éxito ni
+  casper_reverse_hack ni eva03_hijacked; sale 1.
+  test/test_scenario_ep19.rb pasa.
+  18→1 sigue (dummy success vs Bardiel).
+
+NO_HAGAS
+  Gem de CLI. Spoiler del mes/Oral Stage más allá de plug_empty.
+  ASCII de fauces que tape la traza. Strip-erótico.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 20
+################################################################################
+
+OBJETIVO
+  Cerrar INC-ZERUEL-001 sucio. Zeruel muerto. S2 en Eva-01.
+  Plug vacío. Transferir al 20: Oral Stage — Shinji dentro,
+  sin ángel nuevo, tejer la introyección. No escribir prompts
+  del 20.
+
+CONTEXTO
+  NERV “ganó” un ángel y perdió al piloto dentro de la máquina
+  que ahora tiene S2. El AAR: Dummy tiene techo; skill tiene
+  techo; N² sigue sin ser kill; ingest no es upgrade; Beast
+  otra vez, peor. El 20 no pide Pattern Blue: pide estar
+  adentro. Last-playbook Dummy/Bardiel no cubre overwhelm ni
+  el mes. Arael (22) será un rayo a la mente, no fauces.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 20
+    titulo_canon: Oral Stage / Weaving a Story 2
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep20_oral_stage.txt
+    estado: episodio_completo
+    ultima_nota: INC-ZERUEL-001 cerrado contained_uncontrolled vía Beast+S2+introject. Dummy failed. Plug empty. Falta crear prompts/ep20_oral_stage.txt. Deuda: mes dentro; no ángel; no Dummy-as-plan.
+  No crees ep20_oral_stage.txt en este turno.
+  Lista secciones sugeridas para el 20 (TIPO=sin_angel, interior
+  Eva, S2, no Pattern Blue), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep19_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Zeruel vs Dummy vs S2 vs plug_empty
+    - T-ZERUEL-* cerradas / T-EVA01-08/09 ABIERTAS (S2 e
+      introyección son deuda, no feature)
+    - T-DUMMY-01 techo registrado
+    - Por qué este 1 no es el 1 del 02 ni el del 18
+    - Deuda hacia ep 20 (Oral Stage)
+    - Deuda hacia ep 22 (Arael; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (techo del
+      auto-response, no comerse el malware, wipe ≠ kill)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 20 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Shinji no “se hizo hombre”.
+  El mes no se vive. Yui no aparece.
+
+NO_HAGAS
+  Escribir prompts/ep20_oral_stage.txt. No Dummy-as-feature.
+  No Arael.
+
+SIGUIENTE
+  FIN
+################################################################################

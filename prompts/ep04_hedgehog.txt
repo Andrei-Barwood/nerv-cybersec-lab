@@ -1,0 +1,637 @@
+---
+EPISODIO: 04
+TITULO_CANON: Hedgehog's Dilemma / Rain, After Running Away / 雨、逃げ出した後
+ANGEL: (ninguno)
+TIPO: sin_angel
+INCIDENTE: INC-HEDGEHOG-001
+NUMERO_ANGEL:
+CLASE_AMENAZA: deserción del on-call / distancia tóxica / failover de personal como pieza de recambio
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01_sachiel.txt, ep02_sachiel.txt y ep03_shamshel.txt existen.
+  INC-SHAMSHEL-001 está :contained_controlled con callback_absent.
+  Este episodio NO inventa un ángel, NO emite pattern_blue, NO reabre
+  cores de Sachiel/Shamshel, NO usa BerserkChannel.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01–03 §10 y luego esta extensión.
+  Si existe, EXTEND, don't rewrite. Extrae Nerv::Operator si sync_rate
+  aún vive solo dentro de Eva.
+SIGUIENTE: ep 05 — Rei I / Ramiel (fortaleza, AT Field máximo, Yashima empieza)
+FUERA_DE_ALCANCE: |
+  No ángel. No Pattern Blue. No "un enemigo interno" personificado
+  como Shamshel 2. El silencio no se implementa como C2.
+  No Ramiel, no rifle de positrones, no Yashima (eso es 05–06).
+  No Jet Alone (ep 07). No Dummy Plug. No Yui.
+  No resolver la psique de Shinji para siempre. Vuelve; no está curado.
+  No tesis de Instrumentality (25–26).
+  Rei se usa como palanca de recambio, no como episodio "Rei I" (ep 05).
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Tras el kill gobernado del 03, nadie llama. Shinji y Misato se hieren
+  de cerca. Shinji huye con su bolsa/SDAT. Lluvia. Refugio, ciudad,
+  acampada: Kensuke envidia el pager; Shinji no lo quiere.
+  NERV: si no pilota, se va. Gendo lo trata como pieza. Rei es el
+  failover (herida, disponible como amenaza de recambio).
+  Ritsuko nombra el dilema del erizo a Misato: calor vs púas, hay que
+  hallar una distancia.
+  Andén bajo la lluvia. Shinji no se sube al tren. Vuelve al
+  departamento. 「ただいま」「おかえりなさい」.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio (sin ángel)
+################################################################################
+
+OBJETIVO
+  Fijar el subtipo TIPO=sin_angel: el incidente es que el CONTROL se
+  ausenta. Un contained_controlled del 03 que deja callback_absent
+  no es higiene; es la mecha de este capítulo. El lab no gana matando
+  nada. Gana si el operador vuelve a una distancia habitable.
+
+CONTEXTO
+  La constitución dijo que los episodios sin ángel no son relleno:
+  son preventiva. Este es el primero. En un SOC: el on-call deja el
+  teléfono después de un incidente "exitoso". Liderazgo propone
+  reemplazarlo con quien esté de baja. El IC convive con el operador
+  (demasiado cerca) o lo deja ir (demasiado lejos). Schopenhauer:
+  los erizos se juntan por frío y se clavan las púas.
+  Exit codes de ángel (0/1/2) NO clasifican este episodio.
+
+INSTRUCCION
+  Escribe el briefing. No código. Declara códigos NUEVOS:
+    3 = :staffing_restored_fragile  (éxito del 04: volvió; distancia
+                                     en banda, no cero)
+    4 = :staffing_failed            (se fue, o lo reemplazan como pieza)
+  0/1/2 siguen significando contención de ángel y aquí no se usan
+  como resultado del playbook. Prohibido emitir pattern_blue.
+
+ENTREGABLE
+  docs/episodios/ep04_briefing.md con exactamente estos headings:
+    - Contrato (INC-HEDGEHOG-001; no hay amenaza externa)
+    - Subtipo sin_angel (cómo se interpretan aparición/anatomía/TTPs)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Ramiel, erizo-como-romance,
+      Instrumentality, "el trabajo cura")
+    - Definición de victoria (lab): staffing_restored_fragile
+    - Definición de derrota (lab): staffing_failed, incluido
+      "tenemos a Rei, no lo necesitamos"
+    - Vocabulario nuevo (hedgehog_distance, AWOL, failover tóxico,
+      retention, recambio, tadaima/okaeri, banda habitable)
+    - Relación con callback_absent del 03
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y esperar un ángel. Imposible puntuar
+  como éxito el descarte de Gendo. No spoilers post-ep 05.
+
+NO_HAGAS
+  Reescribir docs de 01–03. Crear lib/. Inventar un 18º ángel del burnout.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición de la ausencia
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE cuando no hay ángel: lluvia, bolsa, SDAT,
+  plug vacío, andén, departamento sin el operador. First-seen del
+  silencio. Esto sustituye a la spec de forma de un ángel.
+
+CONTEXTO
+  El radar está quieto. El SIEM no pinta Pattern Blue. Lo observable
+  es un hueco: la cama, el tren, el teléfono que sigue sin sonar
+  (ahora desde el otro lado: él podría llamar y no llama; ellos
+  podrían llamar y no llaman). Kensuke acampado con disfraz militar
+  es la parodia del perímetro: un civil jugando a NERV mientras el
+  NERV real se queda sin piloto.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena (presente, sensorial, breve): huida, lluvia, andén, plug vacío
+    B) first-seen de seguridad: qué log de PERSONAS/STAFFING dispara
+  Prompt de imagen opcional (NO ejecutar): UN párrafo lluvia+andén,
+  UN párrafo entry plug vacío. Nada de criatura.
+
+ENTREGABLE
+  docs/episodios/ep04_aparicion.md
+    - Minuto cero: el departamento / la puerta
+    - Lo que NERV cree que es (capricho, cobardía, "ya volverá")
+    - Lo que es (control ausente; capacidad a cero sin amenaza)
+    - Spec visual de la ausencia (lluvia, SDAT, andén, plug, cama)
+    - Spec visual del falso perímetro (Kensuke acampando)
+    - Firma SIEM de silencio (no de marcha, no de C2)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel en el encuadre.
+  Se puede escribir una alerta de staffing con esa spec.
+
+NO_HAGAS
+  Código. Anatomía del erizo (es 03). Gendo/Rei (es 08–09).
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía del erizo: calor, púas, distancia
+################################################################################
+
+OBJETIVO
+  Modelo de partes del DILEMA, no de un cuerpo angelical. Cada parte
+  será métrica o clase. El punto: la distancia es un control, no un
+  mood.
+
+CONTEXTO
+  Calor = colaboración, datos, calor humano, el IC que aloja al
+  on-call. Púas = daño al acercarse (órdenes, puñetazo de Toji,
+  padre, "felicidades" del 02, silencio). Distancia = hedgehog_distance
+  0.0–1.0.
+    0.0 = fusión / convivir sin piel / se hieren siempre
+    banda habitable = cerca suficiente para operar, lejos suficiente
+      para no sangrar (Ritsuko la NOMBRA; Misato tiene que HALLARLA)
+    1.0 = aislamiento total / tren / AWOL
+  El Eva vacío es un control sin operador: capacidad nominal, capacidad
+  real cero. Rei-como-pieza es un failover que no mide distancia:
+  mide inventario.
+
+INSTRUCCION
+  Tabla de partes del dilema → analogía de SOC → símbolo Ruby.
+  Definición operativa de hedgehog_distance y de banda habitable
+  (umbrales numéricos explícitos para la §10). Extrae Operator
+  como entidad distinta de Eva.
+
+ENTREGABLE
+  docs/episodios/ep04_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - hedgehog_distance (definición + umbrales: too_close / banda / too_far)
+    - Operator vs Eva (por qué ya no pueden ser el mismo objeto)
+    - Failover-pieza vs failover-humano
+    - Implicación: un Eva "listo" con operador en el andén no está listo
+
+CRITERIO
+  Umbrales numéricos escritos. Un implementador no puede implementar
+  el erizo como un Angel. Yui no aparece.
+
+NO_HAGAS
+  Código. Playbook retrieve/replace (es 08).
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el control se va después de ganar
+################################################################################
+
+OBJETIVO
+  Fijar DESERCION_POST_CONTENCION. El 03 ganó. El 04 se enciende
+  POR ESO, no a pesar de eso. Silencio ≠ C2 down. Ausencia ≠
+  contained.
+
+CONTEXTO
+  Analogías: on-call que apaga el teléfono tras un P1 "cerrado";
+  burnout post-mortem; el IR hero que no vuelve al lunes; page
+  que nadie reconoce porque el primario desertó. El error clásico
+  es abrir un ticket de "motivación" o de "disciplina" cuando el
+  fallo es de sistema: nadie llamó (callback_absent), la distancia
+  era 0 (Misato-casa-IC) o será 1 (Gendo-recambio).
+  Contraste con C2_LARGO_ALCANCE: allá el canal del atacante.
+  Aquí el canal HUMANO de soporte. Cortar ese canal no es sever
+  virtuoso: es el incidente.
+
+INSTRUCCION
+  Escribe el patrón DESERCION_POST_CONTENCION.
+  Distingue: callback_absent (precondición del 03) vs AWOL (este
+  episodio) vs replace_with_backup (falso cierre) vs return_in_band
+  (cierre frágil).
+  Regla de lab: sin Pattern Blue, PlaybookEp04.angel debe ser nil.
+
+ENTREGABLE
+  docs/episodios/ep04_desercion.md
+    - Escena breve de la puerta / la lluvia
+    - Patrón DESERCION_POST_CONTENCION (precondiciones, síntoma,
+      error humano, error de liderazgo)
+    - Tabla: callback_absent | AWOL | replace_with_backup | return_in_band
+    - Por qué replace_with_backup es staffing_failed aunque NERV
+      "siga teniendo un piloto"
+    - Analogías (máximo 3, concretas)
+    - Señal SIEM: "no hay ángel" no es "no hay incidente"
+    - Regla de lab: pattern_blue == false durante todo el episodio
+
+CRITERIO
+  El patrón es implementable. Queda prohibido resolver el 04
+  instanciando un Angel. replace_with_backup no es victoria.
+
+NO_HAGAS
+  Código. No Ramiel. No convertir a Kensuke en amenaza.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs de la organización y del operador que se va
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Las técnicas son de staffing, liderazgo y
+  huida. Ids nuevos T-SOC-* y T-OP01-* (seguir la serie del 03).
+
+CONTEXTO
+  Quien busque T-SHAMSHEL-* aquí se equivoca de episodio. Lo que
+  se mueve: dual-role IC/housemate (too close), descarte de Gendo
+  (too far), failover de una operadora herida como palanca, turismo
+  de Kensuke (sigue queriendo el pager), el tren como egress del
+  operador. La "defensa" que funciona es hallar banda, no un arma.
+
+INSTRUCCION
+  Fases del incidente de staffing. Ids estables citables en tests.
+  Citar T-OP01 y callback_absent como PRECONDICIÓN, no como TTP nueva
+  duplicada.
+
+ENTREGABLE
+  docs/episodios/ep04_ttps.md
+    - Qué T-SACHIEL / T-SHAMSHEL / T-EVA01 no se reabren
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-SOC-01 DualRoleIcHousing
+        T-SOC-02 SparePartsFailover
+        T-SOC-03 DiscardUnwillingOperator
+        T-SOC-04 SilenceAsPolicy
+        T-OP01-04 PostWinAWOL
+        T-OP01-05 HedgehogTooClose
+        T-OP01-06 HedgehogTooFar
+        T-OP01-07 ReturnImHome
+    - Tabla de fases + diagrama ASCII
+      (callback_absent → too_close → huida → too_far/replace
+       → (fail) | (banda + tadaima))
+    - Qué NO es TTP de este episodio (látigos, Beast, taladro)
+
+CRITERIO
+  Los ids son citables. El diagrama tiene replace_with_backup como
+  rama de fallo. No hay caja Pattern Blue.
+
+NO_HAGAS
+  Código. No TTP de "el padre lo ama en secreto".
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el SIEM de las personas
+################################################################################
+
+OBJETIVO
+  Detectar silencio, AWOL, too_close, too_far, propuesta de recambio.
+  First-seen de un incidente de staffing. Falso positivo: "está de mal humor".
+
+CONTEXTO
+  Los eventos del 01–03 miraban al cielo. Estos miran al roster.
+  Hallazgo: NERV detecta la huida tarde y la clasifica como
+  disciplina, no como pérdida de capacidad. El andén es el último
+  log antes de staffing_failed. tadaima es el evento de cierre
+  frágil — no borra los anteriores.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Frase-ley: "roster completo en papel
+  no es capacidad". Relación con siem.callback_absent del 03
+  (se hereda, no se duplica el id).
+
+ENTREGABLE
+  docs/episodios/ep04_deteccion.md
+    - Qué NO dispara (pattern_blue)
+    - Ids obligatorios:
+        siem.callback_absent          (heredado)
+        siem.operator_awol
+        siem.hedgehog_too_close
+        siem.hedgehog_too_far
+        siem.replace_with_backup_proposed
+        siem.backup_used_as_leverage
+        siem.capacity_actual_zero
+        siem.operator_returned
+        siem.im_home
+        siem.staffing_fragile
+    - Falsos positivos (mal humor vs AWOL vs banda)
+    - Demora humana: quién tendría que haber llamado primero
+    - Anti-métrica: "Rei puede pilotar" como cierre del ticket
+
+CRITERIO
+  Ids usables en tests. pattern_blue no está en la lista de este
+  episodio como emisión. im_home no equivale a "incidente olvidado".
+
+NO_HAGAS
+  Código. No sensores de Ramiel. No Dummy Plug.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (para que el on-call no se vaya)
+################################################################################
+
+OBJETIVO
+  Este ES el episodio de preventiva. Catálogo de retención, rotación,
+  callback obligatorio, separación IC/casa, no usar al backup herido
+  como amenaza. Distinto de "tener un Eva" y de "tener un cuchillo".
+
+CONTEXTO
+  Prevenible: que nadie llame después de un P1; que el IC sea casero;
+  que el único failover sea una operadora herida usada como palanca;
+  que Gendo pueda descartar sin voto de retención; que no exista
+  banda de distancia acordada.
+  No prevenible del todo: que el trabajo lastime. Se mitiga con
+  distancia y con red, no con un discurso de valentía.
+  Anti-patrón: "si no quiere, hay otro" ; "convivamos para cohesionarnos";
+  "ya ganó el 03, está bien".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados de 01–03. Analogías de una línea:
+  on-call rotation, post-incident callback, EAP, sep. of duty/housing,
+  no-punitive AWOL playbook, backup que no es rehén.
+
+ENTREGABLE
+  docs/episodios/ep04_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): spare-parts; casa-como-SOC;
+      "el tren es un problema de Shinji"
+    - Relación con T-SOC-* y T-OP01-04..07
+    - Higiene de retención post-P1 en 7 viñetas (sirve a un SOC real)
+    - Política de hedgehog: banda explícita, no "seamos familia"
+
+CRITERIO
+  Nadie sale pensando que 「おかえり」 es el control preventivo
+  (es el síntoma de que, esta vez, no se rompió del todo).
+  Rei no aparece como solución de staffing.
+
+NO_HAGAS
+  Playbook del durante (es 08). Código. No Yashima.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: recuperar vs reemplazar
+################################################################################
+
+OBJETIVO
+  Runbook de incidente de staffing. Dos ramas de liderazgo: Misato
+  (retrieve, buscar banda) vs Gendo (replace, pieza). MAGI puede
+  votar; Gendo puede saltarse el voto — hay que registrarlo como
+  override, no como mayoría.
+
+CONTEXTO
+  No hay árbol de rifle/cuchillo. Hay roster, distancia, tren.
+  Ritsuko nombra el patrón (documenta hedgehog_distance) pero no
+  abraza. Kensuke no es un paso de mitigación. El corte feliz
+  (tadaima) es FRÁGIL: el playbook termina staffing_restored_fragile,
+  no "cured". Si el tren se va o Rei es asignada como primaria,
+  staffing_failed — aunque NERV siga "operativa" en papel.
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables.
+  Hooks Ruby. Handoff corto a ep 05 (Ramiel llega a un roster
+  frágil), sin escribir Yashima.
+
+ENTREGABLE
+  docs/episodios/ep04_playbook.md
+    - Árbol ASCII (too_close → AWOL → retrieve | replace | tren)
+    - Runbook numerado (detectar silencio, marcar capacity_actual_zero,
+      prohibir pattern_blue, propuesta replace, veto ético de recambio
+      herido, retrieve, negociar banda, tadaima, marcar fragile)
+    - Condición de victoria :staffing_restored_fragile
+    - Condición de fallo :staffing_failed (tren O replace_with_backup)
+    - MAGI vs override de Gendo
+    - Hooks Ruby
+    - Qué se le pasa al ep 05 (lista: operador de vuelta, banda no
+      medida en combate, Rei sigue siendo palanca, ningún Yashima)
+
+CRITERIO
+  Traducible a tests. No existe rama "Gendo descarta y el lab aplaude".
+  No existe rama "un ángel aparece y los reconcilia".
+
+NO_HAGAS
+  Código. No rifle de positrones. No Dummy Plug.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: el episodio ES esto
+################################################################################
+
+OBJETIVO
+  Fichas de distancia. Shinji (AWOL → return). Misato (púas + calor,
+  IC/casera). Ritsuko (nombra, no sostiene). Gendo (inventario).
+  Rei (backup usado como palanca, no como sujeto del 05). Kensuke
+  (envidia del pager). Toji queda como deuda, no como plot.
+
+CONTEXTO
+  El 01 fue freeze. El 02 no-consent. El 03 input+pánico+silencio.
+  El 04 es: el operador se lleva el cuerpo. Hedgehog: Misato puede
+  herir de cerca ("entonces vete") y salvar de cerca ("okaeri").
+  Gendo no busca banda: busca función. Rei no elige ser el recambio.
+  Ética: el repo no celebra "huyó y volvió luego es fuerte". Celebra
+  que un sistema que no llama casi pierde el único control que tenía.
+
+INSTRUCCION
+  Fichas con hedgehog_distance subjetiva y rol de control.
+  Métricas implementables. Frontera con ep 05: Rei como persona
+  se pospone; aquí solo backup_used_as_leverage.
+
+ENTREGABLE
+  docs/episodios/ep04_humanos.md
+    - Fichas: Shinji, Misato, Ritsuko, Gendo, Rei-palanca, Kensuke
+    - Nota de una línea a Toji (collateral_grudge sigue, no se resuelve)
+    - Métricas: hedgehog_distance, awol (bool), backup_used_as_leverage,
+      gendo_override, returned, im_home, staffing_fragile
+    - Tabla métrica → impacto en el árbol de la 08
+    - Reglas de lab: im_home no pone hedgehog_distance a 0.5 por arte;
+      hay que dejarla en banda de forma explícita. Rei-palanca en true
+      no cierra el ticket.
+    - Frontera con ep 05 (Rei I) y con ep 07 (Jet Alone no es esto)
+
+CRITERIO
+  Misato no es "mami". Gendo no es "estratega frío admirable".
+  Rei no es el ángel. Shinji no "aprendió el valor de los amigos"
+  como moraleja de sitcom. Kensuke no es el sucesor del Eva.
+
+NO_HAGAS
+  Código. No episodio Rei I. No Instrumentality.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Operator, distancia, sin Angel)
+################################################################################
+
+OBJETIVO
+  Código del incidente de staffing. Cero Pattern Blue. Tests que
+  FALLAN si el 04 se "gana" reemplazando al operador, si se instancia
+  un Angel, o si im_home deja distance=0 (fusión) o distance=1 (teatro).
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Extraer Nerv::Operator. hedgehog_distance con banda (la de la §03).
+  PlaybookEp04.angel.nil? == true. 01–03 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests 01–04.
+  Ids: los de docs/episodios/ep04_*.md.
+
+ENTREGABLE
+  lib/nerv/operator.rb
+  lib/nerv/hedgehog.rb
+  lib/nerv/playbooks/ep04.rb
+  test/test_operator.rb
+  test/test_hedgehog.rb
+  test/test_playbook_ep04.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb          (el operador ya no es solo un float)
+    lib/nerv/siem.rb
+    lib/nerv/magi.rb         (override de Gendo registrable)
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp04 no emite pattern_blue
+    - PlaybookEp04 no requiere ni crea Angel
+    - AWOL pone capacity_actual_zero
+    - replace_with_backup ⇒ :staffing_failed
+    - tren sin retorno ⇒ :staffing_failed
+    - retorno con distance en banda ⇒ :staffing_restored_fragile
+    - retorno con distance == 0 o == 1 no cuenta como banda
+    - backup_used_as_leverage no cambia el resultado a éxito por sí solo
+    - gendo_override queda registrado aunque MAGI vote retrieve
+    - SIEM: operator_awol, hedgehog_too_close o too_far, operator_returned,
+      im_home, staffing_fragile
+    - Tests 01–03 intactos (unresolved / contained_uncontrolled /
+      contained_controlled)
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep01.rb test/test_playbook_ep02.rb \
+    test/test_playbook_ep03.rb test/test_hedgehog.rb \
+    test/test_operator.rb test/test_playbook_ep04.rb
+  sale 0. Hay un test que falla si aparece un Angel. Hay un test
+  que falla si Rei-palanca "cierra" el incidente.
+
+NO_HAGAS
+  Borrar tests 01–03. Bundler. Clase AngelHedgehog. Exit 0 como
+  contained_controlled de un ángel fantasma.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 04
+################################################################################
+
+OBJETIVO
+  Runner de INC-HEDGEHOG-001. Traza: callback_absent → too_close →
+  AWOL → lluvia → replace propuesto → retrieve → banda → tadaima.
+  Exit code 3. Cero pattern_blue en stdout.
+
+CONTEXTO
+  bin/episodio 01 → 2; 02 → 1; 03 → 0; 04 → 3.
+  La traza debe leerse como un P1 de personas, no como un recap
+  de combate. Kensuke puede aparecer como una línea de falso
+  perímetro, no como OP.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 04.
+  Si el binario no existe, créalo soportando 01–04.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep04.rb
+  test/test_scenario_ep04.rb
+  docs/episodios/ep04_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 04
+
+  Exit:
+    3 = :staffing_restored_fragile
+
+CRITERIO
+  El comando corre, imprime operator_awol, im_home, staffing_fragile;
+  NO imprime pattern_blue ni eva_berserk ni c2_channel_up;
+  sale 3.
+  test/test_scenario_ep04.rb pasa.
+  01→2, 02→1, 03→0 siguen.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Ramiel en la traza. Un ASCII erizo "gracioso"
+  que se coma el briefing.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 05
+################################################################################
+
+OBJETIVO
+  Cerrar INC-HEDGEHOG-001 como frágil. El operador está de vuelta,
+  no curado. Transferir a Ramiel: un octaedro no espera a que la
+  banda de distancia esté madura. No escribir prompts del 05.
+
+CONTEXTO
+  NERV cree que el tema de Shinji "ya pasó" porque dijo tadaima.
+  El AAR tiene que dejar escrito: capacity_actual volvió a > 0,
+  hedgehog_distance no se midió en combate, Rei sigue siendo palanca,
+  Gendo sigue pudiendo override, nadie instituyó el callback
+  obligatorio. Ramiel (ep 05–06) va a exigir un disparo que no se
+  gana con cuchillo ni con Beast ni con sentimientos. Yashima es
+  deuda, no contenido.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 05
+    titulo_canon: Rei I
+    angel: Ramiel
+    numero_angel: 5
+    archivo_episodio: prompts/ep05_ramiel.txt
+    estado: episodio_completo
+    ultima_nota: INC-HEDGEHOG-001 cerrado staffing_restored_fragile. Falta crear prompts/ep05_ramiel.txt. Deuda: banda no combat-tested, Rei-palanca, Yashima.
+  No crees ep05_ramiel.txt en este turno.
+  Lista secciones sugeridas para el 05 (Rei I + aparición de Ramiel;
+  Yashima puede partirse con el 06), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep04_aar.md
+    - Resumen del incidente (10–15 líneas)
+    - Estado del roster vs estado de la doctrina
+    - TTPs T-SOC-* / T-OP01-04..07: cuáles siguen ABIERTAS
+    - Controles preventivos que no se instituyeron
+    - Por qué tadaima no es un parche
+    - Deuda hacia ep 05–06 (Ramiel, Rei I, Yashima, AT Field máximo)
+    - Deuda hacia ep 07 (Jet Alone: otro "reemplazo" no auditado)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 05 y declara que falta el archivo de prompts.
+  El AAR se entiende sin la serie. No spoilers de Yashima más allá
+  de nombrarla como deuda. No ángel escondido "para que el 04 pegue más".
+
+NO_HAGAS
+  Escribir prompts/ep05_ramiel.txt. No reabrir Shamshel. No curar a Shinji.
+
+SIGUIENTE
+  FIN
+################################################################################

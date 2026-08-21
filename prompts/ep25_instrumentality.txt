@@ -1,0 +1,627 @@
+---
+EPISODIO: 25
+TITULO_CANON: Do you love me? / The Ending World / 終わる世界
+ANGEL: (ninguno; Human Instrumentality Project)
+TIPO: sin_angel
+INCIDENTE: INC-INSTRUMENTALITY-001 (arco de dos episodios; este es el comienzo)
+NUMERO_ANGEL:
+CLASE_AMENAZA: fallo de contención civilizatoria / AT Field como yo / privacidad a cero / Seele.kpi en curso
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep24 existen. INC-TABRIS-001 está :contained_controlled:
+  último ángel de combate muerto, merge ABORTADO, Dummy unused.
+  ESTE episodio NO inventa un 18º ángel. NO es End of Evangelion
+  (sin Evas de masa, sin asalto JSSDF, sin Gendo-Rei de película).
+  Es la TV: Instrumentality como proceso interior / disolución de
+  perímetros. Seele.kpi (14) pasa de intención a EN CURSO; no se
+  cierra aquí — el 26 es la elección de volver a tener forma.
+  AT Field, de Sachiel acá, se relee como aislamiento del yo.
+  MAGI tres cerebros: Instrumentality es cuando ya no hay tres.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–24 §10 y luego esta
+  extensión. Si existe, EXTEND. Instrumentality.start!, no
+  congratulations, no fire() de fusión permanente como “éxito”.
+SIGUIENTE: ep 26 — Take care of yourself / 世界の中心でアイを叫んだけど
+  (elegir el yo; AT Field de vuelta; congratulations; cierra el arco)
+FUERA_DE_ALCANCE: |
+  No 18º ángel. No Pattern Blue de kaiju. No Dummy Plug. No Beast.
+  No Tabris 2. No Armisael. No End of Evangelion (MP Evas, JSSDF,
+  lanza lunar, cabeza de Gendo, Rei-gigante de película).
+  No cerrar el arco: congratulations / “I am I” es el 26.
+  No tratar Instrumentality.complete_merge como victoria del lab.
+  No reabrir Kaworu.alive. No Longinus (perdida).
+  No fanservice de desnudez-LCL colectiva: collapse de AT Field
+  es pérdida de boundary, no un poster.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Los ángeles de combate ya no llegan. El mundo “se acaba” como
+  escenario interior: luces de teatro, aula, hospital, preguntas.
+  Human Instrumentality: bajar los AT Field de las personas;
+  sin aislamiento no hay yo; “¿me quieres?” es la pregunta de
+  si el otro puede existir sin fundirse. Shinji, Asuka, Rei,
+  Misato, los demás, interrogados. Seele obtiene el proceso,
+  no aún un cierre. Corte: la disolución está EN CURSO.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-INSTRUMENTALITY-001 como arco 25–26. El 25 TERMINA
+  :instrumentality_in_progress (exit 17): perímetros de identidad
+  cayendo, cero ángel, cero congratulations. El 26 elegirá
+  volver a tener AT Field. Completar el merge aquí = derrota.
+
+CONTEXTO
+  Constitución: episodios 25–26 son preventiva a escala de
+  civilización. Cada ángel enseñó un control; Seele quería
+  apagar el aislamiento. En seguridad: privacidad a cero,
+  un solo dataset de almas, IAM sin sujetos. “Do you love me?”
+  = ¿puede haber relación sin fusión? El 24 abortó un Impact
+  de Adam/Lilith; el 25 es otro camino (TV) al mismo KPI.
+
+INSTRUCCION
+  Escribe el briefing. No código. No EoE.
+  Códigos NUEVOS (no chocar con 0–16):
+    17 = :instrumentality_in_progress  (esperado en el 25)
+    18 = :instrumentality_denied_skip  (18º ángel; Dummy; EoE;
+                                        congratulations en el 25)
+  0–2 no aplican. Tabris sigue muerto. No complete_merge.
+
+ENTREGABLE
+  docs/episodios/ep25_briefing.md con exactamente estos headings:
+    - Contrato (INC-INSTRUMENTALITY-001 mitad 1 de 2)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (26 congratulations, EoE,
+      18º ángel, Dummy, merge-as-win)
+    - Definición de “victoria” (lab): el proceso se nombra y
+      NO se cierra; exit 17
+    - Definición de derrota (lab): skip al 26; complete_merge;
+      kaiju
+    - Vocabulario nuevo (HIP, Instrumentality, AT Field-as-self,
+      privacy collapse, do you love me, in_progress)
+    - Relación con 14 Seele.kpi, 20 return_to_body, 24 abort
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y sortiear un Eva. Imposible
+  “felicidades” aquí. No spoilers de 26 más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs del 24. Crear lib/. MP Evas.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del mundo que se acaba (sin kaiju)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: teatro, aula, hospital, luces, gente
+  preguntándose. No un ángel en el cielo. First-seen de un
+  fallo de perímetro de IDENTIDAD. El LCL/desnudez, si se
+  alude, es boundary down, no OP.
+
+CONTEXTO
+  El 24 fue una mano de Eva. El 25 es un escenario. El error
+  clásico: “no hay combate = no hay incidente”. El first
+  packet es at_field_self collapsing.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: interiores abstractos, preguntas, Asuka hospital,
+       Shinji vacío, “¿me quieres?”
+    B) first-seen: colapso de aislamiento, no Pattern Blue
+  Prompt de imagen opcional (NO ejecutar): UN párrafo teatro/
+  luces (gente, no kaiju), UN párrafo aula vacía / hospital.
+  Nada de EoE. Nada de congrats-confetti.
+
+ENTREGABLE
+  docs/episodios/ep25_aparicion.md
+    - Minuto cero: no hay radar de ángel
+    - Lo que NERV/Seele creen (el plan) vs lo que el lab mide
+      (pérdida de sujetos)
+    - Spec visual del “mundo que acaba” (interiores, no cráter
+      de película)
+    - Spec de interrogatorio (escenario, no Dummy)
+    - Tabla corta vs 14 recap-Seele vs 20 interior-Eva vs 24 Dogma
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un 18º ángel y sin MP Evas.
+  No es el OP de End of Evangelion.
+
+NO_HAGAS
+  Código. Anatomía HIP (es 03–04). Ep 26 congrats.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: AT Field-as-self, HIP, tres cerebros → uno
+################################################################################
+
+OBJETIVO
+  Partes del PROCESO → métodos. ATField.mode :self (identidad /
+  privacidad), no solo :wall/:brake/:absorb de combate.
+  Instrumentality.start! baja esos campos. MAGI.majority de
+  tres YOES no aplica: el KPI es UN océano. Seele.kpi corre.
+  complete_merge es del 26 (y allí será la opción RECHAZADA).
+
+CONTEXTO
+  AT Field = el control que todo el repo entrenó. HIP = apagarlo
+  en todos los sujetos a la vez. Privacy collapse = un dataset.
+  “Do you love me?” = relación sin fusión vs fusión sin relación.
+  Gendo y Seele siguen con planes distintos; TV 25 no resuelve
+  Gendo-EoE.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de at_field_self,
+  collapse_boundaries!, instrumentality_in_progress?,
+  complete_merge (NO llamar en el 25), magi_three_vs_one.
+  Reusar ATField, Seele. No new Angel. No Dummy. No Tabris.alive.
+
+ENTREGABLE
+  docs/episodios/ep25_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - AT Field combate vs AT Field-as-self
+    - HIP vs abort_merge de Tabris (24): otro canal al mismo KPI
+    - MAGI 2-de-3 vs un solo mar (anti-quorum)
+    - in_progress vs complete_merge (corte 25/26)
+    - Implicación: sin aislamiento no hay sujeto que contener
+
+CRITERIO
+  Un implementador no crea class AngelHip.
+  complete_merge no se llama en PlaybookEp25. Seele.kpi en
+  curso, no “éxito de merge”.
+
+NO_HAGAS
+  Código. Playbook (es 08). Congratulations.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: sin perímetro no hay yo
+################################################################################
+
+OBJETIVO
+  Fijar FALLO_DE_CONTENCION_CIVILIZATORIA. Last-playbook de
+  ángel (crush, sacrifice, Longinus, Dummy, Casper) no aplica.
+  El incidente ES el éxito del board. Prevenirlo era cada
+  AT Field de 01–24; aquí solo se puede NOMBRAR y no cerrar.
+
+CONTEXTO
+  Analogías: privacidad global a cero; un data lake de
+  personas; SSO único sin sujetos; “zero trust” invertido
+  (zero self). Error clásico A: 18º ángel. Error clásico B:
+  EoE. Error clásico C: Dummy. Error clásico D: congrats en
+  el 25. Error clásico E: complete_merge as win.
+
+INSTRUCCION
+  Escribe el patrón FALLO_DE_CONTENCION_CIVILIZATORIA.
+  Tabla de métodos vs resultado (sortie, Dummy, Tabris-crush,
+  Casper, skip-26, start HIP, complete_merge).
+  Regla de lab: instrumentality_in_progress IFF start! AND
+  NOT complete_merge AND angel.nil? AND NOT congratulations
+  AND at_field_self collapsing.
+
+ENTREGABLE
+  docs/episodios/ep25_civilizatorio.md
+    - Escena breve de un yo que ya no tiene pared
+    - Patrón FALLO_DE_CONTENCION_CIVILIZATORIA
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no hay Pattern Blue” no es “el SOC cerró”
+    - Frontera con 14 KPI, 20 return_to_body (una persona),
+      24 abort (un ángel), 26 choice (próximo)
+
+CRITERIO
+  start! no es complete_merge. El 24 crush no detiene el 25.
+  EoE no entra.
+
+NO_HAGAS
+  Código. No MP Evas. No 26.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs del KPI que apaga el aislamiento
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Técnicas de Seele/HIP, collapse de
+  AT Field-as-self, interrogatorio de identidad. T-SEELE-01/02
+  se COBRAN: el board no era un monolito de recap.
+
+CONTEXTO
+  Quien dispare T-TABRIS-03 walk-Dogma se equivoca: Kaworu
+  abortó. El 25 es otro pipeline al océano.
+
+INSTRUCCION
+  Ids estables. Diagrama: ángeles 3–17 dead → Seele.kpi run →
+  collapse AT-self → interrogatorio → (corte 25) → 26 elige.
+
+ENTREGABLE
+  docs/episodios/ep25_ttps.md
+    - Qué T-ángel no se reabren como método
+    - T-SEELE-01/02 se CITAN y pasan a ejecución de proceso
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-HIP-01 InstrumentalityStart
+        T-HIP-02 CollapseAtFieldSelf
+        T-HIP-03 PrivacyToZero
+        T-HIP-04 OneOceanNoSubjects
+        T-ID-01 InterrogationOfSelf
+        T-ID-02 DoYouLoveMe
+        T-SOC-12 CivilizationScaleContainmentFail
+    - Tabla de fases + diagrama ASCII (el 26 es una caja
+      PUNTEADA, no implementada)
+    - Qué NO es TTP de este episodio (18º ángel, Dummy, EoE,
+      congratulations, Tabris-crush)
+
+CRITERIO
+  T-HIP-01 ≠ T-TABRIS-04 abort (otro canal). T-ID-02 no es
+  romance. T-SOC-12 es el nombre del P0. El diagrama no cierra
+  en “felicidades”.
+
+NO_HAGAS
+  Código. No TTP de desnudez colectiva.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el SIEM de los yoes
+################################################################################
+
+OBJETIVO
+  Detectar hip_start, at_field_self_down, interrogation,
+  in_progress. Cero pattern_blue de silueta. Frase-ley:
+  “no hay ángel y el perímetro de las personas está cayendo”.
+  Anti-métrica: Seele.kpi ticking = incidente resuelto.
+
+CONTEXTO
+  El 14: board en la llamada. El 25: el board ES el incidente.
+  Falso positivo: “es un episodio hablado”. El detector es
+  la pérdida de sujeto (logs que ya no tienen owner).
+
+INSTRUCCION
+  Señales de lab. Ids estables. No core_destroyed de ángel.
+
+ENTREGABLE
+  docs/episodios/ep25_deteccion.md
+    - Qué NO dispara (pattern_blue kaiju, dummy, crush, fusion)
+    - Ids obligatorios:
+        siem.instrumentality_started
+        siem.at_field_self_collapsing
+        siem.privacy_zero
+        siem.identity_interrogation
+        siem.do_you_love_me
+        siem.no_pattern_blue
+        siem.instrumentality_in_progress
+        siem.congratulations_premature  (fallo)
+        siem.eoe_leak                   (fallo: contenido de película)
+    - Falsos positivos
+    - Anti-métrica: HIP started = paz
+
+CRITERIO
+  Ids usables en tests. in_progress true. congratulations
+  no se emite. no_pattern_blue es un hecho, no un cierre.
+
+NO_HAGAS
+  Código. No MP Eva sensors. No Tabris.alive.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (los que ya debieron existir)
+################################################################################
+
+OBJETIVO
+  Preventiva a destiempo: este episodio ES lo que pasa cuando
+  fallan. El catálogo 14, cada AT Field, el abort de Kaworu,
+  return_to_body del 20: eran la preventiva. Aquí se lista
+  como “ya era tarde” + lo que el 26 todavía puede elegir
+  (restaurar boundaries), sin implementarlo.
+
+CONTEXTO
+  Prevenible-en-el-pasado: Seele.kpi sin veto; AT Field-as-self
+  nunca nombrado como control de privacidad; un SOC que solo
+  pinta kaiju. No prevenible-ahora: el proceso ya arrancó en
+  la TV 25. Mitigación = el 26 (choice), no Dummy.
+  Anti-patrón: “un Eva más”; “Dummy”; “18º ángel”; “completar
+  el merge para que deje de doler”.
+
+INSTRUCCION
+  Dos columnas: LO QUE DEBIÓ EXISTIR / LO QUE AÚN PUEDE ELEGIRSE
+  (26, no implementar). Mínimo 5 en la primera.
+  Analogías: privacy as control; don’t let board-KPI delete
+  subjects; identity ≠ threat.
+
+ENTREGABLE
+  docs/episodios/ep25_prevencion.md
+    - Columna DEBIÓ EXISTIR (mínimo 5; cita 01–24)
+    - Columna AÚN EL 26 (lista, no código)
+    - Anti-patrones (mínimo 3): merge-as-peace; kaiju-only-SOC;
+      dummy-the-self
+    - Relación con T-HIP-* y T-SEELE-*
+    - Higiene de identidad/privacidad en 7 viñetas (SOC/sociedad)
+    - Nota: el 25 no “gana” previniendo; documenta el P0
+
+CRITERIO
+  Nadie sale pensando que un Eva para el 25. Nadie sale
+  pensando que complete_merge es higiene.
+
+NO_HAGAS
+  Runbook del 26 (es 08 del 26). Código. No EoE.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: arrancar el proceso, no sortie, no cerrar
+################################################################################
+
+OBJETIVO
+  Runbook de HIP-start. 1) Prohibir new Angel, Dummy, Beast,
+  EoE, congratulations. 2) instrumentality.start!. 3)
+  collapse at_field_self. 4) interrogation. 5) corte
+  :instrumentality_in_progress. MAGI no vota un 18º ángel.
+  Seele.kpi en curso ≠ complete_merge.
+
+CONTEXTO
+  No hay IC de Misato con jaulas. El “playbook” es no tratar
+  esto como un ángel. Rama congrats = FAIL. Rama complete_merge
+  = FAIL de este episodio (aunque Seele lo llame éxito).
+  Rama 18º = FAIL.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 26 (elegir el yo, AT Field de vuelta,
+  congratulations), lista, no redactar el 26.
+
+ENTREGABLE
+  docs/episodios/ep25_playbook.md
+    - Árbol ASCII (start HIP → 17 | angel/Dummy/EoE/congrats FAIL)
+    - Runbook numerado
+    - Condición :instrumentality_in_progress
+    - Condición :instrumentality_denied_skip
+    - Hooks Ruby
+    - Handoff a ep 26 (lista: choice, boundaries, congrats)
+
+CRITERIO
+  Traducible a tests. No rama Pattern Blue. No rama
+  complete_merge. No rama EoE.
+
+NO_HAGAS
+  Código del 26. No lib de MP Evas. No Kaworu.alive.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: “Do you love me?”
+################################################################################
+
+OBJETIVO
+  Shinji: vacío, still a child, la pregunta del título.
+  Asuka: hospital / psique rota (22), no pelea. Rei III:
+  mismatch (23). Misato/Ritsuko/Gendo: interrogados, no IC
+  de jaula. Seele: el proceso. El amor como condición de
+  un yo SEPARADO, no como fusión.
+
+CONTEXTO
+  Ética: no “el harem pregunta”. Operacionalizar: sin otro
+  no hay yo; sin AT Field no hay otro. El 15 anhelo abrió
+  puertos; el 25 pregunta si el puerto debe ser fusión total.
+  Respuesta plena = 26.
+
+INSTRUCCION
+  Fichas. Métricas: hip_in_progress, at_field_self_down,
+  interrogation, still_a_child, asuka_psyche_broken (sigue),
+  rei_identity_mismatch (sigue), complete_merge false.
+  Frontera con 26.
+
+ENTREGABLE
+  docs/episodios/ep25_humanos.md
+    - Fichas: Shinji, Asuka, Rei, Misato, Seele (proceso)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: still_a_child true; complete_merge false;
+      do_you_love_me no cierra el 17 como romance
+    - Frontera con 20 return_to_body (una persona) y 26
+      (elección de todos los yoes)
+    - NO_HAGAS: EoE, congrats, fanservice LCL
+
+CRITERIO
+  Shinji no se cura aquí. Asuka no sale a pelear MP Evas.
+  Seele no “gana el 25” como 0 de ángel.
+
+NO_HAGAS
+  Código. No 26. No Dummy.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (HIP start, AT-self, no merge-win)
+################################################################################
+
+OBJETIVO
+  Código del proceso EN CURSO. Tests que FALLAN si hay Angel
+  nuevo, si complete_merge, si congratulations, si Dummy, si
+  EoE, si Tabris.alive, si el exit es 0 de combate.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Instrumentality.start!, AtField modo :self, PlaybookEp25.
+  Seele.kpi en ejecución. Magi no se vuelve un solo voto-éxito.
+  PlaybookEp24 Tabris dead, abort_merge intacto (otro canal).
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 14, 24, 25.
+  Ids: docs/episodios/ep25_*.md.
+
+ENTREGABLE
+  lib/nerv/instrumentality.rb
+  lib/nerv/at_field_self.rb
+  lib/nerv/playbooks/ep25.rb
+  test/test_instrumentality.rb
+  test/test_at_field_self.rb
+  test/test_playbook_ep25.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/at_field.rb       (modo :self)
+    lib/nerv/seele.rb          (kpi running, no complete_merge win)
+    lib/nerv/magi.rb
+    lib/nerv/siem.rb
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp25.angel.nil?
+    - no pattern_blue de silueta
+    - Instrumentality.start! ⇒ in_progress
+    - complete_merge no llamado / si se llama ⇒ not 17
+    - congratulations no emitido
+    - DummyPlug / new Angel / Tabris.alive / EoE path ⇒
+      :instrumentality_denied_skip
+    - PlaybookEp25 → :instrumentality_in_progress
+    - PlaybookEp24 sigue :contained_controlled (crush), no HIP
+    - Seele.kpi running ≠ containment
+    - SIEM: instrumentality_started, at_field_self_collapsing,
+      do_you_love_me, instrumentality_in_progress
+    - Magi sigue siendo tres; HIP no es majority_owner :ireul
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep24.rb test/test_seele.rb \
+    test/test_instrumentality.rb test/test_playbook_ep25.rb \
+    test/test_at_field_self.rb
+  sale 0. Hay un test que falla si complete_merge en el 25.
+  Hay un test que falla si aparece un Angel.
+  Hay un test que falla si se emite congratulations.
+
+NO_HAGAS
+  lib de ep 26 congratulations. Bundler. MP Evas. Tabris.alive.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 25
+################################################################################
+
+OBJETIVO
+  Runner de INC-INSTRUMENTALITY-001 mitad 1. Traza:
+  no_pattern_blue → instrumentality_started →
+  at_field_self_collapsing → identity_interrogation →
+  do_you_love_me → instrumentality_in_progress. Exit 17.
+  Cero crush, cero dummy, cero congrats, cero MP Eva.
+
+CONTEXTO
+  bin/episodio … 24→0, 25→17.
+  El 17 no es un 0 de ángel: es HIP en curso.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 25.
+  Si el binario no existe, créalo soportando 01–25.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep25.rb
+  test/test_scenario_ep25.rb
+  docs/episodios/ep25_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 25
+
+  Exit:
+    17 = :instrumentality_in_progress
+
+CRITERIO
+  El comando corre, imprime instrumentality_started,
+  at_field_self_collapsing, do_you_love_me,
+  instrumentality_in_progress; NO imprime operator_crush ni
+  dummy_plug_engaged ni congratulations ni pattern_blue de
+  kaiju; sale 17.
+  test/test_scenario_ep25.rb pasa.
+  24→0 sigue (Tabris, no HIP).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de congratulations. ASCII de LCL
+  colectivo. EoE.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 26
+################################################################################
+
+OBJETIVO
+  No cerrar INC-INSTRUMENTALITY-001. Dejarlo in_progress.
+  Transferir al 26: Take care of yourself — elegir el yo,
+  AT Field de vuelta, congratulations. No escribir prompts
+  del 26.
+
+CONTEXTO
+  Seele tiene el proceso. No tiene (aún) el océano cerrado.
+  El AAR del 25 es un pre-mortem de identidad: si el 26 elige
+  merge, no hay sujetos; si elige boundaries, el mundo duele
+  y existe. Last-playbook de ángel no aplica. El SOC que solo
+  mataba siluetas llega aquí ciego. Shinji still a child. S2,
+  Lanza, Dummy, tanque: deudas abiertas, no el método del 26.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 26
+    titulo_canon: Take care of yourself
+    angel: (ninguno; Instrumentality choice)
+    numero_angel:
+    archivo_episodio: prompts/ep26_take_care.txt
+    estado: episodio_completo
+    ultima_nota: INC-INSTRUMENTALITY-001 ABIERTO in_progress. No 18º ángel. Falta crear prompts/ep26_take_care.txt. Deuda: elegir boundaries; congratulations; no complete_merge-as-win.
+  No crees ep26_take_care.txt en este turno.
+  Lista secciones sugeridas para el 26 (choice, AT Field-self
+  on, congrats, cierra el arco), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep25_aar.md
+    - Resumen (10–15 líneas)
+    - Estado HIP vs AT Field-self vs Seele vs Shinji
+    - T-HIP-* abiertas / T-SEELE cobrada como proceso
+    - Por qué exit 17 no es un 0 ni un merge-win
+    - Deuda hacia ep 26 (choice, congratulations)
+    - Qué NO es el 26 (EoE, 18º ángel)
+    - "Lección Seele" en 5 viñetas para un SOC (privacidad =
+      control; board-KPI puede borrar sujetos; sin yo no hay IR)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 26 y declara que falta el archivo y que el
+  incidente SIGUE ABIERTO. El AAR se entiende sin la serie.
+  No congratulations. No EoE. No 18º ángel.
+
+NO_HAGAS
+  Escribir prompts/ep26_take_care.txt. No complete_merge.
+  No “I am I” todavía.
+
+SIGUIENTE
+  FIN
+################################################################################

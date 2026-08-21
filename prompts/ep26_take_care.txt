@@ -1,0 +1,634 @@
+---
+EPISODIO: 26
+TITULO_CANON: Take care of yourself / The Beast that Shouted I at the Heart of the World / 世界の中心でアイを叫んだけど
+ANGEL: (ninguno; Instrumentality choice)
+TIPO: sin_angel
+INCIDENTE: INC-INSTRUMENTALITY-001 (arco de dos episodios; este es el CIERRE)
+NUMERO_ANGEL:
+CLASE_AMENAZA: elegir el yo / restaurar AT Field-as-self / congratulations de los otros / rechazar el océano
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep25 existen. INC-INSTRUMENTALITY-001 está
+  :instrumentality_in_progress (exit 17). ESTE episodio elige:
+  reject complete_merge, at_field_self ON, congratulations de
+  un mundo de otros. NO es End of Evangelion (sin playa, sin
+  “kimochi warui”, sin MP Evas). NO es el 02: congratulations
+  allá era KPI falso; aquí es reconocimiento de un yo SEPARADO.
+  El 20 devolvió a UNA persona al asiento; el 26 restaura la
+  condición de que EXISTAN sujetos. Tabris sigue muerto. No
+  18º ángel. MAGI sigue siendo tres si hay yoes.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–25 §10 y luego esta
+  extensión. Si existe, EXTEND. PlaybookEp25 sigue in_progress
+  si se corre solo. El 26 lo cierra.
+SIGUIENTE: FIN (no hay episodio 27; la TV cierra aquí)
+FUERA_DE_ALCANCE: |
+  No 18º ángel. No Pattern Blue de kaiju. No Dummy. No Beast-eat.
+  No Tabris.alive. No End of Evangelion (playa, JSSDF, MP Evas,
+  Rei-gigante, Gendo). No complete_merge como victoria del lab
+  (eso es Seele.kpi cumplido = no hay IR).
+  No reescribir docs 01–25. No “Shinji se hizo hombre”: take
+  care of yourself es CUIDADO, not manhood. still_a_child puede
+  seguir true.
+  No fanservice de LCL/congrat-circle erótico.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Instrumentality en curso. Shinji en un mundo posible (aula
+  “normal”, yoes hipotéticos). Pregunta: ¿existo? ¿puedo ser
+  yo si hay otros? El AT Field duele y es lo que permite
+  tocarse sin fundirse. Elige tener forma. “I am I.” Los otros
+  dicen congratulations — no el aplauso de Tokio-3 al Beast.
+  El océano se rechaza. Hay mundo. Hay que cuidarse.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Cerrar INC-INSTRUMENTALITY-001. Victoria lab:
+  :boundaries_restored_fragile (exit 19) — complete_merge
+  rechazado, AT Field-as-self ON, congratulations_of_others,
+  cero ángel, cero EoE. Aceptar el océano (exit 20) es derrota
+  del repo: no quedan sujetos que proteger.
+
+CONTEXTO
+  El 25 preguntó “¿me quieres?”. El 26 responde: solo si hay
+  un yo y un otro. En seguridad: restaurar privacidad /
+  identidad después de un collapse civilizatorio. El SOC
+  vuelve a tener owners en los logs. Seele no “gana”. El
+  Beast del título es Shinji gritando YO en el centro del
+  mundo — no Eva-01 comiendo un S2.
+
+INSTRUCCION
+  Escribe el briefing. No código. No playa EoE.
+  Códigos NUEVOS (no chocar con 0–18):
+    19 = :boundaries_restored_fragile  (esperado)
+    20 = :total_merge_accepted         (FAIL: océano, sin sujetos)
+  17 del 25 sigue si se corre el 25 solo. El 26 no emite 0
+  de ángel. congratulations_issued del 02 NO es este evento.
+
+ENTREGABLE
+  docs/episodios/ep26_briefing.md con exactamente estos headings:
+    - Contrato (cierre del arco 25–26; FIN de la TV)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (EoE, 18º, manhood, merge-win,
+      KPI-falso del 02)
+    - Definición de victoria (lab): exit 19
+    - Definición de derrota (lab): exit 20
+    - Vocabulario nuevo (I am I, take care of yourself,
+      congratulations_of_others, boundaries, reject_merge)
+    - Relación con 02 (KPI falso), 20 (un cuerpo), 24 (abort),
+      25 (in_progress)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y complete_merge-as-win.
+  Imposible playa EoE. No hay episodio 27.
+
+NO_HAGAS
+  Reescribir docs 01–25. Crear lib/. MP Evas.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del yo (aula, círculo, no kaiju)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: un Shinji posible en un mundo de otros
+  (aula, cotidianidad hipotética), luego el círculo que dice
+  congratulations a un yo SEPARADO. First-seen de boundaries
+  ON. No un ángel. No la playa.
+
+CONTEXTO
+  El 25 era teatro de interrogatorio. El 26 es un “qué pasaría
+  si yo fuera yo entre otros”. El error clásico: confudir este
+  congratulations con el del 02 (civiles aplaudiendo un Beast).
+  El first packet es at_field_self restoring.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: aula hipotética, elección, “I am I”, círculo de
+       congratulations, no océano
+    B) first-seen: sujetos de vuelta en el log
+  Prompt de imagen opcional (NO ejecutar): UN párrafo aula
+  ordinaria (otros, no kaiju), UN párrafo círculo de gente
+  diciendo congratulations (ropa, no LCL-poster). Nada de
+  playa. Nada de Eva-01 fauces.
+
+ENTREGABLE
+  docs/episodios/ep26_aparicion.md
+    - Empalme visual con ep25_aparicion.md (citar, no EoE)
+    - Spec del mundo hipotético (aula, no geofront)
+    - Spec de “I am I” (forma, no fusion)
+    - Spec de congratulations_of_others vs ep02_aparicion
+      (citar el aplauso tóxico; no copiar)
+    - Tabla corta vs 20 (retorno de un cuerpo) vs 25 (collapse)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin ángel y sin playa.
+  El congratulations no se ve como el del 02.
+
+NO_HAGAS
+  Código. Anatomía choice (es 03–04). EoE.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: choice, AT-self ON, reject_merge, congrats reales
+################################################################################
+
+OBJETIVO
+  Partes de la ELECCIÓN → métodos. Instrumentality.reject_merge!
+  AtFieldSelf.restore! MAGI vuelve a tener sentido como tres
+  si hay yoes. congratulations_of_others ≠ congratulations_issued
+  del 02. still_a_child puede seguir; take_care es práctica,
+  no un parche de adultez.
+
+CONTEXTO
+  Choice = el único control que el 25 dejó. Restore = privacidad
+  / sujetos / owners. Reject_merge = Seele.kpi NO cumplido.
+  Congrats = el otro reconoce un perímetro, no un kill.
+  Beast que grita I = identidad, no S2 ingest.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de reject_merge!,
+  restore_at_field_self!, congratulations_of_others,
+  i_am_i, take_care, complete_merge (FAIL si se llama como win).
+  Reusar Instrumentality, AtFieldSelf, Seele del 25.
+  No new Angel. No Dummy.
+
+ENTREGABLE
+  docs/episodios/ep26_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - reject_merge vs abort_merge de Tabris (24): persona vs ángel
+    - restore AT-self vs return_to_body (20): condición de todos
+      vs un piloto
+    - congratulations_of_others vs siem.congratulations_issued (02)
+    - MAGI tres cerebros de nuevo (hay sujetos)
+    - Implicación: el IR solo existe si hay yoes que aislar
+
+CRITERIO
+  Un implementador no trata complete_merge como 19.
+  El evento congrats del 02 no se reusa como id de éxito.
+  Yui no aparece como clase.
+
+NO_HAGAS
+  Código. Playbook (es 08). Playa.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el aislamiento es lo que permite el contacto
+################################################################################
+
+OBJETIVO
+  Fijar ELEGIR_EL_YO. Last-playbook de ángel no aplica. El
+  océano es paz falsa (cero incidentes porque cero sujetos).
+  Cuidarse es el control residual: frágil, diario, no un Eva.
+
+CONTEXTO
+  Analogías: restaurar cuentas después de un identity-collapse;
+  opt-out de un data lake total; privacy as the condition of
+  relationship; no “zero incidents” vía borrar a los users.
+  Error clásico A: complete_merge-as-win. Error clásico B: EoE.
+  Error clásico C: 18º ángel. Error clásico D: congrats del 02.
+  Error clásico E: Dummy del yo.
+
+INSTRUCCION
+  Escribe el patrón ELEGIR_EL_YO.
+  Tabla de métodos vs resultado (merge, Dummy, kaiju, EoE,
+  reject+restore+congrats_of_others).
+  Regla de lab: boundaries_restored_fragile IFF reject_merge
+  AND at_field_self on AND congratulations_of_others
+  AND angel.nil? AND NOT complete_merge
+  AND NOT congratulations_issued del 02 como kill.
+
+ENTREGABLE
+  docs/episodios/ep26_elegir.md
+    - Escena breve de “I am I”
+    - Patrón ELEGIR_EL_YO
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “ya no hay ángeles” no es “ya no hay que cuidarse”
+    - Frontera con 02, 20, 24, 25, EoE (nombrar para excluir)
+
+CRITERIO
+  El 19 lab no es un 0 de combate. Seele.kpi no queda
+  “cumplido”. El 25 in_progress se cierra aquí, no se borra.
+
+NO_HAGAS
+  Código. No MP Evas. No playa.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena / TTPs de la elección
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel: in_progress (25) → choice → reject
+  océano → restore AT-self → others congratulate a separate I.
+  T-HIP-* del 25 se CIERRAN como proceso activo; no se celebran
+  como win de Seele.
+
+CONTEXTO
+  Quien dispare T-TABRIS crush o T-EVA01 berserk se equivoca.
+  El “Beast” del título japonés es el yo que grita, no Eva-01.
+
+INSTRUCCION
+  Ids estables. Diagrama: 25 in_progress → (merge 20 FAIL |
+  restore 19).
+
+ENTREGABLE
+  docs/episodios/ep26_ttps.md
+    - Qué T-HIP del 25 se MITIGAN (proceso) sin dar el océano
+      a Seele
+    - Qué T-ángel no se reabren
+    - T-ID-02 DoYouLoveMe se RESPONDE: sí, con perímetro
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-CHOICE-01 RejectCompleteMerge
+        T-CHOICE-02 RestoreAtFieldSelf
+        T-CHOICE-03 IAmI
+        T-CHOICE-04 TakeCareOfYourself
+        T-SOC-13 SubjectsRestored
+        T-SOC-14 CongratulationsOfOthers
+        T-OP01-24 StillAChildWhoCares
+    - Tabla de fases + diagrama ASCII (FIN, no ep 27)
+    - Qué NO es TTP (EoE, Dummy, 18º, congrats-02, S2-upgrade)
+
+CRITERIO
+  T-SOC-14 ≠ siem.congratulations_issued (02).
+  T-CHOICE-01 ≠ T-TABRIS-04 (otro actor).
+  T-OP01-24 no cancela still_a_child: lo cuida.
+  El diagrama termina. No hay caja 27.
+
+NO_HAGAS
+  Código. No TTP de playa.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: vuelven los owners
+################################################################################
+
+OBJETIVO
+  Detectar reject_merge, at_field_self_on, i_am_i,
+  congratulations_of_others, boundaries_restored. Cero
+  pattern_blue. Frase-ley: “el log vuelve a tener sujeto”.
+  Anti-métrica: cero incidentes = océano.
+
+CONTEXTO
+  El 25: privacy_zero. El 26: subjects restored. Falso
+  positivo: “el 02 ya dijo congratulations”. El detector es
+  que MAGI puede volver a ser tres porque hay yoes.
+
+INSTRUCCION
+  Señales de lab. Ids estables. NO reusar congratulations_issued.
+
+ENTREGABLE
+  docs/episodios/ep26_deteccion.md
+    - Qué NO dispara (pattern_blue, dummy, complete_merge-as-ok)
+    - Ids obligatorios:
+        siem.merge_rejected
+        siem.at_field_self_on
+        siem.i_am_i
+        siem.congratulations_of_others
+        siem.subjects_restored
+        siem.boundaries_restored
+        siem.take_care
+        siem.instrumentality_closed_fragile
+        siem.false_congratulations_kpi  (si se reusa el id del 02)
+        siem.eoe_leak
+    - Falsos positivos
+    - Anti-métrica: no more angels = done forever
+
+CRITERIO
+  Ids usables en tests. congratulations_of_others ≠
+  congratulations_issued. eoe_leak es fallo.
+
+NO_HAGAS
+  Código. No playa. No Tabris.alive.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (el último es diario)
+################################################################################
+
+OBJETIVO
+  Preventiva residual: elegir sujetos cada día; no ceder el
+  KPI del board; no fusionar al analista con la herramienta
+  (20) ni a las personas entre sí; congratulations de otros
+  no reemplaza take_care. El catálogo 14 sigue: last-playbook
+  nunca es ley.
+
+CONTEXTO
+  Prevenible-a-futuro: repetir HIP; tratar el 26 como final
+  de parche. No prevenible: que doler exista si hay AT Field.
+  Eso es el precio del 19 lab.
+  Anti-patrón: “ya no hay ángeles”; “Seele tenía razón, no
+  duele”; “Dummy del yo”; “EoE es el verdadero 26”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / PRECIO DE TENER YO.
+  Mínimo 5. Analogías: privacy forever; no delete users to
+  clear tickets; care as ops, not a release.
+
+ENTREGABLE
+  docs/episodios/ep26_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna PRECIO (dolor, still a child, deudas S2/Lanza/
+      Dummy/tanque ABIERTAS — no se parchean aquí)
+    - Anti-patrones (mínimo 3): ocean-as-peace; 02-congrats-as-
+      this; EoE-as-real-ending
+    - Relación con T-CHOICE-* y T-SOC-13/14
+    - Higiene de identidad en 7 viñetas (SOC/vida)
+    - Nota: el repo no “cura” Evangelion; elige boundaries
+
+CRITERIO
+  Nadie sale pensando que el 26 borra el S2. Nadie sale
+  pensando que EoE es este archivo.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No ep 27.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: rechazar el océano, restaurar, congratular al yo
+################################################################################
+
+OBJETIVO
+  Runbook de cierre. 1) Cargar in_progress del 25. 2) Prohibir
+  Angel, Dummy, EoE, complete_merge-as-win. 3) reject_merge!.
+  4) restore_at_field_self!. 5) i_am_i. 6)
+  congratulations_of_others. 7) :boundaries_restored_fragile.
+  MAGI tres. Seele.kpi no fulfilled. FIN de la serie TV.
+
+CONTEXTO
+  No hay jaula. No hay IC de Misato con Eva. El “playbook”
+  es la elección. Rama océano = 20 FAIL. Rama EoE = FAIL.
+  Rama congrats-02 = FAIL. Rama 18º = FAIL.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff: NINGUNO. SIGUIENTE FIN. No archivo ep 27.
+
+ENTREGABLE
+  docs/episodios/ep26_playbook.md
+    - Empalme con ep25_playbook.md (in_progress)
+    - Árbol ASCII (reject+restore 19 | merge 20 | EoE/angel FAIL)
+    - Runbook numerado
+    - Condición :boundaries_restored_fragile
+    - Condición :total_merge_accepted
+    - Hooks Ruby
+    - FIN (no lista de ep 27)
+
+CRITERIO
+  Traducible a tests. No rama complete_merge-win. No playa.
+
+NO_HAGAS
+  Código de un ep 27. No MP Evas. No Kaworu.alive.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: Take care of yourself
+################################################################################
+
+OBJETIVO
+  Shinji: I am I, still a child who cares — no manhood.
+  Los otros: congratulations a un perímetro, no a un kill.
+  Seele: kpi no cumplido. Gendo/Misato/Rei/Asuka: presentes
+  como otros, no como armas. El cuidado es de uno hacia uno;
+  los otros existen.
+
+CONTEXTO
+  Ética: no “el harem lo felicita y está curado”. El lab
+  registra boundaries y dolor. Asuka psyche_broken puede
+  seguir; Rei mismatch puede seguir; Toji maimed, Kaji dead,
+  S2 in prod. El 26 no es un patch notes de la serie.
+
+INSTRUCCION
+  Fichas. Métricas: i_am_i, take_care, still_a_child,
+  merge_rejected, others_congratulate, seele_kpi_unfulfilled.
+  Deudas ABIERTAS listadas, no resueltas.
+
+ENTREGABLE
+  docs/episodios/ep26_humanos.md
+    - Fichas: Shinji, los otros como otros, Seele
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: still_a_child puede ser true al 19;
+      others_congratulate no setea contained_controlled de
+      ningún ángel; seele_kpi_unfulfilled true
+    - Deudas que NO se cierran (S2, Lanza, Dummy, tanque,
+      Kaji, Toji, Asuka, Rei III)
+    - NO_HAGAS: manhood, EoE, harem-congrats, playa
+
+CRITERIO
+  Shinji no se hace adulto-parche. Seele no gana. Los otros
+  no son un solo océano. Las deudas H2 siguen en el AAR.
+
+NO_HAGAS
+  Código. No Dummy. No “cura total”.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (reject merge, restore self, FIN)
+################################################################################
+
+OBJETIVO
+  Código del cierre. Tests que FALLAN si complete_merge es
+  éxito, si congratulations_issued del 02 cierra el 26, si
+  hay Angel, si EoE, si el 25 deja de ser in_progress cuando
+  se corre solo.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  PlaybookEp26 encadena Ep25. Instrumentality.reject_merge!,
+  AtFieldSelf.restore!, congratulations_of_others.
+  PlaybookEp02 congratulations_issued sigue siendo anti-métrica
+  de Sachiel, no este evento.
+  PlaybookEp24 Tabris dead.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 02, 25, 26.
+  Ids: docs/episodios/ep26_*.md.
+
+ENTREGABLE
+  lib/nerv/choice.rb
+  lib/nerv/playbooks/ep26.rb
+  test/test_choice.rb
+  test/test_playbook_ep26.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/instrumentality.rb  (reject_merge; complete_merge
+                                  no es win)
+    lib/nerv/at_field_self.rb    (restore)
+    lib/nerv/seele.rb            (kpi unfulfilled)
+    lib/nerv/siem.rb
+    lib/nerv/magi.rb             (tres cerebros si hay sujetos)
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp26.angel.nil?
+    - no pattern_blue de silueta
+    - PlaybookEp25 solo → sigue :instrumentality_in_progress
+    - reject_merge + restore_at_field_self ⇒
+      :boundaries_restored_fragile
+    - complete_merge ⇒ :total_merge_accepted (FAIL pedagógico
+      si el runner feliz lo toma)
+    - congratulations_of_others ≠ congratulations_issued
+    - Dummy / new Angel / EoE / Tabris.alive ⇒ no 19
+    - Seele.kpi unfulfilled
+    - Magi tres votos posibles (hay yoes)
+    - SIEM: merge_rejected, at_field_self_on, i_am_i,
+      congratulations_of_others, boundaries_restored
+    - deudas S2/spear/dummy/tank NO se resetean a “sanas”
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep25.rb test/test_playbook_ep02.rb \
+    test/test_playbook_ep26.rb test/test_choice.rb \
+    test/test_instrumentality.rb
+  sale 0. Hay un test que falla si complete_merge es 19.
+  Hay un test que falla si se reusa congratulations_issued.
+  Hay un test que falla si el 25 solo deja de estar in_progress.
+
+NO_HAGAS
+  Bundler. MP Evas. Playa. class AngelCongrats. Ep 27.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 26
+################################################################################
+
+OBJETIVO
+  Runner que cierra INC-INSTRUMENTALITY-001. Traza:
+  instrumentality_in_progress → merge_rejected →
+  at_field_self_on → i_am_i → congratulations_of_others →
+  boundaries_restored. Exit 19. Cero pattern_blue, cero
+  congratulations_issued, cero complete_merge, cero playa.
+
+CONTEXTO
+  bin/episodio … 25→17, 26→19.
+  El 19 no es un 0 de ángel: es boundaries. El 02 sigue
+  saliendo 1 (Beast), no 19.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 26.
+  Puede reconstituir in_progress del 25 internamente.
+  Si el binario no existe, créalo soportando 01–26.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep26.rb
+  test/test_scenario_ep26.rb
+  docs/episodios/ep26_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 26
+
+  Exit:
+    19 = :boundaries_restored_fragile
+
+CRITERIO
+  El comando corre, imprime merge_rejected, i_am_i,
+  congratulations_of_others, boundaries_restored;
+  NO imprime congratulations_issued ni pattern_blue ni
+  dummy_plug_engaged ni operator_crush como vía; sale 19.
+  test/test_scenario_ep26.rb pasa.
+  25→17 sigue si se corre solo. 02→1 sigue.
+
+NO_HAGAS
+  Gem de CLI. ASCII de confetti que tape la traza. EoE.
+  “The End” cinematográfico de playa.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action de la serie (no hay episodio 27)
+################################################################################
+
+OBJETIVO
+  Cerrar INC-INSTRUMENTALITY-001 y marcar la TV COMPLETA.
+  No hay handoff a un 27. ESTADO: serie_completa, sin
+  archivo_episodio siguiente. El AAR teje 01–26 SIN
+  reescribir los docs viejos: cita el catálogo 14 + deudas H2.
+
+CONTEXTO
+  NERV ya no tiene ángeles de combate. Tiene un niño que se
+  cuida, un mundo que duele, un S2 en un Eva, una Lanza
+  perdida, un Dummy, un tanque, un Kaji muerto, un Toji
+  maimed, una Asuka rota, una Rei III. El lab no es un final
+  feliz de anime: es que VOLVIÓ a haber sujetos. Seele.kpi
+  unfulfilled. Last-playbook-wins sigue siendo el bug de
+  cualquier SOC que cierre este repo y vaya a producción.
+
+INSTRUCCION
+  Escribe el AAR de serie. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: FIN
+    episodio_activo: 26
+    titulo_canon: Take care of yourself
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep26_take_care.txt
+    estado: serie_completa
+    ultima_nota: INC-INSTRUMENTALITY-001 cerrado boundaries_restored_fragile. TV 01–26 en disco. No hay ep 27. Deudas H2 abiertas a propósito. Take care of yourself.
+  No crees ningún prompts/ep27_*.txt.
+
+ENTREGABLE
+  docs/episodios/ep26_aar.md
+    - Resumen del cierre 25–26 (10–15 líneas)
+    - Estado HIP vs AT-self vs Seele vs Shinji
+    - T-CHOICE-* / T-SOC-13/14
+    - Por qué exit 19 no es un 0 ni el congrats del 02
+    - Deudas que el repo NO parchea (lista)
+    - Qué fue el proyecto (fanfic de estudio; MAGI tres
+      cerebros; cada ángel una clase de incidente)
+    - "Lección Seele" FINAL en 7 viñetas para un SOC que no
+      vio la serie (privacidad=control; insider con placa;
+      dummy≠higiene; no last-playbook; no borrar usuarios
+      para bajar tickets; cuida al on-call; take care)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO dice serie_completa y FIN. No hay ep 27.
+  El AAR se entiende sin la serie y no reescribe 01–25.
+  EoE no se cuela. complete_merge no es el final.
+
+NO_HAGAS
+  prompts/ep27_*.txt. Reescribir el catálogo 14 entero.
+  “Cura” de Asuka/Rei/S2. Instrumentality.win.
+
+SIGUIENTE
+  FIN
+################################################################################

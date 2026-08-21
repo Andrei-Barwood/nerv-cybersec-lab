@@ -1,0 +1,649 @@
+---
+EPISODIO: 23
+TITULO_CANON: Rei III / Tears / 涙
+ANGEL: Armisael
+TIPO: angel
+INCIDENTE: INC-ARMISAEL-001
+NUMERO_ANGEL: 16º
+CLASE_AMENAZA: fusión con el defensor / gusano que se vuelve el host / sacrificio del nodo / restore incompleto
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep22 existen. INC-ARAEL-001 está :contained_controlled
+  con spear_lost y Asuka psyche_broken. Longinus NO está. Dummy Plug
+  (18) está hecho de Reis: usarlo de kill aquí es FAIL (y cinismo).
+  Bardiel (18) hijackeó Eva-03 (parásito en unidad de confianza).
+  AQUÍ el ángel se FUSIONA con Eva-00/Rei y amenaza lateral a Eva-01.
+  Ireul infectó MAGI; esto no es quorum. Leliel: tú entras; aquí
+  se funden contigo. Rei I flag (21) se CITA: hay tanque de backups.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–22 §10 y luego esta
+  extensión. Si existe, EXTEND. Node sacrifice Eva-00; Rei III
+  restore incompleto; CloneTank reveal, no Dummy-kill.
+SIGUIENTE: ep 24 — The Beginning and the End / Tabris
+  (el ángel que entra por la puerta; Kaworu; insider que debía estar)
+FUERA_DE_ALCANCE: |
+  No Longinus (perdida). No Dummy Plug como kill.
+  No Bardiel-hijack de 03. No Ireul/Casper. No Dirac.
+  No Arael-beam. No Tabris/Kaworu (24). No Instrumentality.fire.
+  No YuiBeast. No “Rei II = Rei III” (el restore NO es la misma
+  identidad).
+  No galería de clones-gore: CloneTank es DR de personas, FLAG
+  y tanque, no un poster de cadáveres.
+  No contained_controlled sin node_sacrificed.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Armisael: doble hélice de luz, se estira, pincha, FUSIONA.
+  Asuka/Eva-02 casi inútil (psique rota). El ángel entra en
+  Eva-00, habla con voces mezcladas, tira de Eva-01. Rei ve
+  que no es única (otras en Dogma). Para que la fusión no
+  salte a Shinji, Rei auto-destruye Eva-00 con el ángel
+  (cruz de luz). Rei II muere. Gendo activa Rei III: no
+  recuerda igual. Shinji: “no eres la Rei que conocía”.
+  Ritsuko muestra el tanque (fábrica del Dummy). Lágrimas.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-ARMISAEL-001. El ángel se vuelve el defensor.
+  Victoria lab: :contained_controlled (exit 0) vía sacrificio
+  CONSENTIDO del nodo Eva-00/Rei II, fusión detenida antes de
+  Eva-01, Armisael muerto, Rei III restore INCOMPLETO.
+  Dummy-kill, Longinus, o “Rei III es la misma”: FAIL.
+
+CONTEXTO
+  El 18 wipeó un host con Toji dentro, sin su consentimiento
+  (Dummy). El 23: Rei elige borrar SU nodo para salvar el resto.
+  En seguridad: worm que se fusiona con el EDR; hay que
+  sacrificar el sensor comprometido; el restore desde imagen
+  no es la sesión. DR de personas es horror, no higiene.
+  Asuka ya no es un control (22).
+
+INSTRUCCION
+  Escribe el briefing. No código. No tanque-gore.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: self-destruct nodo
+                                   + rei_iii incomplete)
+    1 = :contained_uncontrolled   (Beast/Dummy como kill = FAIL
+                                   de tests, no un 1 válido)
+    2 = :unresolved               (fusión llega a Eva-01;
+                                   no hay sacrificio)
+  Distinguir node_sacrifice consentido vs Dummy override (18).
+
+ENTREGABLE
+  docs/episodios/ep23_briefing.md con exactamente estos headings:
+    - Contrato (INC-ARMISAEL-001; fusión; nodo)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Tabris, Longinus, Dummy-win,
+      Rei-idéntica, Dirac, Ireul)
+    - Definición de victoria (lab): 0 con node_sacrificed
+    - Definición de derrota (lab)
+    - Vocabulario nuevo (hélice, fuse, lateral, node sacrifice,
+      Rei II/III, CloneTank, restore incompleto)
+    - Relación con 18 Dummy, 21 Rei I, 22 spear_lost / Asuka
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y tirar la Lanza. Imposible
+  Dummy-win. Imposible Rei II == Rei III. No spoilers de 24
+  más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs 18/21/22. Crear lib/. class Tabris.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (hélice, fusión, cruz, tanque)
+################################################################################
+
+OBJETIVO
+  Recrear Armisael: no halo orbital, no Eva-03 viscosa, no
+  óxido MAGI. Una doble hélice que se clava en Eva-00, caras/
+  voces mezcladas, amenaza a 01, cruz de luz, Rei III, tanque
+  de copias (siluetas, no gore). First-seen: el ángel se parece
+  a un lazo que COSÉ al defensor.
+
+CONTEXTO
+  Arael no bajó. Armisael sí, y no pelea: fusiona. El error
+  clásico: Dummy (está hecho de lo que estás salvando) o
+  “otra N² como Rei vs Zeruel” sin el coste de identidad.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: hélice, Eva-00 atravesada, Asuka inútil, Shinji
+       a punto de ser alcanzado, cruz, Rei III, tanque
+    B) first-seen: fuse-in-progress, no Pattern Blue de melee
+  Prompt de imagen opcional (NO ejecutar): UN párrafo hélice/
+  anillo de luz, UN párrafo cruz de Eva-00, UN párrafo tanque
+  como racks de DR (no cadáveres). Nada de Kaworu. Nada de Lanza.
+
+ENTREGABLE
+  docs/episodios/ep23_aparicion.md
+    - Minuto cero: un anillo que no es Arael
+    - Lo que NERV cree (otro combate / Dummy)
+    - Spec visual Armisael (hélice, aguja, fusión)
+    - Spec de Eva-00 fusionada (voces, no gore de piloto)
+    - Spec de la cruz (sacrificio del nodo)
+    - Spec de Rei III vs II (igual y no)
+    - Spec del tanque (fábrica Dummy / DR)
+    - Tabla corta vs Bardiel (03 parásito) vs Arael (rayo)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar Armisael sin Eva-03 y sin halo-serafín.
+  El tanque no es un poster de horror físico.
+
+NO_HAGAS
+  Código. Anatomía fuse/clone (es 03–04). Tabris.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: hélice, fuse, lateral, sacrificio, restore
+################################################################################
+
+OBJETIVO
+  Partes de Armisael + CloneTank → métodos. fuse_with(eva00).
+  lateral_to(eva01). node_sacrifice! detiene el salto.
+  Rei II gone. Rei III spawn desde backup con identity_match
+  < 1. DummyPlug no es el kill (el tanque EXPLICA el dummy).
+
+CONTEXTO
+  Helix = polimorfismo que se engancha al defensor.
+  Fusion = living-off-the-land / merge de identidades.
+  Lateral = el worm salta al siguiente Eva.
+  Self-destruct nodo = isolate-and-destroy the infected sensor.
+  CloneTank = DR de personas; restore ≠ same session.
+  Rei I killed (21) era el primer backup asesinado; III es
+  el siguiente boot.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de fuse!,
+  fusion_progress, lateral_threat?, node_sacrifice!,
+  rei_ii_dead, rei_iii_restore, identity_match (umbral < 1).
+  Longinus.available? == false (22).
+  DummyPlug.engage! no mata a Armisael.
+  Reusar Eva-00, Operator Rei. No reusar EvaHijack de Bardiel
+  como la misma clase (parásito ≠ fusión de identidad).
+
+ENTREGABLE
+  docs/episodios/ep23_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - fuse vs hijack (18) vs infect MAGI (13) vs Dirac (16)
+    - lateral_to Eva-01 (por qué el sacrificio es de 00)
+    - CloneTank vs DummyPlug (fábrica vs producto vs kill)
+    - identity_match Rei II vs III
+    - Implicación: DR de un humano no restaura a la persona
+
+CRITERIO
+  Un implementador no llama SpearOfLonginus.fire!.
+  DummyPlug no es el canal de kill. identity_match < 1 escrito.
+
+NO_HAGAS
+  Código. Playbook (es 08). Kaworu.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el worm eres tú; borra el sensor
+################################################################################
+
+OBJETIVO
+  Fijar FUSION_CON_DEFENSOR. Last-playbook Longinus/Dummy/
+  Beast/Casper contraindicados. El consentimiento de Rei II
+  distingue este wipe del Dummy-Toji. El restore Rei III no
+  lava la pérdida.
+
+CONTEXTO
+  Analogías: EDR comprometido que hay que desinstalar de
+  toda la flota empezando por ese host; worm in-process;
+  snapshot de VM ≠ usuario; granja de “usuarios” para
+  automatizar IR (el tanque). Error clásico A: Dummy (Reis).
+  Error clásico B: Lanza. Error clásico C: “es Bardiel otra
+  vez”. Error clásico D: Rei III = Rei II. Error clásico E:
+  no sacrificar y dejar que fuse a Shinji.
+
+INSTRUCCION
+  Escribe el patrón FUSION_CON_DEFENSOR.
+  Tabla de métodos vs resultado (Dummy, Longinus, Casper,
+  Dirac, Beast, melee 02, node_sacrifice, no-sacrifice).
+  Regla de lab: contained_controlled IFF armisael not alive
+  AND eva00 sacrificed AND rei_ii_dead AND fusion no alcanzó
+  eva01 AND rei_iii identity_match < 1 AND dummy not kill.
+
+ENTREGABLE
+  docs/episodios/ep23_fusion.md
+    - Escena breve de la hélice en Eva-00
+    - Patrón FUSION_CON_DEFENSOR (precondiciones 00+Rei,
+      síntoma fuse, error Dummy-as-Rei-weapon, error restore=same)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “el ángel está DENTRO de nuestro Eva-00”
+    - Frontera con 18 (wipe no consentido), 13, 16, 22
+
+CRITERIO
+  node_sacrifice es el kill. identity_match < 1 obligatorio
+  al 0. El 18 Dummy-win vs Bardiel sigue; aquí Dummy FAIL.
+
+NO_HAGAS
+  Código. No Tabris. No Instrumentality.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de la hélice y del sacrificio
+################################################################################
+
+OBJETIVO
+  Kill-chain: hélice → fuse 00 → voces → lateral 01 → (Dummy
+  FAIL, Longinus FAIL) → self-destruct 00 → ángel muerto →
+  Rei III boot incompleto → tanque revelado.
+  T-DUMMY-02 se COBRA como revelación, no como método.
+
+CONTEXTO
+  Armisael no necesita órbita ni MAGI. Usa el cuerpo que
+  Rei habita. Asuka no es un control. Shinji es el next hop.
+
+INSTRUCCION
+  Ids estables. Diagrama: helix → fuse → lateral threat →
+  sacrifice → restore incomplete.
+
+ENTREGABLE
+  docs/episodios/ep23_ttps.md
+    - Qué T-LONGINUS / T-DUMMY-01 / T-BARDIEL / T-ARAEL no se
+      reabren como método
+    - T-DUMMY-02 ReiPatternAsWeapon se CITA (fábrica visible)
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-ARMISAEL-01 HelixForm
+        T-ARMISAEL-02 FuseWithDefender
+        T-ARMISAEL-03 LateralToNextEva
+        T-NODE-01 ConsensualSelfDestruct
+        T-CLONE-01 HumanDisasterRecovery
+        T-CLONE-02 RestoreIncompleteIdentity
+        T-OP00-01 ReiIINodeSacrifice
+        T-OP00-02 ReiIIINotReiII
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Tabris, Dummy-kill,
+      Lanza, Casper, Dirac)
+
+CRITERIO
+  T-ARMISAEL-02 ≠ T-BARDIEL-02. T-NODE-01 ≠ T-DUMMY-01.
+  T-OP00-02 impide identity equality. T-CLONE-01 no es higiene.
+
+NO_HAGAS
+  Código. No TTP de tanque-gore.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el IoC es nuestro Eva-00
+################################################################################
+
+OBJETIVO
+  Detectar helix, fuse, lateral_threat, node_sacrifice,
+  rei_iii_boot, clone_tank. Frase-ley: “el ángel no está al
+  lado del Eva; está SIENDO el Eva”. Anti-métrica: Rei III
+  en el pasillo = incidente cerrado y persona restaurada.
+
+CONTEXTO
+  El 18: asset tag 03 beaconing. El 23: 00 beaconing-as-fusion.
+  Falso positivo: “Bardiel otra vez” / “Arael otra vez”.
+  Asuka.psyche_broken sigue; no es detector útil.
+
+INSTRUCCION
+  Señales de lab. Ids estables. No longinus_fired.
+
+ENTREGABLE
+  docs/episodios/ep23_deteccion.md
+    - Pattern Blue heredado + subtipo fusion
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.helix_contact
+        siem.eva00_fused
+        siem.lateral_threat_eva01
+        siem.node_sacrifice
+        siem.eva00_destroyed
+        siem.armisael_dead_with_node
+        siem.rei_iii_booted
+        siem.identity_mismatch
+        siem.clone_tank_revealed
+    - Falsos positivos
+    - Anti-métrica: Rei III visible = Rei II ok
+
+CRITERIO
+  Ids usables en tests. identity_mismatch true al 0.
+  clone_tank_revealed no es Dummy-kill.
+
+NO_HAGAS
+  Código. No spear_lost como vía. No magi_infected.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de fusionarte con el sensor)
+################################################################################
+
+OBJETIVO
+  Preventiva de fusión: segmentar Evas para que un worm no
+  salte 00→01; no granjear personas como cluster Dummy; no
+  depender de un nodo Rei-único-y-a-la-vez-múltiple; Asuka
+  rota no es failover; no Dummy como plan A (está hecho de
+  las mismas copias).
+
+CONTEXTO
+  Prevenible: lateral path 00-01; CloneTank como “capacidad”;
+  cero playbook de node-sacrifice consentido vs Dummy override.
+  No prevenible del todo: que un ángel fusione identidad. Se
+  prepara aislando unidades y no industrializando clones.
+  Anti-patrón: “tenemos backups de Rei”; “Dummy”; “Lanza”;
+  “es el 18 otra vez”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5. Analogías: isolate infected EDR; no farm service
+  accounts that are people; snapshots ≠ humans; consent vs
+  auto-wipe.
+
+ENTREGABLE
+  docs/episodios/ep23_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (sacrificio del nodo vive aquí)
+    - Anti-patrones (mínimo 3): clone-farm-as-DR; dummy-as-kill;
+      restore-equals-same
+    - Relación con T-ARMISAEL-* T-CLONE-* T-NODE-01
+    - Higiene de fusión/host-compromise en 7 viñetas (SOC real)
+    - Nota ética: Rei III no lava Rei II
+
+CRITERIO
+  Nadie sale queriendo más clones. Nadie sale pensando que
+  Dummy habría sido más humano que el sacrificio.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Tabris.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: no Dummy, no Lanza, borrar 00, boot III
+################################################################################
+
+OBJETIVO
+  Runbook de fusión. 1) Clasificar: fuse 00, no hijack 03, no
+  beam orbital. 2) Prohibir Dummy, Longinus, Casper, Dirac.
+  3) Lateral threat a 01: umbral. 4) Rei II consiente
+  node_sacrifice. 5) Eva-00+Armisael destroyed. 6) Rei III
+  boot, identity_mismatch. 7) CloneTank reveal (Ritsuko).
+  8) :contained_controlled.
+  MAGI no vota Dummy. Gendo quiere a Rei; el sacrificio es
+  de ella, no de él.
+
+CONTEXTO
+  Misato IC. Asuka no pelea. Shinji es el next hop. Rama
+  Dummy = FAIL. Rama Lanza = FAIL. Rama no-sacrifice = 2
+  (fusión a 01). Rama Rei III == II = FAIL de 0.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 24 (Tabris/Kaworu: entra por la puerta), lista,
+  no redactar el 24.
+
+ENTREGABLE
+  docs/episodios/ep23_playbook.md
+    - Árbol ASCII (fuse → sacrifice 0 | dummy/longinus FAIL |
+      lateral 01 = 2)
+    - Runbook numerado
+    - Condición :contained_controlled (sacrifice + mismatch)
+    - Condición :unresolved
+    - Hooks Ruby
+    - Handoff a ep 24 (lista: insider humano, no hélice)
+
+CRITERIO
+  Traducible a tests. No rama Dummy-win. No rama spear.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/tabris.rb. No Instrumentality.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: lágrimas, II no es III, el tanque
+################################################################################
+
+OBJETIVO
+  Rei II: elige borrar el nodo (consent, no Dummy). Rei III:
+  restore incompleto; Shinji lo nota. Ritsuko: muestra el
+  tanque (COI 15 + Dummy 18 + Naoko 21 se encuentran). Gendo:
+  quiere el backup, no el duelo. Asuka: catatónica. Shinji:
+  pierde a “su” Rei.
+
+CONTEXTO
+  Ética: no “Rei es reemplazable, por eso hay DR”. El lab
+  registra que el replaceable ERA el horror. Lágrimas del
+  título: alguien llora a II frente a III. Ritsuko no es
+  cool-hacker del tanque.
+
+INSTRUCCION
+  Fichas. Métricas: rei_ii_consent_sacrifice, identity_mismatch,
+  clone_tank_revealed, shinji_recognizes_loss, ritsuko_discloses,
+  gendo_wants_backup.
+  Frontera con 24 (Kaworu) y 18 Dummy.
+
+ENTREGABLE
+  docs/episodios/ep23_humanos.md
+    - Fichas: Rei II, Rei III, Shinji, Ritsuko, Gendo, Asuka
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: identity_mismatch true al 0;
+      gendo_wants_backup no es node_sacrifice;
+      clone_tank_revealed no equivale a Dummy.kill;
+      Asuka.psyche_broken sigue (22)
+    - Frontera con 04 palanca, 18 dummy pattern, 21 Rei I, 24
+    - NO_HAGAS: tanque-gore, “Rei es la misma”, Tabris
+
+CRITERIO
+  Rei II no es bomba-meme. Rei III no es un skin. Ritsuko no
+  lava Gendo. Shinji no “se hace hombre”.
+
+NO_HAGAS
+  Código. No Kaworu. No Instrumentality.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (fusión, sacrificio, Rei III mismatch)
+################################################################################
+
+OBJETIVO
+  Código de Armisael, fusión y restore. Tests que FALLAN si
+  Dummy o Longinus matan; si fusion alcanza Eva-01 y aun así
+  0; si Rei III == Rei II; si Bardiel-hijack es el modelo.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Armisael < Angel. Fusion, NodeSacrifice, CloneTank, ReiIII.
+  SpearOfLonginus.available false.
+  DummyPlug no kill.
+  PlaybookEp18 Dummy vs Bardiel intacto.
+  PlaybookEp22 spear_lost intacto.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 18, 22, 23.
+  Ids: docs/episodios/ep23_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/armisael.rb
+  lib/nerv/fusion.rb
+  lib/nerv/node_sacrifice.rb
+  lib/nerv/clone_tank.rb
+  lib/nerv/playbooks/ep23.rb
+  test/test_armisael.rb
+  test/test_fusion.rb
+  test/test_node_sacrifice.rb
+  test/test_playbook_ep23.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/operator.rb       (Rei II / Rei III)
+    lib/nerv/siem.rb
+    lib/nerv/dummy_plug.rb
+    lib/nerv/spear_of_longinus.rb  (unavailable)
+
+  Comportamiento mínimo a cubrir:
+    - Armisael.fuse!(eva00); lateral_threat to eva01
+    - DummyPlug / Longinus / Casper / Dirac / Bardiel-hijack
+      no contained
+    - node_sacrifice Eva-00 + Rei II consent ⇒ Armisael dead,
+      eva00 destroyed, fusion no llega a 01
+    - rei_iii booted; identity_match < 1
+    - PlaybookEp23 → :contained_controlled solo con
+      node_sacrificed && identity_mismatch
+    - CloneTank revealed; no es el kill
+    - PlaybookEp22 spear_lost sigue; fire! fail
+    - PlaybookEp18 Dummy vs Bardiel sigue 1
+    - SIEM: eva00_fused, node_sacrifice, rei_iii_booted,
+      identity_mismatch, clone_tank_revealed
+    - no class Tabris / Kaworu
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep22.rb test/test_playbook_ep18.rb \
+    test/test_armisael.rb test/test_fusion.rb \
+    test/test_playbook_ep23.rb test/test_node_sacrifice.rb
+  sale 0. Hay un test que falla si Dummy mata a Armisael.
+  Hay un test que falla si Rei III == Rei II.
+  Hay un test que falla si Longinus.fire! está available.
+
+NO_HAGAS
+  lib/nerv/angels/tabris.rb. Bundler. Instrumentality.
+  Gore de tanque en assertions.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 23
+################################################################################
+
+OBJETIVO
+  Runner de INC-ARMISAEL-001. Traza: helix_contact → eva00_fused
+  → lateral_threat_eva01 → node_sacrifice → rei_iii_booted →
+  identity_mismatch → clone_tank_revealed. Exit 0.
+  Cero longinus_fired, cero dummy_plug_engaged como vía.
+
+CONTEXTO
+  bin/episodio … 22→0, 23→0.
+  El 0 del 23 no es el del 22: hay node_sacrifice e
+  identity_mismatch, no spear_lost.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 23.
+  Si el binario no existe, créalo soportando 01–23.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep23.rb
+  test/test_scenario_ep23.rb
+  docs/episodios/ep23_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 23
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime eva00_fused, node_sacrifice,
+  identity_mismatch, clone_tank_revealed; NO imprime
+  longinus_fired ni dummy_plug_engaged ni eva03_hijacked
+  como vía; sale 0.
+  test/test_scenario_ep23.rb pasa.
+  22→0 sigue (Lanza, no hélice).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Kaworu. ASCII de tanque-gore.
+  Cruz de luz que tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 24
+################################################################################
+
+OBJETIVO
+  Cerrar INC-ARMISAEL-001. Armisael muerto con Eva-00. Rei II
+  no vuelve. Rei III está y no es ella. El tanque es público
+  para Shinji. Transferir a Tabris: el último ángel no fusiona
+  ni rayea — CAMINA por la puerta, parece humano, debía estar
+  ahí (Fifth Child). No escribir prompts del 24.
+
+CONTEXTO
+  NERV “ganó” y restauró un backup. El AAR: fusión; sacrificio
+  consentido ≠ Dummy; DR de personas; identity_mismatch.
+  Last-playbook node-sacrifice no cubre a alguien que entra
+  con placa. Tabris/Kaworu: insider + free will; Seele lo
+  manda; Gendo no lo controla. Asuka sigue rota. Lanza sigue
+  perdida. S2 sigue en 01.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 24
+    titulo_canon: The Beginning and the End, or "Knockin' on Heaven's Door"
+    angel: Tabris
+    numero_angel: 17
+    archivo_episodio: prompts/ep24_tabris.txt
+    estado: episodio_completo
+    ultima_nota: INC-ARMISAEL-001 cerrado contained_controlled vía node sacrifice. Rei III mismatch. CloneTank revealed. Falta crear prompts/ep24_tabris.txt. Deuda: insider que entra por la puerta; no hélice.
+  No crees ep24_tabris.txt en este turno.
+  Lista secciones sugeridas para el 24 (Kaworu, Adam, free will,
+  Shinji, no fusión), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep23_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Armisael vs Eva-00 vs Rei II/III vs tanque
+    - T-ARMISAEL-* cerradas / T-CLONE-* / T-OP00-02 ABIERTAS
+    - Por qué este 0 no es Dummy-18 ni Longinus-22
+    - Deuda hacia ep 24 (Tabris, insider)
+    - Deuda hacia 25–26 (Instrumentality; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (sacrificar el
+      sensor, snapshots ≠ personas, no farm de identidades)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 24 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Rei III no “es Rei”.
+  Kaworu no aparece en el recap como kill. Instrumentality
+  no se dispara.
+
+NO_HAGAS
+  Escribir prompts/ep24_tabris.txt. No Third Impact.
+
+SIGUIENTE
+  FIN
+################################################################################

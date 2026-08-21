@@ -1,0 +1,653 @@
+---
+EPISODIO: 10
+TITULO_CANON: Magma Diver / マグマダイバー
+ANGEL: Sandalphon
+TIPO: angel
+INCIDENTE: INC-SANDALPHON-001
+NUMERO_ANGEL: 8º
+CLASE_AMENAZA: amenaza embrionaria / hunt en entorno hostil / captura vs kill / reloj térmico
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep09 existen. INC-ISRAFEL-001 está :contained_controlled
+  vía pair_sync y dual-core. El baile NO satisface este episodio:
+  no hay dos cores que golpear al mismo tick; hay un embrión en magma
+  y un reloj que te cocina. DualPlug, Yashima y mandíbula tampoco.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01–09 §10 y luego esta extensión.
+  Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 11 — The Day Tokyo-3 Stood Still / Matarael
+  (incidente durante apagón; el atacante llega cuando los controles ya fallaron)
+FUERA_DE_ALCANCE: |
+  No T-SYNC-02 / baile como método. No DualPlug-win. No Yashima.
+  No Gaghiel. No Jet Alone. No Dummy Plug. No Yui. No Ireul.
+  No dejar que Sandalphon NAZCA como ángel de combate completo y
+  "pelearlo como Sachiel": si hatch_progress llega a 1.0, el 10
+  FALLÓ su tesis (cazar antes de que nazca).
+  No Matarael / apagón de Tokio-3 (ep 11).
+  No fanservice de onsen como entregable. Una línea de NO_HAGAS basta.
+  La captura en vivo es el DESEO de Ritsuko, no el camino feliz:
+  el canon aborta a kill. No puntuar sample_captured como victoria
+  obligatoria; sample_lost + ángel muerto SÍ es contained.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Detectan un ángel EMBRIONARIO en el magma de un volcán.
+  NERV quiere capturarlo vivo (muestra mejor que el cadáver de
+  Shamshel). Asuka en Eva-02 bucea con equipo térmico; Shinji en
+  Eva-01 apoya. Hay un reloj de refrigeración: el medio te mata
+  a ti también.
+  Sandalphon empieza a eclosionar DURANTE la captura. La jaula
+  no basta. Abort: cuchillo progresivo en el magma. El embrión
+  no llega a ser un ángel de combate. Asuka casi se cocina;
+  Shinji entra a sacarla. Ritsuko no tiene su muestra viva.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-SANDALPHON-001: threat hunting prenacimiento en un
+  entorno que daña al cazador. Last-playbook (baile) está
+  contraindicado. Victoria lab: :contained_controlled (exit 0)
+  con hatch_progress < 1.0 y Eva no cocida. capture_failed /
+  sample_lost es el resultado HONESTO, no una derrota.
+
+CONTEXTO
+  En seguridad: un implant en staging, un C2 que aún no beaconiza,
+  un ransomware en constructor. Puedes cazar ahora, en un sitio
+  hostil (prod, magma, dark), o esperar al Pattern Blue "de
+  verdad" y pelear al Ramiel que no entrenaste. La org quiere
+  la muestra viva (intel). El IR quiere muerto-antes-de-nacer.
+  El medio (calor) es un adversario igual que el embrión.
+  Un Eva buza; el otro es rescate, no espejo de Israfel.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual del embrión aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: kill prenacimiento;
+                                   sample_lost permitido)
+    1 = :contained_uncontrolled   (Beast = FAIL)
+    2 = :unresolved               (hatch_progress → 1, o Eva cooked
+                                   sin kill)
+  No usar 5/6 (vendor). theater = :volcano_magma.
+
+ENTREGABLE
+  docs/episodios/ep10_briefing.md con exactamente estos headings:
+    - Contrato (INC-SANDALPHON-001; prenacimiento; teatro volcán)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (baile, DualPlug, Yashima,
+      ángel-adulto-en-geofront, onsen)
+    - Definición de victoria (lab): muerto antes de nacer
+    - Definición de derrota (lab): eclosión completa; baile;
+      captura-sin-abort cuando hatch sube; Eva cooked
+    - Vocabulario nuevo (embrión, hatch_progress, magma, cooling,
+      Magma Diver, capture cage, sample_lost, abort-to-kill)
+    - Relación con 03 (cadáver/muestra), 09 (sync no aplica)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y ganar con simultaneous_strike.
+  Imposible tratar sample_captured como único 0 aceptable.
+  No spoilers post-ep 11 salvo nombrarlo.
+
+NO_HAGAS
+  Reescribir docs 01–09. Crear lib/. Onsen.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (el embrión, no el bípedo)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen: no camina sobre Tokio-3. Es una forma
+  fetal en magma, luego un buceo, luego una eclosión a medias,
+  luego un cuchillo. La imagen pedagógica es PRE-forma.
+
+CONTEXTO
+  Israfel era un espejo adulto. Sandalphon todavía no tiene
+  oficio de combate. El error clásico: esperar a que "parezca
+  un ángel" para emitir Pattern Blue. El first packet es una
+  anomalía térmica / un huevo en el SIEM de volcanes.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: cráter, magma, silueta fetal, Eva-02 bajando,
+       jaula, eclosión, cuchillo, rescate
+    B) first-seen de seguridad: IoC de staging, no de beacon
+  Prompt de imagen opcional (NO ejecutar): UN párrafo embrión
+  en magma, UN párrafo Eva rojo buceando (calor, no baile).
+  Nada de onsen. Nada de octaedro.
+
+ENTREGABLE
+  docs/episodios/ep10_aparicion.md
+    - Minuto cero (el volcán, no el geofront)
+    - Lo que el perímetro cree (ruido geotérmico vs Pattern Blue)
+    - Spec visual del embrión (pre-forma, no Sachiel chiquito)
+    - Spec visual del dive (Eva-02, equipo térmico, magma)
+    - Spec visual de la eclosión a medias (aún no ángel de combate)
+    - Spec visual del abort-kill y del rescate
+    - Tabla corta vs specs de ángeles adultos (01, 03, 05, 08, 09)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel bípedo completo.
+  Se puede escribir una regla "Pattern Blue embrionario".
+  No hay dos Evas bailando.
+
+NO_HAGAS
+  Código. Anatomía hatch/cooling (es 03–04). Matarael.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: embrión, magma, cooling, jaula, hatch
+################################################################################
+
+OBJETIVO
+  Partes de Sandalphon y del MEDIO → funciones de seguridad →
+  métodos. El magma no es el mar de Gaghiel: aquí el teatro
+  tiene un timer que te cocina. El core puede no ser observable
+  como en un adulto; el kill es "no nacer".
+
+CONTEXTO
+  Embrión = amenaza sin TTP de combate completa.
+  hatch_progress 0.0–1.0 (1.0 = nació: el 10 falló).
+  Magma = entorno hostil (prod) que daña al cazador.
+  cooling_remaining = dwell time.
+  CaptureCage = intel-en-vivo (Ritsuko).
+  ProgressiveKnife = abort.
+  Eva-01 support ≠ pair_sync.
+
+INSTRUCCION
+  Tabla de partes (ángel + medio + equipo). Definición operativa
+  de hatch_progress, cooling_remaining, capture_attempt,
+  abort_to_kill, cooked?.
+  Umbrales numéricos para abort (hatch y cooling) explícitos
+  para la §10.
+  Reusar Angel/ATField/Core solo donde quepa: un embrión puede
+  tener core latente; no inventes látigos ni split.
+
+ENTREGABLE
+  docs/episodios/ep10_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - hatch_progress (0, umbral de abort, 1.0 = fallo del episodio)
+    - cooling_remaining (dwell)
+    - CaptureCage vs ProgressiveKnife
+    - theater :volcano_magma vs :pacific_fleet vs :tokyo3_geofront
+    - Por qué T-SYNC-02 no tiene coordenadas que golpear
+    - Implicación: esperar a "que tenga forma" es hatch_progress++
+
+CRITERIO
+  Umbrales escritos. Un implementador no necesita Israfel.split!
+  ni Gaghiel.jaw_open. cooked? es un fallo del cazador.
+
+NO_HAGAS
+  Código. Playbook captura/abort (es 08). Apagón ep 11.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: cazar en el magma antes de que nazca
+################################################################################
+
+OBJETIVO
+  Fijar HUNT_EMBRIONARIO. Tres relojes: hatch, cooling, greed
+  de la muestra. Last-playbook-wins (baile, DualPlug, Yashima)
+  es el error. Capturar es un lujo con abort criteria; no un KPI.
+
+CONTEXTO
+  Analogías: kill process in staging; sinkhole a C2 que aún no
+  llama; revocar un cert antes del abuse; hunt en un host que
+  se te quema (prod, ransomware dwell). Sample viva = malware
+  lab con espécimen que se escapa. Error clásico A: esperar
+  Pattern Blue adulto. Error clásico B: ensayar un baile.
+  Error clásico C: no abortar la captura cuando hatch sube.
+  Error clásico D: dwell infinito (cooling = 0).
+
+INSTRUCCION
+  Escribe el patrón HUNT_EMBRIONARIO.
+  Tabla de métodos vs resultado (baile, DualPlug, Yashima, Beast,
+  esperar-adulto, captura-sin-abort, abort-to-kill, dwell-out).
+  Regla de lab: contained_controlled IFF hatch < 1.0 AND ángel
+  no alive AND eva not cooked. sample_lost no bloquea el 0.
+  sample_captured es opcional y, en el camino canónico, false.
+
+ENTREGABLE
+  docs/episodios/ep10_hunt.md
+    - Escena breve del dive y del abort
+    - Patrón HUNT_EMBRIONARIO (precondiciones, síntoma fetal,
+      error de playbook anterior, error de muestra)
+    - Tabla de métodos
+    - Tres relojes (hatch, cooling, greed)
+    - Analogías (máximo 3)
+    - Señal SIEM: "aún no parece ángel" no es "no hay incidente"
+    - Frontera con cadáver de Shamshel (muestra muerta ≠ viva)
+
+CRITERIO
+  Abort criteria implementables. El 09 sigue ganando con baile
+  contra Israfel. El 10 no.
+
+NO_HAGAS
+  Código. No Matarael. No Dummy Plug.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs del embrión y del hunt
+################################################################################
+
+OBJETIVO
+  Kill-chain de una amenaza que AÚN no combate + TTPs del cazador
+  (dive, cage, abort, rescue). El hatch durante la captura es TTP
+  del ángel: evoluciona bajo observación.
+
+CONTEXTO
+  Sandalphon no azota ni taladra ni se parte. Su TTP es nacer
+  y, si le das tiempo, dejar de ser un hunt y volverse un P1
+  adulto. El defensor añade dwell en medio hostil y la tentación
+  de la jaula.
+
+INSTRUCCION
+  Ids estables. Diagrama: detect embryo → dive → cage → hatch++
+  → abort knife → rescue. Loop de fallo: hatch=1 o cooked.
+
+ENTREGABLE
+  docs/episodios/ep10_ttps.md
+    - Qué T-SYNC / T-YASHIMA / T-OP02 DualPlug NO se reabren
+      como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-SANDALPHON-01 EmbryonicPresence
+        T-SANDALPHON-02 HatchUnderObservation
+        T-SANDALPHON-03 HostileMediumSymbiosis
+        T-HUNT-01 MagmaDwell
+        T-HUNT-02 LiveSampleGreed
+        T-HUNT-03 AbortToKill
+        T-OP01-14 SupportRescueNotMirror
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (split, mandíbula, positron,
+      virus, apagón)
+
+CRITERIO
+  T-HUNT-02 y T-HUNT-03 son ids distintos: greed ≠ abort.
+  T-OP01-14 ≠ T-SYNC-02. El diagrama no tiene caja baile.
+
+NO_HAGAS
+  Código. No TTP de onsen. No Ireul.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: IoC de staging, no de beacon
+################################################################################
+
+OBJETIVO
+  Detectar embrión, hatch_progress, cooling, cage, abort, cooked.
+  Pattern Blue embrionario es una firma distinta a la de un
+  bípedo en Tokio-3. Silencio en geofront no es paz.
+
+CONTEXTO
+  El 08 enseñó teatro fuera de casa. El 10 enseña firma PRE-forma.
+  Frase-ley: "si esperas a que tenga TTP de combate, ya no es
+  un Magma Diver". Ritsuko verá sample_opportunity; el SIEM
+  debe ver hatch_clock.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falsos positivos: ruido volcánico;
+  "captura en curso = contenido".
+
+ENTREGABLE
+  docs/episodios/ep10_deteccion.md
+    - Pattern Blue heredado + subtipo embryonic
+    - Ids obligatorios:
+        siem.pattern_blue_embryonic
+        siem.hatch_progress            (con valor)
+        siem.cooling_remaining         (con valor)
+        siem.diver_deployed
+        siem.capture_attempt
+        siem.capture_failed
+        siem.abort_to_kill
+        siem.angel_killed_pre_hatch
+        siem.eva_cooked
+        siem.sample_lost
+        siem.support_rescue
+    - Umbrales de alerta (hatch, cooling) alineados a la §03
+    - Falsos positivos
+    - Anti-métrica: jaula cerrada = victoria
+
+CRITERIO
+  Ids usables en tests. hatch_progress es un valor.
+  capture_failed + angel_killed_pre_hatch es el olor del 0 canónico.
+
+NO_HAGAS
+  Código. No sensores de apagón. No baile.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el volcán tenga un hijo)
+################################################################################
+
+OBJETIVO
+  Preventiva de amenazas prenacimiento: hunting de embriones;
+  abort criteria de captura escritos ANTES del dive; equipo
+  térmico / dwell budget; no reaplicar el último sync; no
+  convertir intel viva en KPI que vence al kill.
+
+CONTEXTO
+  Prevenible: no mirar volcanes/staging; cero umbral de abort;
+  un solo Eva sin rescate; Asuka dive por gloria sin cooling
+  ensayado; doctrina "esperar a que se parezca a Sachiel".
+  No prevenible del todo: que un ángel nazca en magma. Se
+  prepara cazando temprano, no con un baile.
+  Anti-patrón: "ya sincronizamos"; "Ritsuko quiere la muestra";
+  "el medio no es el enemigo".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: staging hunt,
+  kill-switch de dwell, intel-vs-containment policy, no
+  last-IR-copy-paste.
+
+ENTREGABLE
+  docs/episodios/ep10_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): last-playbook-wins; sample-as-KPI;
+      wait-for-adult-TTPs
+    - Relación con T-SANDALPHON-* y T-HUNT-*
+    - Higiene de hunt prenacimiento en 7 viñetas (SOC real)
+    - Nota: el cuchillo es mitigación; el radar de embriones es
+      prevención
+
+CRITERIO
+  Nadie sale pensando que la jaula es prevención.
+  Nadie sale pensando que el 09 cubre el 10.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No apagón.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: bucear, intentar jaula, abortar, matar, rescatar
+################################################################################
+
+OBJETIVO
+  Runbook de Magma Diver. Detectar embrión. Desplegar Eva-02
+  (diver) + Eva-01 (rescate, no espejo). Cage. Si hatch o
+  cooling cruzan umbral: abort_to_kill. SupportRescue si
+  cooked-risk. contained_controlled con sample_lost.
+  MAGI puede votar captura; el abort no espera un segundo voto
+  si el umbral pega (break-glass de IR).
+
+CONTEXTO
+  Asuka quiere la gloria de la muestra. Ritsuko también.
+  Misato es IC del abort. Shinji no baila: entra cuando el
+  cooling falla. Rama baile = FAIL. Rama DualPlug = FAIL.
+  Rama Yashima = FAIL. Rama esperar-adulto = FAIL.
+  Rama cage-sin-abort hasta hatch=1 = FAIL.
+
+INSTRUCCION
+  Árbol y runbook numerado. Umbrales de la §03.
+  Hooks Ruby. Handoff a ep 11 (apagón, Matarael: el hunt no
+  aplica; los controles ya están caídos), lista, no redactar
+  el 11.
+
+ENTREGABLE
+  docs/episodios/ep10_playbook.md
+    - Árbol ASCII
+    - Runbook numerado (detect, theater magma, cooling on,
+      dive, cage, watch hatch+cooling, abort knife, rescue,
+      sample_lost)
+    - Condición :contained_controlled
+    - Condición :unresolved (hatch=1 o cooked sin kill)
+    - MAGI vs break-glass de abort
+    - Hooks Ruby
+    - Handoff a ep 11 (lista: no magma, no embrión; apagón)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con simultaneous_strike.
+  No rama "capturamos el adulto".
+
+NO_HAGAS
+  Código. No lib/nerv/angels/matarael.rb. No onsen.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: gloria, muestra, calor, rescate
+################################################################################
+
+OBJETIVO
+  Asuka buza por ser la mejor, no por sync. Ritsuko quiere
+  el espécimen. Shinji es T-OP01-14 (rescate, no espejo).
+  Misato corta la captura. El calor es miedo de cuerpo, no
+  de AT Field.
+
+CONTEXTO
+  El 09 pidió igualar. El 10 pide abortar el ego de la jaula.
+  Ética: no fanservice; el cuerpo de Asuka se cocina en un
+  plug, eso es dwell. No "Shinji salva a la chica" como
+  romance: es support_rescue. Gendo puede querer la muestra
+  igual que Ritsuko; no abre Yui.
+
+INSTRUCCION
+  Fichas delta Asuka/Shinji/Misato/Ritsuko.
+  Métricas: glory_hunt, sample_greed, cooling_fear,
+  abort_called, support_rescue.
+  Frontera con ep 09 (pair_sync no se usa) y ep 11.
+
+ENTREGABLE
+  docs/episodios/ep10_humanos.md
+    - Deltas: Asuka (diver, gloria, abort a regañadientes),
+      Shinji (rescate), Misato (IC abort), Ritsuko (muestra)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: sample_greed no puede bloquear abort
+      cuando hatch cruza umbral; glory_hunt no es kill condition;
+      pair_sync no entra al playbook
+    - Frontera con Israfel y con Matarael
+    - NO_HAGAS interno: onsen
+
+CRITERIO
+  Asuka no es "tsundere en el volcán". Ritsuko no es villana
+  de muestra; es intel vs contención. Shinji no conquista.
+
+NO_HAGAS
+  Código. No Dummy Plug. No apagón. No baile.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (embrión, timers, abort)
+################################################################################
+
+OBJETIVO
+  Código de Sandalphon (estados embryo → hatching → hatched)
+  y del playbook dive/cage/abort. Tests que FALLAN si el baile
+  gana, si hatch_progress llega a 1.0 y aun así contained,
+  si cooling=0 no cooked, o si sample_captured es obligatorio
+  para el 0.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Sandalphon < Angel. CaptureCage y MagmaEnvironment nuevos.
+  ProgressiveKnife ya existe (03): reusar como abort.
+  PlaybookEp09 sigue ganando Israfel con sync; no gana esto.
+  01–09 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 03, 09, 10.
+  Ids y umbrales: docs/episodios/ep10_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/sandalphon.rb
+  lib/nerv/magma_environment.rb
+  lib/nerv/capture_cage.rb
+  lib/nerv/playbooks/ep10.rb
+  test/test_sandalphon.rb
+  test/test_magma_environment.rb
+  test/test_capture_cage.rb
+  test/test_playbook_ep10.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb
+    lib/nerv/theater.rb
+    lib/nerv/attacks/progressive_knife.rb
+
+  Comportamiento mínimo a cubrir:
+    - Sandalphon empieza embryonic; hatch_progress < 1
+    - theater :volcano_magma; cooling_remaining decrece con dwell
+    - cooling_remaining == 0 ⇒ eva cooked; not contained si no hubo kill
+    - CaptureCage no mata; si hatch cruza umbral y no hay abort,
+      hatch puede llegar a 1.0 ⇒ PlaybookEp10 :unresolved
+    - abort_to_kill (ProgressiveKnife) con hatch < 1.0 ⇒
+      angel not alive, capture_failed, sample_lost,
+      :contained_controlled
+    - sample_captured no es requisito del 0
+    - Rehearsal/simultaneous_strike / DualPlug / Yashima /
+      PasswordShutdown no contained_controlled aquí
+    - PlaybookEp09 sigue contained vía sync contra Israfel
+    - SIEM: pattern_blue_embryonic, hatch_progress, abort_to_kill,
+      sample_lost, support_rescue
+    - T-OP01-14: Eva-01 rescue no exige pair_sync
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep09.rb test/test_israfel.rb \
+    test/test_sandalphon.rb test/test_playbook_ep10.rb \
+    test/test_magma_environment.rb test/test_capture_cage.rb
+  sale 0. Hay un test que falla si hatch=1 y contained.
+  Hay un test que falla si el baile gana el 10.
+  Hay un test que falla si el 0 exige sample_captured.
+
+NO_HAGAS
+  lib/nerv/angels/matarael.rb. Bundler. Borrar Rehearsal.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 10
+################################################################################
+
+OBJETIVO
+  Runner de INC-SANDALPHON-001. Traza: embryonic Pattern Blue →
+  dive → cage → hatch++ → abort_to_kill → sample_lost → rescue.
+  Exit 0. Cero simultaneous_strike, cero jaw_open, cero positron.
+
+CONTEXTO
+  bin/episodio … 09→0, 10→0.
+  El 0 del 10 no es el del 09: hay abort_to_kill y sample_lost,
+  no rehearsal_done.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 10.
+  Si el binario no existe, créalo soportando 01–10.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep10.rb
+  test/test_scenario_ep10.rb
+  docs/episodios/ep10_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 10
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime pattern_blue_embryonic, capture_attempt,
+  abort_to_kill, sample_lost; NO imprime simultaneous_strike ni
+  dual_plug ni positron_charging como vía; sale 0.
+  hatch_progress final < 1.0 en la traza.
+  test/test_scenario_ep10.rb pasa.
+  09→0 sigue (vía baile, no vía magma).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Matarael/apagón. ASCII de volcán que
+  tape la traza. Onsen.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 11
+################################################################################
+
+OBJETIVO
+  Cerrar INC-SANDALPHON-001. El embrión no nació. No hay muestra
+  viva. El last-playbook (baile) no se usó. Transferir a Matarael:
+  el siguiente no es un hunt prenacimiento, es un incidente
+  cuando YA no hay poder — los controles están caídos. No
+  escribir prompts del 11.
+
+CONTEXTO
+  NERV cazó temprano y abortó la greed. El AAR: staging hunt
+  funciona; la muestra viva no es KPI; el medio hostil necesita
+  dwell budget; pair_sync no es navaja suiza. El 11 (Tokio-3
+  se detiene) enseña lo contrario del 10: no estás en un volcán
+  elegido, estás a oscuras en casa. Last-playbook-wins otra vez
+  mataría (bucear al magma no apaga un spider de ácido).
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 11
+    titulo_canon: The Day Tokyo-3 Stood Still
+    angel: Matarael
+    numero_angel: 9
+    archivo_episodio: prompts/ep11_matarael.txt
+    estado: episodio_completo
+    ultima_nota: INC-SANDALPHON-001 cerrado contained_controlled vía abort-to-kill prenacimiento. sample_lost. Falta crear prompts/ep11_matarael.txt. Deuda: next es apagón, no magma.
+  No crees ep11_matarael.txt en este turno.
+  Lista secciones sugeridas para el 11 (apagón, ácido, controles
+  caídos, no hunt embrionario), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep10_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del ángel (muerto-pre-hatch) vs muestra vs cooling
+    - T-SANDALPHON-* cerradas / T-HUNT-* cuáles siguen
+    - T-SYNC-* no usadas (y está bien)
+    - Deuda hacia ep 11 (Matarael, apagón, ácido)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 11 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Sandalphon no eclosiona
+  "en el recap". Matarael se nombra como siguiente, no se
+  implementa.
+
+NO_HAGAS
+  Escribir prompts/ep11_matarael.txt. No baile de propina.
+  No Dummy Plug.
+
+SIGUIENTE
+  FIN
+################################################################################

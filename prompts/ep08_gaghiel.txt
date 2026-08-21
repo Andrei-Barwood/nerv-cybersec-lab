@@ -1,0 +1,652 @@
+---
+EPISODIO: 08
+TITULO_CANON: Asuka Strikes! / Asuka Arrives in Japan / アスカ、来日
+ANGEL: Gaghiel
+TIPO: angel
+INCIDENTE: INC-GAGHIEL-001
+NUMERO_ANGEL: 6º
+CLASE_AMENAZA: ataque en tránsito / convoy / teatro que no es el geofront / core en la boca
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep07 existen. INC-JETALONE-001 está :third_party_stopped.
+  Este episodio NO es un vendor: es un ángel de verdad, FUERA de Tokio-3.
+  No reaplicar Yashima, no trepar a teclear un password, no Pattern-Blue
+  en el radar del geofront como si el cielo de siempre bastara.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01–07 §10 y luego esta extensión.
+  Si existe, EXTEND, don't rewrite. Eva-02 y un tercer Operator entran aquí.
+SIGUIENTE: ep 09 — Both of You, Dance Like You Want to Win! / Israfel
+  (ángel que se parte; dos Evas en sync — NO es dos pilotos en un plug)
+FUERA_DE_ALCANCE: |
+  No baile Israfel / dos Evas sincronizadas (ep 09). Aquí hay DOBLE
+  OCUPACIÓN de Eva-02 (Asuka+Shinji en el mismo plug), que no es lo mismo.
+  No Jet Alone. No password on-box. No Ireul. No Dummy Plug. No Yui.
+  No rifle de positrones ni apagón nacional sobre el Pacífico.
+  No tesis de Kaji/Adam/SEELE: Kaji se nombra como carga extra en el
+  convoy, no como plot de Terminal Dogma.
+  No trauma completo de Asuka (Kyoko, dummy). Este es Asuka I: llega,
+  gana, convive.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Flota de la ONU transporta Eva-02 a Japón. Asuka Langley Soryu
+  (Second Child) aparece. Kaji también. Gaghiel ataca EN EL MAR:
+  ictioide enorme, core en la boca, hunde barcos. Tokio-3 no es el
+  escenario.
+  Asuka sale en Eva-02 y mete a Shinji en el MISMO entry plug.
+  Bajo el agua abren la mandíbula; la flota dispara el core.
+  El cañón convencional que falló con Sachiel AQUÍ mata, porque el
+  Eva creó la abertura. Asuka se atribuye la victoria. Shinji queda
+  segundo en su propio cuerpo de control. Asuka se muda al depto.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-GAGHIEL-001: un ángel de un solo episodio, en TRÁNSITO.
+  El geofront puede estar impecable y el convoy igual se hunde.
+  Tras Ramiel, "no te acerques" era ley; aquí hay que meterse en
+  la boca. Tras Jet Alone, "gigante andando = producto" era ley;
+  aquí SÍ es Pattern Blue. El lab gana :contained_controlled
+  (exit 0) con Eva-02 + flota, no con Yashima ni con password.
+
+CONTEXTO
+  En seguridad: el atacante pega al material en movimiento
+  (backup tapes, key ceremony en tránsito, datacenter migration,
+  convoy de HSMs), no al perímetro que acabas de Yashima-fortalecer.
+  El último playbook es el error. Dual occupancy: dos operadores
+  en UN control — sucio, jerárquico (Asuka manda), distinto del
+  baile de dos unidades del 09.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual de Gaghiel aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: mandíbula + fuego de flota
+                                   + input de Asuka, Shinji presente)
+    1 = :contained_uncontrolled   (Beast = FAIL)
+    2 = :unresolved
+  5/6 (vendor) no clasifican este playbook.
+  theater = :pacific_fleet, no :tokyo3_geofront.
+
+ENTREGABLE
+  docs/episodios/ep08_briefing.md con exactamente estos headings:
+    - Contrato (INC-GAGHIEL-001; teatro marítimo)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Israfel, Jet Alone, Yashima-en-el-mar,
+      Kaji-Adam)
+    - Definición de victoria (lab)
+    - Definición de derrota (lab): standoff positrónico; password;
+      rush de Eva-01 desde Tokio; Beast; ignorar la flota
+    - Vocabulario nuevo (convoy, teatro, Gaghiel, Eva-02, Asuka,
+      dual occupancy, mandíbula, fuego naval, core-en-boca)
+    - Relación con 01 (convencional falló), 05–06 (standoff), 07 (vendor)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y disparar Yashima. Imposible tratar
+  a Gaghiel como Jet Alone. Dual occupancy ≠ Israfel, escrito.
+  No spoilers post-ep 09 salvo nombrarlo.
+
+NO_HAGAS
+  Reescribir docs 01–07. Crear lib/. Mover el combate a Tokio-3.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (Gaghiel y la flota)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen del 6º ángel: no flota sobre la ciudad,
+  emerge del agua contra barcos. Asuka aparece en el mismo corte
+  (operadora nueva). Memoria visual: mar, convoy, boca, Eva rojo.
+
+CONTEXTO
+  Sachiel caminaba. Shamshel azotaba. Ramiel flotaba. Jet Alone
+  desfilaba en un stand. Gaghiel es un pez-montaña que se come
+  una flota. El error clásico de percepción: mirar el radar de
+  Tokio-3. El first packet está a mil millas, en logística.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: flota, Asuka en cubierta, agua que se abre, silueta
+       ictioide, barcos partidos, Eva-02 al mar, dos en el plug
+    B) first-seen de seguridad: alerta de convoy, no de geofront
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Gaghiel vs
+  flota, UN párrafo Eva-02 (rojo) abriendo la boca. Nada de baile
+  en tierra. Nada de octaedro.
+
+ENTREGABLE
+  docs/episodios/ep08_aparicion.md
+    - Minuto cero (cubierta / horizonte)
+    - Lo que el perímetro de Tokio-3 ve (nada) vs lo que ve la flota
+    - Pattern Blue fuera de casa: por qué el nombre viaja y el
+      playbook no
+    - Spec visual Gaghiel (escala, agua, boca, core entre dientes)
+    - Spec visual Eva-02 / Asuka (contraste con Eva-01)
+    - Tabla corta vs specs 01, 03, 05, 07 (ángel ≠ producto)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el combate sin Tokio-3 en el encuadre.
+  Se puede escribir una regla "Pattern Blue en tránsito".
+  No hay segundo Eva en el agua (solo 02).
+
+NO_HAGAS
+  Código. Anatomía/core-boca formal (es 03–04). Israfel.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: agua, mandíbula, core, Eva-02
+################################################################################
+
+OBJETIVO
+  Partes de Gaghiel → funciones de seguridad → futuros métodos.
+  El core EXISTE y se puede ver cuando la boca se abre. No es el
+  core interno de Ramiel ni el pecho de Shamshel. AT Field en
+  medio acuático: reusar clase, cambiar el teatro.
+
+CONTEXTO
+  Cuerpo ictioide = payload que vive en un medio donde NERV no
+  entrenó (off-network / out-of-band físico).
+  Mandíbula = gate: el core está detrás de un control del ATACANTE.
+  Core-en-boca = kill condition que exige close-range DESPUÉS de
+  Ramiel. ConventionalAttack de la flota es letal IFF jaw_open.
+  Eva-02 = nueva unidad; DualOccupancy = dos Operators, un Eva.
+  No es C2Channel. No es Drill. No es reactor de JA.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de theater,
+  jaw_open, fleet_fire_effective?, dual_occupancy.
+  Nombres Ruby (solo nombres): Gaghiel, open_jaw!,
+  FleetBattery, Eva-02, DualPlug.
+
+ENTREGABLE
+  docs/episodios/ep08_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - theater (:pacific_fleet vs :tokyo3_geofront)
+    - jaw_open como precondición del fuego convencional
+    - DualPlug ≠ dos Evas (frontera con ep 09)
+    - Qué se REUSA (ATField, Core, Pattern Blue) y qué NO
+      (KillZone de Ramiel como ley universal, PasswordShutdown)
+    - Implicación: el N²/rifle del 01 no era inútil para siempre;
+      era inútil CONTRA SACHIEL
+
+CRITERIO
+  Un implementador no fusiona mandíbula con látigo ni con
+  kill_zone de octaedro. DualPlug no se llama IsrafelSync.
+
+NO_HAGAS
+  Código. Playbook de la flota (es 08). Kaji/Adam.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el ataque pega al convoy
+################################################################################
+
+OBJETIVO
+  Fijar ATAQUE_EN_TRANSITO. El tesoro no está en el geofront;
+  está en movimiento. El playbook de casa no viaja. El playbook
+  de "nunca close-range" (05) tampoco: aquí close-range abre
+  la boca y la flota mata.
+
+CONTEXTO
+  Analogías: compromise del canal de distribución; ataque a
+  backups en vuelo; BGP/hijack de ruta; "hardening el DC y
+  perder el camión"; combined arms (el host isolation no basta,
+  hace falta el equipo de red disparando cuando el puerto se
+  abre).
+  Error clásico A: esperar Pattern Blue en Tokio-3.
+  Error clásico B: Yashima al mar (no hay grid nacional sobre
+  el agua de esa forma; teatro distinto).
+  Error clásico C: tratarlo como Jet Alone (password).
+  Error clásico D: cuchillo al cuerpo sin abrir la mandíbula.
+
+INSTRUCCION
+  Escribe el patrón ATAQUE_EN_TRANSITO.
+  Tabla de métodos vs resultado en el 08 (Yashima, knife,
+  Beast, password, rush Eva-01 desde casa, DualPlug+jaw+fleet).
+  Regla de lab: Gaghiel muere solo si jaw_open && fleet_fire
+  && eva02.present? && asuka.input_present.
+
+ENTREGABLE
+  docs/episodios/ep08_transito.md
+    - Escena breve del barco partido
+    - Patrón ATAQUE_EN_TRANSITO (precondiciones, síntoma, error
+      de teatro, error de playbook anterior)
+    - Tabla de métodos
+    - Por qué el fuego convencional AQUÍ no es el teatro del 01
+    - Analogías (máximo 3)
+    - Señal SIEM: silencio en Tokio-3 no es "no hay ángel"
+    - Frontera con TERCERO_NO_AUDITADO (07): tránsito de activo
+      propio ≠ producto ajeno
+
+CRITERIO
+  La condición de kill es implementable y no incluye thank_you
+  ni password ni positron. El 01 sigue con ConventionalAttack
+  inútil contra Sachiel.
+
+NO_HAGAS
+  Código. No Israfel. No Adam en el maletín como kill condition.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de Gaghiel y de la flota
+################################################################################
+
+OBJETIVO
+  Kill-chain de ESTE ángel + TTPs del defensor en teatro marítimo.
+  Asuka no es TTP del ángel. Dual occupancy es TTP operacional
+  (sucia).
+
+CONTEXTO
+  Gaghiel: presencia en ruta, medio acuático, mandíbula, core
+  guardado detrás de un gate propio, impacto a la flota (no al
+  geofront). El defensor: desplegar Eva-02 desde el activo
+  transportado, dual plug, abrir gate, combined arms.
+
+INSTRUCCION
+  Ids estables. Diagrama: convoy → Pattern Blue en mar → (Tokio
+  silencioso) → DualPlug → jaw → fleet fire → core.
+
+ENTREGABLE
+  docs/episodios/ep08_ttps.md
+    - Qué T-RAMIEL / T-YASHIMA / T-VENDOR no se reabren como método
+    - T-OP01-08 CloseRangeReapplied: AQUÍ close-range no está
+      contraindicado igual; nota la excepción, no borres el id
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-GAGHIEL-01 TransitAmbush
+        T-GAGHIEL-02 AquaticDomain
+        T-GAGHIEL-03 JawGatedCore
+        T-GAGHIEL-04 FleetAsPrey
+        T-FLEET-01 CombinedArmsOnOpenCore
+        T-OP02-01 DualPlugHierarchy
+        T-OP02-02 SecondChildTakesLead
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (baile de dos Evas, virus MAGI,
+      octaedro, demo de vendor)
+
+CRITERIO
+  T-OP02-01 ≠ Israfel. T-FLEET-01 no contradice los tests del 01
+  (Sachiel sigue inmune a ConventionalAttack sin gate).
+  El diagrama no tiene caja Yashima.
+
+NO_HAGAS
+  Código. No TTP "Asuka es insoportable" como técnica de ángel.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el SIEM no está en casa
+################################################################################
+
+OBJETIVO
+  Detectar Pattern Blue en teatro :pacific_fleet. Silencio en
+  Tokio-3. Dual plug. jaw_open. fleet_fire. Asuka input.
+  Kaji-en-convoy como evento de carga extra, no como Pattern Blue.
+
+CONTEXTO
+  El 05 veía la fortaleza sobre la ciudad. El 07 veía un demo.
+  El 08: los sensores de casa no bastan. Hay que tener detección
+  en la ruta. Frase-ley: "el mapa del geofront no es el mapa
+  del incidente".
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falso positivo: silencio-en-casa
+  = no hay incidente; gigante-en-el-mar = Jet Alone.
+
+ENTREGABLE
+  docs/episodios/ep08_deteccion.md
+    - Pattern Blue heredado + campo theater
+    - Ids obligatorios:
+        siem.pattern_blue              (reusar; theater=pacific_fleet)
+        siem.tokyo3_silent
+        siem.convoy_under_attack
+        siem.eva02_deployed
+        siem.dual_plug
+        siem.jaw_open
+        siem.fleet_battery_fired
+        siem.core_destroyed            (reusar; vía combined arms)
+        siem.extra_cargo_unclassified  (Kaji; no es kill)
+    - Falsos positivos
+    - Anti-métrica: "Asuka dice que ganó" como única fuente
+
+CRITERIO
+  Ids usables en tests. tokyo3_silent no cierra el ticket.
+  extra_cargo no mata a Gaghiel.
+
+NO_HAGAS
+  Código. No sensores de baile. No maletín-Adam como core.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el convoy zarpe)
+################################################################################
+
+OBJETIVO
+  Preventiva de tránsito: escolta que no es teatro de prensa;
+  playbooks por teatro (mar ≠ geofront); no asumir que Yashima
+  cubre el Pacífico; no mover Eva-02 como si fuera un desfile;
+  ensayar combined arms (Eva abre, flota dispara) ANTES del
+  first-seen; DualPlug como procedimiento, no como capricho
+  de Asuka en el minuto 20.
+
+CONTEXTO
+  Prevenible: ruta sin detección; un solo teatro de doctrina;
+  press-tour como cover del traslado; cero ensayo de mandíbula;
+  tercer piloto que se estrena en combate real.
+  No prevenible del todo: que un ángel elija el mar. Se prepara
+  con teatro-específico, no con otro octaedro.
+  Anti-patrón: "Ramiel enseñó a no acercarse, nunca más";
+  "Tokio-3 está quieto"; "es otro Jet Alone".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: in-transit encryption
+  + escort, playbooks por entorno, tabletop de "el P1 no será
+  en el DC", onboarding del tercer on-call ANTES del P1.
+
+ENTREGABLE
+  docs/episodios/ep08_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): last-theater-wins; silencio-en-casa;
+      close-range-nunca
+    - Relación con T-GAGHIEL-* y T-FLEET-01
+    - Higiene de tránsito en 7 viñetas (sirve a un SOC/logística real)
+    - Nota DualPlug: procedimiento ≠ Israfel
+
+CRITERIO
+  Nadie sale pensando que el próximo ángel también será pez.
+  Nadie sale pensando que el fuego naval es prevención (es
+  mitigación de teatro).
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No baile.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: dual plug, mandíbula, flota
+################################################################################
+
+OBJETIVO
+  Runbook marítimo. Clasificar: SÍ es ángel, NO es vendor, NO es
+  Ramiel. Desplegar Eva-02. Dual occupancy. Abrir mandíbula.
+  Fuego de flota. contained_controlled. MAGI puede estar lejos:
+  la autorización de teatro de flota no es Yashima nacional.
+
+CONTEXTO
+  Asuka lidera. Shinji está en el plug (input presente, jerarquía
+  T-OP02-01). Misato en el puente de mando de la flota, no en
+  el geofront. Rama Yashima = FAIL (capacidad/teatro). Rama
+  password = FAIL (clasificación). Rama Beast = FAIL. Rama
+  cuchillo al lomo sin jaw_open = no kill.
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables.
+  Hooks Ruby. Handoff a ep 09 (Israfel: dos Evas, un baile),
+  lista, no redactar el 09. Dejar explícito que DualPlug no
+  satisface el 09.
+
+ENTREGABLE
+  docs/episodios/ep08_playbook.md
+    - Árbol ASCII
+    - Runbook numerado (teatro, clasificación vs JA vs Ramiel,
+      deploy Eva-02, dual plug, dive, jaw, fleet fire, core,
+      Asuka-claims-win)
+    - Condición :contained_controlled
+    - Condiciones de fallo (Yashima, password, Beast, silencio-casa)
+    - Hooks Ruby
+    - Handoff a ep 09 (lista: sync de DOS unidades, no un plug)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con positron_rifle.
+  No rama "Shinji aúlla y parte al pez".
+
+NO_HAGAS
+  Código. No lib/nerv/playbooks/ep09.rb. No Adam.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: Asuka I, el plug de dos, Kaji de fondo
+################################################################################
+
+OBJETIVO
+  Ficha de la Second Child. Shinji deja de ser el único volante.
+  Dual occupancy: jerarquía, no fusión. Kaji = carga extra /
+  agenda, no el ángel. Rei no está en el mar. Misato reencuentra
+  a Kaji (nota, no plot).
+
+CONTEXTO
+  Asuka I: competencia, sincronía alta, necesita a Shinji en el
+  plug y no lo va a agradecer como Rei. Ética: no reducirla a
+  "tsundere"; es operadora que se estrena ganando y coloniza
+  el roster (se muda). hedgehog_distance con TRES en el depto
+  se NOMBRA; no se resuelve (no es el 04).
+  Shinji: segundo input, pain/mareo, no-consent ligero de ser
+  metido al plug — distinto del Beast.
+  Kaji: extra_cargo_unclassified. No abrir Adam.
+
+INSTRUCCION
+  Ficha NUEVA Asuka + deltas Shinji/Misato. Kaji ficha corta.
+  Métricas: asuka_lead, dual_plug, shinji_secondary_input,
+  extra_cargo, apartment_third.
+  Frontera con ep 09: un plug ≠ dos Evas.
+
+ENTREGABLE
+  docs/episodios/ep08_humanos.md
+    - Ficha Asuka I
+    - Deltas: Shinji (secondary), Misato (puente, Kaji), Rei (ausente)
+    - Ficha corta Kaji (convoy, no Dogma)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: asuka_lead no elimina shinji_secondary_input
+      como requisito; extra_cargo no cambia ContainmentResult;
+      apartment_third no es staffing_failed
+    - Frontera con ep 09 y con el erizo
+
+CRITERIO
+  Asuka no es comic. Shinji no "se enamora y gana". Kaji no es
+  el core. Rei no aparece "para equilibrar".
+
+NO_HAGAS
+  Código. No Kyoko. No Dummy Plug. No baile.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Gaghiel muere por mandíbula + flota)
+################################################################################
+
+OBJETIVO
+  Código del 6º ángel, Eva-02, DualPlug, FleetBattery.
+  Tests que FALLAN si Yashima/password/Beast/knife-sin-jaw
+  contienen a Gaghiel, si el teatro es tokyo3_geofront, o si
+  DualPlug se implementa como dos Evas sincronizadas.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Gaghiel < Angel. ConventionalAttack sigue inútil contra
+  Sachiel. Contra Gaghiel, FleetBattery es letal IFF jaw_open.
+  Operator Asuka. 01–07 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 01, 06, 07, 08.
+  Ids: los de docs/episodios/ep08_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/gaghiel.rb
+  lib/nerv/fleet_battery.rb
+  lib/nerv/dual_plug.rb
+  lib/nerv/theater.rb
+  lib/nerv/playbooks/ep08.rb
+  test/test_gaghiel.rb
+  test/test_fleet_battery.rb
+  test/test_dual_plug.rb
+  test/test_playbook_ep08.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb            (unidad 02)
+    lib/nerv/operator.rb       (Asuka)
+    lib/nerv/siem.rb
+    lib/nerv/attacks/conventional.rb  (Sachiel intacto; Gaghiel no
+                                        muere por esto SIN jaw_open)
+
+  Comportamiento mínimo a cubrir:
+    - Gaghiel.is_a?(Angel)
+    - theater :pacific_fleet; silencio en tokyo3 no resuelve
+    - PlaybookEp08 no usa PowerGrid.national ni PasswordShutdown
+      como kill
+    - jaw_open == false ⇒ FleetBattery no destruye el core
+    - jaw_open + FleetBattery + eva02 + asuka.input_present
+      ⇒ core destroyed
+    - DualPlug: dos operators, UN eva (eva02); no dos evas
+    - shinji_secondary_input requerido en el camino feliz
+    - PlaybookEp08 → :contained_controlled
+    - Beast / Yashima / JA-password ≠ contained_controlled aquí
+    - ConventionalAttack vs Sachiel sigue sin matar (test 01)
+    - SIEM: convoy_under_attack, dual_plug, jaw_open,
+      fleet_battery_fired, tokyo3_silent
+    - JetAlone sigue sin ser Angel (test 07)
+
+CRITERIO
+  ruby -Ilib:test test/test_sachiel.rb test/test_playbook_ep07.rb \
+    test/test_gaghiel.rb test/test_playbook_ep08.rb \
+    test/test_dual_plug.rb test/test_fleet_battery.rb
+  sale 0. Hay un test que falla si Gaghiel muere con la boca
+  cerrada. Hay un test que falla si DualPlug crea dos Evas.
+
+NO_HAGAS
+  lib/nerv/angels/israfel.rb. Bundler. Borrar tests del 01 o 07.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 08
+################################################################################
+
+OBJETIVO
+  Runner de INC-GAGHIEL-001. Traza: flota → Asuka → Pattern Blue
+  en mar → tokyo3_silent → DualPlug → jaw → fleet fire → core.
+  Exit code 0. Cero positron, cero password, cero baile.
+
+CONTEXTO
+  bin/episodio 01→2, 02→1, 03→0, 04→3, 05→2, 06→0, 07→5, 08→0.
+  El 0 del 08 no es el del 03 ni el del 06: hay jaw_open y
+  fleet_battery_fired.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 08.
+  Si el binario no existe, créalo soportando 01–08.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep08.rb
+  test/test_scenario_ep08.rb
+  docs/episodios/ep08_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 08
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime convoy_under_attack, dual_plug,
+  jaw_open, fleet_battery_fired; NO imprime positron_charging
+  ni on_box_password ni eva_berserk como vía; sale 0.
+  test/test_scenario_ep08.rb pasa.
+  01→2, 07→5 siguen.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Israfel/baile. ASCII de tiburón que
+  tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 09
+################################################################################
+
+OBJETIVO
+  Cerrar INC-GAGHIEL-001. El convoy llegó, el pez está muerto,
+  hay tres operadores en el roster y DualPlug no es un baile.
+  Transferir a Israfel: el ángel se PARTE y hacen falta DOS
+  Evas en sync. No escribir prompts del 09.
+
+CONTEXTO
+  NERV cree que Asuka "resuelve" el problema de capacidad.
+  El AAR: ganamos en un teatro para el que no había doctrina;
+  close-range volvió a ser válido EN ESTE ángel; la flota no
+  es inútil por decreto del 01; Kaji sigue como carga extra;
+  el depto tiene tres erizos. El 09 va a exigir coordinación
+  que DualPlug no entrena (un cuerpo, una jerarquía ≠ dos
+  cuerpos, un ritmo).
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 09
+    titulo_canon: Both of You, Dance Like You Want to Win!
+    angel: Israfel
+    numero_angel: 7
+    archivo_episodio: prompts/ep09_israfel.txt
+    estado: episodio_completo
+    ultima_nota: INC-GAGHIEL-001 cerrado contained_controlled vía mandíbula+flota. DualPlug ≠ Israfel. Falta crear prompts/ep09_israfel.txt.
+  No crees ep09_israfel.txt en este turno.
+  Lista secciones sugeridas para el 09 (split, sync, baile, Eva-01
+  y Eva-02), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep08_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del ángel vs teatro vs roster (3 operadores)
+    - T-GAGHIEL-* cerradas / T-OP02-* abiertas
+    - T-OP01-08: excepción de teatro, no borrada
+    - Deuda hacia ep 09 (dos Evas, un tempo; DualPlug no basta)
+    - Deuda Kaji (extra_cargo; no abrir)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 09 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Gaghiel no reaparece.
+  Israfel se nombra como siguiente, no se implementa.
+
+NO_HAGAS
+  Escribir prompts/ep09_israfel.txt. No Adam. No Jet Alone 2.
+
+SIGUIENTE
+  FIN
+################################################################################

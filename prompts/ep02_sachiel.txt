@@ -1,0 +1,642 @@
+---
+EPISODIO: 02
+TITULO_CANON: The Beast / Unfamiliar Ceiling / 見知らぬ、天井
+ANGEL: Sachiel (mismo incidente que ep 01; el ángel no es nuevo)
+INCIDENTE: INC-SACHIEL-001
+NUMERO_ANGEL: 3º
+CLASE_AMENAZA: contención no autorizada / defensor con agencia / blast radius / divulgación pública
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01_sachiel.txt existe y es ley de alcance (el 01 termina :unresolved).
+  Al EJECUTAR secciones 10–11 de este archivo: si lib/nerv/ no existe,
+  construye primero el contrato mínimo de ep 01 sección 10 (código+tests,
+  no reescribas sus docs) y luego esta extensión. Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 03 — A Transfer / Shamshel (explotación remota / C2 / látigos)
+FUERA_DE_ALCANCE: |
+  No Dummy Plug formal (eso es más tarde: Bardiel/Zeruel).
+  No nombrar a Yui Ikari como el alma del Eva. Agencia opaca, sin ficha de madre.
+  No tesis completa del erizo (cohabitación se nombra; el episodio 04 la posee).
+  No Shamshel, no Ramiel, no Jet Alone.
+  No convertir el berserk en victoria limpia ni en playbook recomendado.
+  No rehacer la anatomía de Sachiel (ya está en ep 01 secciones 03–05).
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Apertura en techo desconocido (hospital). Misato, departamento, tienda.
+  Civiles felicitan a Shinji. Él no sabe por qué.
+  Flashback del combate: Eva-01 es destrozada; el piloto siente el daño (pain sync).
+  Eva-01 se reactiva sin voluntad del piloto: bestia, rugido, ojos.
+  Rompe el AT Field de Sachiel por fuerza (hexágonos).
+  Descuartiza al ángel, aplasta el core en la mano, aúlla.
+  Presente: ciudad herida, Eva-01 recuperada chorreando, "felicidades".
+  Shinji no ganó. El Beast sí. NERV no lo controló.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar que el ep 02 NO es un ángel nuevo: es la segunda mitad de
+  INC-SACHIEL-001. El lab pasa de :unresolved a :contained_uncontrolled.
+  El susto pedagógico ya no es Sachiel: es Eva-01.
+
+CONTEXTO
+  En la TV el corte del 01 es el primer choque; el 02 abre en la resaca
+  y reconstruye el pelea como quien hace forense después de vivir el
+  desastre. Eso ES el proceso de IR: techo desconocido → convives con
+  el daño → entonces armas el timeline.
+  Contener no es lo mismo que haber dirigido la contención.
+  Un EDR/SOAR/failsafe que "salva" el estate destruyendo media ciudad
+  y saltándose al humano es un segundo incidente.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual del Beast todavía.
+  Declara códigos de salida del lab (hereda ep 01):
+    0 = :contained_controlled   (no aplica a este episodio)
+    1 = :contained_uncontrolled (este episodio)
+    2 = :unresolved             (ep 01)
+  Declara que MAGI autorizó el deploy, NO el berserk.
+
+ENTREGABLE
+  docs/episodios/ep02_briefing.md con exactamente estos headings:
+    - Contrato (mismo incidente, nueva clase de fallo)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (ep 03+, Dummy Plug, Yui, erizo)
+    - Definición de victoria sucia (lab)
+    - Definición de derrota (lab) — incluye "celebrar el Beast como plan")
+    - Vocabulario nuevo (berserk, pain sync, blast radius, disclosure,
+      operator_non_consent, contained_uncontrolled, failsafe opaco)
+    - Relación con ep 01 (qué se reusa, qué se prohíbe reescribir)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Queda imposible leer el briefing y creer que Shinji "ganó el primer
+  combate". El exit code 1 está definido. No hay spoilers post-ep 03.
+
+NO_HAGAS
+  Reescribir docs/episodios/ep01_*.md. Crear lib/. Listar los 17 ángeles.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del Beast (no del ángel)
+################################################################################
+
+OBJETIVO
+  Recrear la aparición que importa en este capítulo: Eva-01 dejando de
+  ser máquina de respuesta y volviéndose animal. Sachiel ya tiene spec
+  en ep 01; aquí solo se le ve morir.
+
+CONTEXTO
+  El público de Tokio-3 ve un gigante que se mueve mal, que ruge, que
+  parte un campo invisible a golpes. El piloto, dentro, no está al volante.
+  En el SIEM esto no es pattern_blue: es el defensor emitiendo una firma
+  que nadie tenía en el playbook. First-seen del propio control.
+
+INSTRUCCION
+  Spec de aparición en dos columnas:
+    A) escena (presente sensorial, breve): reactivación, ojos, movimiento
+       no-humano, ruptura hexagonal del AT Field, core en el puño, aullido
+    B) first-seen de seguridad: qué log del DEFENSOR es anómalo
+  Un bloque opcional de prompt de imagen (NO ejecutar) del Beast y del
+  shatter hexagonal, no un poster de Sachiel.
+
+ENTREGABLE
+  docs/episodios/ep02_aparicion.md
+    - El techo desconocido como "acceso al incidente ya ocurrido"
+    - Minuto del Beast (escena)
+    - Lo que el piloto cree que hace vs lo que el cuerpo hace
+    - Spec visual Eva-01 berserk (silueta, ojos, movimiento, sonido, sangre/LCL)
+    - Spec visual del shatter del AT Field (hexágonos, no magia genérica)
+    - Spec visual de la muerte de Sachiel (core aplastado; el ángel deja de persistir)
+    - Firma SIEM del defensor fuera de perfil
+    - "Prompt de imagen (opcional, no ejecutar)" — UN párrafo Beast,
+      UN párrafo shatter+core
+
+CRITERIO
+  Se puede dibujar el Beast y el hex-shatter con esa spec.
+  No se reescribe la ficha de Sachiel viva. No hay combate "heroico".
+
+NO_HAGAS
+  Código. Anatomía interna del Eva (es 03). Felicidades/Misato (es 09).
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía del berserk: el control tiene cuerpo propio
+################################################################################
+
+OBJETIVO
+  Modelo de partes del DEFENSOR en modo Beast. Cada parte será clase o
+  flag. El punto: un control con agencia no documentada es un activo
+  no inventariado.
+
+CONTEXTO
+  Pain sync: el operador recibe el daño de la unidad (acoplamiento
+  peligroso: el humano ES el sensor de integridad).
+  Berserk: se descarta el input del operador; la unidad actúa.
+  AT Field del Eva: también tiene aislamiento; en berserk lo usa como
+  arma de choque, no como escudo educado.
+  Core del Eva: hay una voluntad. En este repo se llama agencia opaca
+  (opaque_agency). No Yui.
+  Manos: el core de Sachiel se aplasta. El kill es cinético, no un
+  playbook de CoreStrike entrenado.
+
+INSTRUCCION
+  Tabla de partes del Eva-01 (modo normal vs modo berserk).
+  Definiciones operativas: pain_sync, berserk, opaque_agency,
+  operator_input_discarded. Nombres de métodos Ruby (solo nombres).
+  Relación con AT Field y Core ya definidos en ep 01: no redefinirlos;
+  declara cómo el Beast los USA.
+
+ENTREGABLE
+  docs/episodios/ep02_anatomia_beast.md
+    - Tabla (parte | modo normal | modo berserk | analogía de seguridad | símbolo Ruby)
+    - pain_sync (métrica y fallo: el operador se lesiona con la unidad)
+    - opaque_agency (existe; no se explica la fuente)
+    - Relación con Nerv::ATField y Nerv::Core del ep 01
+    - Implicación: golpear al ángel con un Beast no prueba que NERV sepa pelear
+
+CRITERIO
+  Un implementador saca flags/métodos sin inventar un Dummy Plug.
+  La palabra Yui no aparece. AT Field no se reescribe desde cero.
+
+NO_HAGAS
+  Código. No blast radius (es 05). No "el Eva está poseído" como lore barato.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Kill sucio: cómo deja de persistir Sachiel
+################################################################################
+
+OBJETIVO
+  Cerrar PERSISTENCIA_POST_WIPE del ep 01. El wipe N² no mató. El Beast
+  sí: rompe aislamiento por fuerza y destruye el core. Registrar que
+  esa vía no es CoreStrike entrenado.
+
+CONTEXTO
+  Regla del 01: ConventionalAttack y N2Mine son no-eventos; CoreStrike
+  mata. En el 01, Eva con sync_rate bajo NO logra CoreStrike.
+  En el 02, el CoreStrike ocurre por un canal distinto: BerserkChannel.
+  Analogía: un wiper interno, un isolate-and-nuke automático, un
+  kill-switch de firmware que nadie del IR autorizó y que funciona.
+  Funcionar no lo vuelve control.
+
+INSTRUCCION
+  Escribe el patrón CONTENCION_NO_AUTORIZADA.
+  Distingue: CoreStrike entrenado (no ocurre) vs CoreCrush en berserk
+  (sí ocurre). Declara el estado final de Sachiel: core destroyed,
+  regenerate! ya no aplica. Declara que mutate! no salva al ángel
+  porque el Beast no negocia TTPs: parte el modelo.
+
+ENTREGABLE
+  docs/episodios/ep02_kill.md
+    - Escena breve del shatter + crush (sin reescribir 02 entero)
+    - Patrón CONTENCION_NO_AUTORIZADA
+    - Canal de kill: BerserkChannel vs CoreStrike (tabla)
+    - Estado terminal de Sachiel (qué métodos mueren con él)
+    - Analogías (máximo 3): failsafe opaco, SOAR sin human-in-the-loop,
+      isolate/wipe automático de EDR
+    - Regla de lab: contained_uncontrolled cuenta como ángel-muerto
+      Y como incidente-abierto del defensor
+    - Señal SIEM: core_destroyed junto a operator_non_consent
+
+CRITERIO
+  La regla Conventional/N2/CoreStrike del 01 sigue vigente.
+  Se añade BerserkChannel sin borrar las otras. Sachiel puede morir
+  en tests del 02 sin que los tests del 01 dejen de terminar unresolved.
+
+NO_HAGAS
+  Código. No celebrar el crush como doctrina. No adelantar el rifle
+  de positrones (Ramiel).
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs del defensor y blast radius
+################################################################################
+
+OBJETIVO
+  El inventario de TTPs de este episodio es del EVA, no del ángel.
+  Más el radio de daño colateral y la filtración a civiles.
+
+CONTEXTO
+  Quien solo catalogue a Sachiel se pierde el 02. Las técnicas nuevas
+  son: acoplamiento de dolor, bypass del operador, ruptura bruta de
+  aislamiento, crush del core, daño a la ciudad, visibilidad pública.
+  En seguridad: el control de contención tiene TTPs propias. Si no las
+  modelas, tu "defensa" es un threat actor interno sin ficha.
+
+INSTRUCCION
+  Cadena del DEFENSOR en fases. Ids estables, citables desde tests.
+  No reuses ids T-SACHIEL-* salvo para marcar cuáles se CIERRAN
+  (WipeSurvival termina; HighValueApproach se corta).
+  Blast radius: qué se rompe que NO era el ángel (ciudad, unidad,
+  operador, relato público).
+
+ENTREGABLE
+  docs/episodios/ep02_ttps.md
+    - Qué T-SACHIEL-* se cierran en este episodio
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-EVA01-01 PainSyncFeedback
+        T-EVA01-02 OperatorBypassBerserk
+        T-EVA01-03 BruteForceATFieldBreak
+        T-EVA01-04 CoreCrush
+        T-EVA01-05 CollateralCity
+        T-EVA01-06 PublicDisclosure
+    - Tabla de fases (nombre NERV | etiqueta seguridad | evidencia ep 02
+      | preventivo posible | mitigación posible)
+    - Diagrama ASCII: unresolved (ep01) → freeze/pain_sync → berserk
+      → shatter → crush → disclosure → congratulations
+    - Blast radius (categorías: física, humana, reputacional, de control)
+    - Qué NO es TTP de este episodio (látigos, Yashima, MAGI-virus)
+
+CRITERIO
+  Los 6 ids T-EVA01-* son citables. El diagrama no tiene rama "Shinji
+  apunta y gana". Collateral y Disclosure no son el mismo TTP.
+
+NO_HAGAS
+  Código. No TTPs de Shamshel. No fusionar disclosure con "PR de anime".
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Forense: el techo desconocido es el SIEM
+################################################################################
+
+OBJETIVO
+  Modelar la narrativa no lineal del capítulo como reconstrucción
+  forense. Detección del Beast, demora, ausencia de voto MAGI, y el
+  anti-evento congratulations_issued.
+
+CONTEXTO
+  El episodio empieza DESPUÉS. Eso es un SOC que entra al turno y
+  encuentra el ticket ya en "resolved" con la ciudad rota. Pattern
+  Blue ya se emitió en el 01. Lo nuevo: firmas del Eva, no del ángel.
+  Hallazgo clave: nadie autorizó el berserk. MAGI votó el deploy.
+  El éxito publicado (felicidades) contradice operator_non_consent.
+
+INSTRUCCION
+  Superficie de detección del lab para el DEFENSOR anómalo.
+  Timeline forense: hospital/techo → vida civil → flashback.
+  Eventos nuevos, ids estables. Falsos positivos: "Eva agresiva" vs
+  berserk real. Demora: el operador no puede reportar mientras hay
+  pain_sync. Frase-ley: "resolved en el ticket no es resolved en el cuerpo".
+
+ENTREGABLE
+  docs/episodios/ep02_deteccion.md
+    - Timeline forense (orden VIVIDO vs orden CAUSAL)
+    - Señales nuevas (evento, disparador, confianza)
+    - Ids obligatorios:
+        siem.eva_berserk
+        siem.at_field_shattered
+        siem.core_destroyed
+        siem.operator_pain_sync
+        siem.operator_non_consent
+        siem.collateral_recorded
+        siem.public_disclosure
+        siem.congratulations_issued
+        siem.magi_berserk_unauthorized
+    - Falsos positivos
+    - Hallazgo MAGI: no hay mayoría para berserk (porque no hubo moción)
+    - Anti-métrica: congratulations_issued + operator_non_consent = olor
+    - Relación con eventos del ep 01 (se heredan, no se duplican ids)
+
+CRITERIO
+  Los ids son usables en tests. El hallazgo "MAGI no autorizó" está
+  escrito. congratulations no cuenta como contención.
+
+NO_HAGAS
+  Implementar código. No redefinir Pattern Blue. No Dummy Plug.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (evitar NECESITAR al Beast)
+################################################################################
+
+OBJETIVO
+  Prevención del 02: no es "matar ángeles antes". Es no diseñar un
+  sistema cuya única vía de supervivencia sea un failsafe opaco.
+
+CONTEXTO
+  Lo prevenible: desplegar a un operador en freeze con sync_rate bajo;
+  no tener umbral que ABORTE el deploy; no documentar que la unidad
+  tiene agencia; no entrenar CoreStrike; gastar N² como si fuera kill.
+  Lo no prevenible una vez que Sachiel ya está ganando y el piloto
+  no responde: quizá el Beast era el único camino. Eso se ACEPTA como
+  riesgo residual, no se promociona como feature.
+  Anti-patrón: "el Eva despertó, luego funciona" como plan de capacidad.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE (o aceptable sucio).
+  Cada control: nombre, qué habría cambiado en el 02, analogía real
+  de una línea, futuro método. Enganchar a T-EVA01-* y a los
+  preventivos del ep 01 (no copiarlos: citarlos y añadir).
+  Incluir: human-in-the-loop real, kill-switch documentado, umbral
+  de aborto por sync_rate, inventario de agencia opaca.
+
+ENTREGABLE
+  docs/episodios/ep02_prevencion.md
+    - Columna PREVENIBLE (mínimo 5, distintos de los 5 del ep 01)
+    - Columna SOLO MITIGABLE / riesgo residual
+    - Anti-patrones (mínimo 3): Beast-as-feature; felicidades-as-KPI;
+      "el control inteligente nos cubre"
+    - Relación con T-EVA01-* y con ep01_prevencion.md
+    - Higiene de failsafe opaco en 7 viñetas (sirve para EDR/SOAR/ML)
+
+CRITERIO
+  Nadie lee esto y sale queriendo "más berserk". El riesgo residual
+  está nombrado sin volverse excusa de Gendo.
+
+NO_HAGAS
+  Playbook del durante (es 08). Código. No staffing-erizo completo (ep 04).
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook de mitigación (handoff → Beast → corte)
+################################################################################
+
+OBJETIVO
+  Árbol que EMPIEZA donde el ep 01 aborta. Rama de berserk: no se
+  elige, se DISPARA. No hay abort. Termina :contained_uncontrolled
+  con disclosure y collateral. MAGI no vota esa rama.
+
+CONTEXTO
+  PlaybookEp01 termina unresolved. El 02 no es un playbook paralelo:
+  es continuación del mismo runbook con un trigger no autorizado.
+  Misato sigue siendo IC; no puede apagar al Beast.
+  Gendo observa (hidden_agenda: el incidente es también un test).
+  El corte del playbook es: ángel muerto, defensor no gobernado,
+  ciudad visible, operador no consintió. Transferir aftermath humano
+  a la sección 09 y al AAR; no resolver la psique de Shinji.
+
+INSTRUCCION
+  Runbook numerado que encadena con los hooks del ep 01.
+  Trigger de berserk: condiciones (eva.critical, operator.freeze
+  o pain_sync alto, ángel.alive). Resultado por rama.
+  Hooks Ruby. Lista corta de qué se le pasa al playbook del ep 03
+  (Shamshel), sin escribirlo.
+
+ENTREGABLE
+  docs/episodios/ep02_playbook.md
+    - Punto de empalme con ep01_playbook.md (paso ABORT/HANDOFF)
+    - Árbol ASCII
+    - Runbook numerado (pain_sync, freeze, trigger berserk,
+      shatter, crush, collateral, disclosure, congratulations,
+      estado final)
+    - Condiciones del trigger (explícitas, implementables)
+    - Resultados por rama (no existe rama :contained_controlled)
+    - MAGI: moción ausente; registrar magi_berserk_unauthorized
+    - Hooks Ruby
+    - Handoff a ep 03 (lista, no prosa de Shamshel)
+
+CRITERIO
+  Se puede traducir el árbol a tests de estado.
+  No hay rama "Misato apaga el Eva" ni "Shinji toma el control y apunta".
+
+NO_HAGAS
+  Código. No Dummy Plug. No hotel como mitigación.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano 2: trauma, felicidades, la ciudad
+################################################################################
+
+OBJETIVO
+  Segunda ficha humana del mismo incidente. El operador sobrevive
+  desacoplado de la victoria. El IC celebra la métrica incorrecta.
+  Aparece un stakeholder nuevo: el público. Gendo obtiene datos.
+
+CONTEXTO
+  Shinji: no-consent, pain_sync, techo desconocido, no reconoce el
+  triunfo. Freeze del 01 se vuelve trauma de sync (no es el erizo
+  todavía: todavía no huye de NERV; convive aturdido).
+  Misato: IC que aloja al operador y dice "felicidades" — cuida y
+  evalúa mal al mismo tiempo. Eso se nombra; no se convierte en ep 04.
+  Civiles: congratulations como narrativa externa. Disclosure ya ocurrió.
+  Gendo: el Beast era información. hidden_agenda_progress, no boss-final.
+  ONU/ciudad: blast radius político.
+
+INSTRUCCION
+  Fichas delta respecto a ep01_humanos.md (no copiar las cuatro
+  fichas enteras: qué CAMBIA). Métricas nuevas. La ciudad como actor.
+  Regla de lab: congratulations_issued no sube sync_rate ni convierte
+  contained_uncontrolled en contained_controlled.
+  Ética: el repo no vende "el trauma forja al piloto" como control.
+
+ENTREGABLE
+  docs/episodios/ep02_humanos.md
+    - Deltas: Shinji, Rei (sigue fuera), Gendo, Misato
+    - Actor nuevo: Público / Tokio-3
+    - Métricas: operator_non_consent (bool), pain_sync (0.0–1.0),
+      trauma_load, congratulations_issued (bool),
+      hidden_agenda_progress, public_visibility
+    - Tabla métrica → impacto en el árbol de la 08
+    - Reglas de lab (KPI falso; no-consent no se pisa con un "bravo")
+    - Frontera con ep 04: qué se deja para el erizo
+
+CRITERIO
+  Hay métricas implementables. Misato no es "mami-IC" de meme: es
+  IC con métrica incorrecta y rol dual. Gendo no "gana el capítulo":
+  extrae señal. Shinji no "se vuelve valiente".
+
+NO_HAGAS
+  Código. No episodio 04. No Dummy Plug. No ensayo de Anno.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (extender NERV; no reescribir el 01)
+################################################################################
+
+OBJETIVO
+  Código que hace morir a Sachiel SOLO por BerserkChannel, deja el
+  ep 01 unresolved, y registra collateral + disclosure + no-consent.
+  Tests que morderían si el berserk se "autorizara" por MAGI o si
+  congratulations cambiara el estado de contención.
+
+CONTEXTO
+  Constitución, sección 4. EXTEND. minitest. Sin gems.
+  Si lib/nerv/ no está, crea el mínimo del ep 01 sección 10 y luego
+  esta extensión; anótalo en ESTADO.ultima_nota.
+  PlaybookEp02 encadena PlaybookEp01. Eva#berserk! descarta input.
+  Opaque agency: flag, no clase Yui.
+
+INSTRUCCION
+  Implementa los archivos listados. Corre los tests del 01 y del 02.
+  Los del 01 tienen que SEGUIR pasando (unresolved, sin berserk).
+  Ids de TTPs y SIEM: los ya escritos en docs/episodios/ep02_*.md.
+
+ENTREGABLE
+  lib/nerv/eva/berserk.rb
+  lib/nerv/collateral.rb
+  lib/nerv/disclosure.rb
+  lib/nerv/containment_result.rb
+  lib/nerv/playbooks/ep02.rb
+  lib/nerv/attacks/berserk_channel.rb
+  test/test_berserk.rb
+  test/test_playbook_ep02.rb
+  test/test_collateral.rb
+  test/test_disclosure.rb
+  Más las modificaciones MÍNIMAS a:
+    lib/nerv/eva.rb
+    lib/nerv/siem.rb
+    lib/nerv/angels/sachiel.rb
+    lib/nerv/magi.rb
+    lib/nerv.rb
+
+  Comportamiento mínimo a cubrir:
+    - Los tests del ep 01 siguen: PlaybookEp01 → :unresolved;
+      N2Mine no mata; sync_rate bajo no hace CoreStrike
+    - Eva#berserk! pone operator_input_discarded y opaque_agency
+    - BerserkChannel rompe AT Field y destruye el core de Sachiel
+    - PlaybookEp02 → :contained_uncontrolled, nunca :contained_controlled
+      ni :berserk como estado-victoria
+    - Magi no tiene mayoría de berserk; se emite magi_berserk_unauthorized
+    - operator_non_consent == true al cerrar
+    - collateral.city > 0
+    - SIEM: eva_berserk, at_field_shattered, core_destroyed,
+      public_disclosure, congratulations_issued, operator_pain_sync
+    - congratulations_issued no cambia ContainmentResult
+    - regenerate! no resucita a Sachiel post-crush
+
+CRITERIO
+  ruby -Ilib:test test/test_sachiel.rb test/test_playbook_ep01.rb \
+    test/test_berserk.rb test/test_playbook_ep02.rb \
+    test/test_collateral.rb test/test_disclosure.rb
+  sale 0. Hay un test que falla si MAGI "autoriza" el berserk por
+  omisión. Hay un test que falla si el 01 deja de ser unresolved.
+
+NO_HAGAS
+  Dummy Plug class. Nombre Yui. Bundler. Borrar tests del 01.
+  Poner exit 0 en este episodio.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 02
+################################################################################
+
+OBJETIVO
+  Runner que continúa INC-SACHIEL-001. Traza: resaca → forense →
+  Beast → crush → felicidades vs no-consent. Exit code 1.
+
+CONTEXTO
+  bin/episodio 01 sale 2. bin/episodio 02 sale 1.
+  Quien corra el 02 sin el 01: el escenario puede reconstituir el
+  unresolved inicial internamente (llamar al escenario ep 01) para
+  no exigir dos procesos, pero la traza debe marcar el empalme.
+  Coloridos ASCII mínimos: un banner NERV, no un OP falso.
+
+INSTRUCCION
+  Implementa escenario + test + doc de uso.
+  La traza usa los ids de SIEM de las secciones 06 de ambos episodios.
+  Se debe leer el wipe fallido (heredado) y el crush (propio).
+
+ENTREGABLE
+  lib/nerv/scenarios/ep02.rb
+  test/test_scenario_ep02.rb
+  docs/episodios/ep02_lab.md
+  Modificación mínima de bin/episodio para aceptar 02
+  (si bin/episodio no existe, créalo soportando 01 y 02)
+
+  Uso:
+    ruby -Ilib bin/episodio 02
+
+  Exit:
+    1 = :contained_uncontrolled
+
+CRITERIO
+  El comando corre, imprime eva_berserk y core_destroyed y
+  congratulations_issued y operator_non_consent, sale 1.
+  test/test_scenario_ep02.rb pasa.
+  ruby -Ilib bin/episodio 01 sigue saliendo 2 si el binario del 01 existe.
+
+NO_HAGAS
+  Gem de CLI. Resolver como :contained_controlled. Spoiler de Shamshel
+  en la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 03
+################################################################################
+
+OBJETIVO
+  Cerrar INC-SACHIEL-001. El ángel está muerto. El defensor quedó
+  como amenaza interna no inventariada. Transferir a Shamshel sin
+  escribir su archivo de prompts.
+
+CONTEXTO
+  NERV creerá que "tienen un Eva que funciona". El AAR tiene que
+  dejar escrito que tienen un Beast. El público ya vio. El operador
+  no consintió. El siguiente ángel (Shamshel) no se vence a aullidos:
+  látigos, C2, un combate donde un piloto tiene que PELEAR de verdad
+  (Toji/Kensuke mirando, Eva-01 bajo control más humano). Eso se
+  lista como deuda, no se implementa.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 03
+    titulo_canon: A Transfer
+    angel: Shamshel
+    numero_angel: 4
+    archivo_episodio: prompts/ep03_shamshel.txt
+    estado: episodio_completo
+    ultima_nota: INC-SACHIEL-001 cerrado contained_uncontrolled. Falta crear prompts/ep03_shamshel.txt
+  No crees ep03_shamshel.txt en este turno.
+  Lista secciones sugeridas para el 03, no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep02_aar.md
+    - Resumen del incidente completo 01+02 (15 líneas máximo)
+    - Estado del ángel vs estado del defensor
+    - TTPs de Sachiel cerradas / TTPs de Eva-01 abiertas
+    - Controles que faltan
+    - KPI falso (felicidades) vs métricas reales
+    - Deuda hacia ep 03 (Shamshel: C2, látigos, piloto tiene que operar)
+    - Deuda hacia ep 04 (erizo: isolation vs colaboración)
+    - Deuda hacia Dummy Plug / Yui (NO abrir; solo "agencia opaca sigue sin fuente")
+    - "Lección Seele" en 5 viñetas para un SOC que no vio la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 03 y declara que falta el archivo de prompts.
+  El AAR se entiende sin la serie y se reconoce con ella.
+  No hay spoilers post-ep 03. Sachiel no reaparece "por si acaso".
+
+NO_HAGAS
+  Escribir prompts/ep03_shamshel.txt. No reabrir el core de Sachiel.
+
+SIGUIENTE
+  FIN
+################################################################################

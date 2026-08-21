@@ -1,0 +1,653 @@
+---
+EPISODIO: 16
+TITULO_CANON: Splitting of the Breast / Sickness Unto Death, And Then / 死に至る病、そして
+ANGEL: Leliel
+TIPO: angel
+INCIDENTE: INC-LELIEL-001
+NUMERO_ANGEL: 12º
+CLASE_AMENAZA: el espacio del atacante te absorbe / la sombra es el cuerpo / sandbox invertido / decoy
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep15 existen. INC-LIES-001 está :shadow_graph_mapped.
+  El catálogo H1 (14) se CITA para marcar que NINGÚN método de H1
+  cubre un mar de Dirac. Casper, intercept, rush, analog melee,
+  grafo de besos: contraindicados.
+  opaque_agency / BerserkChannel (ep 02) se REUSAN como extracción
+  sucia, no como doctrina. No nombrar a Yui.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–15 §10 (en especial Eva
+  opaque_agency y N2Mine) y luego esta extensión. Si existe, EXTEND.
+SIGUIENTE: ep 17 — Fourth Child / 四人目の適格者
+  (setup Toji / Eva-03; no Bardiel todavía — el hijack es el 18)
+FUERA_DE_ALCANCE: |
+  No Arael (ep 22: rayo mental DESDE órbita; aquí TÚ entras).
+  No Armisael (fusión). No Bardiel (Eva-03). No Dummy Plug.
+  No Yui. No Tabris. No Dirac-as-beso (15).
+  No Ireul/Casper como kill. No Yashima. No intercept cinético.
+  No rush-al-esfera como victoria: eso ES la absorción.
+  No N² con ocupante como contained_controlled (mata al operador).
+  No celebrar opaque_agency como playbook recomendado (igual que el 02).
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Leliel: una esfera blanco/negra en el cielo. Eso NO es el cuerpo.
+  El cuerpo es la sombra enorme en el suelo. La esfera es un mar
+  de Dirac / AT Field invertido (bolsillo de espacio imaginario).
+  Shinji/Eva-01 ataca la esfera y es ABSORBIDO. Dentro: tiempo
+  dilatado, diálogo consigo / con el espacio ("¿quién eres?").
+  Fuera: NERV cuenta hacia una N² que mataría al piloto. Eva-01
+  SALE sola (agencia opaca). Leliel desaparece. Shinji no pilotó
+  la salida. Contención sucia.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-LELIEL-001. Last-playbook de H1 está prohibido como
+  kill. Entrar a la esfera no es investigar: es perder. Victoria
+  lab HONESTA: :contained_uncontrolled (exit 1) — Leliel muerto,
+  operador vivo, salida por opaque_agency, N² no detonada.
+  Un 0 que pretenda que Shinji “ganó el diálogo” es derrota
+  pedagógica.
+
+CONTEXTO
+  El 02: el Beast sacó a NERV del apuro. El 16: otra vez la
+  unidad saca al niño de un sitio donde el playbook no alcanza.
+  En seguridad: honeypot/C2/cloud del atacante que se come al
+  analista; el IoC visible (esfera) es decoy; la sombra es la
+  superficie real. El 15 mapeó canales humanos; eso no frena
+  un espacio.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (NO esperado: exigiría extract
+                                   gobernado que el canon no tiene)
+    1 = :contained_uncontrolled   (esperado: opaque_agency extract)
+    2 = :unresolved               (sigue dentro; o N² con ocupante
+                                   = operador muerto, peor que 2;
+                                   documenta operator_killed como
+                                   fallo explícito)
+  Catálogo 14: citar contraindicaciones, no reescribir.
+
+ENTREGABLE
+  docs/episodios/ep16_briefing.md con exactamente estos headings:
+    - Contrato (INC-LELIEL-001; sombra=cuerpo; entrar=perder)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Arael, Bardiel, Yui,
+      N²-as-hero, rush-as-IR)
+    - Definición de victoria sucia (lab): exit 1
+    - Definición de derrota (lab): 0 falso; N² con piloto;
+      Casper; cuchillo a la esfera
+    - Vocabulario nuevo (Dirac, inverted AT Field, decoy sphere,
+      shadow-body, absorb, time dilation, occupant, sickness
+      unto death)
+    - Relación con 02 (opaque_agency), 14 (catálogo), 15 (no basta)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y puntuar el rush como doctrina.
+  Imposible nombrar a Yui. No spoilers de Bardiel/Arael más
+  allá de fronteras.
+
+NO_HAGAS
+  Reescribir docs 01–15. Crear lib/. Dirac-as-romance.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (esfera decoy, sombra cuerpo)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen invertido: lo que flota no es el cuerpo.
+  Lo que mancha el suelo sí. Eva-01 cayendo adentro. El interior
+  abstracto (“¿quién eres?”). Memoria visual de INVERSIÓN.
+
+CONTEXTO
+  Sahaquiel ocupó el cielo como masa que cae. Leliel ocupa el
+  cielo como tapón falso. El error clásico: apuntar al globo.
+  El first packet correcto es el radio de la sombra.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: esfera, sombra desproporcionada, rush, absorción,
+       interior, N²-clock fuera, salida opaca
+    B) first-seen de seguridad: IoC-sombra vs IoC-decoy
+  Prompt de imagen opcional (NO ejecutar): UN párrafo esfera vs
+  sombra (escala mentirosa), UN párrafo interior no-euclídeo
+  sin cara de ángel kawaii. Nada de besos. Nada de Eva-03.
+
+ENTREGABLE
+  docs/episodios/ep16_aparicion.md
+    - Minuto cero: dos formas, una mentira
+    - Lo que el perímetro cree (el globo es el ángel)
+    - Spec visual esfera (decoy) vs sombra (cuerpo)
+    - Spec visual de la absorción (Eva que no “entra a un plug”,
+      se la traga el suelo/cielo invertido)
+    - Spec visual del interior (diálogo, no un core a la vista)
+    - Spec visual de la salida (unidad sola, no un cuchillo)
+    - Tabla corta vs Sahaquiel (masa real en órbita) y vs Ireul
+      (código en MAGI)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar Leliel sin pelear al globo como a Sachiel.
+  Se entiende que la sombra es más grande que la esfera.
+
+NO_HAGAS
+  Código. Anatomía Dirac (es 03–04). Arael-rayo.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: AT invertido, Dirac, decoy, ocupante, reloj
+################################################################################
+
+OBJETIVO
+  Partes de Leliel → métodos. AT Field aquí no rebota ni frena
+  un payload: TRAGA. El core no se clava desde fuera mientras
+  hay ocupante. time_dilation desacopla el SIEM del plug.
+
+CONTEXTO
+  Decoy sphere = superficie que el rush elige.
+  Shadow body = verdadero volumen / Dirac sea.
+  Inverted AT Field = aislamiento que absorbe en vez de rechazar.
+  Occupant = Eva-01 + Shinji dentro del espacio del atacante.
+  Outside clock = N² countdown (hostage).
+  Inside clock = diálogo de identidad (no es Arael: no hay rayo
+  externo; el operador ya está dentro).
+  Extract channel = opaque_agency (ep 02), no CoreStrike.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de decoy?, real_body,
+  absorb!, occupant?, time_dilation, n2_kills_occupant?,
+  extract_via_opaque_agency!.
+  Reusar ATField con modo :invert / :absorb. Reusar N2Mine:
+  vs Sachiel no mata al ángel; vs Leliel con ocupante mata al
+  operador. No reusar KillZone de Ramiel ni Acid.
+
+ENTREGABLE
+  docs/episodios/ep16_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - decoy vs real_body (regla: atacar decoy ⇒ absorb)
+    - inverted AT Field vs :wall vs :brake
+    - time_dilation (fuera vs dentro; valores o ratio explícitos
+      para la §10)
+    - n2_kills_occupant (bool)
+    - Por qué ProgressiveKnife / Casper / intercept no tienen
+      coordenadas
+    - Implicación: investigar el globo es C2 del atacante
+
+CRITERIO
+  Un implementador no mata a Leliel acuchillando la esfera.
+  Yui no aparece. El ratio de dilatación está escrito.
+
+NO_HAGAS
+  Código. Playbook (es 08). Dummy Plug.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: entras al sandbox del atacante
+################################################################################
+
+OBJETIVO
+  Fijar ESPACIO_DEL_ATACANTE. El analista “entra a ver” y queda
+  hostage. El IoC bonito es cebo. Last-playbook-wins (rush del
+  03, Beast-as-plan, Casper, intercept, analog) alimentan la
+  absorción o matan al ocupante.
+
+CONTEXTO
+  Analogías: pivotar a la infra del atacante; malware-analysis
+  VM que era un sink del actor; “abrir el adjunto en el DC”;
+  cloud del adversario; honeypot al revés. Error clásico A:
+  golpear la esfera. Error clásico B: N² porque el 01 “ya usó
+  minas”. Error clásico C: esperar un 0 limpio. Error clásico D:
+  Arael-playbook (no hay rayo). Error clásico E: mapear grafo
+  de Kaji.
+
+INSTRUCCION
+  Escribe el patrón ESPACIO_DEL_ATACANTE.
+  Tabla de métodos vs resultado (rush-esfera, knife, Casper,
+  Yashima, intercept, N² ocupado, wait+opaque_agency, grafo 15).
+  Regla de lab: contained_uncontrolled IFF leliel not alive
+  AND occupant.alive AND extract fue opaque_agency
+  AND n2 no detonó AND rush se registró como causa de absorb.
+  contained_controlled si alguien finge extract gobernado = FAIL
+  de tests.
+
+ENTREGABLE
+  docs/episodios/ep16_espacio.md
+    - Escena breve del Eva que no vuelve
+    - Patrón ESPACIO_DEL_ATACANTE (precondiciones decoy, síntoma
+      absorb, error de IR-as-entry)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “el globo es pequeño” no es “el ángel es pequeño”
+    - Frontera con 02 (Beast), 13 (código), 22 Arael (nombrar)
+
+CRITERIO
+  absorb-on-rush está implementable. N²-con-ocupante no es 0 ni 1
+  de éxito. El 02 sigue contained_uncontrolled vía Beast vs Sachiel.
+
+NO_HAGAS
+  Código. No Bardiel. No Yui.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de la inversión y del decoy
+################################################################################
+
+OBJETIVO
+  Kill-chain de Leliel: decoy → rush → absorb → diálogo de
+  identidad → hostage vs N². TTPs del defensor sucio:
+  reconocer sombra, prohibir mina, opaque extract.
+  El diálogo no es T-SHAMSHEL C2: es interrogatorio DENTRO.
+
+CONTEXTO
+  Leliel no taladra geofront ni infecta MAGI. Su TTP es ser
+  un lugar. Defensor: last-playbook rush (T-OP01-08 otra vez,
+  ahora letal de otra forma), N²-temptation, opaque_agency.
+
+INSTRUCCION
+  Ids estables. Diagrama: sphere-decoy → misidentify → rush →
+  absorb → (N² FAIL | opaque extract).
+
+ENTREGABLE
+  docs/episodios/ep16_ttps.md
+    - Qué T-YASHIMA / T-INTERCEPT / T-MAGI / T-ANALOG / T-KAJI
+      no se reabren como método
+    - T-OP01-08 CloseRangeReapplied: AQUÍ otra vez contraindicado
+      (citar, no borrar)
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-LELIEL-01 DecoySphere
+        T-LELIEL-02 ShadowIsTheBody
+        T-LELIEL-03 InvertedAtAbsorb
+        T-LELIEL-04 IdentityInterrogationInside
+        T-DIRAC-01 OccupantHostage
+        T-DIRAC-02 TimeDilationSplitClock
+        T-OP01-18 N2WhileOccupied
+        T-EVA01-07 OpaqueExtractFromDirac
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Arael-beam, Bardiel-hijack,
+      Ireul, cinética orbital)
+
+CRITERIO
+  T-LELIEL-04 ≠ T-Arael (no existe aún; frontera).
+  T-EVA01-07 ≠ T-EVA01-02 como “plan”.
+  T-OP01-18 es rama de FALLO.
+
+NO_HAGAS
+  Código. No TTP “Kierkegaard” como kill.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: mide la sombra, no el globo
+################################################################################
+
+OBJETIVO
+  Detectar decoy vs real_body, absorb, occupant, dilation,
+  n2_armed, opaque_extract. Frase-ley: “el IoC más fotogénico
+  no es el cuerpo”. Dos relojes: SIEM fuera vs plug dentro.
+
+CONTEXTO
+  El 12: ves el payload. El 16: ves un globo y te equivocas de
+  volumen. Falso positivo: “sombra = 2D, ignorar”. Anti-métrica:
+  “Eva contactó el objetivo” = mitigación (es absorb).
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación con pattern_blue:
+  se emite, pero con subtipo inverted / dirac.
+
+ENTREGABLE
+  docs/episodios/ep16_deteccion.md
+    - Pattern Blue heredado + subtipo inverted
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.decoy_contact
+        siem.shadow_body_radius      (con valor; > esfera)
+        siem.absorb
+        siem.occupant_inside
+        siem.clock_outside
+        siem.clock_inside
+        siem.n2_armed_occupied
+        siem.opaque_extract
+        siem.operator_killed         (si N²)
+    - Falsos positivos
+    - Anti-métrica: contacto con la esfera = éxito
+
+CRITERIO
+  Ids usables en tests. shadow_body_radius > decoy radius.
+  absorb se emite si hay rush a la esfera.
+
+NO_HAGAS
+  Código. No magi_infected. No orbital_contact como vía.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de entrar al globo)
+################################################################################
+
+OBJETIVO
+  Preventiva de espacios invertidos: no pivotar a infra
+  desconocida; medir la sombra (superficie real) ANTES del
+  contacto; playbook de ocupante/hostage distinto del N² de
+  Sachiel; extraer sin opaque_agency (aunque el canon no lo
+  tenga: se lista como deuda); no last-playbook rush.
+
+CONTEXTO
+  Prevenible: doctrina “si flota, dispara”; N² como default
+  cuando hay niño dentro; cero hipótesis decoy; un solo reloj.
+  No prevenible del todo: que un ángel sea un lugar. Se prepara
+  no-entrando, no con un cuchillo más largo.
+  Anti-patrón: “Sachiel se golpeó”; “el Eva despertó en el 02,
+  despertará”; “Casper”; “es un capítulo psicológico, no IR”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: no-interactive
+  malware detonation en red del actor; decoy-aware triage;
+  hostage playbook ≠ wipe; dual clocks.
+
+ENTREGABLE
+  docs/episodios/ep16_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (opaque extract vive aquí, sucio)
+    - Anti-patrones (mínimo 3): photogenic-IoC; N2-default;
+      last-rush-wins
+    - Relación con T-LELIEL-* y T-DIRAC-*
+    - Higiene de “no entrar al C2 ajeno” en 7 viñetas (SOC real)
+    - Nota: el 0 gobernado NO existe en canon; no lo finjas
+
+CRITERIO
+  Nadie sale queriendo “más Beast”. Nadie sale pensando que
+  el 13 cubre el 16.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Arael.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: no rush, no N² ocupada, extraer sucio
+################################################################################
+
+OBJETIVO
+  Runbook de inversión. 1) Identificar decoy vs sombra.
+  2) Prohibir contacto con la esfera. 3) Si ya hubo absorb:
+  occupant_inside, dual clock. 4) MAGI puede votar N²; si
+  occupant, esa rama es FAIL (operator_killed). 5) Extraer
+  por opaque_agency. 6) :contained_uncontrolled. Misato IC
+  contra el reloj de la mina. Gendo/Ritsuko pueden preferir
+  la mina.
+
+CONTEXTO
+  Rama rush = absorb. Rama N² ocupada = operator_killed.
+  Rama Casper/Yashima/intercept = FAIL de clasificación.
+  Rama “Shinji dialoga y gana un 0” = FAIL pedagógico.
+  MAGI majority para N² no lava el FAIL.
+
+INSTRUCCION
+  Árbol y runbook numerado. Umbrales/ratio de la §03.
+  Hooks Ruby. Handoff a ep 17 (Fourth Child: Toji, Eva-03,
+  no Bardiel aún), lista, no redactar el 17 ni el 18.
+
+ENTREGABLE
+  docs/episodios/ep16_playbook.md
+    - Árbol ASCII (identify → no-touch | absorb → no-N² →
+      opaque extract → exit 1; N² → operator_killed)
+    - Runbook numerado
+    - Condición :contained_uncontrolled
+    - Condición operator_killed / :unresolved
+    - MAGI: voto N² ≠ éxito
+    - Hooks Ruby
+    - Handoff a ep 17 (lista: roster, Eva-03, no hijack todavía)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con knife-to-sphere.
+  No rama Yui.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/bardiel.rb. No Dummy Plug.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: “¿quién eres?” y el reloj de la mina
+################################################################################
+
+OBJETIVO
+  Shinji vs sí mismo (sickness unto death): identidad, no C2.
+  Misato: IC que no quiere N². Ritsuko/Gendo: métrica de
+  geofront > piloto. El diálogo interior no es Arael y no
+  es el 15. opaque_agency otra vez: el niño no consiente la
+  salida (rima con 02, no la copies entera).
+
+CONTEXTO
+  Ética: no “el trauma cura”. El espacio interroga; eso no
+  es terapia. MAGI votando minar a un niño es el board-KPI
+  del 14 aplicado con explosivos. Rei/Asuka no resuelven
+  Dirac.
+
+INSTRUCCION
+  Fichas delta: Shinji (occupant, identity), Misato (anti-N²),
+  Ritsuko/Gendo (pro-N²), unidad Eva-01 (opaque).
+  Métricas: occupant_inside, identity_interrogation,
+  n2_vote, operator_consent_exit (false en canon),
+  opaque_extract.
+  Frontera con 02, 22 Arael, 17.
+
+ENTREGABLE
+  docs/episodios/ep16_humanos.md
+    - Deltas
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: identity_interrogation no mata a Leliel;
+      operator_consent_exit false en el 1 canónico;
+      n2_vote true no justifica contained_controlled
+    - Frontera con Arael (rayo) y con Bardiel (otro cuerpo)
+
+CRITERIO
+  Shinji no “se encuentra y por eso gana”. Gendo no es sabio.
+  Misato no es mami-N². Yui no se nombra.
+
+NO_HAGAS
+  Código. No Dummy Plug. No ep 22.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Dirac, decoy, extract sucio)
+################################################################################
+
+OBJETIVO
+  Código de Leliel y del playbook de no-entrar. Tests que
+  FALLAN si knife/Casper/intercept contienen, si rush no
+  absorbe, si N² con ocupante es éxito, si el resultado es
+  :contained_controlled, o si se nombra Yui en código.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Leliel < Angel. DiracSea, Decoy, PlaybookEp16.
+  Reusar Eva#opaque / berserk extract, N2Mine, ATField.
+  PlaybookEp02 sigue contained_uncontrolled vs Sachiel.
+  PlaybookEp13 Casper no mata a Leliel.
+  PlaybookEp12 intercept no aplica.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 02, 13, 16.
+  Ids y ratio: docs/episodios/ep16_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/leliel.rb
+  lib/nerv/dirac_sea.rb
+  lib/nerv/decoy.rb
+  lib/nerv/playbooks/ep16.rb
+  test/test_leliel.rb
+  test/test_dirac_sea.rb
+  test/test_playbook_ep16.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/at_field.rb       (modo :absorb / :invert)
+    lib/nerv/eva.rb
+    lib/nerv/siem.rb
+    lib/nerv/attacks/n2_mine.rb
+    lib/nerv/magi.rb           (voto N² no = éxito)
+
+  Comportamiento mínimo a cubrir:
+    - real_body es shadow; contact con sphere ⇒ absorb!
+    - occupant_inside true tras rush
+    - ProgressiveKnife / Casper / Positron / Intercept /
+      PasswordShutdown / analog no contained
+    - N2Mine con occupant ⇒ operator_killed; not contained_*
+    - extract_via_opaque_agency ⇒ Leliel not alive,
+      occupant.alive, operator_consent_exit false
+    - PlaybookEp16 → :contained_uncontrolled (no :contained_controlled)
+    - PlaybookEp02 sigue :contained_uncontrolled vs Sachiel
+    - PlaybookEp13 sigue Casper vs Ireul, no vs Leliel
+    - SIEM: decoy_contact, shadow_body_radius, absorb,
+      occupant_inside, opaque_extract
+    - ninguna constante/clase Yui
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep02.rb test/test_playbook_ep13.rb \
+    test/test_leliel.rb test/test_playbook_ep16.rb \
+    test/test_dirac_sea.rb
+  sale 0. Hay un test que falla si rush no absorbe.
+  Hay un test que falla si el 16 sale 0 contained_controlled.
+  Hay un test que falla si N² con ocupante “gana”.
+
+NO_HAGAS
+  lib/nerv/angels/bardiel.rb. Bundler. Clase Yui.
+  lib/nerv/angels/arael.rb.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 16
+################################################################################
+
+OBJETIVO
+  Runner de INC-LELIEL-001. Traza: pattern_blue → decoy_contact
+  → absorb → occupant_inside → n2_armed (no detona) →
+  opaque_extract. Exit code 1. Cero evolution_dead_end, cero
+  intercept_ok, cero shadow_graph_mapped como vía.
+
+CONTEXTO
+  bin/episodio … 15→9, 16→1.
+  El 1 del 16 no es el 1 del 02: hay absorb y Dirac, no
+  eva_berserk contra Sachiel (aunque opaque_agency se reúse).
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 16.
+  Si el binario no existe, créalo soportando 01–16.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep16.rb
+  test/test_scenario_ep16.rb
+  docs/episodios/ep16_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 16
+
+  Exit:
+    1 = :contained_uncontrolled
+
+CRITERIO
+  El comando corre, imprime decoy_contact, absorb, occupant_inside,
+  opaque_extract; NO imprime core_destroyed por knife ni
+  casper_reverse_hack ni n2 como kill del ángel; sale 1.
+  test/test_scenario_ep16.rb pasa.
+  02→1 y 13→0 siguen por sus vías.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Bardiel/Toji. ASCII de esfera que
+  tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 17
+################################################################################
+
+OBJETIVO
+  Cerrar INC-LELIEL-001 sucio. El espacio se cerró; el operador
+  no gobernó la salida. Transferir al 17: Fourth Child, Toji,
+  Eva-03 — aún NO Bardiel. No escribir prompts del 17 ni del 18.
+
+CONTEXTO
+  NERV dirá “el Eva volvió a despertar”. El AAR: decoy literacy;
+  no-entrar; N² ≠ hostage protocol; opaque_agency sigue siendo
+  deuda no doctrina. El 17 añade un cuarto niño y una unidad
+  nueva (03). El 18 la infectará (Bardiel ≠ Ireul ≠ Leliel:
+  el huésped será un Eva de confianza). Last-playbook Dirac
+  no cubre un hijack de unidad.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 17
+    titulo_canon: The Fourth Child
+    angel: (ninguno aún; setup Eva-03)
+    numero_angel:
+    archivo_episodio: prompts/ep17_fourth_child.txt
+    estado: episodio_completo
+    ultima_nota: INC-LELIEL-001 cerrado contained_uncontrolled vía opaque extract. Falta crear prompts/ep17_fourth_child.txt. Deuda: Toji/Eva-03; Bardiel es el 18, no el 17.
+  No crees ep17_fourth_child.txt ni ep18_bardiel.txt en este turno.
+  Lista secciones sugeridas para el 17 (roster, Eva-03, Toji,
+  no infección todavía), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep16_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Leliel vs ocupante vs N² no detonada
+    - T-LELIEL-* / T-DIRAC-* / T-EVA01-07 (deuda, no feature)
+    - Por qué exit 1 no es un 0
+    - Deuda hacia ep 17 (cuarto niño, unidad 03)
+    - Deuda hacia ep 18 (Bardiel: hijack; solo nombrar)
+    - Deuda hacia ep 22 (Arael: mente sin entrar; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (decoy, no pivotar
+      a la infra del actor, hostage ≠ wipe)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 17 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Bardiel no infecta Eva-03
+  “en el recap”. Yui no aparece.
+
+NO_HAGAS
+  Escribir prompts/ep17_fourth_child.txt. No Bardiel. No Arael.
+
+SIGUIENTE
+  FIN
+################################################################################

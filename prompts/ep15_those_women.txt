@@ -1,0 +1,659 @@
+---
+EPISODIO: 15
+TITULO_CANON: Those women longed for the touch of others' lips, and thus invited their kisses / Lies and Silence / 嘘と沈黙
+ANGEL: (ninguno)
+TIPO: sin_angel
+INCIDENTE: INC-LIES-001
+NUMERO_ANGEL:
+CLASE_AMENAZA: canales no oficiales / grafo de confianza ≠ organigrama / conflicto de interés / silencio como log ausente
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep14 existen. INC-WEAVING-001 está :aar_complete.
+  El catálogo H1 se CITA, no se reescribe. extra_cargo_unclassified
+  (Kaji, ep 08) es la semilla: aquí se expande a multi-principal.
+  Este episodio NO inventa un ángel, NO es Leliel, NO es Tabris
+  (ep 24: el ángel que entra por la puerta). Kaji no es Pattern Blue.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–14 §10 y luego esta
+  extensión. Si existe, EXTEND, don't rewrite. El entregable nuevo
+  es un SHADOW GRAPH, no un Angel ni un Dirac.
+SIGUIENTE: ep 16 — Splitting of the Breast / Leliel
+  (el espacio del atacante te absorbe; la sombra es el cuerpo)
+FUERA_DE_ALCANCE: |
+  No ángel de combate. No Pattern Blue de silueta. No Leliel /
+  mar de Dirac / Eva-01 tragada (ep 16).
+  No Tabris / Kaworu (ep 24). No Bardiel. No Dummy Plug.
+  No muerte de Kaji (ep 21). No biografía completa de Naoko.
+  No Instrumentality. No fanservice: besos y camas son CANALES
+  DE CONFIANZA NO AUTORIZADOS, no entregable erótico.
+  No hedgehog-AWOL (04): aquí la gente se ACERCA, mintiendo.
+  No tratar a Kaji como Jet Alone ni como Ireul.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Nadie combate un ángel. Misato y Kaji vuelven a tocarse y
+  mienten. Ritsuko y Gendo: el mismo nudo, con MAGI/Naoko de
+  fondo (la hija del control plane y el director). Shinji visita
+  a Rei: cercanía sin organigrama. Kaji saca a Shinji a hablar
+  (onboarding off-band). Tumbas, gafas, silencios.
+  Título: anhelar contacto abre superficie. 嘘と沈黙: lo que no
+  entra al SIEM oficial. Seele sigue con KPI ajeno (14); Kaji
+  recolecta para más de un principal.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar INC-LIES-001: el organigrama no es la red. Victoria lab:
+  mapear el grafo sombra (Kaji multi-principal, COI
+  Gendo–Ritsuko–MAGI, canal Misato–Kaji, canal Shinji–Rei) y
+  registrar el silencio como log que falta. Derrota: inventar
+  Leliel, fanservice, o “contener” a Kaji como ángel.
+
+CONTEXTO
+  El 04: el operador se fue. El 14: el board no comparte KPI.
+  El 15: la gente se toca y no lo declara. En seguridad: shadow
+  IT, canales laterales, conflicto de interés, el liaison que
+  tiene tres jefes. Anhelar (soledad, reconocimiento, madre)
+  abre un puerto. Eso no es Tabris todavía: Kaji sigue siendo
+  humano con agendas, no el 17º ángel.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de besos-como-OP.
+  Códigos NUEVOS (no chocar con 0–8):
+    9  = :shadow_graph_mapped    (éxito: grafo escrito, Kaji
+                                  multi-principal, cero Angel)
+    10 = :shadow_graph_denied    (Leliel adelantado; Kaji-as-Blue;
+                                  fanservice; silence ignorado)
+  0–2 ángel, 3–4 staffing, 5–6 vendor, 7–8 AAR: no usarlos
+  como resultado de este playbook.
+
+ENTREGABLE
+  docs/episodios/ep15_briefing.md con exactamente estos headings:
+    - Contrato (INC-LIES-001; grafo ≠ org chart)
+    - Subtipo sin_angel-canales (vs 04 deserción, 07 vendor, 14 board)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Leliel, Tabris, Kaji-muerto,
+      Naoko-bio, fanservice)
+    - Definición de victoria (lab): :shadow_graph_mapped
+    - Definición de derrota (lab): :shadow_graph_denied
+    - Vocabulario nuevo (shadow graph, multi-principal, COI,
+      off-band onboarding, silence-as-missing-log, invited kiss
+      = unauth trust)
+    - Relación con ep 08 extra_cargo y ep 14 Seele.kpi
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y esperar un mar de Dirac.
+  Imposible tratar el título como consigna de fanservice.
+  No spoilers post-ep 16 salvo nombrar Leliel como siguiente.
+
+NO_HAGAS
+  Reescribir docs 01–14. Crear lib/. class AngelKaji.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición de los canales (no de un ángel)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: mesas, tumbas, departamentos, un
+  beso, un silencio, Kaji y Shinji caminando. First-seen de
+  un edge que no está en el CMDB. La imagen pedagógica es el
+  GRAFO, no la cama.
+
+CONTEXTO
+  El 14 fueron monolitos. El 15 son bocas y lo que no dicen.
+  El error clásico: recortar el capítulo como “filler romántico”.
+  El first packet es un canal que el SIEM oficial no lista:
+  Misato no reporta a Kaji; Ritsuko no declara a Gendo; Rei
+  no está en el runbook de visitas de Shinji.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: Kaji/Misato, Ritsuko/Gendo (o su rastro), Shinji/Rei,
+       Kaji/Shinji off-band, tumba de Naoko, silencio
+    B) first-seen de seguridad: edge no inventariado
+  Prompt de imagen opcional (NO ejecutar): UN párrafo de dos
+  figuras a distancia de erizo que se acercan (ropa, no desnudo),
+  UN párrafo de un organigrama oficial vs líneas de lápiz
+  (grafo sombra). Nada de esfera-Dirac. Nada de Eva-03.
+
+ENTREGABLE
+  docs/episodios/ep15_aparicion.md
+    - Minuto cero: no hay Pattern Blue
+    - Lo que NERV cree (noche libre) vs lo que es (topología real)
+    - Spec visual de canales (puertas, teléfonos, tumbas, gafas)
+    - Spec visual del silencio (un log que no se escribe)
+    - Contraste con extra_cargo del 08 (citar, no copiar)
+    - Firma SIEM de shadow edge, no de cielo
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel y sin pornografía.
+  Se puede escribir una alerta de “edge no declarado”.
+
+NO_HAGAS
+  Código. Anatomía del grafo (es 03–04). Leliel. Fanservice.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: shadow graph, multi-principal, COI, silencio
+################################################################################
+
+OBJETIVO
+  Partes del grafo no oficial → métodos. Kaji tiene principals
+  ≥ 2. MAGI hereda un COI (Naoko→Ritsuko→Gendo) sin reabrir
+  Ireul. Silence = evento que debió emitirse y no se emitió.
+
+CONTEXTO
+  Nodo = persona/control. Edge = confianza o acceso. Official
+  org chart ⊂ shadow graph.
+  Kaji.principals = {nerv?, seele?, government?} — al menos dos.
+  COI MAGI: quien opera el cluster (Ritsuko) tiene edge al
+  director; la constructora (Naoko) es la madre. Citar ep 13
+  particiones, no ep 21.
+  Invited kiss = establish_unauth_trust! por necesidad humana
+  (soledad, reconocimiento), no por TTP de ángel.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de ShadowGraph,
+  add_edge!, undeclared?, Kaji.principals, conflict_of_interest?,
+  missing_log / silence.
+  Nombres Ruby: ShadowGraph, Liaison, ConflictOfInterest,
+  Silence. is_a?(Angel) == false para todos.
+  Citar Seele del 14: Kaji puede tener edge a Seele.kpi sin
+  ser Seele.
+
+ENTREGABLE
+  docs/episodios/ep15_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Grafo oficial vs sombra (inclusión, no igualdad)
+    - Kaji multi-principal (mínimo 2, ids estables)
+    - COI Gendo–Ritsuko–MAGI (sin infectar MAGI)
+    - silence como missing_log (callback_absent del 03 era uno;
+      aquí el silencio es política)
+    - Implicación: el catálogo H1 no lista estos edges; hay que
+      AÑADIR una capa, no reescribir el catálogo
+
+CRITERIO
+  Un implementador no hace class Kaji < Angel.
+  MAGI no se infecta. Leliel no aparece. Principals ≥ 2 escrito.
+
+NO_HAGAS
+  Código. Playbook (es 08). Dirac. Naoko-novela.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: anhelar abre un puerto
+################################################################################
+
+OBJETIVO
+  Fijar CANAL_NO_OFICIAL. El título ES el patrón: la necesidad
+  invita el beso / el edge. Distinto de deserción (04), de
+  vendor (07), de board (14), de Tabris (invitado-ángel).
+  Mentir no es C2 de Shamshel: es un log que se omite a
+  propósito.
+
+CONTEXTO
+  Analogías: shadow IT porque el SSO duele; el vendor-liaison
+  con tres contratos; romance en el SOC; el founder que bypasea
+  IAM; “no lo pongas en el ticket”. Error clásico A: filler.
+  Error clásico B: Kaji-as-Blue. Error clásico C: adelantar
+  Leliel. Error clásico D: fanservice. Error clásico E: “MAGI
+  ya se hackeó, esto es Ireul otra vez”.
+
+INSTRUCCION
+  Escribe el patrón CANAL_NO_OFICIAL.
+  Tabla de métodos vs resultado (Pattern-Blue-Kaji, Dirac,
+  ignorar silencio, mapear grafo, “contener” besos, last-playbook
+  Ireul/Casper).
+  Regla de lab: shadow_graph_mapped IFF grafo tiene los edges
+  canónicos (Misato–Kaji, Gendo–Ritsuko, Shinji–Rei, Kaji–Shinji
+  off-band) AND Kaji.principals.size >= 2 AND coi.magi recorded
+  AND angel.nil? AND silencio registrado como missing_log
+  AND no Dirac.
+
+ENTREGABLE
+  docs/episodios/ep15_canal.md
+    - Escena breve de un silencio que debería haber sido un log
+    - Patrón CANAL_NO_OFICIAL (precondiciones de anhelo, síntoma
+      de edge, error de clasificación)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no hay Pattern Blue” no es “la red es el org chart”
+    - Frontera con 04, 08 extra_cargo, 14 Seele, 24 Tabris (nombrar)
+
+CRITERIO
+  Invited-kiss está escrito como unauth trust, no como romance.
+  El 14 sigue aar_complete. El 13 no se reabre.
+
+NO_HAGAS
+  Código. No Leliel. No Dummy Plug.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs del grafo sombra y del silencio
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Técnicas de liaison multi-principal,
+  COI, off-band onboarding, silence. El “beso” es T-TRUST, no
+  lore.
+
+CONTEXTO
+  Quien dispare T-IREUL o T-SEELE-02-as-exploit se equivoca.
+  Seele sigue siendo KPI (14); Kaji es un borde hacia ese KPI.
+  Shinji–Rei no es pairing_test Eva-00 (14): es visita humana.
+
+INSTRUCCION
+  Ids estables. Diagrama: anhelo → edge no declarado → silencio
+  (missing log) → mapa O fail-Blue/Dirac.
+
+ENTREGABLE
+  docs/episodios/ep15_ttps.md
+    - Qué T-ángel / T-AAR no se reabren como método
+    - T-SEELE-01 se CITA (KPI); Kaji puede colgarse de ese id
+      como edge, no como exploit de Instrumentality
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-KAJI-01 MultiPrincipalLiaison
+        T-KAJI-02 OffBandOnboarding
+        T-COI-01 DirectorToControlPlane
+        T-TRUST-01 UnauthTrustFromNeed
+        T-TRUST-02 ShadowEdgeUndeclared
+        T-SILENCE-01 MissingLogAsPolicy
+        T-OP01-17 UnofficialVisitRei
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Dirac, Bardiel, Tabris-as-angel,
+      Ireul-kill, DualPlug)
+
+CRITERIO
+  T-KAJI-01 ≠ T-NERV-01 (sabotaje JA) ≠ T-IREUL-*.
+  T-TRUST-01 es el título operacionalizado.
+  T-OP01-17 ≠ T-OP01-16 (mispair Eva-00).
+
+NO_HAGAS
+  Código. No TTP “escena de cama” como técnica de ángel.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: lo que el SIEM no está invitado a ver
+################################################################################
+
+OBJETIVO
+  Detectar edges no declarados, multi-principal, COI, missing
+  logs. El SIEM oficial está ciego por DISEÑO social, no por
+  apagón (11). Frase-ley: “un canal que nadie ticketó sigue
+  siendo un canal”.
+
+CONTEXTO
+  El 11: SIEM ciego por falta de luz. El 15: SIEM ciego porque
+  nadie escribe el log. Falso positivo: “vida privada”.
+  Anti-métrica: “el catálogo H1 está completo, no hay más
+  superficie”.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación con callback_absent
+  (03/04): se hereda el id de silencio humano; aquí se añade
+  silence-as-policy.
+
+ENTREGABLE
+  docs/episodios/ep15_deteccion.md
+    - Qué NO dispara (pattern_blue, magi_infected, orbital,
+      tabletop_started como vía de este 9)
+    - Ids obligatorios:
+        siem.shadow_edge_detected
+        siem.undeclared_channel
+        siem.kaji_principal_count     (con valor)
+        siem.coi_control_plane
+        siem.missing_log
+        siem.offband_onboarding
+        siem.shadow_graph_mapped
+        siem.unauth_trust
+        siem.false_pattern_blue       (fallo: Kaji-as-ángel)
+    - Falsos positivos (“es privado”)
+    - Anti-métrica: org chart = inventario de acceso
+
+CRITERIO
+  Ids usables en tests. kaji_principal_count >= 2 en el camino
+  feliz. missing_log no es hq_power_lost.
+
+NO_HAGAS
+  Código. No sensores de Dirac. No Ireul.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el anhelo abra el puerto)
+################################################################################
+
+OBJETIVO
+  Preventiva de canales sombra: declarar COI; no seguridad por
+  almohada; inventariar liaisons; onboarding de operadores solo
+  in-band; no asumir que el catálogo de ángeles cubre a las
+  personas; Seele.kpi ya escrito (14) — no dejar a Kaji como
+  el único cable al board.
+
+CONTEXTO
+  Prevenible: Kaji sin principal-inventory; Ritsuko operando
+  MAGI sin COI file; Shinji visitando a Rei sin que el IC sepa
+  (no para vigilar el amor: para saber qué canal existe);
+  silencio como cultura. No prevenible del todo: que la gente
+  anhele. Se mitiga declarando edges, no prohibiendo el tacto
+  como moraleja.
+  Anti-patrón: “filler”; “castrar al SOC”; “Kaji es el ángel”;
+  “Casper lo ve todo”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: COI register,
+  third-party liaison inventory, no-shadow-admin, in-band
+  mentoring, ticket the exception.
+
+ENTREGABLE
+  docs/episodios/ep15_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (el anhelo vive aquí)
+    - Anti-patrones (mínimo 3): filler-as-ignore; Kaji-as-Blue;
+      org-chart-as-graph
+    - Relación con T-KAJI-* T-COI-* T-SILENCE-*
+    - Higiene de canales humanos en 7 viñetas (SOC real)
+    - Nota ética: el repo no moraliza el sexo; moraliza el
+      canal no declarado
+
+CRITERIO
+  Nadie sale pensando que el 15 es relleno.
+  Nadie sale pensando que el 16 se mitiga con un COI form.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Dirac.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: mapear, no cazar, no adelantar el mar
+################################################################################
+
+OBJETIVO
+  Runbook de grafo sombra. 1) Prohibir new Angel. 2) Expandir
+  extra_cargo de Kaji a principals. 3) Añadir edges (no
+  reescribir catálogo H1: capa nueva). 4) Registrar COI MAGI.
+  5) Emitir missing_log donde hubo silencio. 6)
+  shadow_graph_mapped. MAGI no se infecta ni se usa de Casper
+  contra Kaji.
+
+CONTEXTO
+  Misato es IC y parte del grafo (conflicto: no puede “contener”
+  a Kaji como si fuera un vendor). Ritsuko es COI. Gendo no
+  declara. Rama Leliel = FAIL. Rama Kaji-as-Angel = FAIL.
+  Rama fanservice-sin-grafo = FAIL. Rama Ireul-playbook = FAIL.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 16 (Leliel: la sombra ES el cuerpo; el Eva entra
+  al espacio del atacante), lista, no redactar el 16.
+
+ENTREGABLE
+  docs/episodios/ep15_playbook.md
+    - Árbol ASCII (mapear | fail-Blue | fail-Dirac | fail-Ireul)
+    - Runbook numerado
+    - Condición :shadow_graph_mapped
+    - Condición :shadow_graph_denied
+    - MAGI: COI file, no reverse-hack
+    - Hooks Ruby
+    - Handoff a ep 16 (lista: Dirac, absorción, no beso)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con class Angel.
+  No rama sea_of_dirac.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/leliel.rb. No Tabris.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: “those women” y los que no dicen
+################################################################################
+
+OBJETIVO
+  Fichas de canal. Misato (IC + edge a Kaji). Ritsuko (cluster +
+  edge a Gendo). Rei (visita no oficial). Kaji (liaison). Gendo
+  (nudo). Shinji (anhelo, off-band con Kaji, visita a Rei).
+  El título nombra a las mujeres; el lab no las culpa: el
+  sistema no tenía cómo declarar el edge. Los hombres también
+  mienten.
+
+CONTEXTO
+  Ética: no “ellas invitaron”. Operacionalizar: anhelo + ausencia
+  de canal oficial = unauth trust. Kaji no es mentor saludable
+  sin más: es off-band onboarding. Rei no es premio de Shinji.
+  Naoko se cita como COI histórico, no como episodio 21.
+
+INSTRUCCION
+  Fichas + métricas: undeclared_edges_count, kaji_principals,
+  coi_flag, missing_logs, offband_onboarding, unauth_trust.
+  Frontera con 16 (absorción) y 24 (Tabris).
+
+ENTREGABLE
+  docs/episodios/ep15_humanos.md
+    - Fichas: Misato, Ritsuko, Rei, Kaji, Gendo, Shinji
+    - Nota de una línea a Naoko (COI, no bio)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: unauth_trust no es Pattern Blue;
+      kaji_principals < 2 ⇒ not mapped; Misato-IC no puede
+      “cerrar” su propio edge sin registrarlo
+    - Frontera con Leliel y Tabris
+    - NO_HAGAS interno: fanservice
+
+CRITERIO
+  Nadie es “la tentación”. Kaji no es el 17º. Shinji no
+  “se hace hombre”. Ritsuko no es Ireul.
+
+NO_HAGAS
+  Código. No Dirac. No Dummy Plug. No tumba-como-OP.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (ShadowGraph, Kaji, cero Angel)
+################################################################################
+
+OBJETIVO
+  Código del grafo sombra. Tests que FALLAN si Kaji es Angel,
+  si principals < 2, si se instancia Leliel, si MAGI se infecta,
+  si el catálogo H1 se borra, o si el 9 se otorga sin missing_log.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  ShadowGraph, Liaison (Kaji), ConflictOfInterest, Silence,
+  PlaybookEp15. Seele del 14 sigue kpi ≠ containment.
+  extra_cargo del 08 se ENLAZA, no se borra.
+  PlaybookEp14 sigue aar_complete.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 08/14/15.
+  Ids: docs/episodios/ep15_*.md.
+
+ENTREGABLE
+  lib/nerv/shadow_graph.rb
+  lib/nerv/liaison.rb
+  lib/nerv/conflict_of_interest.rb
+  lib/nerv/silence.rb
+  lib/nerv/playbooks/ep15.rb
+  test/test_shadow_graph.rb
+  test/test_liaison.rb
+  test/test_playbook_ep15.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/siem.rb
+    lib/nerv/seele.rb          (Kaji puede tener edge; Seele no
+                                se vuelve Angel)
+    lib/nerv/magi.rb           (COI flag, no infection)
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp15.angel.nil?
+    - no emite pattern_blue de silueta
+    - no existe (o no se llama) Leliel / sea_of_dirac
+    - Kaji.is_a?(Angel) == false
+    - Kaji.principals.size >= 2
+    - ShadowGraph incluye edges Misato–Kaji, Gendo–Ritsuko,
+      Shinji–Rei, Kaji–Shinji
+    - COI director↔control_plane recorded
+    - missing_log emitido (silence)
+    - PlaybookEp15 → :shadow_graph_mapped
+    - Kaji-as-Angel o new Angel ⇒ :shadow_graph_denied
+    - PlaybookEp14 sigue :aar_complete; catálogo 11 INC-* intacto
+    - Magi.majority_owner no pasa a :ireul por este episodio
+    - SIEM: shadow_edge_detected, kaji_principal_count,
+      coi_control_plane, missing_log, shadow_graph_mapped
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep14.rb test/test_seele.rb \
+    test/test_shadow_graph.rb test/test_liaison.rb \
+    test/test_playbook_ep15.rb
+  sale 0. Hay un test que falla si Kaji es Angel.
+  Hay un test que falla si principals < 2.
+  Hay un test que falla si aparece Leliel.
+
+NO_HAGAS
+  lib/nerv/angels/leliel.rb. Bundler. Infectar MAGI.
+  Implementar Dirac. Fanservice en strings de test.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 15
+################################################################################
+
+OBJETIVO
+  Runner de INC-LIES-001. Traza: undeclared_channel →
+  kaji_principal_count → coi_control_plane → missing_log →
+  shadow_graph_mapped. Exit code 9. Cero pattern_blue de kaiju,
+  cero sea_of_dirac, cero magi_infected, cero aar_complete como
+  vía de este episodio.
+
+CONTEXTO
+  bin/episodio … 14→7, 15→9.
+  El 9 no es un 0 de ángel ni un 7 de AAR: es grafo sombra.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 15.
+  Si el binario no existe, créalo soportando 01–15.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep15.rb
+  test/test_scenario_ep15.rb
+  docs/episodios/ep15_lab.md
+  docs/episodios/ep15_shadow_graph.md
+    (nodos y edges; oficiales vs no declarados — no es un
+     recap de combates)
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 15
+
+  Exit:
+    9 = :shadow_graph_mapped
+
+CRITERIO
+  El comando corre, imprime kaji_principal_count (>=2),
+  coi_control_plane, missing_log, shadow_graph_mapped;
+  NO imprime pattern_blue de silueta ni evolution_dead_end ni
+  intercept_ok como vía; sale 9.
+  test/test_scenario_ep15.rb pasa.
+  14→7 sigue.
+  ep15_shadow_graph.md existe.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Leliel en la traza. ASCII de labios
+  que tape el grafo.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 16
+################################################################################
+
+OBJETIVO
+  Cerrar INC-LIES-001 como :shadow_graph_mapped. Los canales
+  existen. Transferir a Leliel: el siguiente no es un beso, es
+  un ESPACIO que te absorbe. Ningún playbook H1 ni el grafo
+  sombra paran un mar de Dirac. No escribir prompts del 16.
+
+CONTEXTO
+  NERV cree que “fue un capítulo de relaciones”. El AAR: el
+  org chart mentía; Kaji es un liaison; el COI de MAGI sigue;
+  el anhelo abre puertos. El 16 (Leliel) invierte el AT Field:
+  tú entras al atacante. Last-playbook (mapear grafo, Casper,
+  intercept) no cubre un cuerpo que es una sombra de 2D con
+  un mar dentro. Shinji va a ser el que entre.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 16
+    titulo_canon: Splitting of the Breast
+    angel: Leliel
+    numero_angel: 12
+    archivo_episodio: prompts/ep16_leliel.txt
+    estado: episodio_completo
+    ultima_nota: INC-LIES-001 cerrado shadow_graph_mapped. Kaji multi-principal. COI MAGI registrado. Falta crear prompts/ep16_leliel.txt. Deuda: Dirac; ningún playbook H1; no last-playbook.
+  No crees ep16_leliel.txt en este turno.
+  Lista secciones sugeridas para el 16 (sombra=cuerpo, Dirac,
+  absorción, diálogo interior, no grafo de besos), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep15_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del grafo vs org chart vs Seele.kpi
+    - T-KAJI-* / T-COI-* / T-SILENCE-* cuáles siguen ABIERTAS
+    - Por qué exit 9 no es un 0 ni un 7
+    - Deuda hacia ep 16 (Leliel, Dirac, absorción)
+    - Deuda hacia ep 24 (Tabris: el edge se vuelve ángel; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (canales no
+      ticketados, COI, liaison)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 16 y declara que falta el archivo.
+  El AAR se entiende sin la serie. No spoilers de Leliel más
+  allá del handoff. Kaji no muere “en el recap”.
+
+NO_HAGAS
+  Escribir prompts/ep16_leliel.txt. No Dirac. No Tabris.
+
+SIGUIENTE
+  FIN
+################################################################################

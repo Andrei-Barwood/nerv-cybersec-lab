@@ -1,0 +1,659 @@
+---
+EPISODIO: 17
+TITULO_CANON: The Fourth Child / Fourth Children / 四人目の適格者
+ANGEL: (ninguno en combate; hitchhiker DORMIDO en Eva-03 — el hijack es ep 18)
+TIPO: setup
+INCIDENTE: INC-FOURTH-001
+NUMERO_ANGEL:
+CLASE_AMENAZA: ingesta de unidad de confianza / cuarto operador / supply chain “es nuestro” / staffing por palanca familiar
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep16 existen. INC-LELIEL-001 está :contained_uncontrolled.
+  Collateral de Sachiel (hermana de Toji, ep 02/03) sigue abierta:
+  aquí se COBRA como palanca de staffing, no se cierra el blast radius.
+  extra_cargo / grafo (08, 15) se citan; Kaji no muere.
+  Este episodio NO combate a Bardiel, NO Dummy Plug, NO destroza
+  Eva-03, NO revela a Shinji quién es el Fourth Child (canon: no sabe).
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–16 §10 y luego esta
+  extensión. Si existe, EXTEND. Se AÑADE Eva-03 :trusted_intake
+  y Operator Toji. Se permite un flag dormant_contaminant en Eva-03
+  SIN class Bardiel de combate y SIN activate!.
+SIGUIENTE: ep 18 — Ambivalence / Bardiel
+  (unidad de confianza hijackeada; Dummy Plug; ¿destruyes el activo
+  con el compañero dentro?)
+FUERA_DE_ALCANCE: |
+  No combate Bardiel. No Dummy Plug. No Eva-01 vs Eva-03.
+  No brazo de Toji. No Gendo “cambia al dummy” como kill de este
+  archivo. No Ireul-as-Eva. No Leliel. No Jet Alone (Eva-03 ES
+  NERV, por eso duele). No Yui. No Tabris. No Arael.
+  No informar a Shinji del nombre (need-to-know: false).
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Hace falta un Fourth Child y Eva-03 (construida en EE.UU., llega
+  a Japón). En el colegio, un compañero será el piloto. Toji acepta
+  a cambio de mejor trato para su hermana (herida en INC-SACHIEL).
+  Shinji sabe que “alguien de la clase” entra al roster, no el
+  quién. Eva-03 se activa en Matsushiro (fuera del geofront).
+  Una nube / corrosión en el traslado puede verse: NERV la trata
+  como nada. El ángel no se pelea. Corte: Toji va al experimento.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar INC-FOURTH-001 como SETUP, no como combate. Victoria lab:
+  Eva-03 en inventario como :trusted_intake, Toji selected,
+  sister_leverage recorded, shinji.knows_fourth_child == false,
+  hitchhiker NO activado. Derrota: pelear Bardiel aquí, Dummy
+  Plug, o tratar Eva-03 como Jet Alone.
+
+CONTEXTO
+  El 07 fue un robot AJENO. El 08 un ángel al convoy. El 17 es
+  una unidad NUESTRA que entra con menos sospecha. En seguridad:
+  onboarding de un host “managed” / appliance interno / cuarto
+  on-call que es tu compañero de clase. La palanca es deuda de
+  un P1 viejo (hermana). Need-to-know mal puesto: el que va a
+  tener que disparar en el 18 no sabe quién hay en la caja.
+  La nube es IoC de supply chain; clasificarla como clima es el
+  error que el 18 cobrará.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de Eva-03 infectada-peleando.
+  Códigos NUEVOS (no chocar con 0–10):
+    11 = :trusted_intake_recorded   (éxito de SETUP)
+    12 = :trusted_intake_detonated  (combate Bardiel / Dummy Plug
+                                     robados al 18)
+  0–2 no clasifican este playbook. TIPO=setup: aparición/anatomía
+  son de INGESTA, no de ángel en combate.
+
+ENTREGABLE
+  docs/episodios/ep17_briefing.md con exactamente estos headings:
+    - Contrato (INC-FOURTH-001; setup; hijack = 18)
+    - Subtipo setup (vs recap 14 vs canales 15 vs vendor 07)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Dummy Plug, Toji-mutilado,
+      Gendo-dummy, Ireul-en-Eva)
+    - Definición de victoria (lab): :trusted_intake_recorded
+    - Definición de derrota (lab): :trusted_intake_detonated
+    - Vocabulario nuevo (Fourth Child, Eva-03, trusted intake,
+      Matsushiro, sister leverage, need-to-know, dormant
+      hitchhiker, offshore-built)
+    - Relación con collateral Sachiel y con Jet Alone (no es)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y lanzar Dummy Plug. Imposible
+  que Shinji “ya sepa que es Toji”. No spoilers de 18 más allá
+  del handoff.
+
+NO_HAGAS
+  Reescribir docs 01–16. Crear lib/nerv/angels/bardiel.rb.
+  class AngelFourth.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición de la unidad “nuestra”
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: Eva-03 (morada/negra, distinta de 00/01/02),
+  colegio, Toji, traslado, nube que NERV no nombra, Matsushiro.
+  First-seen de un activo de confianza, no de un bípedo enemigo.
+  La nube se VE; no se PELEA.
+
+CONTEXTO
+  Gaghiel atacó el convoy de Eva-02. Aquí el convoy de 03 llega
+  “bien”. El error clásico: si no hay Pattern Blue de silueta,
+  el intake es higiene. El first packet es un Eva con procedencia
+  US y una nube que el parte de vuelo llama clima.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: anuncio de Fourth Child, aula, Toji, hermana
+       (hospital, no gore), Eva-03, nube, Matsushiro, corte
+    B) first-seen de seguridad: host managed nuevo + IoC
+       dormido mal clasificado
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Eva-03
+  en traslado/nube (no combate), UN párrafo aula vacía de un
+  pupitre. Nada de Dummy Plug. Nada de Eva-01 destrozando 03.
+
+ENTREGABLE
+  docs/episodios/ep17_aparicion.md
+    - Minuto cero: no hay ángel en el radar de Tokio-3
+    - Lo que NERV cree (refuerzo de capacidad)
+    - Spec visual Eva-03 vs 00/01/02 (color, origen, no infectada
+      en combate)
+    - Spec visual de la nube (IoC; NERV dice “nada”)
+    - Spec visual Matsushiro (fuera de casa)
+    - Spec breve Toji / hospital de la hermana (deuda, no meme)
+    - Firma SIEM de intake, no de Pattern Blue de combate
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel peleando.
+  La nube existe como imagen y como IoC ignorado.
+
+NO_HAGAS
+  Código. Anatomía intake (es 03–04). Combate 18.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: Eva-03, Toji, palanca, need-to-know, flag dormido
+################################################################################
+
+OBJETIVO
+  Partes del SETUP → métodos. Eva-03.status = :trusted_intake.
+  Toji = Operator fourth. sister_leverage. shinji.knows = false.
+  dormant_contaminant: BOOL o sealed token, NO Angel#attack.
+
+CONTEXTO
+  Unidad de confianza = se salta el playbook de Jet Alone.
+  Fourth Child = cuarto on-call, compañero de clase.
+  Leverage = collateral_grudge cobrada (T-EVA01-05 / Toji punch
+  del 03): el blast radius se volvió contrato.
+  Need-to-know invertido: se oculta al operador que va a ser
+  puesto contra esa caja.
+  Matsushiro = activación off-site (no MAGI HQ).
+  Dormant hitchhiker = supply-chain implant pre-detonation.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de trusted_intake,
+  fourth_child, sister_leverage, knows_occupant, dormant_contaminant
+  (sealed; activate! PROHIBIDO en este episodio).
+  Nombres Ruby: Eva-03, FourthChild, SisterLeverage,
+  NeedToKnow, DormantContaminant.
+  Relación con JetAlone: is_a?(Angel) false, is_a?(JetAlone) false;
+  es Eva.
+
+ENTREGABLE
+  docs/episodios/ep17_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - trusted_intake vs unaudited_autonomy (07)
+    - sister_leverage vs Rei-palanca (04) vs Shinji-chantaje (01)
+    - knows_fourth_child == false (ley)
+    - dormant_contaminant: cómo se GUARDA sin Bardiel.combat
+    - theater :matsushiro vs :tokyo3_geofront vs :pacific_fleet
+    - Implicación: “es nuestro” no es un control
+
+CRITERIO
+  Un implementador añade Eva-03 sin PlaybookEp18.
+  activate! / DummyPlug / Bardiel.attack no existen como vía
+  de este archivo. knows == false está escrito.
+
+NO_HAGAS
+  Código. Playbook (es 08). Dummy Plug class.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: lo nuestro no se inspecciona
+################################################################################
+
+OBJETIVO
+  Fijar TRUSTED_INTAKE. El 07 enseñó a no comprar cajas ajenas.
+  El 17 enseña que las cajas PROPIAS también se inspeccionan.
+  Staffing por hermana-rehén. Need-to-know que ciega al SOC.
+  La nube mal nombrada es el primer log del 18.
+
+CONTEXTO
+  Analogías: endpoint “corp-owned” sin EDR; AMI interna sin
+  SBOM; on-call que es amigo; “el vendor somos nosotros”;
+  clasificar beacon como telemetry. Error clásico A: combate
+  Bardiel. Error clásico B: JA-playbook (password on-box).
+  Error clásico C: decirle a Shinji el nombre “para que el
+  drama no duela”. Error clásico D: Dirac. Error clásico E:
+  Ireul en MAGI otra vez.
+
+INSTRUCCION
+  Escribe el patrón TRUSTED_INTAKE.
+  Tabla de métodos vs resultado (inspeccionar como tercero,
+  skip-audit-porque-NERV, JA-password, Dummy Plug, Bardiel
+  fight, need-to-know honest vs false, sister_leverage).
+  Regla de lab: trusted_intake_recorded IFF eva03.status ==
+  :trusted_intake AND toji.selected AND sister_leverage.recorded
+  AND shinji.knows_fourth_child == false AND bardiel_combat
+  == false AND dummy_plug == false AND dormant_contaminant
+  no se activate!.
+
+ENTREGABLE
+  docs/episodios/ep17_intake.md
+    - Escena breve de “es nuestro, adelante”
+    - Patrón TRUSTED_INTAKE (precondiciones, síntoma nube,
+      error de skip-audit, error de palanca, error de secreto)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “no hay Pattern Blue de combate” no es “intake limpio”
+    - Frontera con 07, 08 convoy, 13 MAGI, 18 hijack (nombrar)
+
+CRITERIO
+  Eva-03 no es JetAlone. Bardiel no se pelea. El 03 sigue
+  con Toji-punch como síntoma, no como cierre de la hermana.
+
+NO_HAGAS
+  Código. No Dummy Plug. No Leliel.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs de la ingesta, de la palanca y del secreto
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN combate. Técnicas de intake, leverage, cloud
+  misclass, compartmentalization. Toji no es TTP de ángel.
+  La nube es T-SUPPLY, no T-MATARAEL.
+
+CONTEXTO
+  Quien dispare T-IREUL o T-EVA01-02 berserk se equivoca.
+  T-EVA01-05 CollateralCity se CITA como deuda cobrada, no
+  como TTP nueva de Sachiel.
+
+INSTRUCCION
+  Ids estables. Diagrama: US-build → cloud IoC ignored →
+  trusted_intake → Fourth Child + leverage → Shinji not told
+  → handoff 18.
+
+ENTREGABLE
+  docs/episodios/ep17_ttps.md
+    - Qué T-VENDOR / T-IREUL / T-DIRAC no se reabren como método
+    - T-EVA01-05 se CITA como precondición de leverage
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-INTAKE-01 TrustedUnitSkipAudit
+        T-INTAKE-02 OffshoreBuiltAssumedClean
+        T-INTAKE-03 CloudIocAsWeather
+        T-SOC-06 FourthChildFromClass
+        T-SOC-07 StaffingByFamilyLeverage
+        T-SOC-08 OccupantNeedToKnowFalse
+        T-TOJI-01 BargainForSister
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Dummy Plug, Bardiel-combat,
+      MAGI-virus, Dirac)
+
+CRITERIO
+  T-INTAKE-01 ≠ T-VENDOR-01. T-SOC-08 es el secreto, no un bug
+  de SIEM. El diagrama no tiene caja Eva-01 vs Eva-03.
+
+NO_HAGAS
+  Código. No TTP “Toji es grosero”.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: la nube no era clima
+################################################################################
+
+OBJETIVO
+  Detectar intake, Fourth Child, leverage, need-to-know false,
+  cloud IoC. NERV no emite Pattern Blue de combate. El lab SÍ
+  debe poder emitir cloud_ioc_ignored. Frase-ley: “trusted
+  no significa unscanned”.
+
+CONTEXTO
+  El 08: Pattern Blue en el mar. El 17: silencio de combate y
+  un log que se tiró a /dev/null. Falso positivo: “refuerzo”.
+  Anti-métrica: “ya tenemos 4 Evas”.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación con pattern_blue:
+  NO se emite combate; SÍ se puede emitir intake / cloud.
+
+ENTREGABLE
+  docs/episodios/ep17_deteccion.md
+    - Qué NO dispara (pattern_blue de combate, dummy_plug,
+      magi_infected)
+    - Ids obligatorios:
+        siem.eva03_intake
+        siem.trusted_unit_flag
+        siem.cloud_ioc
+        siem.cloud_ioc_ignored
+        siem.fourth_child_selected
+        siem.sister_leverage
+        siem.occupant_unknown_to_peers
+        siem.matsushiro_activation_scheduled
+        siem.dormant_contaminant_sealed
+        siem.false_pattern_blue       (fallo: combate 18 aquí)
+    - Falsos positivos
+    - Anti-métrica: roster de 4 = más seguro
+
+CRITERIO
+  Ids usables en tests. cloud_ioc_ignored existe en el camino
+  canónico. occupant_unknown_to_peers == true.
+
+NO_HAGAS
+  Código. No sensores de Dummy Plug-kill. No Dirac.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de enchufar “lo nuestro”)
+################################################################################
+
+OBJETIVO
+  Preventiva de intake: inspeccionar unidades propias como
+  terceras; SBOM/offshore; no clasificar IoC de traslado como
+  clima; no staffear con rehenes médicos; decir al resto del
+  roster quién ocupa la caja (aunque duela); no activar off-site
+  sin hunt de hitchhiker.
+
+CONTEXTO
+  Prevenible: skip-audit; palanca de la hermana; secreto frente
+  a Shinji; Matsushiro sin inspección de la nube. No prevenible
+  del todo: que un ángel hitchhikee. Se prepara cazando en el
+  traslado, no con un Dummy Plug “por si acaso” (eso es el 18
+  y es horror, no preventiva).
+  Anti-patrón: “no es Jet Alone”; “más niños = más cobertura”;
+  “no le digas a Shinji para protegerlo”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: image signing,
+  inbound scan of corp AMIs, no-coercive on-call, occupant
+  disclosure to IR, staging ≠ skip-hunt.
+
+ENTREGABLE
+  docs/episodios/ep17_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): ours-so-clean; family-leverage;
+      need-to-know-as-kindness
+    - Relación con T-INTAKE-* y T-SOC-06..08
+    - Higiene de trusted intake en 7 viñetas (SOC real)
+    - Nota: Dummy Plug no se lista como control preventivo
+
+CRITERIO
+  Nadie sale pensando que el 07 cubre el 17.
+  Nadie sale pensando que el Dummy Plug “hubiera evitado” esto.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No combate 18.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: aceptar, registrar, no detonar
+################################################################################
+
+OBJETIVO
+  Runbook de SETUP. 1) Recibir Eva-03. 2) No JA-playbook.
+  3) Registrar cloud_ioc (aunque NERV lo ignore: el lab lo
+  marca ignored). 4) Select Toji + sister_leverage. 5)
+  knows_fourth_child false. 6) Programar Matsushiro. 7)
+  sealed dormant flag. 8) :trusted_intake_recorded. PROHIBIDO
+  activate_hitchhiker, Dummy Plug, sortie 01 vs 03.
+
+CONTEXTO
+  Gendo/Seele quieren capacidad. Misato puede no saber el
+  nombre todavía. Shinji no sabe. Rama Bardiel-fight = FAIL.
+  Rama Dummy Plug = FAIL. Rama “decirle a Shinji” en este
+  episodio = desviación de canon (el 18 duele POR ESTO; no
+  “arregles” el drama). Si el lab quiere un modo honesto
+  (disclose), que sea un test de prevención, no el camino
+  feliz del runner.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 18 (Bardiel, Dummy Plug, destroy-trusted-with-
+  occupant), lista, no redactar el 18.
+
+ENTREGABLE
+  docs/episodios/ep17_playbook.md
+    - Árbol ASCII (intake → record | fail-detonate | fail-JA)
+    - Runbook numerado
+    - Condición :trusted_intake_recorded
+    - Condición :trusted_intake_detonated
+    - MAGI: no es el campo (no Ireul); Matsushiro off-site
+    - Hooks Ruby
+    - Handoff a ep 18 (lista)
+
+CRITERIO
+  Traducible a tests. No rama de éxito con Bardiel.alive combat.
+  El camino feliz mantiene knows == false.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/bardiel.rb de combate.
+  No DummyPlug.fire.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: el compañero de clase en el roster
+################################################################################
+
+OBJETIVO
+  Toji como Fourth Child (no bully-meme: blast radius cobrado).
+  Shinji: no sabe el quién; no quiere más niños en plugs.
+  Hikari/Kensuke: clase como pool de staffing. Gendo: capacidad.
+  La hermana: palanca, no figurante gore. Misato: IC que aún
+  no ha tenido que ordenar matar al amigo.
+
+CONTEXTO
+  Ética: no celebrar el trueque médico. Es T-SOC-07. El 01
+  chantajeó a Shinji con Rei herida; el 17 chantajea a Toji
+  con la hermana. Rima, no copia. Kensuke queriendo el pager
+  (04) sigue siendo turismo, no el elegido.
+
+INSTRUCCION
+  Fichas: Toji, Shinji, hermana (métrica, no escena), Hikari,
+  Kensuke, Gendo, Misato.
+  Métricas: toji_selected, sister_leverage, knows_fourth_child,
+  class_as_pool, disclose_occupant (false en canon).
+  Frontera con 18 (Dummy Plug, mutilación — NO).
+
+ENTREGABLE
+  docs/episodios/ep17_humanos.md
+    - Fichas
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: knows_fourth_child false en el runner;
+      sister_leverage no es “Toji es héroe”; class_as_pool
+      es anti-patrón de staffing
+    - Frontera con 03 (puñetazo) y 18 (hijack)
+    - NO_HAGAS: gore del 18, Dummy Plug
+
+CRITERIO
+  Toji no es comic. Shinji no “se entera y resuelve”. Gendo
+  no es RR.HH. La hermana no es fanservice de hospital.
+
+NO_HAGAS
+  Código. No Bardiel. No Yui.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Eva-03 trusted, Toji, sealed hitchhiker)
+################################################################################
+
+OBJETIVO
+  Código del setup. Tests que FALLAN si se combate Bardiel,
+  si Dummy Plug corre, si JetAlone clasifica a Eva-03, si
+  Shinji.knows == true en el camino feliz, o si
+  dormant_contaminant.activate! se llama.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Eva-03, FourthChild/Toji, SisterLeverage, NeedToKnow,
+  DormantContaminant sealed, PlaybookEp17.
+  PlaybookEp07 sigue JA ≠ Eva.
+  PlaybookEp16 sigue Dirac, no intake.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 07, 16, 17.
+  Ids: docs/episodios/ep17_*.md.
+  DormantContaminant: API sealed; activate! si existe, el
+  playbook 17 NO la llama y un test falla si se llama.
+
+ENTREGABLE
+  lib/nerv/eva03_intake.rb
+  lib/nerv/fourth_child.rb
+  lib/nerv/sister_leverage.rb
+  lib/nerv/need_to_know.rb
+  lib/nerv/dormant_contaminant.rb
+  lib/nerv/playbooks/ep17.rb
+  test/test_eva03_intake.rb
+  test/test_fourth_child.rb
+  test/test_playbook_ep17.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb            (unidad 03, status trusted_intake)
+    lib/nerv/operator.rb       (Toji)
+    lib/nerv/siem.rb
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp17 no instancia combate Bardiel
+    - no DummyPlug
+    - Eva-03 no is_a JetAlone; no is_a Angel
+    - status :trusted_intake
+    - Toji selected; sister_leverage.recorded
+    - shinji.knows_fourth_child == false
+    - cloud_ioc_ignored emitido
+    - dormant_contaminant sealed; activate! no llamado
+    - PlaybookEp17 → :trusted_intake_recorded
+    - si activate! o dummy o Bardiel combat ⇒ :trusted_intake_detonated
+    - PlaybookEp07 sigue third_party_stopped con JA
+    - SIEM: eva03_intake, fourth_child_selected, sister_leverage,
+      occupant_unknown_to_peers, cloud_ioc_ignored
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep07.rb test/test_playbook_ep16.rb \
+    test/test_eva03_intake.rb test/test_fourth_child.rb \
+    test/test_playbook_ep17.rb
+  sale 0. Hay un test que falla si Bardiel combate.
+  Hay un test que falla si knows_fourth_child.
+  Hay un test que falla si Eva-03 es JetAlone.
+
+NO_HAGAS
+  lib/nerv/angels/bardiel.rb de combate. DummyPlug.fire.
+  Bundler. Reabrir Leliel.absorb como vía.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 17
+################################################################################
+
+OBJETIVO
+  Runner de INC-FOURTH-001. Traza: eva03_intake → cloud_ioc_ignored
+  → fourth_child_selected → sister_leverage →
+  occupant_unknown_to_peers. Exit code 11. Cero Dummy Plug,
+  cero absorb, cero virus MAGI, cero Eva-01 vs 03.
+
+CONTEXTO
+  bin/episodio … 16→1, 17→11.
+  El 11 no es un 0 de ángel: es setup de intake.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 17.
+  Si el binario no existe, créalo soportando 01–17.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep17.rb
+  test/test_scenario_ep17.rb
+  docs/episodios/ep17_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 17
+
+  Exit:
+    11 = :trusted_intake_recorded
+
+CRITERIO
+  El comando corre, imprime eva03_intake, cloud_ioc_ignored,
+  fourth_child_selected, occupant_unknown_to_peers;
+  NO imprime dummy_plug ni bardiel_combat ni intercept_ok;
+  sale 11.
+  test/test_scenario_ep17.rb pasa.
+  07→5 y 16→1 siguen.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Dummy Plug/brazo. ASCII de Eva-03
+  “infectada-peleando”.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 18
+################################################################################
+
+OBJETIVO
+  Cerrar INC-FOURTH-001 como intake registrado. Eva-03 es
+  “nuestra”. Toji está en el roster. Shinji no sabe. La nube
+  se ignoró. Transferir al 18: Bardiel hijack, Dummy Plug,
+  destruir el activo de confianza con el compañero dentro.
+  No escribir prompts del 18.
+
+CONTEXTO
+  NERV cree que ganó capacidad. El AAR: skip-audit de lo
+  propio; palanca familiar; need-to-know que va a convertir
+  el 18 en una orden contra un amigo anónimo. Bardiel ≠ Ireul
+  (huésped Eva, no MAGI) ≠ Leliel (no es un espacio: es un
+  cuerpo de confianza poseído). Last-playbook Dirac no aplica.
+  Dummy Plug no es preventiva: es el horror del 18.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 18
+    titulo_canon: Ambivalence
+    angel: Bardiel
+    numero_angel: 13
+    archivo_episodio: prompts/ep18_bardiel.txt
+    estado: episodio_completo
+    ultima_nota: INC-FOURTH-001 cerrado trusted_intake_recorded. Eva-03 trusted. Toji selected. Shinji no sabe. dormant sealed. Falta crear prompts/ep18_bardiel.txt. Deuda: hijack + Dummy Plug + destroy-with-occupant.
+  No crees ep18_bardiel.txt en este turno.
+  Lista secciones sugeridas para el 18 (Bardiel, Dummy Plug,
+  Eva-01 vs 03, Toji, Gendo override), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep17_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Eva-03 vs Toji vs need-to-know vs nube ignorada
+    - T-INTAKE-* / T-SOC-06..08 ABIERTAS (el 18 las cobra)
+    - Por qué exit 11 no es un 0
+    - Deuda hacia ep 18 (Bardiel, Dummy Plug, occupant)
+    - Frontera Ireul / Leliel / Jet Alone (una línea cada una)
+    - "Lección Seele" en 5 viñetas para un SOC (trusted intake,
+      no staffear con rehenes, di quién está en la caja)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 18 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Toji no pierde el brazo
+  “en el recap”. Dummy Plug se nombra como siguiente, no se
+  implementa.
+
+NO_HAGAS
+  Escribir prompts/ep18_bardiel.txt. No combate. No Yui.
+
+SIGUIENTE
+  FIN
+################################################################################

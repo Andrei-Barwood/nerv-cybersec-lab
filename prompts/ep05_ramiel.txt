@@ -1,0 +1,666 @@
+---
+EPISODIO: 05
+TITULO_CANON: Rei I / Rei, Beyond Her Heart / レイ、心のむこうに
+ANGEL: Ramiel
+TIPO: angel
+INCIDENTE: INC-RAMIEL-001 (arco de dos episodios; este es la primera mitad)
+NUMERO_ANGEL: 5º
+CLASE_AMENAZA: fortaleza / zona de muerte / penetración lenta al tesoro / playbook anterior no sirve
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep04 existen.
+  INC-HEDGEHOG-001 está :staffing_restored_fragile. El operador volvió;
+  la banda no está combat-tested. Rei sigue pudiendo usarse como palanca
+  — este episodio OBLIGA a dejar de tratarla solo como inventario.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01–04 §10 y luego esta extensión.
+  Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 06 — Rei II / Operation Yashima (el disparo; Rei como escudo)
+FUERA_DE_ALCANCE: |
+  No completar Yashima. No disparo de positrones. No apagón de Japón.
+  No Eva-00 de escudo. No 「ありがとう」. Eso es el 06.
+  No cuchillo progresivo como kill. No BerserkChannel como victoria.
+  No N² como kill. No C2/látigos (Shamshel no es un octaedro).
+  No Jet Alone, no Dummy Plug, no Yui.
+  No tesis completa de Rei (clones, dummy, Instrumentality).
+  Este es Rei I: opaca, gafas de Gendo, más allá del scan.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Shinji, de vuelta, intenta leer a Rei y no puede. Sync tests.
+  Ramiel aparece: octaedro regular, cristalino, flota sobre Tokio-3.
+  AT Field máximo. Cañón de partículas: Eva-01 sale y es fundida
+  en segundos. Shinji casi muere. El playbook de acercarse (ep 03)
+  muere aquí.
+  Ramiel baja un taladro desde el vértice inferior hacia el geofront.
+  Core INTERNO, no un botón en el pecho.
+  Departamento de Rei: desastre, vendas, gafas de Gendo, caída,
+  disculpa que no es disculpa. Gendo es amable con Rei de un modo
+  que no es con Shinji.
+  Corte: el taladro sigue. No hay arma de standoff todavía.
+  Yashima se nombra como necesidad, no se ejecuta.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-RAMIEL-001 como arco de dos capítulos, igual que Sachiel
+  01–02. El 05 TERMINA :unresolved (exit 2): Eva fuera, taladro
+  activo, Rei sigue sin ser un inventario legible. Yashima es el 06.
+  La lección: el último playbook que funcionó (sever + cuchillo) es
+  ahora una forma de morir.
+
+CONTEXTO
+  El 04 devolvió al operador. El 05 lo pone contra una geometría
+  que no se deja acuchillar. En seguridad: un perímetro que SÍ mata
+  (kill zone), un crown jewel (geofront) y un atacante que no necesita
+  correr: TALADRA. Mientras tanto hay un segundo operador (Rei) que
+  el roster trata como recambio y el episodio trata como persona
+  opaca. Dos lecturas fallidas en paralelo: no puedes "abrir" a
+  Ramiel de cerca y no puedes "abrir" a Rei de cerca.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual del octaedro aún.
+  Hereda exit codes de ángel:
+    0 = :contained_controlled     (NO aplica a este episodio)
+    1 = :contained_uncontrolled   (Beast aquí = fallo, no corte)
+    2 = :unresolved               (resultado ESPERADO del 05)
+    3/4 = staffing (el 04); no reabrirlos como resultado del playbook
+  Declara: close-range (knife, rush, berserk) está prohibido como
+  éxito. Standoff se NOMBRA, no se dispara.
+
+ENTREGABLE
+  docs/episodios/ep05_briefing.md con exactamente estos headings:
+    - Contrato (INC-RAMIEL-001, mitad 1 de 2)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Yashima ejecutada, Rei-escudo,
+      thank-you, clones)
+    - Definición de victoria (lab): no hay; el 05 está bien si falla
+      el rush y el taladro queda documentado
+    - Definición de derrota (lab): matar a Ramiel aquí; ganar con
+      Beast/knife; tratar a Rei solo como palanca otra vez
+    - Vocabulario nuevo (octaedro, kill zone, particle beam, drill,
+      core interno, standoff, positron rifle como DEUDA, Rei I, opacidad)
+    - Relación con 01–04 (qué playbooks mueren, qué staffing queda frágil)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y ejecutar Yashima. Imposible puntuar
+  un rush como doctrina. No spoilers post-ep 06 salvo nombrar Yashima
+  como deuda.
+
+NO_HAGAS
+  Reescribir docs 01–04. Crear lib/. Fundir Rei I con Instrumentality.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (Ramiel)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen del 5º ángel: no camina, no azota, no sangra.
+  Geometría. Azul. Flota. Un volumen sin cara. Memoria visual del
+  octaedro + first packet de una fortaleza.
+
+CONTEXTO
+  Sachiel era un bípedo. Shamshel un insecto con látigos. Ramiel
+  es un sólido platónico. El error clásico: "otro ángel, mismo
+  playbook". El perímetro no ve un cuerpo que se acerca: ve un
+  objeto que OCUPA el cielo y luego un rayo que borra al Eva.
+  First-seen de kill zone, no de marcha ni de C2.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena (presente, sensorial, breve): cielo de Tokio-3, aristas,
+       silencio, el disparo, el taladro que baja
+    B) first-seen de seguridad: firma geométrica, no biológica
+  Prompt de imagen opcional (NO ejecutar): UN párrafo octaedro vivo
+  sobre la ciudad, UN párrafo rayo fundiendo un Eva. Nada de Yashima,
+  nada de rifle enorme.
+
+ENTREGABLE
+  docs/episodios/ep05_aparicion.md
+    - Minuto cero (escena)
+    - Lo que el perímetro cree que es (Sachiel-grande / Shamshel-otro)
+    - Pattern Blue: misma clase, forma que rompe la plantilla
+    - Spec visual (octaedro regular, color, escala, levitación,
+      ausencia de rostro, vértice inferior)
+    - Tabla corta vs specs de ep01_aparicion y ep03_aparicion (citar, no copiar)
+    - Firma SIEM: objeto-fortaleza, no payload que camina
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar a Ramiel sin patas y sin látigos.
+  Se puede escribir una regla "firma geométrica / kill zone".
+  No hay positrones. No hay departamento de Rei (es 09).
+
+NO_HAGAS
+  Código. Anatomía interna/taladro formal (es 03–04). Yashima.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: octaedro, AT Field máximo, core interno, rayo, taladro
+################################################################################
+
+OBJETIVO
+  Partes de Ramiel → funciones de seguridad → futuros métodos.
+  AT Field aquí no es el de Sachiel "rebotas un poco": es aislamiento
+  que convierte el acercamiento en suicidio. El core no se ve.
+  El taladro no es un látigo.
+
+CONTEXTO
+  Cuerpo octaédrico = superficie simétrica, sin lado débil obvio.
+  AT Field máximo = air gap / perímetro que de verdad aísla.
+  Particle beam = respuesta automática letal (IPS que funde, no que
+  loguea).
+  Drill = penetración lenta al crown jewel (geofront / root of trust).
+  Core interno = no hay puerto de management expuesto; Shamshel
+  enseñó "core visible ≠ fácil"; Ramiel enseña "core invisible".
+  Reusar Nerv::ATField y Nerv::Core: no redefinirlos, SUBIR umbrales
+  y esconder el core.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de kill_zone y de
+  drill_progress (0.0–1.0). Nombres Ruby (solo nombres):
+  particle_beam, drill!, internal_core?, approach_melts?.
+  Contraste explícito: Whip ≠ Beam ≠ Drill ≠ BerserkChannel.
+
+ENTREGABLE
+  docs/episodios/ep05_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - AT Field máximo vs AT Field de Sachiel (umbral, no clase nueva
+      si se puede evitar)
+    - Core interno (kill condition existe y NO es observable en el 05)
+    - kill_zone (definición: rango donde approach_melts? == true)
+    - drill_progress (qué es 0, qué es 1 = geofront comprometido)
+    - Implicación: el cuchillo del 03 es un método de muerte
+
+CRITERIO
+  Un implementador no fusiona Drill con C2Channel ni Beam con
+  ConventionalAttack. drill_progress tiene semántica. El core no
+  se "clava" en este episodio.
+
+NO_HAGAS
+  Código. Ejecutar Yashima. Inventar un látigo geométrico.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: fortaleza + taladro al tesoro
+################################################################################
+
+OBJETIVO
+  Fijar FORTALEZA_KILLZONE_DRILL. Dos tiempos: (1) quien se acerca
+  muere ahora; (2) quien no se acerca mira cómo el atacante llega
+  igual, despacio, al geofront. El rush del 03 y el Beast del 02
+  son las dos formas de no entender el patrón.
+
+CONTEXTO
+  Analogías: red air-gapped que aun así es sondeada por un implant
+  lento; WAF/perímetro que funde scanners; APT low-and-slow al
+  HSM/AD/root; "no hagas portscan a ese rango". El error clásico
+  es reaplicar el último incidente. El N² del 01 era teatro porque
+  no tocaba el core; el rifle del 03 era teatro porque no cortaba
+  C2; el rush del 05 es teatro porque la kill zone es real.
+  Standoff (positron rifle, poder de un país) es la mitigación
+  FUTURA. Aquí solo se demuestra que hace falta.
+
+INSTRUCCION
+  Escribe el patrón FORTALEZA_KILLZONE_DRILL.
+  Tabla de métodos vs resultado en el 05:
+    Conventional / N2 / PalletRifle / ProgressiveKnife / C2Sever /
+    BerserkChannel / CloseRangeSortie / Standoff (no disponible).
+  Regla de lab: Ramiel.alive == true al cierre; Eva-01 incapacitated;
+  0.0 < drill_progress < 1.0.
+
+ENTREGABLE
+  docs/episodios/ep05_fortaleza.md
+    - Escena breve del Eva fundido
+    - Patrón FORTALEZA_KILLZONE_DRILL (precondiciones, síntoma,
+      error de reaplicar playbook)
+    - Tabla de métodos (todos fallan o no están)
+    - Reloj del taladro (por qué "esperar" también es perder)
+    - Analogías (máximo 3, concretas)
+    - Señal SIEM: "no camina" no es "no avanza"
+    - Deuda nombrada: standoff / Yashima (una viñeta, no el plan)
+
+CRITERIO
+  La regla close-range=melt está implementable.
+  Yashima no se planifica paso a paso aquí (eso es 06 y un poco 08).
+  drill_progress no llega a 1.
+
+NO_HAGAS
+  Código. No apagón nacional. No rifle construido.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de Ramiel
+################################################################################
+
+OBJETIVO
+  Kill-chain de ESTE ángel. Ids T-RAMIEL-*. El operador añade una
+  TTP fallida: reaplicar close-range. Rei no es TTP del ángel.
+
+CONTEXTO
+  Ramiel: presencia geométrica, aislamiento máximo, disparo letal
+  a quien entra en rango, taladro al geofront, core no expuesto.
+  No regenera como Sachiel. No azota como Shamshel. No necesita
+  que NERV abra la puerta: hace un agujero.
+  T-OP01-03 ProgressiveKnifeCore queda marcada como CONTRAindicada.
+
+INSTRUCCION
+  Fases de Ramiel + la fase humana del rush fallido.
+  Ids estables citables desde tests.
+
+ENTREGABLE
+  docs/episodios/ep05_ttps.md
+    - Qué T-SACHIEL / T-SHAMSHEL / T-EVA01 / T-SOC no se reabren
+      como método (citar T-OP01-03 como contraindicada)
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-RAMIEL-01 GeometricFortress
+        T-RAMIEL-02 MaxATField
+        T-RAMIEL-03 ParticleKillZone
+        T-RAMIEL-04 InternalCore
+        T-RAMIEL-05 CrownJewelDrill
+        T-OP01-08 CloseRangeReapplied
+        T-OP01-09 SortieMelted
+    - Tabla de fases + diagrama ASCII
+      (octaedro → kill zone → rush → melt → drill sigue → unresolved)
+    - Qué NO es TTP de este episodio (Yashima, escudo-Rei, látigo,
+      Beast-as-win)
+
+CRITERIO
+  Los ids son citables. El diagrama no tiene caja "Shinji dispara
+  y gana". El taladro no se etiqueta como C2.
+
+NO_HAGAS
+  Código. No TTP de "Rei es un ángel" (no lo es, no aquí).
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: ver la fortaleza y no poder tocarla
+################################################################################
+
+OBJETIVO
+  Detectar firma geométrica, beam, melt, drill_progress. El SIEM
+  PUEDE verlo todo y NERV igual está indefensa. Detección ≠
+  capacidad de standoff. Detectar también la opacidad de Rei como
+  señal de roster, no como Pattern Blue.
+
+CONTEXTO
+  A diferencia de Shamshel (inmóvil ≠ inofensivo), aquí inmóvil
+  es FORTALEZA. El taladro es un progreso que se puede alertar
+  con umbrales (0.25, 0.5, 0.75) sin tener playbook de stop.
+  El melt de Eva-01 es el evento más ruidoso desde Sachiel y no
+  cambia el estado del ángel.
+  Rei: no es un evento de cielo. Es operator_opaque. No mezclar ids.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Frase-ley: "ver el taladro no es
+  detener el taladro". Falso positivo: "si no camina, Yashima no
+  hace falta".
+
+ENTREGABLE
+  docs/episodios/ep05_deteccion.md
+    - Pattern Blue heredado vs firma geométrica
+    - Ids obligatorios:
+        siem.pattern_blue              (reusar)
+        siem.geometric_fortress
+        siem.kill_zone_active
+        siem.particle_beam
+        siem.eva_melted
+        siem.close_range_contraindicated
+        siem.drill_started
+        siem.drill_progress            (con valor)
+        siem.core_not_observable
+        siem.standoff_capability_missing
+        siem.operator_opaque           (Rei; no es pattern_blue)
+    - Umbrales de drill_progress que alertan
+    - Falsos positivos
+    - Anti-métrica: "Eva salió" como si eso fuera mitigación
+
+CRITERIO
+  Ids usables en tests. drill_progress es un valor, no un bool.
+  operator_opaque no clasifica a Rei como ángel.
+
+NO_HAGAS
+  Código. No eventos de disparo positrónico. No Dummy Plug.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el octaedro flote)
+################################################################################
+
+OBJETIVO
+  Prevención de clase fortaleza: capacidad de standoff ANTES del
+  first-seen; no reaplicar el último kill; no mandar al operador
+  recién vuelto a un rush; no dejar el geofront como único tesoro
+  taladrable; no tener a Rei como caja negra de liderazgo.
+
+CONTEXTO
+  Prevenible: ausencia de arma de standoff en el inventario;
+  doctrina que dice "acerca y clava"; deploy inmediato post-erizo
+  sin medir banda en combate; geofront sin demora/defensa en
+  profundidad contra un drill; Rei sin ficha de persona.
+  No prevenible del todo: que exista un AT Field máximo. Se prepara
+  con standoff y con no-rush, no con otro Eva a puñetazos.
+  Anti-patrón: "el 03 funcionó"; "el 02 despertó"; "Rei puede ir
+  si Shinji no".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados de 01–04. Analogías: kill-chain
+  disruption a distancia, assume-breach en crown jewels, no
+  copy-paste del IR anterior, inventory de personas no de piezas.
+
+ENTREGABLE
+  docs/episodios/ep05_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): last-playbook-wins; rush-as-bravado;
+      Rei-as-spare
+    - Relación con T-RAMIEL-* y T-OP01-08/09
+    - Higiene de "no reaplicar el último incidente" en 7 viñetas
+    - Nota staffing: banda del 04 no combat-tested = riesgo, no cierre
+
+CRITERIO
+  Nadie sale pensando que Yashima es prevención (es mitigación
+  masiva, y es el 06). Nadie sale pensando que Rei es el parche.
+
+NO_HAGAS
+  Plan de disparo (es 08/06). Código.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook de mitigación (rush abortado, taladro, deuda Yashima)
+################################################################################
+
+OBJETIVO
+  Runbook del 05: Pattern Blue → sortie close-range → melt → abort.
+  El Eva no contiene. El taladro sigue. Se DECLARA la necesidad de
+  standoff (nombre: Yashima) y se CORTA el playbook. Ejecutar
+  Yashima aquí es violar FUERA_DE_ALCANCE.
+
+CONTEXTO
+  Misato es IC y va a concebir el disparo; en este corte solo
+  puede sacar a Shinji del horno y mirar el reloj del drill.
+  MAGI identifican fortaleza / core interno; no autorizan un
+  segundo rush. Gendo observa a Rei. El handoff al 06 es un
+  proyecto: arma, energía, escudo, dos operadores. Aquí se lista
+  como deuda, no se implementa el árbol del disparo.
+
+INSTRUCCION
+  Árbol y runbook numerado. Resultado esperado :unresolved.
+  Rama Beast = FAIL. Rama knife = melt. Rama "disparamos Yashima
+  ya" = fuera de alcance (no existe capacidad).
+  Hooks Ruby. Lista de lo que el playbook del 06 DEBERÁ tener.
+
+ENTREGABLE
+  docs/episodios/ep05_playbook.md
+    - Árbol ASCII (sortie → melt → abort → drill clock → DEUDA Yashima)
+    - Runbook numerado (detectar geometría, contraindar close-range
+      si ya se sabe, deploy erróneo, melt, retracción, medir
+      drill_progress, marcar standoff_capability_missing, NO disparar)
+    - Condición de cierre del 05: :unresolved
+    - Condiciones de fallo pedagógico: :contained_* en este episodio
+    - Hooks Ruby
+    - Handoff a ep 06 (lista: positron rifle, poder nacional, Eva-00
+      escudo, Rei II, thank-you — no redactar esos pasos)
+
+CRITERIO
+  Traducible a tests. No existe rama de éxito con Ramiel.muerto.
+  Yashima aparece como deuda con nombre, no como función Ruby que
+  gana el 05.
+
+NO_HAGAS
+  Código. No implementar lib/nerv/playbooks/ep06.rb. No 「ありがとう」.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: Rei I (más allá del scan)
+################################################################################
+
+OBJETIVO
+  Ficha de Rei como operadora opaca, no como palanca del 04 y no
+  como escudo del 06. Shinji casi muere reaplicando doctrina.
+  Gendo es amable con ella. Las gafas son un control de identidad
+  ajeno. El departamento es un interior que el scan no tenía.
+
+CONTEXTO
+  Título del capítulo: Rei I. El ángel es la geometría; Rei es la
+  otra. Shinji intenta close-range emocional y también se funde
+  (caída, disculpa, nada se abre). Analogía: no puedes enumerar a
+  una persona como recambio y luego pedirle sync. hedgehog_distance
+  con Rei no está en banda porque nunca se midió: estaba en
+  inventario. Ética: el repo no sexualiza la caída; la trata como
+  fallo de scan / consentimiento / rareza de Gendo.
+  Misato: IC que acaba de ver fundir al Eva. Ritsuko: datos de
+  AT Field máximo. El 06 les pedirá confianza a distancia; el 05
+  solo muestra que no la hay todavía.
+
+INSTRUCCION
+  Ficha NUEVA de Rei I + deltas de Shinji/Gendo/Misato.
+  Métricas: operator_opaque, close_range_contraindicated (también
+  humana), gendo_glasses (bool/objeto de identidad),
+  backup_used_as_leverage debe poder pasar a false sin volverse
+  "Rei resuelta".
+  Frontera explícita con ep 06: el escudo y el thank-you no existen aún.
+
+ENTREGABLE
+  docs/episodios/ep05_humanos.md
+    - Ficha Rei I (opacidad, gafas, herida, no-inventario)
+    - Deltas: Shinji (melt, curiosidad, disculpa), Gendo (amable-con-Rei,
+      override sigue existiendo), Misato (IC sin arma)
+    - Métricas implementables
+    - Tabla métrica → impacto en el árbol de la 08
+    - Reglas de lab: operator_opaque no es pattern_blue;
+      fundir el Eva no sube sync_rate; gendo_glasses no equivale a Yui
+    - Frontera con ep 06 (Rei II) y con Dummy Plug (NO)
+
+CRITERIO
+  Rei no es palanca ni ángel ni clone-reveal. Shinji no "entiende
+  a las mujeres". Gendo no se vuelve padre. La caída no es fanservice
+  en el entregable.
+
+NO_HAGAS
+  Código. No Rei-escudo. No clones. No Yui.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Ramiel vivo; rush = melt)
+################################################################################
+
+OBJETIVO
+  Código del 5º ángel y del playbook que NO lo mata. Tests que
+  FALLAN si knife/C2/berserk/N² contienen a Ramiel, si
+  drill_progress llega a 1, o si PlaybookEp05 dispara Yashima.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Reusar ATField, Core, Magi, SIEM, Eva, Operator, ContainmentResult.
+  Core interno: observable? false en este episodio.
+  Eva#approach a Ramiel ⇒ melted / incapacitated.
+  01–04 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests 01–05.
+  Ids: los de docs/episodios/ep05_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/ramiel.rb
+  lib/nerv/kill_zone.rb
+  lib/nerv/drill.rb
+  lib/nerv/playbooks/ep05.rb
+  test/test_ramiel.rb
+  test/test_kill_zone.rb
+  test/test_drill.rb
+  test/test_playbook_ep05.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/at_field.rb
+    lib/nerv/core.rb
+    lib/nerv/eva.rb
+    lib/nerv/siem.rb
+
+  Comportamiento mínimo a cubrir:
+    - ProgressiveKnife, PalletRifle, N2Mine, C2Sever, ConventionalAttack
+      no destruyen el core de Ramiel
+    - BerserkChannel no produce :contained_* en PlaybookEp05
+    - approach / close-range ⇒ eva_melted; Ramiel.alive
+    - core_not_observable == true
+    - 0.0 < drill_progress < 1.0 al cierre del playbook
+    - PlaybookEp05 → :unresolved
+    - no existe (o no se llama) Yashima.fire en este playbook
+    - SIEM: geometric_fortress, particle_beam, eva_melted,
+      drill_started, standoff_capability_missing, operator_opaque
+    - Tests 01–04 intactos
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep01.rb test/test_playbook_ep03.rb \
+    test/test_playbook_ep04.rb test/test_ramiel.rb \
+    test/test_playbook_ep05.rb test/test_drill.rb test/test_kill_zone.rb
+  sale 0. Hay un test que falla si Ramiel muere. Hay un test que
+  falla si el cuchillo funciona. Hay un test que falla si
+  drill_progress >= 1.0.
+
+NO_HAGAS
+  lib/nerv/playbooks/ep06.rb. lib/nerv/attacks/positron_rifle.rb
+  como kill que gane el 05. Bundler. Borrar tests viejos.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 05
+################################################################################
+
+OBJETIVO
+  Runner de INC-RAMIEL-001 mitad 1. Traza: Rei opaca → octaedro →
+  sortie → melt → drill_progress → standoff missing → unresolved.
+  Exit code 2. Cero disparo positrónico.
+
+CONTEXTO
+  bin/episodio 01→2, 02→1, 03→0, 04→3, 05→2.
+  El 2 del 05 no es el 2 del 01: el SIEM debe decir geometric_fortress
+  y eva_melted, no wipe_failed_regen. Misma clase de exit, distinto
+  ángel.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 05.
+  Si el binario no existe, créalo soportando 01–05.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep05.rb
+  test/test_scenario_ep05.rb
+  docs/episodios/ep05_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 05
+
+  Exit:
+    2 = :unresolved
+
+CRITERIO
+  El comando corre, imprime geometric_fortress, eva_melted,
+  drill_progress, standoff_capability_missing, operator_opaque;
+  NO imprime positron ni yashima_fired ni thank_you;
+  sale 2.
+  test/test_scenario_ep05.rb pasa.
+  01→2, 02→1, 03→0, 04→3 siguen.
+
+NO_HAGAS
+  Gem de CLI. Ejecutar el 06 "para que se vea bien". ASCII del
+  octaedro que tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 06
+################################################################################
+
+OBJETIVO
+  No cerrar el incidente: dejarlo abierto con reloj de taladro.
+  Transferir a Rei II / Yashima. No escribir prompts del 06.
+
+CONTEXTO
+  NERV tiene un Eva fundido, un operador opaco que ya no cabe en
+  la casilla "palanca", un geofront bajo taladro, y cero capacidad
+  de standoff. El AAR del 05 es un pre-mortem: si el 06 no dispara
+  a tiempo, drill_progress → 1 es Third-Impact-local (compromiso
+  del tesoro). Yashima será mitigación masiva (energía de un país,
+  dos Evas, un escudo humano). Eso no la vuelve prevención.
+  Shinji no entendió a Rei. Gendo sí parece entenderla: eso es
+  un problema de liderazgo, no un hint de Yui.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 06
+    titulo_canon: Rei II
+    angel: Ramiel
+    numero_angel: 5
+    archivo_episodio: prompts/ep06_ramiel.txt
+    estado: episodio_completo
+    ultima_nota: INC-RAMIEL-001 sigue abierto unresolved. Eva-01 melted. drill_progress < 1. Falta crear prompts/ep06_ramiel.txt (Yashima).
+  No crees ep06_ramiel.txt en este turno.
+  Lista secciones sugeridas para el 06 (rifle, poder nacional,
+  Eva-00 escudo, disparo, thank-you, kill del octaedro), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep05_aar.md
+    - Resumen (10–15 líneas): rush fallido + Rei I + taladro
+    - Estado del ángel (vivo, core interno, kill zone) vs Eva vs roster
+    - TTPs T-RAMIEL-* abiertas
+    - T-OP01-08/09 como lección (no reaplicar)
+    - Controles que faltan (standoff)
+    - Deuda hacia ep 06 (Yashima completa, Rei II)
+    - Deuda hacia ep 07 (Jet Alone: otro reemplazo no auditado;
+      no desarrollarla)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 06 y declara que falta el archivo y que el
+  incidente SIGUE ABIERTO. El AAR se entiende sin la serie.
+  No spoilers de Jet Alone más allá de nombrarlo. Ramiel no muere
+  "en el recap".
+
+NO_HAGAS
+  Escribir prompts/ep06_ramiel.txt. No matar a Ramiel. No 「ありがとう」.
+
+SIGUIENTE
+  FIN
+################################################################################

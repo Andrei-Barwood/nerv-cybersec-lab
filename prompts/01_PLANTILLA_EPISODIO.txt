@@ -1,0 +1,131 @@
+################################################################################
+# PLANTILLA REUTILIZABLE DE EPISODIO
+# Copia desde "----- PEGAR DESDE AQUÍ -----" hasta el final.
+# Rellena las líneas entre {{ }}. Lo que no sepas, déjalo y Grok lee ESTADO.
+#
+# Casos:
+#   a) Sesión nueva, episodio nuevo  → rellena EP, ANGEL, SECCION=01
+#   b) Volviste a mitad              → rellena EP y pon SECCION=sigue
+#                                      (o el número si lo recuerdas)
+#   c) "Haz el episodio entero"      → MODO=completo
+#   d) Corregir una sección          → MODO=reparar  SECCION=NN
+################################################################################
+
+----- PEGAR DESDE AQUÍ -----
+
+[NERV/RUBY — CONTINUAR EPISODIO]
+
+Lee, en este orden, y obedece. No pidas de nuevo el prompt maestro.
+
+  1. AGENTS.md
+  2. prompts/00_SESION_MAESTRA.txt
+  3. prompts/ESTADO.txt
+  4. prompts/01_PLANTILLA_EPISODIO.txt  (este mensaje)
+  5. el archivo del episodio indicado abajo
+
+DATOS DE ESTA SESIÓN (rellenar):
+
+  EPISODIO:        {{01}}
+  ANGEL:           {{Sachiel}}
+  ARCHIVO:         {{prompts/ep01_sachiel.txt}}
+  SECCION:         {{01 | sigue | NN}}
+  MODO:            {{una_seccion | completo | reparar}}
+  NOTAS DEL HUMANO: {{qué quedó a medias, qué no te gustó, vacío si nada}}
+
+REGLAS DE ESTE PEGADO
+
+  - Si SECCION = sigue, usa seccion_siguiente de ESTADO.
+  - Si EPISODIO contradice ESTADO, gana este mensaje y actualiza ESTADO.
+  - MODO=una_seccion: ejecuta UNA sección, actualiza ESTADO, PARA.
+  - MODO=completo: recorre las secciones pendientes en orden, actualiza
+    ESTADO tras cada una, al final marca episodio_completo.
+  - MODO=reparar: rehaz solo esa sección; no toques las demás.
+  - No rediseñes la arquitectura de lib/nerv/ salvo que la sección o
+    las NOTAS lo pidan.
+  - No implementes el siguiente ángel "adelantado".
+  - Respuesta al humano: qué sección corriste, rutas escritas, tests si
+    hubo, valor nuevo de ESTADO, y cuál es la siguiente sección.
+  - Tono: briefing de NERV, no wiki, no spoiler de episodios futuros
+    salvo el campo SIGUIENTE de la cabecera.
+
+Si el archivo de episodio no existe, no lo inventes entero.
+Di que falta y espera.
+
+----- PEGAR HASTA AQUÍ -----
+
+
+################################################################################
+# EJEMPLOS YA RELLENOS (no pegar este bloque; es chuleta)
+################################################################################
+
+--- Ejemplo A: primera vez, episodio 1, sección 1 ---
+
+[NERV/RUBY — CONTINUAR EPISODIO]
+
+Lee, en este orden, y obedece. No pidas de nuevo el prompt maestro.
+
+  1. AGENTS.md
+  2. prompts/00_SESION_MAESTRA.txt
+  3. prompts/ESTADO.txt
+  4. prompts/01_PLANTILLA_EPISODIO.txt
+  5. el archivo del episodio indicado abajo
+
+DATOS DE ESTA SESIÓN:
+
+  EPISODIO:        01
+  ANGEL:           Sachiel
+  ARCHIVO:         prompts/ep01_sachiel.txt
+  SECCION:         01
+  MODO:            una_seccion
+  NOTAS DEL HUMANO: Primera ejecución. Maestro ya está en el repo.
+
+--- Ejemplo B: volviste una semana después y no recuerdas el número ---
+
+[NERV/RUBY — CONTINUAR EPISODIO]
+
+Lee AGENTS.md, prompts/00_SESION_MAESTRA.txt, prompts/ESTADO.txt
+y el archivo que ESTADO indique.
+
+  EPISODIO:        (el de ESTADO)
+  ANGEL:           (el de ESTADO)
+  ARCHIVO:         (el de ESTADO)
+  SECCION:         sigue
+  MODO:            una_seccion
+  NOTAS DEL HUMANO: Corté la sesión. Sigue desde donde esté. No resumas
+                    toda la serie. Ponme a trabajar.
+
+--- Ejemplo C: quieres el ep 01 entero de una sentada ---
+
+  EPISODIO:        01
+  ANGEL:           Sachiel
+  ARCHIVO:         prompts/ep01_sachiel.txt
+  SECCION:         01
+  MODO:            completo
+  NOTAS DEL HUMANO: Corre las 12. Para al final con AAR y ESTADO.
+
+--- Ejemplo D: la sección 10 de Ruby te quedó floja ---
+
+  EPISODIO:        01
+  ANGEL:           Sachiel
+  ARCHIVO:         prompts/ep01_sachiel.txt
+  SECCION:         10
+  MODO:            reparar
+  NOTAS DEL HUMANO: Los tests no muerden la regeneración. Rehaz 10 y 11
+                    si 11 ya existía y quedó desfasada.
+
+
+################################################################################
+# CÓMO RELLENAR UN EPISODIO NUEVO (cuando toque ep 02, 03, …)
+################################################################################
+
+1. Copia prompts/ep01_sachiel.txt como prompts/epXX_<slug>.txt
+2. Cambia la CABECERA (EPISODIO, ANGEL, CLASE_AMENAZA, FUERA_DE_ALCANCE…)
+3. Reescribe las 8–12 SECCIONES con el mismo schema de claves
+   (OBJETIVO, CONTEXTO, INSTRUCCION, ENTREGABLE, CRITERIO, NO_HAGAS, SIGUIENTE)
+4. No hace falta 12 siempre: 12 es el tutorial. Ramiel puede pedir más
+   (Yashima). Matarael puede pedir menos. El schema no se toca.
+5. Actualiza ESTADO a ese episodio, seccion_siguiente=01, estado=no_iniciado
+6. Pega esta plantilla con el EP nuevo
+
+El maestro (00) NO se reescribe por episodio.
+################################################################################

@@ -1,0 +1,673 @@
+---
+EPISODIO: 11
+TITULO_CANON: The Day Tokyo-3 Stood Still / In the Still Darkness / 静止した闇の中で
+ANGEL: Matarael
+TIPO: angel
+INCIDENTE: INC-MATARAEL-001 (compuesto: apagón + ángel oportunista)
+NUMERO_ANGEL: 9º
+CLASE_AMENAZA: incidente durante outage / plano de control caído / ácido por las capas / IR analógico
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep10 existen. INC-SANDALPHON-001 está :contained_controlled
+  vía abort-to-kill prenacimiento. Magma Diver NO satisface este
+  episodio: no elegiste el volcán; estás en CASA a oscuras.
+  El baile de Israfel NO es requisito de kill. Ireul NO es esto:
+  MAGI sin luz ≠ MAGI infectados.
+  Yashima USÓ el grid nacional; aquí el HQ PERDIÓ la luz. No
+  confundir PowerGrid.redirect con outage local.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–10 §10 y luego esta
+  extensión. Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 12 — She said, "Don't make others suffer..." / Sahaquiel
+  (payload cinético desde fuera del perímetro; interceptar o morir)
+FUERA_DE_ALCANCE: |
+  No Ireul / virus MAGI (ep 13). Apagón ≠ infección.
+  No Sandalphon / magma / jaula. No baile T-SYNC-02 como kill.
+  No DualPlug. No Yashima-as-método (no hay rifle ni apagón
+  nacional voluntario: el apagón ya está, y es el problema).
+  No Jet Alone. No Dummy Plug. No Yui. No Gaghiel.
+  No Sahaquiel / órbita (ep 12).
+  No exigir MAGI.majority para el launch: si el playbook no puede
+  correr sin el plano de control, FALLÓ la tesis del 11.
+  El ángel es "débil"; el episodio es el outage. No inflar a
+  Matarael a Ramiel.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Tokio-3 / NERV se quedan sin luz. MAGI, jaulas, ascensores,
+  SIEM: caídos o a batería. El personal camina, sube escaleras,
+  opera en analógico (Hyuga, Aoba, Ibuki, Misato).
+  Matarael aparece EN ESA OSCURIDAD: arácnido, un ojo, ácido
+  que gotea y funde las capas de la ciudad hacia el geofront.
+  No es un taladro de octaedro con el HQ a plena potencia: es
+  un goteo barato en el peor día de infra.
+  Launch manual de Eva-00/01/02. Combate combinado, no coreografía
+  de epsilon. Matarael muere. La luz vuelve. La gente vuelve a
+  distancias de erizo.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-MATARAEL-001 como incidente COMPUESTO: primero el
+  plano de control se apaga, después un ángel oportunista gotea
+  ácido. El lab gana :contained_controlled (exit 0) si lanza en
+  ANALÓGICO y mata antes de que acid_progress = 1.0. Esperar a
+  que vuelva MAGI es derrota. El ángel no es el jefe; el outage sí.
+
+CONTEXTO
+  En seguridad: el atacante llega en la ventana de mantenimiento,
+  en el failover, cuando el SIEM está ciego, cuando SSO no abre.
+  Compound incident: P1 de infra + P1 de adversario. No asumas
+  una sola causa raíz. El 10 fue hunt elegido en magma; el 11
+  es tu DC a oscuras. El 06 apagó Japón a propósito; el 11
+  pierde Tokio-3 sin pedir permiso.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual del spider aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: analog launch + kill
+                                   con acid_progress < 1)
+    1 = :contained_uncontrolled   (Beast = FAIL)
+    2 = :unresolved               (esperar la luz; MAGI-required
+                                   launch; acid al geofront)
+  Distinguir outage local vs PowerGrid nacional de Yashima.
+
+ENTREGABLE
+  docs/episodios/ep11_briefing.md con exactamente estos headings:
+    - Contrato (compuesto: outage + Matarael)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Ireul, Yashima, magma,
+      baile, Sahaquiel)
+    - Definición de victoria (lab): IR analógico a tiempo
+    - Definición de derrota (lab): wait-for-MAGI; analog-incapaz;
+      inflar al spider; Beast
+    - Vocabulario nuevo (outage, analog launch, acid_progress,
+      plano de control, compound incident, linterna, jaula manual)
+    - Relación con 06 (grid como arma vs grid como cadáver) y 10
+      (teatro elegido vs casa a oscuras)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y exigir positron_rifle o rehearsal.
+  Imposible tratar el apagón como Ireul. No spoilers post-ep 12
+  salvo nombrarlo.
+
+NO_HAGAS
+  Reescribir docs 01–10. Crear lib/. Infectar MAGI.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (la oscuridad, luego el spider)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: primero la ausencia de luz (consolas
+  muertas, escaleras, linternas). Después Matarael sobre la
+  ciudad, ácido como lluvia, capas que se abren. First-seen
+  de un SOC ciego.
+
+CONTEXTO
+  Ramiel ocupó el cielo a plena potencia. Sandalphon fue un
+  feto en magma. Matarael es un arácnido sobre un Tokio-3
+  apagado. El error clásico: buscar Pattern Blue en un SIEM
+  que no pinta. El first packet puede ser un humano diciendo
+  "huele a ácido" o un sensor a batería.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: HQ oscuro, escaleras, Matarael-araña, goteo,
+       launch a mano, tres Evas, kill, luz
+    B) first-seen de seguridad: alerta que sobrevive al outage
+  Prompt de imagen opcional (NO ejecutar): UN párrafo HQ a
+  oscuras (linternas, no OP), UN párrafo arácnido goteando
+  ácido sobre la ciudad negra. Nada de octaedro. Nada de magma.
+
+ENTREGABLE
+  docs/episodios/ep11_aparicion.md
+    - Minuto cero: la luz se va (antes del ángel)
+    - Lo que el SIEM no ve vs lo que el personal ve
+    - Spec visual del outage (consolas, jaulas, escaleras)
+    - Spec visual Matarael (arácnido, ojo, ácido, escala)
+    - Spec visual del goteo sobre las capas de Tokio-3
+    - Spec visual del launch manual y del combate (tres Evas,
+      no baile de espejo)
+    - Tabla corta vs Ramiel-taladro (potencia vs goteo barato)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo con el HQ ciego.
+  Se distingue ácido-apagón de taladro-Yashima.
+  No hay virus en las pantallas (Ireul).
+
+NO_HAGAS
+  Código. Anatomía ácido/outage (es 03–04). Sahaquiel.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: outage, arácnido, ácido, capas, launch analógico
+################################################################################
+
+OBJETIVO
+  Partes del APAGÓN y de Matarael → funciones de seguridad →
+  métodos. MAGI.unpowered no es MAGI.infected. Jaula manual
+  no es Magma Diver. Tres Evas no son pair_sync.
+
+CONTEXTO
+  Outage = plano de control caído (SSO, SIEM, MAGI, launch
+  automática).
+  Matarael = payload oportunista, no fortaleza.
+  Ácido = melt de defense-in-depth cuando las puertas no tienen
+  motor.
+  acid_progress 0.0–1.0 (1.0 = geofront abierto por goteo).
+  AnalogLaunch = sortie sin MAGI.majority.
+  BatteryWindow = lo que aún corre a batería (dwell de infra).
+
+INSTRUCCION
+  Tabla de partes (outage + ángel + procedimiento). Definición
+  operativa de hq_power, analog_launch!, acid_progress,
+  magi_unpowered?, battery_remaining.
+  Umbral de abort/kill (acid) explícito para la §10.
+  Reusar Angel/ATField/Core. NO reusar Drill de Ramiel como
+  la misma clase si el goteo tiene otra semántica; si reusas,
+  documenta por qué (progreso a geofront) y qué cambia (no
+  kill zone, no octaedro, outage-conditioned).
+
+ENTREGABLE
+  docs/episodios/ep11_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - hq_power vs PowerGrid.national (Yashima)
+    - magi_unpowered vs magi_infected (frontera Ireul)
+    - acid_progress vs drill_progress (Ramiel) vs hatch_progress
+    - analog_launch (precondiciones: gente, escaleras, batería)
+    - Implicación: un ángel "fácil" + HQ ciego = P1 de verdad
+
+CRITERIO
+  Un implementador no instancia Ireul ni MagmaEnvironment.
+  analog_launch no llama a MAGI.majority. acid_progress tiene
+  semántica de goteo, no de taladro geométrico.
+
+NO_HAGAS
+  Código. Playbook (es 08). Órbita.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el atacante llega cuando ya estás ciego
+################################################################################
+
+OBJETIVO
+  Fijar INCIDENTE_EN_APAGON. Compound: infra first, ángel
+  after (o a la vez). Esperar el plano de control es el error.
+  Last-playbook (diver, baile, Yashima) no enciende las luces
+  ni lanza las jaulas.
+
+CONTEXTO
+  Analogías: ransomware en plena caída de IdP; atacante en
+  ventana de patch; SIEM SaaS down; "cuando vuelva Splunk
+  vemos". Runbook de papel. Gente caminando al rack.
+  Error clásico A: wait-for-MAGI.
+  Error clásico B: tratarlo como Ireul (reimage MAGI).
+  Error clásico C: Magma Diver (teatro equivocado).
+  Error clásico D: exigir pair_sync para un spider que se
+  muere con sortie combinado analógico.
+  Error clásico E: una sola causa raíz.
+
+INSTRUCCION
+  Escribe el patrón INCIDENTE_EN_APAGON.
+  Tabla de métodos vs resultado (wait-MAGI, Ireul-playbook,
+  magma, baile-required, analog launch + combined sortie,
+  Beast, Yashima).
+  Regla de lab: contained_controlled IFF analog_launch usado
+  AND hq_power puede seguir false AND Matarael not alive
+  AND acid_progress < 1.0.
+  Restaurar la luz NO es prerrequisito del kill.
+
+ENTREGABLE
+  docs/episodios/ep11_apagón.md
+    - Escena breve de la consola muerta
+    - Patrón INCIDENTE_EN_APAGON (precondiciones, compound,
+      error de esperar herramientas)
+    - Tabla de métodos
+    - Por qué restaurar poder es paralelo, no puerta
+    - Analogías (máximo 3)
+    - Señal: "el SIEM no pinta" no es "no hay ángel"
+    - Frontera con Yashima (apagón voluntario vs involuntario)
+      y con Ireul (unpowered vs infected)
+
+CRITERIO
+  La condición de kill no incluye hq_power == true.
+  El 06 sigue necesitando national grid para el positron.
+  El 11 no.
+
+NO_HAGAS
+  Código. No Sahaquiel. No Dummy Plug.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs del outage y del ácido
+################################################################################
+
+OBJETIVO
+  Kill-chain COMPUESTA: quien apagó (si se sabe; si no, causa
+  abierta) + Matarael goteando + defensor analógico.
+  No fusionar T-OUTAGE con T-MATARAEL: son dos actores o dos
+  capas.
+
+CONTEXTO
+  Matarael: presencia oportunista, ácido, capas, no HA, no
+  kill zone de octaedro. Outage: ceguera, jaulas trabadas,
+  MAGI mudo. Defensor: linterna, launch manual, tres Evas
+  sin epsilon de baile.
+
+INSTRUCCION
+  Ids estables. Diagrama: hq_power=0 → ceguera → Pattern Blue
+  degradado → acid++ → analog launch → combined sortie → kill.
+  Rama wait-for-power → acid=1.
+
+ENTREGABLE
+  docs/episodios/ep11_ttps.md
+    - Qué T-SYNC / T-HUNT / T-YASHIMA / T-RAMIEL no se reabren
+      como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-OUTAGE-01 ControlPlaneDown
+        T-OUTAGE-02 BlindSoc
+        T-OUTAGE-03 LaunchPathSeized
+        T-MATARAEL-01 OpportunisticArrival
+        T-MATARAEL-02 AcidThroughLayers
+        T-ANALOG-01 ManualEvaLaunch
+        T-ANALOG-02 CombinedSortieNoEpsilon
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (virus MAGI, embrión,
+      dual-core, payload orbital)
+
+CRITERIO
+  T-OUTAGE-* y T-MATARAEL-* son familias distintas.
+  T-ANALOG-02 ≠ T-SYNC-02. El diagrama no tiene caja MAGI.majority.
+
+NO_HAGAS
+  Código. No TTP de "el erizo se cura en la oscuridad" como
+  técnica de ángel (nota humana en la 09).
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el SIEM está ciego
+################################################################################
+
+OBJETIVO
+  Detectar el outage, el ácido y el ángel SIN asumir consola
+  viva. Eventos a batería, reporte humano, sensores degradados.
+  Frase-ley: "un detector que necesita el mismo poder que cayó
+  no es detector".
+
+CONTEXTO
+  El 08: silencio en Tokio-3 no era paz (el mar ardía). El 11:
+  Tokio-3 grita y el SIEM no oye. Detección analógica: olor,
+  cámara a batería, runner. Restaurar logs no es contener.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falsos positivos: "es solo un
+  corte"; "cuando vuelva MAGI clasificamos".
+
+ENTREGABLE
+  docs/episodios/ep11_deteccion.md
+    - Qué NO dispara (SIEM pleno, MAGI ID)
+    - Ids obligatorios:
+        siem.hq_power_lost
+        siem.magi_unpowered
+        siem.analog_mode
+        siem.human_runner_report
+        siem.pattern_blue_degraded
+        siem.acid_progress            (con valor)
+        siem.analog_launch
+        siem.combined_sortie
+        siem.core_destroyed           (reusar; vía analógica)
+        siem.power_restored           (después del kill, o paralelo;
+                                       no es kill condition)
+    - Falsos positivos
+    - Anti-métrica: power_restored = incidente cerrado
+
+CRITERIO
+  Ids usables en tests. pattern_blue_degraded puede emitirse
+  sin MAGI. power_restored no muta a contained por sí solo.
+
+NO_HAGAS
+  Código. No sensores orbitales. No Ireul-infection.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que se vaya la luz)
+################################################################################
+
+OBJETIVO
+  Preventiva de compound outage+breach: poder de reserva para
+  LAUNCH no solo para luces; runbooks offline; analog launch
+  ensayado; no atar MAGI.majority al sortie; tabletop "SIEM
+  muerto"; no una-sola-causa.
+
+CONTEXTO
+  Prevenible: jaulas que solo abren con MAGI; cero linternas
+  de procedimiento; asumir que Yashima "ya cubrió energía";
+  cero sensores a batería; no ensayar tres Evas en analógico.
+  No prevenible del todo: que un ángel llegue en el corte. Se
+  prepara operando ciego, no con más pantallas.
+  Anti-patrón: "cuando vuelva Splunk"; "es Ireul"; " Magma
+  Diver otra vez"; "sin MAGI no se sale".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: break-glass
+  offline, out-of-band, paper runbook, dual power for
+  containment systems, game-day de IdP down.
+
+ENTREGABLE
+  docs/episodios/ep11_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): wait-for-tools; MAGI-as-launch-key;
+      single-root-cause
+    - Relación con T-OUTAGE-* y T-ANALOG-*
+    - Higiene de IR a ciegas en 7 viñetas (SOC real)
+    - Nota: restaurar luz es higiene; analog launch es el control
+      que mata al ángel
+
+CRITERIO
+  Nadie sale pensando que un SAI para el coffee machine basta.
+  Nadie sale pensando que Ireul se previene igual.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No órbita.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: linterna, jaula a mano, tres Evas, ácido, luz después
+################################################################################
+
+OBJETIVO
+  Runbook compuesto. 1) Declarar analog_mode. 2) No esperar MAGI.
+  3) Medir acid_progress con lo que viva a batería + runners.
+  4) Analog launch 00/01/02. 5) Combined sortie sin epsilon de
+  baile. 6) Kill. 7) power_restored es epílogo, no puerta.
+  MAGI.majority no es paso de launch.
+
+CONTEXTO
+  Misato IC con linterna. Staff de puente hace de MAGI pobre
+  (gente, no tres supercomputadoras). Rama wait-power = FAIL.
+  Rama Ireul = FAIL. Rama magma = FAIL. Rama rehearsal-required
+  = FAIL. Rama Beast = FAIL. Tres Evas juntas ≠ T-SYNC-02.
+
+INSTRUCCION
+  Árbol y runbook numerado. Umbrales de acid de la §03.
+  Hooks Ruby. Handoff a ep 12 (Sahaquiel: el cielo no está
+  apagado, está OCUPADO por un payload que si aterriza se acabó),
+  lista, no redactar el 12.
+
+ENTREGABLE
+  docs/episodios/ep11_playbook.md
+    - Árbol ASCII (outage → analog → launch → kill;
+      wait-power → geofront)
+    - Runbook numerado
+    - Condición :contained_controlled (analog_launch true,
+      hq_power irrelevante, acid < 1, ángel muerto)
+    - Condición :unresolved
+    - MAGI: unpowered, no votan el launch
+    - Hooks Ruby
+    - Handoff a ep 12 (lista: no ácido, no linterna; órbita)
+
+CRITERIO
+  Traducible a tests. No rama de éxito que espere hq_power.
+  No rama "rehearsal_done".
+
+NO_HAGAS
+  Código. No lib/nerv/angels/sahaquiel.rb. No Ireul.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: el puente con linternas
+################################################################################
+
+OBJETIVO
+  El episodio ES gente en la oscuridad. Ibuki/Hyuga/Aoba como
+  plano de control de carne. Los tres niños cooperan sin el
+  teatro de Asuka-lead-en-el-mar ni el baile. Misato IC
+  analógica. La calidez del erizo en la oscuridad se NOMBRA y
+  se apaga con la luz: no es el 04 ni un final.
+
+CONTEXTO
+  Cuando las herramientas mueren, el roster es el control.
+  Ética: no romanticemos el apagón ("mejor sin pantallas").
+  Es un fallo de infra que forzó IR de 1970. Rei/Asuka/Shinji
+  en el mismo pasillo no resuelve hedgehog_distance.
+
+INSTRUCCION
+  Fichas: Misato, puente (Ibuki, Hyuga, Aoba como un rol
+  analog_bridge), deltas de los tres operadores.
+  Métricas: analog_mode, human_runner, analog_bridge_ok,
+  wait_for_magi (bool de fallo), hedgehog_dark_warmth
+  (no cierra el ticket).
+  Frontera con ep 04, 13 (Ireul) y 12.
+
+ENTREGABLE
+  docs/episodios/ep11_humanos.md
+    - Fichas / deltas
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: analog_bridge_ok habilita analog_launch;
+      wait_for_magi ⇒ not contained; hedgehog_dark_warmth no
+      muta ContainmentResult
+    - Frontera con Ireul (las mismas personas, MAGI enfermo
+      no mudo) y con el erizo
+
+CRITERIO
+  El puente no es comic relief. Asuka no exige baile. Shinji
+  no "se hace líder de la linterna". Rei no es la luz.
+
+NO_HAGAS
+  Código. No Dummy Plug. No Sahaquiel. No onsen.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (outage + analog launch + Matarael)
+################################################################################
+
+OBJETIVO
+  Código del apagón local, launch analógico y Matarael.
+  Tests que FALLAN si el playbook exige MAGI.majority, si
+  hq_power true es requisito del 0, si Ireul/magma/baile
+  ganan, o si acid_progress llega a 1.0 y aun así contained.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Matarael < Angel. HqOutage distinto de PowerGrid.national.
+  AnalogLaunch nuevo. MAGI puede existir y estar unpowered.
+  PlaybookEp06 sigue necesitando national power para Yashima.
+  PlaybookEp10 sigue siendo magma. 01–10 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 06, 10, 11.
+  Ids y umbrales: docs/episodios/ep11_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/matarael.rb
+  lib/nerv/hq_outage.rb
+  lib/nerv/analog_launch.rb
+  lib/nerv/acid.rb
+  lib/nerv/playbooks/ep11.rb
+  test/test_matarael.rb
+  test/test_hq_outage.rb
+  test/test_analog_launch.rb
+  test/test_playbook_ep11.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/siem.rb
+    lib/nerv/magi.rb          (unpowered; no infected)
+    lib/nerv/eva.rb
+    lib/nerv/power_grid.rb    (no romper Yashima)
+
+  Comportamiento mínimo a cubrir:
+    - hq_power false al inicio del playbook
+    - Magi.majority no está disponible (unpowered) y NO es
+      requisito de analog_launch
+    - analog_launch permite sortie de 00/01/02
+    - wait / "cuando vuelva MAGI" ⇒ acid_progress puede → 1
+      ⇒ :unresolved
+    - analog_launch + combined_sortie + Matarael kill con
+      acid < 1 ⇒ :contained_controlled aunque hq_power siga false
+    - power_restored no es kill condition
+    - Rehearsal/simultaneous_strike, MagmaEnvironment,
+      PositronRifle, PasswordShutdown no contained aquí
+    - PlaybookEp06 sigue necesitando PowerGrid.national
+    - Magi no queda infected (no Ireul)
+    - SIEM: hq_power_lost, analog_mode, analog_launch,
+      acid_progress, pattern_blue_degraded
+    - T-ANALOG-02 no exige pair_sync ni epsilon
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep06.rb test/test_playbook_ep10.rb \
+    test/test_matarael.rb test/test_playbook_ep11.rb \
+    test/test_hq_outage.rb test/test_analog_launch.rb
+  sale 0. Hay un test que falla si MAGI.majority es paso de
+  launch. Hay un test que falla si el 0 exige hq_power.
+  Hay un test que falla si el baile o el magma ganan el 11.
+
+NO_HAGAS
+  lib/nerv/angels/ireul.rb. lib/nerv/angels/sahaquiel.rb.
+  Bundler. Romper Yashima.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 11
+################################################################################
+
+OBJETIVO
+  Runner de INC-MATARAEL-001. Traza: hq_power_lost → analog_mode
+  → pattern_blue_degraded → acid_progress → analog_launch →
+  combined_sortie → core → (opcional) power_restored.
+  Exit 0. Cero rehearsal_done, cero hatch_progress, cero
+  magi_infected, cero positron como vía.
+
+CONTEXTO
+  bin/episodio … 10→0, 11→0.
+  El 0 del 11 no es el del 10: hay analog_launch y hq_power_lost,
+  no abort_to_kill embrionario.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 11.
+  Si el binario no existe, créalo soportando 01–11.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep11.rb
+  test/test_scenario_ep11.rb
+  docs/episodios/ep11_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 11
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime hq_power_lost, analog_launch,
+  acid_progress, combined_sortie; NO imprime rehearsal_done
+  ni pattern_blue_embryonic ni positron_charging ni
+  virus_origin_nerv como vía; sale 0.
+  test/test_scenario_ep11.rb pasa.
+  06→0 y 10→0 siguen por sus vías.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Sahaquiel/Ireul. ASCII de araña que
+  tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 12
+################################################################################
+
+OBJETIVO
+  Cerrar INC-MATARAEL-001. El spider está muerto. El HQ volvió
+  a tener luz. El plano de control de carne funcionó. Transferir
+  a Sahaquiel: no es un goteo en la oscuridad, es un payload
+  que CAE desde fuera del mapa — si aterriza, se acabó. No
+  escribir prompts del 12.
+
+CONTEXTO
+  NERV dirá "fue un ángel fácil". El AAR: fue un outage con
+  un ángel barato; analog launch es el control que faltaba en
+  el inventario; MAGI no puede ser llave del sortie; compound
+  incident existe. El 12 no pide linterna: pide interceptar en
+  vuelo. Last-playbook (tres Evas a pie) no para un bombardero
+  orbital. Ireul (13) sigue siendo otra especie de fallo MAGI.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 12
+    titulo_canon: She said, "Don't make others suffer for your personal hatred."
+    angel: Sahaquiel
+    numero_angel: 10
+    archivo_episodio: prompts/ep12_sahaquiel.txt
+    estado: episodio_completo
+    ultima_nota: INC-MATARAEL-001 cerrado contained_controlled vía analog launch. MAGI estaba unpowered, no infected. Falta crear prompts/ep12_sahaquiel.txt. Deuda: next es payload orbital, no ácido.
+  No crees ep12_sahaquiel.txt en este turno.
+  Lista secciones sugeridas para el 12 (órbita, interceptación,
+  AT Field como freno, no apagón), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep11_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del ángel vs estado del plano de control
+    - T-OUTAGE-* / T-ANALOG-* cuáles siguen ABIERTAS como higiene
+    - T-MATARAEL-* cerradas
+    - MAGI unpowered ≠ infected (deuda hacia ep 13, no abrir)
+    - Deuda hacia ep 12 (Sahaquiel, cinético, interceptar)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 12 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Matarael no se vuelve Ramiel
+  "en el recap". Ireul y Sahaquiel se nombran como frontera,
+  no se implementan.
+
+NO_HAGAS
+  Escribir prompts/ep12_sahaquiel.txt. No infectar MAGI. No órbita.
+
+SIGUIENTE
+  FIN
+################################################################################

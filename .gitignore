@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# Ruby (lib/ y tests llegan en ep 01 sección 10)
+.bundle/
+vendor/bundle/
+*.gem
+*.rbc
+.ruby-gemset
+coverage/
+.yardoc/
+tmp/
+log/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key

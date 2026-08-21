@@ -1,0 +1,636 @@
+---
+EPISODIO: 20
+TITULO_CANON: Weaving a Story 2: Oral Stage / Form of the Heart, Form of a Person / 心のかたち、人の姿
+ANGEL: (ninguno)
+TIPO: sin_angel
+INCIDENTE: INC-ORAL-001 (aftermath de INC-ZERUEL-001; plug_empty)
+NUMERO_ANGEL:
+CLASE_AMENAZA: operador tragado por el control / recovery post-introyección / S2 persistente en prod / oral stage
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep19 existen. INC-ZERUEL-001 está :contained_uncontrolled
+  con s2_ingested, operator_introjected, plug_empty. ESTE episodio
+  NO reabre a Zeruel, NO Pattern Blue, NO Dummy Plug de rescate,
+  NO Dirac (el niño está DENTRO de Eva-01, no en el mar del ángel).
+  CITA introjection.rb / T-EVA01-08/09; no reescribe ep19_*.md.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–19 §10 y luego esta
+  extensión. Si existe, EXTEND. Salvage/return; S2 sigue en Eva-01.
+SIGUIENTE: ep 21 — He was aware that he was still a child / ネルフ、誕生
+  (nacimiento de NERV; Kaji; Naoko/Yui en historia; no combate de ángel)
+FUERA_DE_ALCANCE: |
+  No ángel nuevo. No Pattern Blue de silueta. No re-pelear Zeruel.
+  No Dummy Plug como salvage. No Casper. No Leliel/Dirac como modelo.
+  No Bardiel. No Arael (22). No Instrumentality 25–26.
+  No dump del Contact Experiment / Naoko (eso es el 21).
+  Presencia materna en Eva-01: se puede NOMBRAR a Yui como
+  presencia interior, NO como clase Beast ni como Dummy Plug.
+  No “Shinji se hizo hombre”. No fanservice de desnudo-LCL:
+  return_to_body es un FLAG de boundaries, no un poster.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Un mes. Shinji no está en el asiento: está disuelto en el Eva
+  que se comió el S2. Fuera: NERV intenta recuperarlo (Ritsuko,
+  Misato, Gendo mide el Eva más que al hijo). Dentro: forma del
+  corazón, forma de persona; diálogo; presencia materna; elegir
+  volver al mundo de los otros (dolor, AT Field, límites) o
+  quedarse incorporado. Vuelve. El S2 se queda en Eva-01.
+  Zeruel no regresa. Cero sortie.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Fijar INC-ORAL-001: recovery del operador desde DENTRO del
+  control. Victoria lab: :operator_recovered_fragile (exit 13)
+  — Shinji vuelve, S2 sigue en prod, introyección no se vende
+  como upgrade. Derrota: se queda en el Eva; Dummy “rescata”;
+  Dirac; un ángel nuevo; 0 de Zeruel reabierto.
+
+CONTEXTO
+  Oral stage: incorporar, tragar. El 19 tragó al ángel y al
+  niño. El 20 pregunta si el analista puede volver a ser
+  persona con perímetro (AT Field) o se queda fusionado con
+  la plataforma. En seguridad: extraer al admin del bastion
+  que se lo comió; el 0-day enemigo (S2) sigue instalado;
+  un mes de dwell. Distinto del 04 (tren), del 14 (board),
+  del 16 (espacio del atacante).
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec de LCL-erótico.
+  Códigos NUEVOS (no chocar con 0–12):
+    13 = :operator_recovered_fragile  (éxito: vuelve; S2 persiste)
+    14 = :operator_lost_in_control    (se queda; o salvage-as-dummy)
+  0–2 no reabren Zeruel. 1 del 19 sigue cerrado.
+
+ENTREGABLE
+  docs/episodios/ep20_briefing.md con exactamente estos headings:
+    - Contrato (INC-ORAL-001; aftermath; no combate)
+    - Subtipo recovery-from-tool (vs hedgehog, Dirac, recap)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (21 Contact Experiment,
+      Instrumentality, Dummy-salvage, ángel nuevo)
+    - Definición de victoria (lab): exit 13
+    - Definición de derrota (lab): exit 14
+    - Vocabulario nuevo (oral stage, LCL, salvage, return_to_body,
+      boundaries/AT Field, S2 persistente, presencia materna)
+    - Relación con 19 (plug_empty, S2) y 16 (no Dirac)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y esperar un Pattern Blue.
+  Imposible puntuar el mes dentro como 0 de Zeruel.
+  No spoilers de 21 más allá del handoff.
+
+NO_HAGAS
+  Reescribir docs del 19. Crear lib/. class AngelOral.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación: aparición del interior (no de un ángel)
+################################################################################
+
+OBJETIVO
+  Recrear lo que SE VE: fuera, plug vacío y un Eva que ya no
+  necesita cable (S2). Dentro, formas que se deshacen, un niño
+  que no es un piloto en asiento, una presencia. First-seen de
+  un operador sin proceso. El desnudo de LCL, si se menciona,
+  es cuerpo-con-límites al volver, no fanservice.
+
+CONTEXTO
+  El 16 era un mar negro de Dirac. El 20 es el interior del
+  PROPIO Eva. El error clásico: “otro capítulo psicológico
+  = otro ángel mental”. El first packet es silence de plug
+  + s2_present.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: mes, laboratorio, Eva-01, interior informe,
+       presencia, elección, retorno
+    B) first-seen: occupant missing from seat, still in unit
+  Prompt de imagen opcional (NO ejecutar): UN párrafo plug
+  vacío / Eva inmóvil con S2, UN párrafo interior abstracto
+  (formas, no OP erótico, no kaiju). Nada de Arael-rayo.
+  Nada de Dummy.
+
+ENTREGABLE
+  docs/episodios/ep20_aparicion.md
+    - Minuto cero: el asiento sin nadie
+    - Lo que NERV cree (salvamento técnico) vs lo que es
+      (elegir volver a tener forma)
+    - Spec visual exterior (plug_empty, S2, un mes)
+    - Spec visual interior (oral: incorporar / deshacer forma)
+    - Spec visual del retorno (boundaries; no poster)
+    - Tabla corta vs Dirac (16) y vs Dummy-discard (18)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin un ángel de combate.
+  LCL no es fanservice en el texto. S2 se ve como persistencia.
+
+NO_HAGAS
+  Código. Anatomía salvage (es 03–04). Ep 21.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: LCL, S2 persistente, salvage, return, presencia
+################################################################################
+
+OBJETIVO
+  Partes del AFTERMATH → métodos. Introjection ya existe:
+  ahora reverse_introjection? / salvage! / return_to_body!
+  S2 permanece. Dummy Plug no extrae. DiracSea no aplica.
+  Presencia materna: campo opcional maternal_presence, no
+  class YuiBeast.
+
+CONTEXTO
+  LCL = pérdida de boundary de proceso.
+  Salvage = IR de recuperación de persona, no de kill de ángel.
+  Return = re-assert AT Field / identidad / seat.
+  S2 = capacidad del atacante que sigue en el binario de prod.
+  Umbilical already unnecessary: Eva-01 autonomized — riesgo.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de salvage!,
+  return_to_body!, s2_persists?, dummy_cannot_salvage,
+  dwell_days (~30), maternal_presence (bool/etiqueta, no clase
+  de combate).
+  Reusar introjection.rb. No reusar DiracSea.absorb.
+
+ENTREGABLE
+  docs/episodios/ep20_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - introject (19) vs salvage/return (20)
+    - S2 persistente (no se “digiere” al volver el niño)
+    - por qué DummyPlug.engage! no es salvage
+    - por qué DiracSea no es el contenedor
+    - maternal_presence: nombre permitido, sin Contact Experiment
+    - Implicación: recovery ≠ uncontained Zeruel
+
+CRITERIO
+  Un implementador no llama a Zeruel.alive.
+  Yui no es una subclass de Angel ni de DummyPlug.
+  dwell_days está escrito.
+
+NO_HAGAS
+  Código. Playbook (es 08). Instrumentality.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: el analista fusionado con la plataforma
+################################################################################
+
+OBJETIVO
+  Fijar OPERADOR_EN_EL_CONTROL. Distinto de AWOL (04), de
+  Dirac (16), de Dummy-discard (18). Aquí el tool merge ya
+  ocurrió; el trabajo es extraer a la persona SIN borrar el
+  S2 (el canon no lo quita) y SIN fingir que la fusión era el
+  0. Last-playbook Dummy/Beast/Casper no salvagean.
+
+CONTEXTO
+  Analogías: admin trapped in a jump box that ate the session;
+  SOAR que incorporó al humano al workflow; malware organ
+  left in prod after “containment”; choosing to re-enter
+  ticketed identity vs staying god-mode dissolved.
+  Error clásico A: Dummy salvage. Error clásico B: Dirac.
+  Error clásico C: “que se quede, el Eva ahora tiene S2”.
+  Error clásico D: reabrir Zeruel. Error clásico E: 0 de combate.
+
+INSTRUCCION
+  Escribe el patrón OPERADOR_EN_EL_CONTROL.
+  Tabla de métodos vs resultado (Dummy, Dirac, Casper, dejarlo,
+  salvage+return, Beast otra vez).
+  Regla de lab: operator_recovered_fragile IFF return_to_body
+  AND s2_persists AND zeruel still dead AND dummy not used as
+  salvage AND angel.nil? AND dwell_days transcurridos.
+
+ENTREGABLE
+  docs/episodios/ep20_oral.md
+    - Escena breve del asiento vacío
+    - Patrón OPERADOR_EN_EL_CONTROL (precondiciones 19, síntoma
+      plug_empty+S2, error de salvage-as-producto)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal: “el ángel ya murió” no es “el incidente humano cerró”
+    - Frontera con 04, 16, 18, 21 (nombrar historia, no abrir)
+
+CRITERIO
+  Return no borra S2. Dummy no salvagea. El 19 sigue 1.
+
+NO_HAGAS
+  Código. No Arael. No Contact Experiment.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — TTPs de la fusión y del salvage
+################################################################################
+
+OBJETIVO
+  Kill-chain SIN ángel. Técnicas de dwell en el control, de
+  salvage, de return, de S2 que se queda. T-EVA01-08/09 se
+  CITAN como abiertas, no se cierran del todo: el S2 sigue.
+
+CONTEXTO
+  Quien dispare T-ZERUEL-01 como combate se equivoca. Zeruel
+  está muerto. Oral stage es incorporar: el defensor ya
+  incorporó; ahora el humano se des-incorpora.
+
+INSTRUCCION
+  Ids estables. Diagrama: plug_empty → dwell → salvage attempt
+  → (dummy FAIL | Dirac FAIL) → return_to_body → S2 still.
+
+ENTREGABLE
+  docs/episodios/ep20_ttps.md
+    - Qué T-ZERUEL / T-DUMMY / T-DIRAC no se reabren como método
+    - T-EVA01-08 S2Ingest SIGUE (persistencia)
+    - T-EVA01-09 OperatorIntrojection se MITIGA, no se borra
+      como si no hubiera pasado
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-ORAL-01 DwellInsideControl
+        T-ORAL-02 BoundaryDissolved
+        T-ORAL-03 SalvageNotKill
+        T-ORAL-04 ReturnToBody
+        T-S2-01 PersistInProd
+        T-OP01-21 ChooseWorldOfOthers
+        T-SOC-10 RecoverAnalystFromTool
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (Arael, Dummy-salvage,
+      Contact Experiment, Pattern Blue)
+
+CRITERIO
+  T-ORAL-04 ≠ T-OP01-07 ReturnImHome del erizo (otro incidente).
+  T-S2-01 no es “upgrade inventory”. T-SOC-10 es el trabajo
+  del 20.
+
+NO_HAGAS
+  Código. No TTP “desnudo”.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: el asiento vacío, el S2 encendido
+################################################################################
+
+OBJETIVO
+  Detectar plug_empty, dwell, salvage, return, s2_persists.
+  Cero pattern_blue de silueta. Frase-ley: “sin piloto en el
+  asiento no significa sin ocupante en la unidad”.
+
+CONTEXTO
+  El 19 emitió plug_empty al cierre. El 20 es ese evento
+  sostenido un mes. Falso positivo: “Eva inactiva”.
+  Anti-métrica: s2_present = listos para el próximo ángel.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Reusar plug_empty, s2_ingested;
+  añadir salvage y return.
+
+ENTREGABLE
+  docs/episodios/ep20_deteccion.md
+    - Qué NO dispara (pattern_blue, dummy_failed-as-kill,
+      absorb Dirac)
+    - Ids obligatorios:
+        siem.plug_empty              (heredado, persistente)
+        siem.s2_present
+        siem.dwell_inside
+        siem.salvage_started
+        siem.dummy_salvage_rejected
+        siem.return_to_body
+        siem.operator_recovered
+        siem.boundaries_restored
+        siem.s2_still_in_prod
+        siem.false_pattern_blue      (fallo)
+    - Falsos positivos
+    - Anti-métrica: S2 = capacidad feliz
+
+CRITERIO
+  Ids usables en tests. s2_still_in_prod true al 13 canónico.
+  return_to_body no emite pattern_blue.
+
+NO_HAGAS
+  Código. No sensores de Arael. No MAGI-infection.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de tragarte al on-call)
+################################################################################
+
+OBJETIVO
+  Preventiva de tool-merge: no ingerir órganos del atacante
+  en prod; no dejar que opaque_agency trague al operador;
+  protocolo de salvage distinto de Dummy y de N²; límites
+  (AT Field) como higiene de identidad, no como lore.
+  El 19 cobró Dummy-ceiling; el 20 cobra ingest-as-upgrade.
+
+CONTEXTO
+  Prevenible: S2 en el binario; cero playbook de “humano
+  dentro del Eva”; Gendo midiendo el activo más que al hijo.
+  No prevenible del todo: que un Beast introyecte. Se mitiga
+  extrayendo a la persona y tratando el S2 como deuda, no
+  como feature.
+  Anti-patrón: “que se quede, es inmortal”; Dummy-salvage;
+  “el mes es terapia”.
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5. Analogías: don’t deploy attacker C2 into prod;
+  session recovery; human-out-of-band; S2 as unpatched
+  implant.
+
+ENTREGABLE
+  docs/episodios/ep20_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE (salvage/return vive aquí)
+    - Anti-patrones (mínimo 3): ingest-as-upgrade; dummy-salvage;
+      stay-dissolved
+    - Relación con T-ORAL-* y T-S2-01
+    - Higiene de recovery de analista en 7 viñetas (SOC real)
+    - Nota: volver no borra el S2 — hay que nombrar esa deuda
+
+CRITERIO
+  Nadie sale pensando que Eva-01+S2 es el plan A del 22.
+  Nadie sale pensando que Dummy hubiera sacado a Shinji.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No ep 21 dump.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: salvage, no dummy, no Dirac, volver frágil
+################################################################################
+
+OBJETIVO
+  Runbook de recovery. 1) Confirmar Zeruel dead, plug_empty,
+  s2_present. 2) Prohibir new Angel y Dummy-salvage y Dirac.
+  3) Salvage (Ritsuko/técnico). 4) Ofrecer return_to_body
+  (elección: mundo de otros). 5) boundaries_restored.
+  6) s2_still_in_prod. 7) :operator_recovered_fragile.
+  MAGI no infecta ni vota un dummy de rescate como éxito.
+
+CONTEXTO
+  Misato espera a la persona. Gendo espera al Eva. Ritsuko
+  opera el salvage. Rama Dummy = FAIL. Rama “dejarlo, tenemos
+  S2” = operator_lost_in_control. Rama Pattern Blue = FAIL.
+  El retorno es FRÁGIL: no cura hedgehog ni Dummy ni Toji.
+
+INSTRUCCION
+  Árbol y runbook numerado. Hooks Ruby.
+  Handoff a ep 21 (NERV nacimiento, Kaji, Naoko/Yui historia;
+  no ángel de combate), lista, no redactar el 21.
+
+ENTREGABLE
+  docs/episodios/ep20_playbook.md
+    - Empalme con ep19_playbook.md (plug_empty)
+    - Árbol ASCII (salvage → return 13 | stay 14 | dummy FAIL)
+    - Runbook numerado
+    - Condición :operator_recovered_fragile
+    - Condición :operator_lost_in_control
+    - Hooks Ruby
+    - Handoff a ep 21 (lista)
+
+CRITERIO
+  Traducible a tests. No rama Dummy-win. No rama Zeruel.alive.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/arael.rb. No Contact Experiment.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: elegir tener forma
+################################################################################
+
+OBJETIVO
+  Shinji: elegir el mundo de los otros (límites, dolor) vs
+  fusión. Misato: espera a la persona. Gendo: el Eva con S2
+  le importa más. Ritsuko: salvage técnico. Presencia materna:
+  compañía interior, no kill-switch. Asuka/Rei: fuera, heridas
+  del 19; no resuelven el mes.
+
+CONTEXTO
+  Ética: no “el trauma lo hizo adulto”. Return es boundaries,
+  no manhood. Gendo no se redime por recuperar el activo.
+  Yui-nombre permitido como presencia; no biografía de 21.
+
+INSTRUCCION
+  Fichas delta. Métricas: dwell_days, salvage_owner,
+  gendo_values_eva, return_choice, boundaries_restored,
+  s2_still_in_prod.
+  Frontera con 21 (historia) y 22 (Arael).
+
+ENTREGABLE
+  docs/episodios/ep20_humanos.md
+    - Deltas: Shinji, Misato, Gendo, Ritsuko, presencia materna
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: return_choice no implica consent del eat
+      del 19; gendo_values_eva no cierra el 13 como “familia”;
+      maternal_presence no es DummyPlug
+    - Frontera con 04 (tadaima ≠ este return), 16, 21
+    - NO_HAGAS: fanservice LCL, “manhood”, Contact Experiment
+
+CRITERIO
+  Shinji no “se cura”. Gendo no es padre. Yui no es el Beast.
+  Misato no es mami-salvage.
+
+NO_HAGAS
+  Código. No Arael. No Kaji-muere (21).
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (salvage, return, S2 persiste)
+################################################################################
+
+OBJETIVO
+  Código de recovery. Tests que FALLAN si Dummy salvagea, si
+  Dirac absorbe, si Zeruel revive, si S2 desaparece al volver,
+  si hay Angel nuevo, o si el resultado es 0/1 de combate.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Salvage, ReturnToBody, PlaybookEp20. Reusar introjection,
+  s2_organ, plug_empty.
+  PlaybookEp19 sigue 1 con plug_empty al cierre.
+  PlaybookEp16 Dirac no extrae a Shinji de Eva-01.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 16, 19, 20.
+  Ids: docs/episodios/ep20_*.md.
+
+ENTREGABLE
+  lib/nerv/salvage.rb
+  lib/nerv/return_to_body.rb
+  lib/nerv/playbooks/ep20.rb
+  test/test_salvage.rb
+  test/test_return_to_body.rb
+  test/test_playbook_ep20.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/introjection.rb
+    lib/nerv/s2_organ.rb
+    lib/nerv/siem.rb
+    lib/nerv/dummy_plug.rb     (salvage rejected)
+
+  Comportamiento mínimo a cubrir:
+    - PlaybookEp20.angel.nil?
+    - no pattern_blue de silueta
+    - Zeruel sigue not alive
+    - DummyPlug no produce return_to_body
+    - DiracSea no es el contenedor
+    - salvage + return_to_body ⇒ :operator_recovered_fragile
+    - s2_still_in_prod true después del return
+    - dwell_days >= 1 (mes: ~30 si modelas el número)
+    - stay / dummy-salvage ⇒ :operator_lost_in_control
+    - PlaybookEp19 sigue :contained_uncontrolled
+    - SIEM: dwell_inside, salvage_started, return_to_body,
+      s2_still_in_prod, operator_recovered
+    - no class Yui; maternal_presence opcional bool
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep19.rb test/test_playbook_ep16.rb \
+    test/test_salvage.rb test/test_return_to_body.rb \
+    test/test_playbook_ep20.rb
+  sale 0. Hay un test que falla si Dummy saca a Shinji.
+  Hay un test que falla si S2 se borra al volver.
+  Hay un test que falla si aparece un Angel.
+
+NO_HAGAS
+  lib/nerv/angels/arael.rb. Bundler. Contact Experiment.
+  Reabrir Zeruel.alive.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 20
+################################################################################
+
+OBJETIVO
+  Runner de INC-ORAL-001. Traza: plug_empty → dwell_inside →
+  salvage_started → dummy_salvage_rejected → return_to_body →
+  s2_still_in_prod. Exit code 13. Cero pattern_blue, cero
+  dummy_failed-as-kill, cero absorb Dirac.
+
+CONTEXTO
+  bin/episodio … 19→1, 20→13.
+  El 13 no es un 0 de ángel: es recovery frágil.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 20.
+  Puede reconstituir plug_empty del 19 internamente.
+  Si el binario no existe, créalo soportando 01–20.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep20.rb
+  test/test_scenario_ep20.rb
+  docs/episodios/ep20_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 20
+
+  Exit:
+    13 = :operator_recovered_fragile
+
+CRITERIO
+  El comando corre, imprime plug_empty, dwell_inside,
+  return_to_body, s2_still_in_prod; NO imprime pattern_blue
+  de silueta ni dummy_plug_engaged ni absorb; sale 13.
+  test/test_scenario_ep20.rb pasa.
+  19→1 sigue.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Kaji-muere / ep 21. ASCII de LCL
+  que tape la traza. Fanservice.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 21
+################################################################################
+
+OBJETIVO
+  Cerrar INC-ORAL-001 como recovery frágil. Shinji tiene forma
+  otra vez. S2 sigue en Eva-01. Transferir al 21: nacimiento
+  de NERV, Kaji, historia de Naoko/Yui — sin ángel de combate.
+  No escribir prompts del 21.
+
+CONTEXTO
+  NERV tiene piloto de vuelta y un Eva con motor de ángel.
+  El AAR: salvage ≠ dummy; return ≠ cura; S2 es deuda en prod;
+  Gendo valoró el activo. El 21 no pide fauces: pide el archivo
+  de cómo se construyó este infierno (y Kaji). Last-playbook
+  Beast/Dummy no cubre un episodio de origen. Arael (22) será
+  un rayo a la mente, con Shinji ya “devuelto”.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 21
+    titulo_canon: He was aware that he was still a child
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep21_nerv_birth.txt
+    estado: episodio_completo
+    ultima_nota: INC-ORAL-001 cerrado operator_recovered_fragile. S2 still in prod. Falta crear prompts/ep21_nerv_birth.txt. Deuda: historia NERV/Kaji/Naoko; no ángel; S2 no es upgrade.
+  No crees ep21_nerv_birth.txt en este turno.
+  Lista secciones sugeridas para el 21 (TIPO=sin_angel, origen
+  NERV, Kaji, Naoko/Yui historia, no Arael), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep20_aar.md
+    - Resumen (10–15 líneas)
+    - Estado de Shinji vs S2 vs Dummy vs Dirac (no usado)
+    - T-ORAL-* / T-S2-01 ABIERTAS
+    - Por qué exit 13 no es un 0 ni el 1 del 19
+    - Deuda hacia ep 21 (origen, Kaji)
+    - Deuda hacia ep 22 (Arael; solo nombrar)
+    - "Lección Seele" en 5 viñetas para un SOC (no fusionar al
+      analista con la herramienta; 0-day ingerido ≠ inventario)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 21 y declara que falta el archivo.
+  El AAR se entiende sin la serie. El S2 no se celebra.
+  Yui no se vuelve el Beast. Arael no se implementa.
+
+NO_HAGAS
+  Escribir prompts/ep21_nerv_birth.txt. No Contact Experiment
+  completo. No Instrumentality.
+
+SIGUIENTE
+  FIN
+################################################################################

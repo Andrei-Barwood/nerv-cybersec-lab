@@ -1,0 +1,655 @@
+---
+EPISODIO: 12
+TITULO_CANON: She said, "Don't make others suffer for your personal hatred." / The Value of a Miracle / 奇跡の価値は
+ANGEL: Sahaquiel
+TIPO: angel
+INCIDENTE: INC-SAHAQUIEL-001
+NUMERO_ANGEL: 10º
+CLASE_AMENAZA: payload cinético / fuera del perímetro / interceptar en vuelo o extinguir la ciudad
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep11 existen. INC-MATARAEL-001 está :contained_controlled
+  vía analog launch. Este episodio NO es un HQ a oscuras: MAGI está
+  ENCENDIDO y calcula el punto de impacto. Analog melee en tierra
+  DESPUÉS del aterrizaje no existe como victoria: aterrizar ES el
+  kill de Tokio-3.
+  Yashima NO es el método (no hay fortaleza estacionaria que taladra;
+  el ángel ES el proyectil). Israfel NO es el método (no hay dos cores
+  de HA; hay un cuerpo que cae). Magma Diver NO.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye
+  primero los contratos mínimos de ep 01–11 §10 y luego esta
+  extensión. Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 13 — Lilliputian Hitcher / Ireul
+  (el ángel ES software; compromiso de MAGI; unpowered ≠ infected)
+FUERA_DE_ALCANCE: |
+  No Ireul / MAGI.infected (ep 13). Aquí MAGI.compute_impact, sano.
+  No Matarael / analog_launch como kill. No HqOutage.
+  No Yashima / positron como kill. No baile T-SYNC-02.
+  No DualPlug. No Jet Alone. No Dummy Plug. No Yui.
+  No pelea post-impacto: si impact_progress == 1.0, el 12 FALLÓ.
+  No inflar un "combate en el geofront" después del cráter.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Sahaquiel aparece EN ÓRBITA: el más grande, un ojo-masa que
+  se deja caer sobre Tokio-3 como bomba cinética. Misiles
+  convencionales rebotan en el AT Field. MAGI predice el punto
+  de impacto.
+  Plan: Eva-00, 01 y 02 en ese punto, AT Fields superpuestos
+  como FRENO, no como muralla de Ramiel. Atrapar el payload en
+  el aire, destruir el core antes de que la energía cinética
+  complete el cráter.
+  Tres operadores tienen que confiar en la geometría. Shinji
+  busca la mirada de Gendo después. Gendo no la da. El milagro
+  vale lo que vale el intercept, no el elogio.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-SAHAQUIEL-001: el incidente ES la caída. Victoria
+  lab: :contained_controlled (exit 0) solo si se intercepta EN
+  VUELO (AT Fields como freno + core) con impact_progress < 1.0.
+  Aterrizar no abre un combate: cierra la ciudad.
+
+CONTEXTO
+  En seguridad: un payload ya en tránsito (wiper en vuelo,
+  firmware malicioso en el camión, satélite-bomba, email con
+  detonador que no puedes "pelear" una vez ejecutado en el DC).
+  El perímetro de Tokio-3 es irrelevante si el cielo es el arma.
+  El 11 te entrenó a pelear ciego en casa. El 12 te enseña que
+  a veces VES el fin del mundo acercarse y el único playbook es
+  interceptar, no linedear en el suelo.
+  MAGI está up: es el radar de impacto, no el paciente de Ireul.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual del ojo-órbita aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado: intercept in-flight)
+    1 = :contained_uncontrolled   (Beast = FAIL)
+    2 = :unresolved               (impacto; pelea en el cráter;
+                                   un solo Eva "cachando")
+  impact_progress = 1.0 es fallo catastrófico, no un round 2.
+
+ENTREGABLE
+  docs/episodios/ep12_briefing.md con exactamente estos headings:
+    - Contrato (INC-SAHAQUIEL-001; el aterrizaje es la derrota)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Ireul, Yashima, analog melee,
+      baile, apagón)
+    - Definición de victoria (lab): intercept + core, ciudad intacta
+    - Definición de derrota (lab): impact=1; esperar a que aterrice;
+      un Eva solo; positron; Beast
+    - Vocabulario nuevo (órbita, payload cinético, impact_progress,
+      intercept, AT Field-freno, geometría de captura, ETA)
+    - Relación con 05–06 (fortaleza vs proyectil), 11 (MAGI mudo vs
+      MAGI calculando), 13 (MAGI enfermo — solo nombrarlo)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y planear un combate post-cráter.
+  Imposible exigir analog_launch o rehearsal como método.
+  No spoilers de Ireul más allá de la frontera MAGI.
+
+NO_HAGAS
+  Reescribir docs 01–11. Crear lib/. Infectar MAGI.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (el cielo es el arma)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen: no camina, no gotea, no flota a 50 m.
+  Está EN ÓRBITA. Luego la caída, el ojo enorme, tres Evas
+  sosteniendo una montaña que es un ángel. Memoria visual del
+  intercept, no del spider.
+
+CONTEXTO
+  Matarael era un arácnido sobre una ciudad negra. Sahaquiel es
+  el cielo ocupado a plena luz. El error clásico: apuntar el
+  radar al geofront. El first packet es espacial. MAGI pinta
+  un ETA.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: órbita, ojo-masa, misiles que rebotan, caída,
+       tres Evas, AT Fields en copa, core, cielo otra vez vacío
+    B) first-seen de seguridad: alerta exo-perímetro, countdown
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Sahaquiel
+  en órbita (escala contra la Tierra/ciudad), UN párrafo tres
+  Evas frenando la masa en el aire. Nada de araña. Nada de
+  octaedro taladrando.
+
+ENTREGABLE
+  docs/episodios/ep12_aparicion.md
+    - Minuto cero: el cielo, no el pasillo
+    - Lo que el perímetro terrestre cree vs lo que MAGI calcula
+    - Spec visual Sahaquiel (escala, ojo, aplanado, órbita)
+    - Spec visual de la caída (cinética, no un aterrizaje suave)
+    - Spec visual del intercept (tres AT Fields = copa/freno)
+    - Spec visual de la muerte del core en el aire
+    - Tabla corta vs Ramiel (flota y taladra) y Matarael (gotea)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el capítulo sin combate de suelo.
+  Se distingue freno-AT de muralla-AT de Ramiel.
+  No hay linternas de HQ como imagen central.
+
+NO_HAGAS
+  Código. Anatomía cinética/freno (es 03–04). Ireul.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: órbita, masa, cinética, AT-freno, core
+################################################################################
+
+OBJETIVO
+  Partes de Sahaquiel y de la CAPTURA → métodos. El AT Field
+  del Eva aquí no rebota un rayo: AMORTIGUA una masa. Tres
+  campos superpuestos. MAGI.compute_impact. impact_progress
+  es countdown, no drill.
+
+CONTEXTO
+  Cuerpo orbital = payload fuera de tu VPC/perímetro.
+  Energía cinética = el daño ES el aterrizaje.
+  AT Field (ángel) = los misiles convencionales siguen siendo
+  teatro (lección del 01, ahora en el cielo).
+  AT Field (Eva)×3 = crash cushion.
+  Core = kill que solo importa SI la copa sostiene.
+  MAGI up = predicción de impacto (no majority-as-launch-key
+  del 11, no infected del 13).
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de orbit, impact_progress
+  (0→1), eta, overlapping_at_fields (n=3), brake!, intercept_ok?.
+  Umbral: n_evas_catching >= 3 para brake suficiente (explícito
+  para la §10). Reusar ATField añadiendo modo :brake vs :wall.
+  No reusar Drill ni Acid como la misma clase de progreso:
+  impact_progress es ETA, no melt.
+
+ENTREGABLE
+  docs/episodios/ep12_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - impact_progress vs drill_progress vs acid_progress vs hatch
+    - AT Field modo :brake vs :wall (Ramiel) vs :killzone
+    - MAGI.compute_impact (sano, powered)
+    - Por qué 1 Eva no basta (geometría, no pair_sync)
+    - Implicación: ConventionalAttack/misiles = no-evento otra vez
+
+CRITERIO
+  n=3 está escrito. Un implementador no usa AnalogLaunch como
+  kill ni Magi.infected. impact_progress=1 no abre un boss fight.
+
+NO_HAGAS
+  Código. Playbook del intercept (es 08). Virus MAGI.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: interceptar o no hay ciudad
+################################################################################
+
+OBJETIVO
+  Fijar PAYLOAD_CINETICO. El playbook de "esperar a que llegue
+  y pelear" es extinción. Last-playbook (linterna, baile,
+  Yashima, magma) no para una bomba que ya cayó. El intercept
+  es la única mitigación.
+
+CONTEXTO
+  Analogías: detener el malware en el gateway, no en el DC
+  después del execute; ABORT de un push destructivo en tránsito;
+  missile-defense; "el adjunto no se abre".
+  Error clásico A: linedear en el punto de impacto para un
+  combate terrestre.
+  Error clásico B: analog_launch como si el HQ estuviera ciego
+  (MAGI está up).
+  Error clásico C: Yashima (cargar un rifle contra un proyectil
+  con ETA de minutos).
+  Error clásico D: un Eva héroe en el centro sin los otros dos.
+  Error clásico E: misiles "porque esta vez desde el cielo".
+
+INSTRUCCION
+  Escribe el patrón PAYLOAD_CINETICO.
+  Tabla de métodos vs resultado (misiles, Yashima, analog melee
+  post-impacto, un Eva, baile, Beast, intercept 3-AT + core).
+  Regla de lab: contained_controlled IFF intercept_ok AND core
+  destroyed AND impact_progress < 1.0 AND evas_catching >= 3.
+  impact == 1 ⇒ not contained, ciudad marcada destruida
+  (flag city_destroyed; no hace falta exit code nuevo si
+  :unresolved + flag bastan — sé explícito para la §10).
+
+ENTREGABLE
+  docs/episodios/ep12_cinetico.md
+    - Escena breve de los misiles rebotando
+    - Patrón PAYLOAD_CINETICO (precondiciones, ETA, error de
+      pelear-en-tierra)
+    - Tabla de métodos
+    - Analogías (máximo 3)
+    - Señal SIEM: "aún no ha aterrizado" no es "aún no es P1"
+    - Frontera con Ramiel (taladra) y Matarael (gotea con HQ ciego)
+
+CRITERIO
+  La condición de kill es in-flight. El 11 sigue ganando con
+  analog melee contra Matarael. El 12 no.
+
+NO_HAGAS
+  Código. No Ireul. No Dummy Plug.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de la caída y del intercept
+################################################################################
+
+OBJETIVO
+  Kill-chain del payload orbital + TTPs del defensor (predicción,
+  geometría de 3, freno, core). Shinji-busca-elogio no es TTP
+  del ángel.
+
+CONTEXTO
+  Sahaquiel: presencia exo-perímetro, AT Field vs misiles,
+  caída cinética, (opcional) ajuste de trayectoria / disparo
+  orbital si el canon del entregable lo necesita — no inventes
+  látigos. Defensor: MAGI ETA, tres Evas, overlap, brake, knife
+  al core en el aire.
+
+INSTRUCCION
+  Ids estables. Diagrama: orbit → misiles fail → ETA → deploy 3
+  → catch → core. Rama impact=1 = ciudad.
+
+ENTREGABLE
+  docs/episodios/ep12_ttps.md
+    - Qué T-ANALOG / T-YASHIMA / T-SYNC / T-RAMIEL no se reabren
+      como método
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-SAHAQUIEL-01 ExoPerimeterPresence
+        T-SAHAQUIEL-02 KineticSelfPayload
+        T-SAHAQUIEL-03 AtFieldVsMissiles
+        T-INTERCEPT-01 MagiImpactPredict
+        T-INTERCEPT-02 TripleAtFieldBrake
+        T-INTERCEPT-03 InFlightCoreKill
+        T-OP01-15 PraiseSeekingAfterCatch
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (ácido, magma, virus MAGI,
+      dual-core, positron)
+
+CRITERIO
+  T-INTERCEPT-02 ≠ T-SYNC-02 ≠ T-ANALOG-02.
+  T-OP01-15 no es kill condition. El diagrama no tiene caja
+  "combate en el cráter".
+
+NO_HAGAS
+  Código. No TTP de Gendo-as-ángel.
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: ves el fin del mundo
+################################################################################
+
+OBJETIVO
+  Detectar órbita, ETA, misiles fallidos, geometría de intercept,
+  brake, impact. AQUÍ el SIEM SÍ pinta — MAGI está up. El fallo
+  no es ceguera (11); es no llegar a tiempo. Frase-ley:
+  "visibilidad sin intercept es un countdown con palomitas".
+
+CONTEXTO
+  El 11: detector ciego. El 12: detector perfecto y un reloj.
+  Falso positivo: "está lejos, no es P1". Anti-métrica: misiles
+  lanzados = mitigación.
+
+INSTRUCCION
+  Señales de lab. Ids estables. Relación con MAGI sano
+  (compute_impact emite evento, no infection).
+
+ENTREGABLE
+  docs/episodios/ep12_deteccion.md
+    - Pattern Blue heredado + origen orbital
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.orbital_contact
+        siem.impact_eta               (con valor)
+        siem.impact_progress          (con valor)
+        siem.missiles_rebuffed
+        siem.magi_impact_predict
+        siem.triple_at_brake
+        siem.intercept_ok
+        siem.core_destroyed           (reusar; vía in-flight)
+        siem.city_destroyed
+        siem.praise_seeking
+    - Falsos positivos
+    - Anti-métrica: "MAGI lo ve" = contenido
+
+CRITERIO
+  Ids usables en tests. magi_impact_predict no es magi_infected.
+  city_destroyed solo si impact_progress == 1.
+
+NO_HAGAS
+  Código. No hq_power_lost. No analog_mode como firma de éxito.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el cielo te caiga)
+################################################################################
+
+OBJETIVO
+  Preventiva de payloads exo-perímetro: vigilancia orbital /
+  fuera de VPC; capacidad de intercept (no solo de melee);
+  ensayar captura a 3 ANTES del first-seen; MAGI sano para ETA
+  (y no como llave de launch); no asumir que los ángeles caminan
+  al geofront.
+
+CONTEXTO
+  Prevenible: radar solo urbano; doctrina post-aterrizaje; un
+  Eva de guardia; misiles como plan A otra vez; cero geometría
+  de 3. No prevenible del todo: que algo en órbita elija caerte
+  encima. Se prepara interceptando, no con linternas.
+  Anti-patrón: "Matarael se mató en el suelo"; "Yashima";
+  "cuando aterrice vemos".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: email gateway,
+  WAF in-front, abort de pipeline, space-domain awareness,
+  three-person change window para un kill en tránsito.
+
+ENTREGABLE
+  docs/episodios/ep12_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): wait-to-land; last-theater-ground;
+      one-hero-catch
+    - Relación con T-SAHAQUIEL-* y T-INTERCEPT-*
+    - Higiene de intercept en 7 viñetas (SOC/red team real)
+    - Nota: MAGI predicción es preventiva de timing, no de
+      existencia del payload
+
+CRITERIO
+  Nadie sale pensando que el intercept es "tres chicos fuertes".
+  Nadie sale pensando que el 11 cubre el 12.
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No Ireul.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: predecir, colocar tres, frenar, matar en el aire
+################################################################################
+
+OBJETIVO
+  Runbook de intercept. MAGI.compute_impact (powered, sano).
+  Desplegar 00/01/02 al punto. Overlap AT Fields. brake.
+  Core in-flight. No esperar impact=1. No analog_mode. No
+  positron charge. MAGI no está unpowered; majority puede
+  autorizar el intercept, no un melee de suelo.
+
+CONTEXTO
+  Misato IC de milagro-con-geometría. Los tres tienen que estar.
+  Rama un-Eva = city_destroyed o intercept fail. Rama wait-land
+  = FAIL. Rama Yashima = FAIL. Rama analog = FAIL (clasificación).
+  Rama Beast = FAIL. Rama Ireul = FAIL (MAGI no es el paciente).
+
+INSTRUCCION
+  Árbol y runbook numerado. n=3 y umbrales de la §03.
+  Hooks Ruby. Handoff a ep 13 (Ireul: MAGI pasa de calculadora
+  a huésped; el ángel es código), lista, no redactar el 13.
+
+ENTREGABLE
+  docs/episodios/ep12_playbook.md
+    - Árbol ASCII (órbita → predict → 3 Evas → brake → core;
+      land → city_destroyed)
+    - Runbook numerado
+    - Condición :contained_controlled
+    - Condición :unresolved + city_destroyed
+    - MAGI: compute_impact, no analog, no infected
+    - Hooks Ruby
+    - Handoff a ep 13 (lista: software, MAGI, no cinética)
+
+CRITERIO
+  Traducible a tests. No rama de éxito post-impacto.
+  No rama analog_launch.
+
+NO_HAGAS
+  Código. No lib/nerv/angels/ireul.rb.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: tres para el milagro, cero elogio
+################################################################################
+
+OBJETIVO
+  Confianza de geometría entre Shinji, Asuka, Rei — no baile,
+  no DualPlug, no escudo-Yashima. Shinji busca a Gendo después
+  del catch (T-OP01-15). El título: no hagas pagar a la ciudad
+  tu odio/ tu hambre de padre. Misato nombra el valor del
+  milagro (el intercept), no el del elogio.
+
+CONTEXTO
+  El 06: Rei-escudo. El 09: pair_sync. El 11: linternas. El 12:
+  tres puntos de una copa. Si uno no llega, la masa rompe.
+  Ética: no "Gendo es malo y por eso Shinji es héroe". El lab
+  registra praise_seeking y que no muta ContainmentResult.
+  La cita del título es control de IC, no un ángel.
+
+INSTRUCCION
+  Deltas de los tres operadores + Misato + Gendo.
+  Métricas: three_present, trust_geometry, praise_seeking,
+  gendo_ack (false en el camino canónico).
+  Frontera con Yashima (escudo) e Israfel (epsilon).
+
+ENTREGABLE
+  docs/episodios/ep12_humanos.md
+    - Deltas: Shinji (centro/catch + elogio), Asuka, Rei,
+      Misato (IC milagro), Gendo (no ack)
+    - Métricas implementables
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: three_present es requisito de intercept_ok;
+      praise_seeking y gendo_ack no cambian el 0;
+      trust_geometry ≠ pair_sync
+    - Frontera con ep 13 (las mismas MAGI, otro mal)
+
+CRITERIO
+  Shinji no "gana el amor de Gendo". Rei no es otra vez el
+  escudo ablativo como KPI. Asuka no lidera un DualPlug.
+  El milagro es el intercept.
+
+NO_HAGAS
+  Código. No Yui. No Ireul. No Dummy Plug.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (órbita, freno×3, core en vuelo)
+################################################################################
+
+OBJETIVO
+  Código de Sahaquiel y del intercept. Tests que FALLAN si
+  impact_progress==1 y contained, si n<3 basta, si analog/
+  Yashima/baile ganan, o si MAGI queda infected.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Sahaquiel < Angel. ImpactClock, AtFieldBrake, Magi.compute_impact.
+  PlaybookEp11 sigue ganando Matarael en analog. PlaybookEp06
+  sigue siendo Yashima contra Ramiel. MAGI powered y sano.
+  01–11 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 06, 11, 12.
+  Ids y n=3: docs/episodios/ep12_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/sahaquiel.rb
+  lib/nerv/impact_clock.rb
+  lib/nerv/at_field_brake.rb
+  lib/nerv/playbooks/ep12.rb
+  test/test_sahaquiel.rb
+  test/test_impact_clock.rb
+  test/test_at_field_brake.rb
+  test/test_playbook_ep12.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/at_field.rb       (modo :brake)
+    lib/nerv/magi.rb           (compute_impact; no infected)
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb
+
+  Comportamiento mínimo a cubrir:
+    - Sahaquiel empieza in orbit; impact_progress corre
+    - misiles / ConventionalAttack no matan (AT Field)
+    - n_evas < 3 ⇒ brake insuficiente; impact puede → 1
+    - n == 3 + overlapping brake + core kill con progress < 1
+      ⇒ :contained_controlled, city_destroyed false
+    - impact_progress == 1 ⇒ :unresolved (o equivalente) +
+      city_destroyed; no hay pelea terrestre de victoria
+    - AnalogLaunch / HqOutage / PositronRifle / Rehearsal /
+      PasswordShutdown no contained_controlled aquí
+    - Magi.compute_impact disponible; Magi no infected
+    - PlaybookEp11 sigue contained vía analog contra Matarael
+    - SIEM: orbital_contact, impact_eta, triple_at_brake,
+      intercept_ok, core_destroyed
+    - praise_seeking no muta ContainmentResult
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep11.rb test/test_playbook_ep06.rb \
+    test/test_sahaquiel.rb test/test_playbook_ep12.rb \
+    test/test_impact_clock.rb test/test_at_field_brake.rb
+  sale 0. Hay un test que falla si aterrizar "abre el combate".
+  Hay un test que falla si un Eva intercepta solo.
+  Hay un test que falla si MAGI queda infected.
+
+NO_HAGAS
+  lib/nerv/angels/ireul.rb. Bundler. Romper analog del 11.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 12
+################################################################################
+
+OBJETIVO
+  Runner de INC-SAHAQUIEL-001. Traza: orbital_contact → missiles
+  rebuffed → magi_impact_predict → triple_at_brake → intercept_ok
+  → core. Exit 0. Cero analog_launch, cero rehearsal_done, cero
+  magi_infected, cero positron como vía.
+
+CONTEXTO
+  bin/episodio … 11→0, 12→0.
+  El 0 del 12 no es el del 11: hay intercept_ok y orbital_contact,
+  no hq_power_lost.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 12.
+  Si el binario no existe, créalo soportando 01–12.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep12.rb
+  test/test_scenario_ep12.rb
+  docs/episodios/ep12_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 12
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime orbital_contact, missiles_rebuffed,
+  triple_at_brake, intercept_ok, core_destroyed; NO imprime
+  analog_launch ni acid_progress ni positron_charging ni
+  magi_infected como vía; sale 0.
+  impact_progress final < 1.0. city_destroyed ausente o false.
+  test/test_scenario_ep12.rb pasa.
+  11→0 sigue (vía analog, no vía órbita).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Ireul. ASCII de ojo-planeta que tape
+  la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 13
+################################################################################
+
+OBJETIVO
+  Cerrar INC-SAHAQUIEL-001. El payload no aterrizó. MAGI predijo
+  bien y sigue sano. Transferir a Ireul: el siguiente ángel no
+  cae del cielo — se instala EN los MAGI. Unpowered (11) ≠
+  infected (13). No escribir prompts del 13.
+
+CONTEXTO
+  NERV tiene un milagro de geometría y un niño que no recibió
+  elogio. El AAR: intercept es una clase de control; MAGI como
+  calculadora es higiene; last-playbook de suelo no cubre el
+  cielo. El 13 va a usar esas mismas MAGI como huésped. El
+  ángel será código. Eso no se mitiga con AT Field-freno.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 13
+    titulo_canon: Lilliputian Hitcher
+    angel: Ireul
+    numero_angel: 11
+    archivo_episodio: prompts/ep13_ireul.txt
+    estado: episodio_completo
+    ultima_nota: INC-SAHAQUIEL-001 cerrado contained_controlled vía intercept in-flight. MAGI sano. Falta crear prompts/ep13_ireul.txt. Deuda: next el ángel es software; no cinética.
+  No crees ep13_ireul.txt en este turno.
+  Lista secciones sugeridas para el 13 (MAGI infection, consenso
+  de tres cerebros, no payload orbital), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep12_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del ángel vs ciudad vs MAGI (sano)
+    - T-SAHAQUIEL-* cerradas / T-INTERCEPT-* cuáles siguen
+    - T-OP01-15 abierta (elogio: no es control)
+    - Deuda hacia ep 13 (Ireul, MAGI huésped, código)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 13 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Sahaquiel no aterriza "en
+  el recap". Ireul se nombra como siguiente, no se implementa.
+
+NO_HAGAS
+  Escribir prompts/ep13_ireul.txt. No infectar MAGI. No cráter.
+
+SIGUIENTE
+  FIN
+################################################################################

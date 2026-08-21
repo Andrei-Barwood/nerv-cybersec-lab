@@ -1,0 +1,577 @@
+---
+EPISODIO: 01
+TITULO_CANON: Angel Attack / El ataque del Ángel
+ANGEL: Sachiel
+NUMERO_ANGEL: 3º (primer ángel de combate de la TV)
+CLASE_AMENAZA: first-contact / persistencia / regeneración post-wipe
+SECCIONES: 12
+PRERREQUISITO: ninguno (tutorial del repo)
+SIGUIENTE: ep 02 — The Beast (berserk de Eva-01, aftermath, revelación pública)
+FUERA_DE_ALCANCE: |
+  No implementar el berserk, el Dummy Plug emocional, ni el hotel/Misato.
+  El ep 01 TERMINA con Eva-01 desplegada, operador no entrenado, Sachiel
+  en pie. La contención exitosa NO ocurre aquí.
+  No implementar MAGI completos al nivel Ireul. Stub de tres votos, nada más.
+  No generar imágenes salvo que el usuario lo pida aparte.
+CANON_MINIMO: |
+  Fuerzas de la ONU fallan. Mina N²: el ángel regenera y muta (brazos,
+  ráfagas, lanza de luz). Pattern Blue. Shinji es convocado; Rei está
+  herida; Gendo presiona; Shinji aborda Eva-01. Primer choque. Corte.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Dejar por escrito qué es el episodio 01 DENTRO de este repo: alcance,
+  éxito, fracaso, y qué se le debe al episodio 02. Es el mapa. Sin él
+  las otras 11 secciones se desbordan.
+
+CONTEXTO
+  En la TV, el ep 01 no "gana". Es el primer contacto de Tokio-3 con un
+  ángel en 15 años y el primer contacto de Shinji con el Eva. En el lab,
+  eso significa: no hay playbook maduro, la defensa convencional falla,
+  el wipe pesado (N²) no mata, y se despliega un operador en frío.
+  Prevención ≠ tener un Eva. El Eva es mitigación de último recurso.
+
+INSTRUCCION
+  Escribe el briefing. No implementes código. No recrees aún la forma
+  del ángel (eso es 02–03). Usa el mapa de amenazas del maestro solo
+  para situar a Sachiel como "el tutorial de persistencia".
+
+ENTREGABLE
+  docs/episodios/ep01_briefing.md con exactamente estos headings:
+    - Contrato
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (ep 02+)
+    - Definición de victoria (del lab, no de NERV)
+    - Definición de derrota
+    - Vocabulario (Pattern Blue, AT Field, Core, N², Eva, MAGI, playbook)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Un extraño puede leer ese archivo y saber qué se va a construir y
+  qué está prohibido adelantar. No hay spoilers de Leliel en adelante.
+
+NO_HAGAS
+  Crear lib/, test/, README largo, ni listar los 17 ángeles otra vez.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (primer contacto)
+################################################################################
+
+OBJETIVO
+  Recrear en prosa operativa CÓMO aparece Sachiel: lo que ve la ONU,
+  lo que ve NERV, lo que vería un analista de un SIEM si esto fuera
+  un blob en el perímetro. Esta sección es memoria visual + first-seen.
+
+CONTEXTO
+  No cae con una firma conocida. Camina hacia la ciudad después de que
+  las armas convencionales no hacen nada útil. Hay un fluido, una
+  silueta bípeda, una máscara de hueso que aún no entendemos. El
+  "first packet" es enorme, lento, inclasificable. El error clásico
+  es tratarlo como ejército enemigo (ONU) en vez de como patrón nuevo.
+
+INSTRUCCION
+  Escribe una spec de aparición en dos columnas mentales:
+    A) escena (fanfic de estudio, presente, sensorial, breve)
+    B) first-seen de seguridad (qué log, qué alerta, qué NO se sabe)
+  La spec tiene que servir después para un prompt de imagen Y para
+  las reglas de detección de la sección 06. No dibujes aún el core
+  ni el AT Field en detalle: solo lo observable en el minuto cero.
+
+ENTREGABLE
+  docs/episodios/ep01_aparicion.md
+    - Minuto cero (escena)
+    - Lo que el perímetro cree que es
+    - Lo que NERV nombra (Pattern Blue) y por qué el nombre importa
+    - Spec visual (silueta, escala, movimiento, fluido, máscara)
+      en viñetas reutilizables, sin copiar ficha de wiki
+    - Bloque final: "Prompt de imagen (opcional, no ejecutar)"
+      con UN párrafo listo para Imagine si más adelante se pide
+
+CRITERIO
+  Se puede dibujar al ángel con esa spec. Se puede escribir una regla
+  de alerta con esa spec. No hay combate resuelto.
+
+NO_HAGAS
+  Código. Mina N² (es 04). Anatomía interna / core (es 03).
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: cuerpo, máscara, AT Field, core
+################################################################################
+
+OBJETIVO
+  Traducir el cuerpo de Sachiel a un modelo de partes que luego serán
+  clases. Cada parte tiene una función de seguridad, no solo estética.
+
+CONTEXTO
+  Cuerpo bípedo = payload que se acerca al geofront.
+  Máscara / cráneo = superficie que confunde (no es la vulnerabilidad).
+  AT Field = aislamiento: las armas que no son el core REBOTAN o no
+  importan. Es el perímetro que el atacante trae consigo.
+  Core = condición de kill. Si no tocas el core, no termina.
+  En ep 01 el core se INTUYE más de lo que se entiende; no adelantes
+  la doctrina de "apunta al core" como si ya fuera madura. Anótala
+  como hipótesis de NERV, no como playbook cerrado.
+
+INSTRUCCION
+  Tabla de partes → función narrativa → control de seguridad → futuro
+  método Ruby (nombre solamente). Un párrafo sobre el AT Field como
+  "el atacante trae su propia red aislada". Un párrafo sobre el core
+  como "persistencia raíz".
+
+ENTREGABLE
+  docs/episodios/ep01_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - AT Field (definición operativa para este repo)
+    - Core (definición operativa; kill condition)
+    - Qué es observable en ep 01 vs qué NERV aprenderá después
+    - Implicación: golpear el cuerpo no es contener
+
+CRITERIO
+  Un implementador puede sacar nombres de métodos de ese archivo
+  sin inventar otra anatomía. AT Field y Core no son sinónimos.
+
+NO_HAGAS
+  Escribir las clases. No mutación post-N² (es 04).
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Persistencia: la mina N² no mata
+################################################################################
+
+OBJETIVO
+  Fijar la lección central de Sachiel: un wipe espectacular que no
+  toca el core es teatro. El ángel regenera y ADEMÁS muta (nuevas TTPs).
+
+CONTEXTO
+  La ONU usa una mina N². Cráter. Humo. Aplausos prematuros.
+  Sachiel se recompone, desarrolla brazos, disparos de energía, lanza
+  de luz. En seguridad: reimage / ransomware-restore / "apagamos el
+  server" cuando el implant está en el firmware. El atacante vuelve
+  más capaz porque le enseñaste tu mejor golpe y no era suficiente.
+
+INSTRUCCION
+  Escribe el patrón PERSISTENCIA_POST_WIPE.
+  Distingue: regenerar (mismo cuerpo) vs mutar (nuevas armas).
+  Lista 3 analogías reales (malware, cuenta cloud, implant) sin
+  convertir el doc en un paper. Cierra con la regla del lab:
+  ConventionalAttack y N2Mine NO bajan a Sachiel; solo CoreStrike.
+
+ENTREGABLE
+  docs/episodios/ep01_persistencia.md
+    - Escena breve del wipe fallido
+    - Patrón PERSISTENCIA_POST_WIPE (precondiciones, síntoma, error humano)
+    - Regeneración vs mutación
+    - Analogías (máximo 3, concretas)
+    - Regla de lab (qué ataques son no-eventos)
+    - Señal para el SIEM: "silencio tras wipe" no es victoria
+
+CRITERIO
+  Queda prohibido, de aquí en adelante, tratar "explotó" como
+  "contenido". La regla ConventionalAttack/N2Mine/CoreStrike está
+  escrita de forma implementable.
+
+NO_HAGAS
+  Código. No resuelvas el combate con Eva.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs
+################################################################################
+
+OBJETIVO
+  Una cadena kill-chain de ESTE ángel, no un dump MITRE genérico.
+  Cada fase tiene que verse en el episodio 01 (o marcarse como
+  "continúa en ep 02").
+
+CONTEXTO
+  Sachiel no hace phishing. Se presenta en el perímetro, absorbe
+  fuego, sobrevive el wipe, avanza hacia el objetivo de alto valor
+  (geofront / Adam). Las TTPs: presencia abierta, defensa propia
+  (AT Field), persistencia, mutación adaptativa, impacto cinético
+  contra la ciudad y contra la unidad de respuesta cuando aparece.
+
+INSTRUCCION
+  Cadena en fases. Para cada fase: nombre NERV, nombre de seguridad
+  (puedes usar MITRE ATT&CK como ETIQUETA, no como relleno),
+  evidencia en el ep 01, control preventivo posible, control de
+  mitigación posible. Marca qué fases quedan abiertas para ep 02.
+
+ENTREGABLE
+  docs/episodios/ep01_ttps.md
+    - Tabla de fases
+    - Diagrama en ASCII (5–8 cajas)
+    - 5 TTPs nombradas estilo repo, ejemplo:
+        T-SACHIEL-01 FirstSeenUnclassifiable
+        T-SACHIEL-02 PerimeterRebuff
+        T-SACHIEL-03 WipeSurvival
+        T-SACHIEL-04 AdaptiveMutation
+        T-SACHIEL-05 HighValueApproach
+      (puedes mejorar los nombres; sé estable: estos ids se citarán
+      en código)
+    - Qué NO es TTP de Sachiel (para no mezclar con Shamshel/Ramiel)
+
+CRITERIO
+  Las 5 TTPs son citables desde un test. No hay fase "exfil de credenciales".
+
+NO_HAGAS
+  Código. No inventes un C2 con látigos (eso es Shamshel).
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección (lo que ve NERV)
+################################################################################
+
+OBJETIVO
+  Definir Pattern Blue como regla de detección, con falsos positivos,
+  demora humana, y qué logs existirían en el lab.
+
+CONTEXTO
+  La ONU ve un enemigo. NERV ve un ángel (pattern blue). La diferencia
+  es doctrina + sensores + MAGI. En ep 01 la detección EXISTE pero la
+  organización que debería responder no está lista (operador no
+  entrenado, Rei herida, Gendo usando el incidente). Detección ≠
+  contención. Un SIEM que acierta el nombre y no tiene playbook es
+  el ep 01.
+
+INSTRUCCION
+  Diseña la superficie de detección del lab para Sachiel.
+  Señales: perímetro, wipe-seguido-de-renacimiento, aproximación
+  al geofront, firma "no es convencional". Define qué es un verdadero
+  positivo, un falso Pattern Blue, y el tiempo de decisión.
+  Nombra eventos que emitirá Nerv::SIEM más adelante.
+
+ENTREGABLE
+  docs/episodios/ep01_deteccion.md
+    - Definición operativa de Pattern Blue (este repo)
+    - Señales (nombre de evento, qué lo dispara, confianza)
+    - Falsos positivos
+    - Demora humana (quién tiene que firmar el Eva)
+    - Lista de eventos de lab, ids estables:
+        siem.pattern_blue
+        siem.wipe_declared
+        siem.wipe_failed_regen
+        siem.eva_deployed
+        siem.operator_sync_low
+    - Frase-ley: "alertar no es mitigar"
+
+CRITERIO
+  Los ids de evento son usables en tests. Queda claro que NERV detecta
+  y AUN ASÍ el episodio es un fallo de preparación.
+
+NO_HAGAS
+  Implementar siem.rb todavía. No MAGI de Ireul.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (lo que debió existir ANTES)
+################################################################################
+
+OBJETIVO
+  Catálogo de prevención HONESTO. Varias cosas del ep 01 no se
+  previenen: se preparan. Distinguir esas dos columnas es el punto.
+
+CONTEXTO
+  Gendo tenía un Eva y un piloto de reemplazo destrozado. Eso no es
+  prevención; es un plan B cruel. Prevención habría sido: doctrina de
+  core publicada, operador en sync ANTES del primer Pattern Blue,
+  no depender de un menor convocado el mismo día, ejercicios de wipe
+  que midieran regeneración, perímetro que no gaste el arsenal
+  convencional como si fuera un tanque. Algunas amenazas de esta
+  serie no tienen parche. Sachiel SÍ tenía preparación posible.
+
+INSTRUCCION
+  Dos listas: PREVENIBLE con controles que NERV pudo haber tenido,
+  y NO PREVENIBLE (solo mitigable / aceptable). Cada control:
+  nombre, qué habría cambiado en el ep 01, analogía de seguridad
+  real de una línea, si más adelante será clase/método.
+  Incluye el anti-patrón: "tenemos un Eva" como falso preventivo.
+
+ENTREGABLE
+  docs/episodios/ep01_prevencion.md
+    - Columna PREVENIBLE (mínimo 5 controles)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3, el Eva como talismán es uno)
+    - Relación con TTPs de la sección 05
+    - Recomendación de "higiene de primer contacto" en 7 viñetas
+      reutilizable para incidentes first-seen reales
+
+CRITERIO
+  Nadie que lea esto confunde prevención con "subirse al robot".
+  Los controles son accionables, no moralina.
+
+NO_HAGAS
+  Playbook de durante-el-incidente (es 08). Código.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook de mitigación (durante, sin berserk)
+################################################################################
+
+OBJETIVO
+  El árbol de decisión del ep 01: ONU → N² → desplegar Eva con
+  operador en frío. Cada rama tiene un resultado de lab. El árbol
+  se CORTA cuando Eva-01 está en superficie y Sachiel sigue de pie.
+
+CONTEXTO
+  Misato es incident commander y todavía no es tutora en este corte.
+  Gendo autoriza. Shinji es el control más frágil del sistema.
+  Mitigación aquí NO incluye Eva en berserk: eso viola FUERA_DE_ALCANCE.
+  El playbook debe declarar explícitamente "contención no alcanzada;
+  transferir a ep 02".
+
+INSTRUCCION
+  Escribe el playbook como runbook (pasos numerados, dueño, condición
+  de aborto). Mapea cada paso a un resultado: fail, regen, deploy,
+  unresolved. Deja hooks de método Ruby (nombres) para la sección 10.
+
+ENTREGABLE
+  docs/episodios/ep01_playbook.md
+    - Árbol ASCII de decisión
+    - Runbook numerado (ONU, N², Pattern Blue, autorización MAGI-stub,
+      deploy Eva, sync check, primer contacto Eva-ángel, ABORT/HANDOFF)
+    - Resultados esperados por rama
+    - Criterio de "episodio 01 cerrado sin victoria"
+    - Hooks Ruby (nombres de métodos / eventos)
+    - Qué se le pasa al playbook del ep 02 (solo lista, no lo escribas)
+
+CRITERIO
+  Se puede implementar el árbol en tests de estado.
+  No hay rama "Eva-01 entra en berserk y gana".
+
+NO_HAGAS
+  Código todavía. No hotel, no "The Beast".
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano (el control más frágil)
+################################################################################
+
+OBJETIVO
+  Modelar a las personas como controles y como fallos, no como
+  meme de Shinji. El lab tiene que tener un operador con sync_rate,
+  un IC, un backup herido, y un director que usa el incidente.
+
+CONTEXTO
+  Shinji: freeze, obediencia bajo chantaje emocional, sync bajo.
+  Rei: backup lesionado (el "secundario" no está disponible).
+  Gendo: autoriza el peor plan B y desaparece hacia su objetivo.
+  Misato: sabe más que Shinji y menos que Gendo; tiene que lograr
+  un deploy con un niño que no quería estar ahí.
+  En IR real: analista que se congela, on-call senior de baja,
+  liderazgo con agenda, IC que improvisa gente.
+
+INSTRUCCION
+  Una ficha por rol: función de control, modo de fallo, qué métrica
+  tendría en el lab, analogía de SOC. Define sync_rate como número
+  0.0–1.0 que degrada la efectividad del Eva SIN convertirlo en
+  berserk (berserk = ep 02). Define "freeze" como acción no enviada
+  en una ventana de tiempo.
+
+ENTREGABLE
+  docs/episodios/ep01_humanos.md
+    - Fichas: Shinji, Rei, Gendo, Misato (y ONU como actor externo)
+    - Métricas: sync_rate, freeze, backup_unavailable, hidden_agenda
+    - Tabla fallo humano → impacto en el árbol de la sección 08
+    - Reglas de lab (si sync_rate < umbral, Eva no contiene;
+      si backup_unavailable, no hay failover a Rei)
+    - Nota ética breve: este repo no glorifica mandar a un menor;
+      lo nombra como anti-patrón de staffing
+
+CRITERIO
+  Hay métricas implementables. Shinji no es "el llorón": es un
+  operador en freeze con sync bajo. Gendo no es "villano de anime":
+  es hidden_agenda que corrompe la autorización.
+
+NO_HAGAS
+  Código. No Dummy Plug. No psicologizar 25 páginas.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (NERV mínimo + Sachiel)
+################################################################################
+
+OBJETIVO
+  Por fin código. Esqueleto del laboratorio + implementación de
+  Sachiel que obedece las secciones 03–09. Tests unitarios que
+  muerden regeneración, AT Field y sync bajo.
+
+CONTEXTO
+  Constitución del maestro, sección 4. No gems. minitest.
+  Magi: tres votos, mayoría, lo bastante flexible para Ireul después,
+  pero SIN Ireul. Eva tiene operator y sync_rate. SIEM emite los
+  ids de la sección 06. Playbook del ep 01 corre el árbol y termina
+  unresolved.
+
+INSTRUCCION
+  Crea exactamente los archivos listados. Corre los tests. Si fallan,
+  arréglalos. Nombres de TTPs y eventos: los ids ya escritos en
+  docs/episodios/. No inventes una API paralela.
+
+ENTREGABLE
+  lib/nerv.rb
+  lib/nerv/angel.rb
+  lib/nerv/at_field.rb
+  lib/nerv/core.rb
+  lib/nerv/magi.rb
+  lib/nerv/playbook.rb
+  lib/nerv/eva.rb
+  lib/nerv/siem.rb
+  lib/nerv/angels/sachiel.rb
+  lib/nerv/attacks/conventional.rb
+  lib/nerv/attacks/n2_mine.rb
+  lib/nerv/attacks/core_strike.rb
+  test/test_helper.rb
+  test/test_sachiel.rb
+  test/test_playbook_ep01.rb
+  test/test_magi.rb
+  test/test_siem.rb
+
+  Comportamiento mínimo a cubrir en tests:
+    - ConventionalAttack contra Sachiel no destruye el core
+    - N2Mine no destruye el core; dispara regenerate! y mutate!
+    - tras mutate!, Sachiel tiene TTPs nuevas (AdaptiveMutation)
+    - CoreStrike con condiciones (AT Field bajado o penetrado) destruye
+    - en ep 01, Eva con sync_rate bajo NO logra CoreStrike
+    - PlaybookEp01 termina en :unresolved, nunca :berserk ni :contained
+    - SIEM emite pattern_blue, wipe_failed_regen, eva_deployed
+    - Magi.majority? requiere 2 de 3
+
+CRITERIO
+  `ruby -Ilib:test test/test_sachiel.rb test/test_playbook_ep01.rb
+   test/test_magi.rb test/test_siem.rb` sale 0. Hay al menos un test
+  que fallaría si regenerate! no existiera. No hay puts de citas.
+
+NO_HAGAS
+  Berserk. bin/episodio (eso es 11). README promocional. Bundler.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 01
+################################################################################
+
+OBJETIVO
+  Un runner que narra el árbol del playbook con eventos SIEM y
+  termina unresolved. Es la "aparición" ejecutable: ves a Sachiel
+  llegar, sobrevivir, y no resolverse.
+
+CONTEXTO
+  Esto reemplaza el recap de fandom. Quien corra el binario debe
+  reconocer el ep 01. Quien lea los tests debe reconocer el lab.
+
+INSTRUCCION
+  Implementa el runner. Debe poder correrse sin argumentos y
+  imprimir una traza (stderr o stdout) con los eventos, no un
+  fanfic de 200 líneas. Exit code 2 = unresolved (sí: distinto de 0,
+  porque el episodio NO está contenido). Exit 0 reservar para
+  episodios que sí contienen. Documenta eso en el propio archivo
+  con un comentario de cabecera.
+
+ENTREGABLE
+  bin/episodio                 # ejecutable, shebang ruby
+  lib/nerv/scenarios/ep01.rb   # escenario
+  test/test_scenario_ep01.rb   # el escenario termina :unresolved
+  docs/episodios/ep01_lab.md   # cómo correrlo, exit codes, qué ver
+
+  Uso:
+    ruby -Ilib bin/episodio 01
+
+CRITERIO
+  El comando de uso corre, imprime eventos con los ids de la 06,
+  sale con código 2, y el test del escenario pasa.
+  Un extraño reconoce el wipe fallido en la traza.
+
+NO_HAGAS
+  Resolver el combate. No gem de CLI. No coloridos ASCII-art enormes
+  (una línea de banner NERV está bien).
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 02
+################################################################################
+
+OBJETIVO
+  Cerrar el ep 01 como NERV debería haber cerrado un incidente:
+  qué vimos, qué controles faltaban, qué se transfiere, qué queda
+  prohibido olvidar. Actualizar ESTADO al ep 02 sin escribir el
+  archivo de prompts del 02.
+
+CONTEXTO
+  En la TV el corte es brutal y el ep 02 abre con la resaca. En el
+  repo, el AAR es el verdadero control preventivo de cara al 02:
+  berserk, The Beast, el cuerpo del Eva como arma que NERV no
+  controla del todo, Shinji vivo de milagro, la ciudad enterada.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 02
+    angel: Sachiel
+    archivo_episodio: prompts/ep02_sachiel.txt
+    estado: episodio_completo
+    ultima_nota: ep 01 cerrado unresolved. Falta crear prompts/ep02_sachiel.txt
+  Lista lo que el archivo ep02 DEBERÁ contener (secciones sugeridas,
+  no las escribas). No crees ep02_sachiel.txt en este turno.
+
+ENTREGABLE
+  docs/episodios/ep01_aar.md
+    - Resumen del incidente (10 líneas)
+    - Controles que existían / que faltaban
+    - TTPs confirmadas
+    - Deuda hacia ep 02 (berserk, aftermath, revelación, sync trauma)
+    - Deuda hacia Ireul/MAGI (nada que romper aún, solo diseño)
+    - "Lección Seele" en 5 viñetas (la que se le puede decir a un SOC
+      sin haber visto la serie)
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 02 y declara que falta el archivo de prompts.
+  El AAR se entiende sin haber visto el capítulo, y también se
+  reconoce si sí lo viste. No hay spoilers post-ep 02.
+
+NO_HAGAS
+  Escribir prompts/ep02_sachiel.txt. No abrir ep 03–26.
+
+SIGUIENTE
+  FIN
+################################################################################

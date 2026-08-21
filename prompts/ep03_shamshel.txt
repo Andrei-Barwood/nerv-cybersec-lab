@@ -1,0 +1,649 @@
+---
+EPISODIO: 03
+TITULO_CANON: A Transfer / The Phone That Doesn't Ring / 鳴らない、電話
+ANGEL: Shamshel
+INCIDENTE: INC-SHAMSHEL-001
+NUMERO_ANGEL: 4º
+CLASE_AMENAZA: explotación remota / C2 de largo alcance / primer kill con operador al volante
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01_sachiel.txt y prompts/ep02_sachiel.txt existen.
+  INC-SACHIEL-001 está cerrado :contained_uncontrolled. Este episodio
+  NO reabre a Sachiel y NO usa BerserkChannel como vía de victoria.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01 §10 y ep 02 §10 (código+tests, no sus
+  docs) y luego esta extensión. Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 04 — Hedgehog's Dilemma (sin ángel: aislamiento vs colaboración)
+FUERA_DE_ALCANCE: |
+  No berserk como rama de victoria (el Beast no es el plan; si se dispara,
+  el lab lo trata como fallo de playbook, no como éxito).
+  No tesis completa del erizo: el teléfono que no suena se NOMBRA;
+  el episodio 04 la posee.
+  No Ramiel, no Yashima, no Jet Alone, no Dummy Plug, no Yui.
+  No rehacer anatomía de Sachiel ni TTPs T-EVA01-* salvo para CITAR
+  que aquí no aplican como método.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Shinji es transferido a la escuela de Tokio-3. Toji, Kensuke, Hikari.
+  Toji golpea a Shinji: su hermana fue daño colateral de INC-SACHIEL-001.
+  El teléfono de Shinji no suena.
+  Shamshel aparece: cuerpo insectoide relativamente fijo, dos látigos
+  de energía de largo alcance, core expuesto en el torso.
+  Eva-01 sale. Shinji tiene miedo y opera. Rifle de paletas no corta
+  los látigos. Toji y Kensuke se cuelan a mirar (observadores no autorizados).
+  Cuchillo progresivo: corta látigos, clava el core. El ángel se deshincha.
+  Shinji llora en el entry plug. NERV recupera el cadáver (muestra).
+  Primera contención con input del operador NO descartado.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Declarar un incidente NUEVO (INC-SHAMSHEL-001) y la primera vez que
+  el lab puede salir :contained_controlled (exit 0). El susto ya no es
+  "el ángel regenera" ni "el Eva se suelta": es un canal de mando que
+  pega de lejos, y un piloto que tiene que cortarlo él.
+
+CONTEXTO
+  Transfer = el operador entra a una red civil (escuela) donde el
+  incidente anterior ya dejó heridos. El ángel no marcha al geofront
+  como Sachiel: planta un cuerpo y tiende látigos. En seguridad: C2.
+  El ep 02 enseñó que un failsafe opaco puede matar al ángel. El ep 03
+  enseña que eso no es operar. Si el playbook del 03 llama a berserk!,
+  está haciendo trampa pedagógica.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual de Shamshel todavía.
+  Hereda códigos de salida:
+    0 = :contained_controlled     (este episodio, si se cortan látigos
+                                   y el core cae con input del operador)
+    1 = :contained_uncontrolled   (si el Beast resuelve; es FALLO del 03)
+    2 = :unresolved
+  Declara: MAGI autoriza deploy; el operador debe conservar el volante.
+
+ENTREGABLE
+  docs/episodios/ep03_briefing.md con exactamente estos headings:
+    - Contrato (incidente nuevo vs INC-SACHIEL-001)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (Beast-as-plan, erizo, Yashima)
+    - Definición de victoria (lab): contained_controlled
+    - Definición de derrota (lab): berserk, core sin cortar C2,
+      observadores muertos, freeze total
+    - Vocabulario nuevo (C2, látigo, sever, cuchillo progresivo,
+      rifle de paletas, observador no autorizado, muestra/cadáver,
+      contained_controlled)
+    - Relación con ep 01–02 (qué se reusa, qué se prohíbe como método)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y creer que "el Eva despierta otra vez"
+  es la doctrina. Exit 0 está definido Y condicionado a input humano.
+  No spoilers post-ep 04.
+
+NO_HAGAS
+  Reescribir docs/episodios/ep01_*.md ni ep02_*.md. Crear lib/.
+  Listar los 17 ángeles.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (Shamshel)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen del 4º ángel. Cuerpo que no camina como soldado;
+  alcance que sí. Memoria visual + first packet de un C2.
+
+CONTEXTO
+  No es el bípedo de máscara. Es más bajo, más "máquina-insecto", dos
+  apéndices que se vuelven látigos de luz y cortan ciudad a distancia.
+  El error clásico: tratarlo como Sachiel 2 (marchar, wipe, Beast).
+  El perímetro ve corte en radio largo sin que el cuerpo se haya
+  acercado al geofront.
+
+INSTRUCCION
+  Spec de aparición en dos columnas:
+    A) escena (presente, sensorial, breve): cielo/ciudad, cuerpo fijo,
+       látigos que se tensan, edificios
+    B) first-seen de seguridad: alerta de alcance, no de marcha
+  Prompt de imagen opcional (NO ejecutar): UN párrafo Shamshel vivo,
+  UN párrafo látigos sobre manzana urbana. No poster del Beast.
+
+ENTREGABLE
+  docs/episodios/ep03_aparicion.md
+    - Minuto cero (escena)
+    - Lo que el perímetro cree que es (Sachiel-otra-vez vs cosa nueva)
+    - Pattern Blue: misma clase, distinta forma — por qué el nombre
+      no basta como firma
+    - Spec visual (silueta, escala, inmovilidad relativa, látigos,
+      core ya visible vs Sachiel)
+    - Contraste de una tabla corta vs spec de ep01_aparicion.md
+      (citar, no copiar)
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar a Shamshel y se puede escribir una regla "alcance
+  sin traslación del cuerpo". No hay cuchillo todavía. No hay Beast.
+
+NO_HAGAS
+  Código. Anatomía/C2 formal (es 03–04). Escuela/Toji (es 09).
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: cuerpo, látigos, core, sin regenerar
+################################################################################
+
+OBJETIVO
+  Partes de Shamshel → funciones de seguridad → futuros métodos.
+  Látigo ≠ brazo de Sachiel. Core visible no es core fácil.
+
+CONTEXTO
+  Cuerpo = implant / beacon que puede quedarse atrás.
+  Látigos = canales C2 / RCE a distancia: el daño ocurre lejos del
+  proceso padre.
+  Core en el torso = kill condition, pero el camino está barrido por
+  los canales. Acercarte sin sever es entrar por el C2 activo.
+  No es el patrón PERSISTENCIA_POST_WIPE: Shamshel no es el tutorial
+  de la mina N². Si lo "wipes" como a Sachiel, estás peleando al
+  ángel anterior.
+  Muerte: se deshincha. El cadáver se puede recoger (muestra). Eso
+  se nombra aquí como propiedad; la doctrina de muestra es de AAR.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de C2 en este repo (una
+  página, no un paper). Contraste explícito con AT Field y Core del
+  ep 01: se REUSAN las clases; Shamshel las combina distinto.
+  Nombres de métodos Ruby (solo nombres): whips, sever_c2!, reach,
+  deflate!.
+
+ENTREGABLE
+  docs/episodios/ep03_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - Látigo como C2 (definición operativa NERV)
+    - Por qué el core visible no autoriza un rush
+    - Qué NO es: regenerate!/mutate! de Sachiel no son el centro
+    - Implicación: golpear el cuerpo con rifle no corta el canal
+
+CRITERIO
+  Un implementador no puede confundir Whip con ATField ni con
+  AdaptiveMutation. Hay nombres de método estables.
+
+NO_HAGAS
+  Código. Playbook del cuchillo (es 08). Cadáver-como-intel largo (es 12).
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón C2: alcanzar sin estar, cortar antes de clavar
+################################################################################
+
+OBJETIVO
+  Fijar la lección central de Shamshel: un canal de mando de largo
+  alcance es la amenaza. El kill al core SIN sever es temerario.
+  El rifle que no corta canales es teatro, parecido al N² del 01
+  pero por otra razón.
+
+CONTEXTO
+  Analogía: beacon que no vive en el box que estás parcheando;
+  RCE desde un C2; dual-use admin tools; reverse shell. Cortar C2
+  (aislar, null-route, matar callback) y LUEGO el core (el proceso
+  padre / el implant).
+  El rifle de paletas = spray masivo, ruidoso, no secciona el canal.
+  El cuchillo progresivo = herramienta precisa, distancia cero,
+  requiere que el operador se acerque de verdad (human-in-the-loop).
+
+INSTRUCCION
+  Escribe el patrón C2_LARGO_ALCANCE.
+  Distingue: PalletRifle (no-evento de C2) vs SeverC2 vs CoreStrike
+  operador vs BerserkChannel (prohibido como éxito aquí).
+  Regla de lab: Shamshel.alive mientras quede un látigo activo O el
+  core intacto — decide y documenta; recomendación: látigos activos
+  impiden CoreStrike seguro (el golpe falla o mata al Eva). Sé
+  explícito para que la sección 10 no improvise.
+
+ENTREGABLE
+  docs/episodios/ep03_c2.md
+    - Escena breve del rifle que no basta
+    - Patrón C2_LARGO_ALCANCE (precondiciones, síntoma, error humano)
+    - Tabla: PalletRifle | SeverC2 | CoreStrike(operator) | BerserkChannel
+    - Regla de lab (orden obligatorio: sever → core)
+    - Analogías (máximo 3, concretas: beacon/C2, RCE, isolate-then-kill)
+    - Señal SIEM: "ángel inmóvil" no es "ángel contenido"
+
+CRITERIO
+  El orden sever→core está escrito de forma implementable.
+  BerserkChannel aparece en la tabla como FALLO de este episodio.
+
+NO_HAGAS
+  Código. No Ramiel (un taladro no es un látigo).
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de Shamshel
+################################################################################
+
+OBJETIVO
+  Kill-chain de ESTE ángel. Ids nuevos. Cerrar en prosa (no en código)
+  que T-SACHIEL-* y T-EVA01-* no son el método, salvo Collateral que
+  REAPARECE como deuda social (la hermana de Toji).
+
+CONTEXTO
+  Shamshel: presencia, canales de alcance, corte urbano, defensa del
+  core con el propio C2, persistencia baja comparada con Sachiel.
+  El defensor, si opera bien, añade TTPs humanas: acercamiento,
+  corte de canal, cuchillo. Si opera mal, reaparece OperatorBypassBerserk
+  y el 03 se pudre en un 02.
+
+INSTRUCCION
+  Fases de Shamshel + fases del operador controlado.
+  Ids estables citables desde tests.
+
+ENTREGABLE
+  docs/episodios/ep03_ttps.md
+    - Qué T-SACHIEL-* siguen muertos (no reabrir)
+    - Qué T-EVA01-* están PROHIBIDOS como método de victoria
+    - T-EVA01-05 CollateralCity: no como TTP de Shamshel, sí como
+      PRECONDICIÓN social (Toji) — una nota, no un id nuevo de ángel
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-SHAMSHEL-01 StationaryBeachhead
+        T-SHAMSHEL-02 LongReachC2
+        T-SHAMSHEL-03 RemoteSlash
+        T-SHAMSHEL-04 CoreGuardedByChannel
+        T-SHAMSHEL-05 DeflateOnCoreLoss
+        T-OP01-01 PalletSprayMiss
+        T-OP01-02 C2Sever
+        T-OP01-03 ProgressiveKnifeCore
+    - Tabla de fases + diagrama ASCII (beachhead → látigos → rifle
+      falla → freeze-o-sever → knife → deflate)
+    - Qué NO es TTP de Shamshel (regeneración N², Beast, taladro Ramiel)
+
+CRITERIO
+  Los ids T-SHAMSHEL-* y T-OP01-* son citables. El diagrama tiene
+  una rama de freeze y una de berserk marcadas como fallo.
+
+NO_HAGAS
+  Código. No inventar un segundo piloto (Asuka no existe aún).
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección (alcance, no marcha)
+################################################################################
+
+OBJETIVO
+  Pattern Blue no basta: hay que firmar ALCANCE. Detectar C2, detectar
+  observadores no autorizados, detectar "inmóvil ≠ inofensivo".
+
+CONTEXTO
+  El SIEM del 01 miraba traslación hacia el geofront. Shamshel puede
+  no caminar y igual cortar la ciudad. Kensuke/Toji en la zona son
+  un evento de seguridad (humanos en el blast sin badge).
+  El teléfono que no suena: ausencia de callback al operador — se
+  registra como señal humana, no como TTP del ángel.
+
+INSTRUCCION
+  Señales de lab para Shamshel y para el operador. Ids estables.
+  Falsos positivos: "se quedó quieto, ya pasó". Frase-ley:
+  "inmóvil no es contenido; silencioso no es aislado".
+
+ENTREGABLE
+  docs/episodios/ep03_deteccion.md
+    - Pattern Blue heredado vs firma nueva de alcance
+    - Ids obligatorios:
+        siem.pattern_blue          (reusar)
+        siem.c2_channel_up
+        siem.c2_channel_severed
+        siem.pallet_rifle_fired
+        siem.progressive_knife
+        siem.core_destroyed        (reusar id; distinta vía que el 02)
+        siem.angel_deflated
+        siem.unauthorized_observer
+        siem.operator_input_present
+        siem.operator_freeze
+        siem.callback_absent
+    - Falsos positivos
+    - Observadores: qué los dispara (Toji/Kensuke)
+    - Relación con magi: autorizan deploy, no autorizan Beast
+    - Anti-métrica: core_destroyed + operator_input_discarded = esto
+      no es un 03, es un 02 disfrazado
+
+CRITERIO
+  Ids usables en tests. Queda escrito que core_destroyed solo no
+  clasifica el episodio: hace falta operator_input_present.
+
+NO_HAGAS
+  Código. No redefinir Pattern Blue desde cero. No Dummy Plug.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que el látigo llegue)
+################################################################################
+
+OBJETIVO
+  Prevención de C2 y de zona de espectadores. No "tener un Eva".
+  No "tener un Beast".
+
+CONTEXTO
+  Prevenible: segmentación para que un canal largo no atraviese la
+  ciudad; no dejar civiles (ni fans con binoculares) en el radio;
+  entrenar al operador en corte de canal ANTES del first-seen;
+  no evaluar el rifle como herramienta de C2; no transferir al
+  operador a una red civil sin preparar a esa red (escuela que no
+  sabe que convive con el on-call).
+  No prevenible del todo: que exista un ángel de alcance. Se prepara.
+  Anti-patrón: "en el 02 despertó, despertará otra vez".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Controles distintos a los del 01 y 02 (citar, no copiar).
+  Analogías de una línea: segmentación, egress filtering, kill C2,
+  cordón de incidente, tabletop de first-seen distinto al anterior.
+
+ENTREGABLE
+  docs/episodios/ep03_prevencion.md
+    - Columna PREVENIBLE (mínimo 5, no clones de ep 01/02)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): Beast-as-plan; rifle-as-sever;
+      "el público ya vio, que se queden a mirar"
+    - Relación con T-SHAMSHEL-* y T-OP01-*
+    - Higiene de C2 en 7 viñetas (sirve para beacon/callback real)
+    - Nota escuela: transferir al operador sin briefing a la red
+      civil es ampliar superficie
+
+CRITERIO
+  Nadie sale pensando que el cuchillo es prevención (es mitigación
+  de distancia cero). La escuela no se vuelve el erizo del 04.
+
+NO_HAGAS
+  Playbook del durante (es 08). Código.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook de mitigación (rifle → sever → cuchillo)
+################################################################################
+
+OBJETIVO
+  Runbook del primer kill gobernado. Rama Beast = fallo. Rama freeze
+  total = unresolved o muerte del Eva. Victoria solo con
+  operator_input_present + c2_severed + core_destroyed.
+
+CONTEXTO
+  Misato entrena en vivo (coaching de IC, no failsafe). Shinji quiere
+  huir y no huye: eso es operate-under-panic, no berserk.
+  Toji/Kensuke en zona: el playbook debe registrar observadores;
+  no los usa como cebo.
+  Cadáver: paso final de recolección de muestra, no de trofeo.
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables.
+  Encadena vocabulario de containment_result del 02.
+  Hooks Ruby. Handoff corto a ep 04 (sin ángel), no a Ramiel.
+
+ENTREGABLE
+  docs/episodios/ep03_playbook.md
+    - Árbol ASCII (incluye rama Beast marcada FAIL)
+    - Runbook numerado (Pattern Blue, deploy MAGI, rifle, evaluación
+      de C2, freeze check, sever, close, knife, deflate, sample,
+      observadores, callback_absent)
+    - Condición de victoria :contained_controlled
+    - Condición de fallo :contained_uncontrolled (Beast)
+    - Condición :unresolved (freeze / Eva down / C2 aún up)
+    - Hooks Ruby
+    - Qué se le pasa al ep 04 (lista: operador que acaba de lograr
+      y no tiene quién lo llame)
+
+CRITERIO
+  Traducible a tests de estado. No existe rama "el Eva ruge y listo"
+  marcada como éxito.
+
+NO_HAGAS
+  Código. No Yashima. No sincronizar dos Evas (Israfel).
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: transfer, puñetazo, binoculares, silencio
+################################################################################
+
+OBJETIVO
+  El operador ya no es solo freeze del 01 ni no-consent del 02:
+  opera con miedo. Aparecen Toji (daño colateral que se volvió gente)
+  y Kensuke (espectador que busca el incidente). El teléfono que no
+  suena es ausencia de red de soporte — frontera con el 04.
+
+CONTEXTO
+  Transfer: el on-call vive ahora en la misma LAN que las víctimas
+  del incidente anterior. Toji pega porque la hermana está en el
+  blast radius del 02: el AAR que NERV no hizo bien llega en forma
+  de puño. Kensuke quiere ver el Eva: shadow-IT / turismo de incidentes.
+  Hikari: orden menor en la red civil (se nombra, no se ficha como
+  control). Misato: coaching en vivo, sigue siendo IC dual.
+  Shinji: input presente + pánico + llanto post-kill. No es victoria
+  emocional. Gendo: casi ausente; no es el capítulo de su agenda.
+
+INSTRUCCION
+  Fichas NUEVAS (Toji, Kensuke) + deltas de Shinji/Misato.
+  Métricas implementables. Frontera explícita con ep 04: aquí el
+  teléfono no suena; allá Shinji se va.
+  Ética: no usar a Toji como "civilian-id que merecía el golpe";
+  el fallo es de NERV, el puño es síntoma.
+
+ENTREGABLE
+  docs/episodios/ep03_humanos.md
+    - Fichas: Toji, Kensuke (y nota de una línea a Hikari)
+    - Deltas: Shinji (operator_input_present + panic), Misato (coach),
+      Gendo (ausente), Público (ahora también "compañeros de clase")
+    - Métricas: panic_level, operator_input_present (debe ser true
+      al éxito), unauthorized_observer_count, callback_absent,
+      collateral_grudge (Toji)
+    - Tabla métrica → impacto en el árbol de la 08
+    - Reglas de lab: observadores no autorizados no invalidan el
+      contained_controlled del ángel PERO emiten evento y quedan
+      como deuda; callback_absent no cambia el exit code y SÍ se
+      transfiere al 04
+    - Frontera con ep 04
+
+CRITERIO
+  Toji no es "el bully": es el blast radius con nombre. Kensuke no
+  es comic relief: es observador no autorizado. Shinji no "se volvió
+  valiente": operó con pánico y el input no se descartó.
+
+NO_HAGAS
+  Código. No huida de NERV (ep 04). No Dummy Plug. No romance.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (Shamshel + playbook gobernado)
+################################################################################
+
+OBJETIVO
+  Código del 4º ángel y del primer :contained_controlled.
+  Tests que FALLAN si el 03 se gana con berserk!, si CoreStrike
+  ocurre con C2 aún up (según la regla de la §04), o si el 01/02
+  dejan de comportarse como antes.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Reusar ATField, Core, Magi, SIEM, Eva, ContainmentResult.
+  No reabrir Sachiel.alive. No llamar Eva#berserk! en PlaybookEp03
+  salvo para asertar que eso clasifica FAIL.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests 01, 02 y 03.
+  Ids de TTPs/SIEM: los de docs/episodios/ep03_*.md.
+
+ENTREGABLE
+  lib/nerv/angels/shamshel.rb
+  lib/nerv/c2_channel.rb
+  lib/nerv/attacks/pallet_rifle.rb
+  lib/nerv/attacks/progressive_knife.rb
+  lib/nerv/playbooks/ep03.rb
+  test/test_shamshel.rb
+  test/test_playbook_ep03.rb
+  test/test_c2_channel.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/eva.rb
+    lib/nerv/siem.rb
+    lib/nerv/playbook.rb
+
+  Comportamiento mínimo a cubrir:
+    - PalletRifle no severs C2 ni destruye el core
+    - C2 activo bloquea (o hace fallar) CoreStrike/ProgressiveKnife
+      según la regla escrita en ep03_c2.md
+    - sever_c2! + ProgressiveKnife con operator_input_present
+      destruye el core y deflate!
+    - PlaybookEp03 → :contained_controlled
+    - Si el playbook invoca berserk!, el resultado NO es
+      :contained_controlled (test de trampa pedagógica)
+    - operator_input_discarded == false al éxito
+    - SIEM: c2_channel_up, c2_channel_severed, progressive_knife,
+      angel_deflated, unauthorized_observer, operator_input_present
+    - Magi mayoría para deploy, no para berserk
+    - Tests de ep 01 siguen :unresolved; ep 02 :contained_uncontrolled
+    - Sachiel no revive
+
+CRITERIO
+  ruby -Ilib:test test/test_sachiel.rb test/test_playbook_ep01.rb \
+    test/test_playbook_ep02.rb test/test_shamshel.rb \
+    test/test_playbook_ep03.rb test/test_c2_channel.rb
+  sale 0. Hay un test que falla si se gana el 03 con Beast.
+  Hay un test que falla si el cuchillo mata con látigos aún up.
+
+NO_HAGAS
+  Borrar tests del 01/02. Bundler. Clase Yui. Poner exit 1 como éxito.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 03
+################################################################################
+
+OBJETIVO
+  Runner de INC-SHAMSHEL-001. Traza: escuela/transfer → Pattern Blue
+  → rifle → látigos → sever → knife → deflate → observadores →
+  teléfono que no suena. Exit code 0.
+
+CONTEXTO
+  bin/episodio 01 → 2; 02 → 1; 03 → 0.
+  La traza debe distinguir este 0 del "resolved" falso del 02
+  (allá había congratulations_issued). Aquí: operator_input_present
+  y callback_absent a la vez (ganó el ángel, nadie llama).
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 03.
+  Si el binario no existe, créalo soportando 01–03.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep03.rb
+  test/test_scenario_ep03.rb
+  docs/episodios/ep03_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 03
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime c2_channel_severed, progressive_knife,
+  operator_input_present, unauthorized_observer, callback_absent;
+  NO imprime eva_berserk como vía de éxito; sale 0.
+  test/test_scenario_ep03.rb pasa.
+  01 sigue saliendo 2, 02 sigue saliendo 1.
+
+NO_HAGAS
+  Gem de CLI. Spoiler de ep 04 en la traza más allá de callback_absent.
+  ASCII-art de OP.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 04
+################################################################################
+
+OBJETIVO
+  Cerrar INC-SHAMSHEL-001. El ángel está deshinchado, hay muestra,
+  el operador gobernó, nadie lo llamó. Transferir al erizo (sin ángel)
+  sin escribir su archivo de prompts.
+
+CONTEXTO
+  NERV tiene un cadáver que estudiar (intel / sample). Tiene un
+  piloto que demostró C2Sever + knife. Tiene compañeros de clase
+  que vieron demasiado. Tiene un chico cuyo teléfono no suena.
+  El ep 04 no trae Pattern Blue: trae al operador saliéndose del
+  sistema. El AAR tiene que decir que un contained_controlled no
+  repara la red de soporte. Kensuke/Toji quedan como deuda social,
+  no como comic.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 04
+    titulo_canon: Hedgehog's Dilemma
+    angel: (ninguno)
+    numero_angel:
+    archivo_episodio: prompts/ep04_hedgehog.txt
+    estado: episodio_completo
+    ultima_nota: INC-SHAMSHEL-001 cerrado contained_controlled. Falta crear prompts/ep04_hedgehog.txt. Deuda: callback_absent, collateral_grudge, observadores.
+  No crees ep04_hedgehog.txt en este turno.
+  Lista secciones sugeridas para el 04 (episodio SIN ángel: política,
+  aislamiento, deserción del on-call), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep03_aar.md
+    - Resumen del incidente (10–15 líneas)
+    - Estado del ángel (deflate + muestra) vs estado del operador
+    - TTPs de Shamshel cerradas / T-OP01-* abiertas como doctrina
+    - T-EVA01-02 sigue prohibido como plan
+    - Controles que faltan
+    - Cadáver como sample (qué se puede aprender; no Dummy Plug)
+    - Deuda hacia ep 04 (teléfono, huida, erizo, Toji)
+    - Deuda hacia ep 05–06 (Ramiel: esto NO era un octaedro)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 04 y declara que falta el archivo de prompts.
+  El AAR se entiende sin la serie. No spoilers post-ep 04.
+  Shamshel no reaparece "por si acaso". El 0 de exit no se vende
+  como "Shinji ya está bien".
+
+NO_HAGAS
+  Escribir prompts/ep04_hedgehog.txt. No reabrir Sachiel. No Yashima.
+
+SIGUIENTE
+  FIN
+################################################################################

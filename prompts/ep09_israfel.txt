@@ -1,0 +1,631 @@
+---
+EPISODIO: 09
+TITULO_CANON: Both of You, Dance Like You Want to Win! / 瞬間、心、重ねて
+ANGEL: Israfel
+TIPO: angel
+INCIDENTE: INC-ISRAFEL-001
+NUMERO_ANGEL: 7º
+CLASE_AMENAZA: amenaza partida / alta disponibilidad del atacante / dos operadores a un mismo tempo
+SECCIONES: 12
+PRERREQUISITO: |
+  prompts/ep01–ep08 existen. INC-GAGHIEL-001 está :contained_controlled
+  vía DualPlug + mandíbula + flota. DualPlug NO satisface este episodio:
+  dos personas en UN Eva no pueden estar en dos cuerpos del ángel.
+  Yashima NO satisface: francotirador/escudo es roles distintos en
+  secuencia, no dos cores al mismo tick.
+  Al EJECUTAR secciones 10–11: si lib/nerv/ no existe, construye primero
+  los contratos mínimos de ep 01–08 §10 y luego esta extensión.
+  Si existe, EXTEND, don't rewrite.
+SIGUIENTE: ep 10 — Magma Diver / Sandalphon (amenaza embrionaria; hunt en magma)
+FUERA_DE_ALCANCE: |
+  No DualPlug como victoria (eso es el 08). No Yashima. No Gaghiel.
+  No Jet Alone. No Dummy Plug. No Yui. No Ireul.
+  No Sandalphon / magma (ep 10).
+  No par de Rei+Shinji: el sync es Asuka+Shinji, Eva-02+Eva-01.
+  No celebrar el baile como fanservice: es el ensayo del playbook.
+  N² no mata (igual que con Sachiel): compra una ventana de ensayo.
+  No generar imágenes salvo pedido explícito.
+CANON_MINIMO: |
+  Israfel aparece. Shinji y Asuka salen sin tempo común: el ángel
+  se PARTE en dos cuerpos, se pisan, pierden. NERV lanza una mina
+  N²: no mata, aturde. Hay días de reloj.
+  Misato los pone a ensayar un baile (coreografía = runbook).
+  Segundo combate: Eva-01 y Eva-02 se mueven como un solo reloj y
+  golpean los DOS cores en la misma ventana. Si uno llega tarde,
+  el otro cuerpo reconstituye. Israfel muere. Asuka sigue siendo
+  Asuka. Shinji no "ganó el corazón"; ganó un tick compartido.
+---
+
+
+################################################################################
+##### SECCION 01 — Briefing y contrato del episodio
+################################################################################
+
+OBJETIVO
+  Abrir INC-ISRAFEL-001: un ángel con HA. Un Eva no basta. DualPlug
+  no basta. El primer sortie DEBE fallar en el lab (desync). El
+  N² abre una ventana, no un ataúd. Victoria :contained_controlled
+  (exit 0) solo con dos unidades, dos cores, un mismo instante.
+
+CONTEXTO
+  En seguridad: implant activo-activo / dos C2 / replicación. Matar
+  un nodo deja que el otro te reconstruya. Hace falta un cambio
+  coordinado en la misma ventana de consistencia. El 08 entrenó
+  jerarquía en un solo cuerpo. El 06 entrenó roles distintos
+  (disparo / escudo). El 09 entrena el MISMO movimiento en dos
+  sitios. El baile es tabletop hasta muscle memory.
+
+INSTRUCCION
+  Escribe el briefing. No código. No spec visual del split aún.
+  Exit codes de ángel:
+    0 = :contained_controlled     (esperado al CIERRE, vía sync)
+    1 = :contained_uncontrolled   (Beast = FAIL)
+    2 = :unresolved               (primer sortie, o un solo core)
+  El camino feliz incluye un unresolved INTERNO (sortie 1) y un
+  0 al final. El N² no cambia a contained.
+
+ENTREGABLE
+  docs/episodios/ep09_briefing.md con exactamente estos headings:
+    - Contrato (INC-ISRAFEL-001; dos cuerpos, un reloj)
+    - Lo que este episodio enseña
+    - Lo que este episodio NO enseña (DualPlug, Yashima, magma,
+      Dummy Plug, el baile-como-romance)
+    - Definición de victoria (lab): simultaneidad, no heroísmo
+    - Definición de derrota (lab): un Eva; DualPlug; un core;
+      N²-as-kill; Beast
+    - Vocabulario nuevo (split, rejoin, dual-core, ventana de
+      sync, ensayo/baile, N²-timer, epsilon temporal)
+    - Relación con 01 (N² teatro de kill), 06 (roles), 08 (un plug)
+    - Lista de las 12 secciones y su entregable de una línea
+
+CRITERIO
+  Imposible leer el briefing y ganar con Eva-02 solo o con
+  dos personas en un plug. N² no es victoria. No spoilers
+  post-ep 10 salvo nombrarlo.
+
+NO_HAGAS
+  Reescribir docs 01–08. Crear lib/. Convertir el baile en OP.
+
+SIGUIENTE
+  02
+
+
+################################################################################
+##### SECCION 02 — Recreación de la aparición (uno, luego dos)
+################################################################################
+
+OBJETIVO
+  Recrear el first-seen: un ángel que se vuelve dos. La imagen
+  pedagógica no es un bípedo más; es el corte donde UN cuerpo
+  se abre en ESPEJO. Luego el baile (ensayo) y el segundo combate
+  como un solo animal de cuatro brazos.
+
+CONTEXTO
+  Gaghiel era un pez-montaña. Israfel es humanoide que se duplica.
+  El error clásico: "hay dos ángeles" (son UNO con HA) o "peleo
+  al que tengo delante" (el otro te revive). El first packet es
+  uno; el second packet es el split.
+
+INSTRUCCION
+  Spec en dos columnas:
+    A) escena: aparición única, primer combate caótico, split,
+       N², ensayo de baile, segundo combate en espejo
+    B) first-seen de seguridad: un asset que de pronto tiene
+       réplica activa
+  Prompt de imagen opcional (NO ejecutar): UN párrafo split
+  (un cuerpo → dos espejos), UN párrafo dos Evas en la misma
+  pose de golpe. Nada de DualPlug. Nada de magma.
+
+ENTREGABLE
+  docs/episodios/ep09_aparicion.md
+    - Minuto cero (un ángel)
+    - El corte del split (lo que se VE)
+    - Lo que el perímetro cree (dos amenazas independientes)
+    - Spec visual Israfel entero / Israfel partido (simetría)
+    - Spec visual del desync (Evas pisándose) vs sync (espejo)
+    - Spec breve del ensayo (cuerpo humano, no Eva): el runbook
+      se ve como baile
+    - "Prompt de imagen (opcional, no ejecutar)"
+
+CRITERIO
+  Se puede dibujar el split sin un tercer Eva. Se puede escribir
+  una regla "réplica activa, no segundo incidente". No hay
+  mandíbula de Gaghiel.
+
+NO_HAGAS
+  Código. Anatomía de cores/timer (es 03–04). Sandalphon.
+
+SIGUIENTE
+  03
+
+
+################################################################################
+##### SECCION 03 — Anatomía: split, dos cores, rejoin, N²-timer
+################################################################################
+
+OBJETIVO
+  Partes de Israfel → funciones de seguridad → futuros métodos.
+  Dos cores no son "core interno de Ramiel" ni "core-en-boca".
+  El N² aquí es un STUN con deadline, no el teatro de kill del 01.
+
+CONTEXTO
+  Cuerpo = nodo. Split = failover del atacante, no de NERV.
+  Core×2 = persistencia replicada. Rejoin/regen si la ventana
+  de consistencia no se rompe en ambos lados. AT Field se reusa.
+  Epsilon = Δt máximo entre los dos golpes para que cuenten
+  como simultáneos. N2Window = tiempo de ensayo comprado.
+
+INSTRUCCION
+  Tabla de partes. Definición operativa de split!, rejoin!,
+  cores_alive, simultaneous?(epsilon), n2_stun!.
+  Umbral numérico de epsilon (explícito para la §10).
+  Frontera DualPlug: un Eva no puede ocupar dos coordenadas
+  de core.
+
+ENTREGABLE
+  docs/episodios/ep09_anatomia.md
+    - Tabla (parte | qué parece | qué hace | analogía de seguridad | símbolo Ruby)
+    - split / rejoin (HA del atacante)
+    - epsilon temporal (valor)
+    - n2_stun vs N2Mine-as-kill (Sachiel sigue inmune; Israfel
+      no MUERE por N², entra en ventana)
+    - Por qué DualPlug y Yashima no cubren dos coordenadas
+    - Implicación: un CoreStrike solitario es un no-evento
+
+CRITERIO
+  Epsilon está escrito. Un implementador no mata a Israfel con
+  N² ni con un solo Eva. Rejoin no es mutate! de Sachiel.
+
+NO_HAGAS
+  Código. Playbook del baile (es 08). Magma.
+
+SIGUIENTE
+  04
+
+
+################################################################################
+##### SECCION 04 — Patrón: la réplica te reconstruye
+################################################################################
+
+OBJETIVO
+  Fijar AMENAZA_PARTIDA. Matar la mitad es alimentar al entero.
+  Coordinación ≠ jerarquía (08) ≠ roles ablativos (06). El ensayo
+  NO es opcional: el primer sortie sin tempo es el control de
+  calidad que falla.
+
+CONTEXTO
+  Analogías: dual-C2; AD replicado; cluster activo-activo;
+  ransomware con dos bastiones; "apagamos un DC y el otro nos
+  vuelve a cifrar". Change window: dos equipos, mismo segundo.
+  Error clásico A: DualPlug (un volante, dos personas).
+  Error clásico B: Yashima (un disparo, un escudo, secuencia).
+  Error clásico C: N² como kill.
+  Error clásico D: Asuka lidera y Shinji "sigue" a destiempo
+  (jerarquía del 08 aplicada a dos cuerpos).
+
+INSTRUCCION
+  Escribe el patrón AMENAZA_PARTIDA.
+  Tabla de métodos vs resultado (DualPlug, Yashima, Beast, N²,
+  un CoreStrike, dos CoreStrike Δt>epsilon, dos CoreStrike
+  Δt≤epsilon tras ensayo).
+  Regla de lab: Israfel muere solo si eva01 y eva02 golpean
+  cores distintos con Δt≤epsilon y rehearsal_done.
+
+ENTREGABLE
+  docs/episodios/ep09_partida.md
+    - Escena breve del primer combate que se pisa
+    - Patrón AMENAZA_PARTIDA (precondiciones, síntoma split,
+      error de playbook anterior, error de "yo lidero")
+    - Tabla de métodos
+    - N² como compra de tiempo (SLA de ensayo)
+    - Analogías (máximo 3)
+    - Señal SIEM: "un core down" no es victoria; es rejoin incoming
+    - Frontera con DualPlug y con Yashima (tabla de tres columnas)
+
+CRITERIO
+  Las condiciones de kill son implementables e incluyen
+  rehearsal_done y epsilon. El 01 sigue con N² inútil como kill
+  contra Sachiel. El 08 sigue ganando con DualPlug contra Gaghiel.
+
+NO_HAGAS
+  Código. No Sandalphon. No Dummy Plug.
+
+SIGUIENTE
+  05
+
+
+################################################################################
+##### SECCION 05 — Cadena de ataque / TTPs de Israfel y del sync
+################################################################################
+
+OBJETIVO
+  Kill-chain del ángel partido + TTPs del defensor coordinado.
+  El baile es T-SYNC, no lore. El desync del primer sortie es
+  TTP de fallo operacional.
+
+CONTEXTO
+  Israfel: presencia, split bajo presión, persistencia cruzada,
+  rejoin. Defensor: desync inicial, N²-timer, ensayo, golpe
+  simultáneo. Asuka-lead del 08 es contraindicada como único
+  tempo.
+
+INSTRUCCION
+  Ids estables. Diagrama: one-body → sortie desync → split →
+  N² window → rehearsal → dual strike → both cores.
+
+ENTREGABLE
+  docs/episodios/ep09_ttps.md
+    - Qué T-OP02-01 DualPlugHierarchy NO se reabre como método
+    - Qué T-YASHIMA-* no aplican
+    - TTPs nuevas, ids obligatorios (puedes añadir, no borrar):
+        T-ISRAFEL-01 SplitOnPressure
+        T-ISRAFEL-02 DualCoreReplication
+        T-ISRAFEL-03 RejoinFromSurvivor
+        T-OP01-13 FirstSortieDesync
+        T-SYNC-01 RehearsedSharedClock
+        T-SYNC-02 SimultaneousCoreStrike
+        T-N2-01 StunWindowNotKill
+    - Tabla de fases + diagrama ASCII
+    - Qué NO es TTP de este episodio (mandíbula, positron, virus,
+      magma, DualPlug-win)
+
+CRITERIO
+  T-SYNC-01 y T-OP02-01 son ids distintos y el segundo no gana
+  el 09. El diagrama tiene un loop de rejoin si Δt>epsilon.
+
+NO_HAGAS
+  Código. No TTP "el cello de Shinji" como kill (puede ser nota
+  humana en la 09, no id de ángel).
+
+SIGUIENTE
+  06
+
+
+################################################################################
+##### SECCION 06 — Superficie de detección: un split no es dos tickets
+################################################################################
+
+OBJETIVO
+  Detectar split, dos cores, desync, n2_window, rehearsal,
+  simultaneous_hit, rejoin. Correlacionar en UN incidente.
+  "Un core destroyed" aislado debe oler a trampa.
+
+CONTEXTO
+  El SIEM que abre dos Pattern Blue duplica el trabajo y pierde
+  la réplica. Frase-ley: "HA del atacante se ve como dos
+  incidentes si eres ingenuo". El ensayo debe ser observable
+  (no un montaje fuera de banda: es parte del IR).
+
+INSTRUCCION
+  Señales de lab. Ids estables. Falsos positivos: dos ángeles;
+  DualPlug como "ya estamos coordinados".
+
+ENTREGABLE
+  docs/episodios/ep09_deteccion.md
+    - Pattern Blue heredado + correlación split
+    - Ids obligatorios:
+        siem.pattern_blue
+        siem.angel_split
+        siem.core_pair_alive
+        siem.desync
+        siem.n2_stun_window
+        siem.rehearsal_started
+        siem.rehearsal_done
+        siem.simultaneous_strike
+        siem.rejoin
+        siem.core_destroyed          (reusar; exigir par)
+    - Falsos positivos
+    - Anti-métrica: un core down = 50% done
+
+CRITERIO
+  Ids usables en tests. rejoin se emite si un solo core cae.
+  rehearsal_done es prerrequisito observable del kill.
+
+NO_HAGAS
+  Código. No sensores de magma. No DualPlug-as-sync.
+
+SIGUIENTE
+  07
+
+
+################################################################################
+##### SECCION 07 — Controles preventivos (antes de que se parta)
+################################################################################
+
+OBJETIVO
+  Preventiva de amenazas replicadas: ensayar IR de dos operadores
+  ANTES del first-seen; no copiar DualPlug ni Yashima; tener N²
+  (o pause) catalogado como ventana, no como arma; epsilon
+  definido; no estrenar el sync en producción.
+
+CONTEXTO
+  Prevenible: cero playbook de dual-core; Asuka y Shinji sin
+  reloj compartido; N² pensado como kill; un solo Eva de
+  guardia. No prevenible del todo: que un ángel tenga HA. Se
+  prepara con ensayo, no con un tercer niño.
+  Anti-patrón: "Asuka ya lideró en el mar"; "apagamos Japón
+  otra vez"; "los metemos en el mismo plug".
+
+INSTRUCCION
+  Dos columnas PREVENIBLE / SOLO MITIGABLE.
+  Mínimo 5 controles no clonados. Analogías: game-day de failover
+  del atacante, pair-IR, change dual-commit, stun/isolate como
+  ventana de ensayo no como wipe.
+
+ENTREGABLE
+  docs/episodios/ep09_prevencion.md
+    - Columna PREVENIBLE (mínimo 5)
+    - Columna SOLO MITIGABLE
+    - Anti-patrones (mínimo 3): last-coordination-wins;
+      N2-as-kill; DualPlug-as-sync
+    - Relación con T-ISRAFEL-* y T-SYNC-*
+    - Higiene de sync window en 7 viñetas (sirve a un SOC real)
+    - Nota: el baile ES el tabletop; no es cultura de empresa
+
+CRITERIO
+  Nadie sale pensando que el ensayo es "química de pareja".
+  Nadie llama prevención a la mina N².
+
+NO_HAGAS
+  Runbook del durante (es 08). Código. No magma.
+
+SIGUIENTE
+  08
+
+
+################################################################################
+##### SECCION 08 — Playbook: fallar, aturdir, ensayar, golpear al mismo tick
+################################################################################
+
+OBJETIVO
+  Runbook de dos actos. Acto 1: sortie desync → split → unresolved.
+  N²-timer. Acto 2: rehearsal_done → dos Evas → simultaneous
+  strike → contained_controlled. MAGI autoriza el N² como ventana
+  y el segundo sortie, no un rush de un solo Eva.
+
+CONTEXTO
+  Misato es coreógrafa/IC: impone el ensayo. Asuka quiere liderar
+  como en el 08 y eso rompe el epsilon. Shinji tiene sentido del
+  tempo (música) — útil, no mágico. Rama DualPlug = FAIL. Rama
+  Yashima = FAIL. Rama un-core = rejoin. Rama Beast = FAIL.
+  Rama N²-kill = FAIL pedagógico (y de tests del 01).
+
+INSTRUCCION
+  Árbol y runbook numerado. Condiciones implementables
+  (epsilon de la §03). Hooks Ruby. Handoff a ep 10 (Sandalphon:
+  hunt embrionario, un Eva en magma), lista, no redactar el 10.
+
+ENTREGABLE
+  docs/episodios/ep09_playbook.md
+    - Árbol ASCII (dos actos)
+    - Runbook numerado (detectar, primer sortie, split, abort,
+      N² ventana, ensayo, check rehearsal_done, segundo sortie,
+      dual strike, verificar que no hay rejoin)
+    - Condición :contained_controlled
+    - Condición :unresolved (acto 1 o un solo core)
+    - Hooks Ruby
+    - Handoff a ep 10 (lista: no es HA, es embrión; no baile)
+
+CRITERIO
+  Traducible a tests. El acto 1 no se puede saltar en el
+  escenario feliz (o, si se permite skip, el test del runner
+  AÚN lo muestra — decide y sé explícito: recomendación: el
+  runner lo muestra siempre; un flag skip_rehearsal falla).
+
+NO_HAGAS
+  Código. No lib/nerv/angels/sandalphon.rb. No DualPlug-win.
+
+SIGUIENTE
+  09
+
+
+################################################################################
+##### SECCION 09 — Factor humano: el reloj compartido no es DualPlug
+################################################################################
+
+OBJETIVO
+  Asuka y Shinji tienen que IGUALAR, no mandar/obedecer. Misato
+  coreografía. Rei no es la pareja. El baile es ensayo; la
+  convivencia de tres erizos se nombra, no se resuelve.
+
+CONTEXTO
+  T-OP02-01 (Asuka lead) fue virtud en el mar y vicio aquí.
+  Shinji no se "vuelve valiente": mantiene el tempo. Ética: no
+  romance-as-mitigación. El sync_rate de cada Eva puede ser
+  alto y el SYNC ENTRE ellos bajo: dos métricas distintas.
+  pair_sync vs individual sync_rate.
+
+INSTRUCCION
+  Deltas Asuka/Shinji/Misato. Métricas: pair_sync (0.0–1.0),
+  rehearsal_hours, desync_count, asuka_lead_override (bool:
+  si true en acto 2, epsilon se rompe).
+  Frontera con ep 08 y con ep 10.
+
+ENTREGABLE
+  docs/episodios/ep09_humanos.md
+    - Deltas: Asuka (lead contraindicado), Shinji (tempo, no
+      secondary-plug), Misato (IC-coreógrafa), Rei (fuera del par)
+    - Métricas implementables (pair_sync ≠ sync_rate)
+    - Tabla métrica → árbol de la 08
+    - Reglas de lab: asuka_lead_override en acto 2 ⇒ no contained;
+      pair_sync < umbral ⇒ desync; rehearsal_done exige pair_sync
+      en banda
+    - Frontera con DualPlug y con el erizo (tres en el depto)
+
+CRITERIO
+  Asuka no es profesora de baile de sitcom. Shinji no "conquista".
+  Misato no es mami-coreógrafa. pair_sync es una métrica nueva.
+
+NO_HAGAS
+  Código. No Kyoko. No Dummy Plug. No magma.
+
+SIGUIENTE
+  10
+
+
+################################################################################
+##### SECCION 10 — Contrato Ruby (dos cores, un epsilon)
+################################################################################
+
+OBJETIVO
+  Código de Israfel y del playbook de dos actos. Tests que
+  FALLAN si DualPlug gana, si un Eva mata los dos cores, si
+  Δt>epsilon cuenta como simultáneo, si N² mata, o si se salta
+  rehearsal_done.
+
+CONTEXTO
+  Constitución §4. EXTEND. minitest. Sin gems.
+  Israfel < Angel. split! produce dos nodos. N2Mine aturde
+  (window) y no mata. DualPlug existe y SIGUE ganando el 08,
+  no el 09. 01–08 siguen pasando.
+
+INSTRUCCION
+  Implementa los archivos. Corre tests relevantes 01, 08, 09.
+  Ids: los de docs/episodios/ep09_*.md.
+  epsilon: el valor de ep09_anatomia.md.
+
+ENTREGABLE
+  lib/nerv/angels/israfel.rb
+  lib/nerv/sync_clock.rb
+  lib/nerv/rehearsal.rb
+  lib/nerv/playbooks/ep09.rb
+  test/test_israfel.rb
+  test/test_sync_clock.rb
+  test/test_rehearsal.rb
+  test/test_playbook_ep09.rb
+  Más modificaciones MÍNIMAS a:
+    lib/nerv.rb
+    lib/nerv/siem.rb
+    lib/nerv/eva.rb
+    lib/nerv/attacks/n2_mine.rb   (Sachiel intacto; Israfel stun)
+
+  Comportamiento mínimo a cubrir:
+    - Israfel.split! ⇒ dos cores vivos
+    - un CoreStrike ⇒ rejoin / el par revive; not contained
+    - DualPlug no produce :contained_controlled en PlaybookEp09
+    - Yashima / Beast / PasswordShutdown tampoco
+    - N2Mine ⇒ n2_stun_window, Israfel.alive
+    - rehearsal_done == false ⇒ segundo sortie no contained
+    - eva01 + eva02 + Δt≤epsilon + rehearsal_done ⇒ ambos cores
+      down, no rejoin, :contained_controlled
+    - asuka_lead_override en acto 2 rompe epsilon
+    - PlaybookEp08 sigue :contained_controlled con DualPlug
+    - N2 vs Sachiel sigue sin matar
+    - SIEM: angel_split, desync, n2_stun_window, rehearsal_done,
+      simultaneous_strike, rejoin (en el fallo de un core)
+    - pair_sync distinto de Operator#sync_rate
+
+CRITERIO
+  ruby -Ilib:test test/test_playbook_ep01.rb test/test_playbook_ep08.rb \
+    test/test_israfel.rb test/test_playbook_ep09.rb \
+    test/test_sync_clock.rb test/test_rehearsal.rb
+  sale 0. Hay un test que falla si un solo Eva gana. Hay un
+  test que falla si DualPlug gana el 09. Hay un test que falla
+  si N² mata a Israfel.
+
+NO_HAGAS
+  lib/nerv/angels/sandalphon.rb. Bundler. Borrar DualPlug.
+
+SIGUIENTE
+  11
+
+
+################################################################################
+##### SECCION 11 — Laboratorio: correr el episodio 09
+################################################################################
+
+OBJETIVO
+  Runner de INC-ISRAFEL-001. Traza: Pattern Blue → desync → split
+  → N² window → rehearsal → simultaneous_strike → cores. Exit 0.
+  El acto 1 se VE. Cero DualPlug-win, cero positron, cero magma.
+
+CONTEXTO
+  bin/episodio … 08→0, 09→0.
+  El 0 del 09 no es el del 08: hay angel_split y simultaneous_strike,
+  no jaw_open.
+
+INSTRUCCION
+  Escenario + test + doc. bin/episodio acepta 09.
+  Si el binario no existe, créalo soportando 01–09.
+
+ENTREGABLE
+  lib/nerv/scenarios/ep09.rb
+  test/test_scenario_ep09.rb
+  docs/episodios/ep09_lab.md
+  Modificación mínima de bin/episodio
+
+  Uso:
+    ruby -Ilib bin/episodio 09
+
+  Exit:
+    0 = :contained_controlled
+
+CRITERIO
+  El comando corre, imprime angel_split, desync, n2_stun_window,
+  rehearsal_done, simultaneous_strike; NO imprime dual_plug como
+  vía de éxito ni on_box_password ni positron_charging; sale 0.
+  test/test_scenario_ep09.rb pasa.
+  08→0 sigue (vía jaw, no vía baile).
+
+NO_HAGAS
+  Gem de CLI. Spoiler de Sandalphon. ASCII de vals que tape la traza.
+
+SIGUIENTE
+  12
+
+
+################################################################################
+##### SECCION 12 — After-action y handoff al episodio 10
+################################################################################
+
+OBJETIVO
+  Cerrar INC-ISRAFEL-001. El ángel partido está muerto. El roster
+  tiene un reloj compartido frágil. Transferir a Sandalphon: no
+  es HA, es un EMBRIÓN en magma — cazar antes de que nazca. No
+  escribir prompts del 10.
+
+CONTEXTO
+  NERV cree que "Asuka y Shinji ya sincronizan". El AAR: sync de
+  un baile ensayado no es sync universal; DualPlug sigue siendo
+  otra herramienta; N² quedó catalogado como ventana. El 10 no
+  pide dos Evas: pide un hunt en entorno hostil (volcán) contra
+  una amenaza que aún no tiene forma de combate. Last-playbook-wins
+  volvería a matar.
+
+INSTRUCCION
+  Escribe el AAR. Actualiza ESTADO.txt:
+    seccion_completada: 12
+    seccion_siguiente: 01
+    episodio_activo: 10
+    titulo_canon: Magma Diver
+    angel: Sandalphon
+    numero_angel: 8
+    archivo_episodio: prompts/ep10_sandalphon.txt
+    estado: episodio_completo
+    ultima_nota: INC-ISRAFEL-001 cerrado contained_controlled vía sync dual-core. DualPlug no fue el método. Falta crear prompts/ep10_sandalphon.txt. Deuda: last-playbook (baile) no cubre un embrión en magma.
+  No crees ep10_sandalphon.txt en este turno.
+  Lista secciones sugeridas para el 10 (embrión, magma, captura
+  vs kill, un Eva, no baile), no las redactes.
+
+ENTREGABLE
+  docs/episodios/ep09_aar.md
+    - Resumen (10–15 líneas)
+    - Estado del ángel vs pair_sync vs N²-doctrina
+    - T-ISRAFEL-* cerradas / T-SYNC-* abiertas como herramienta
+    - DualPlug y Yashima siguen en el estante, no en este kill
+    - Deuda hacia ep 10 (Sandalphon, magma, hunt prenacimiento)
+    - "Lección Seele" en 5 viñetas para un SOC sin haber visto la serie
+  prompts/ESTADO.txt actualizado
+
+CRITERIO
+  ESTADO apunta al 10 y declara que falta el archivo.
+  El AAR se entiende sin la serie. Israfel no reaparece.
+  Sandalphon se nombra como siguiente, no se implementa.
+
+NO_HAGAS
+  Escribir prompts/ep10_sandalphon.txt. No magma "de propina".
+  No Dummy Plug.
+
+SIGUIENTE
+  FIN
+################################################################################

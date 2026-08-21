@@ -1,0 +1,16 @@
+# ESTADO DEL PROYECTO NERV/RUBY
+# Grok Build DEBE leer este archivo al arrancar y reescribirlo al cerrar cada sección.
+# Formato: clave: valor  (sin YAML fancy; una línea por campo)
+
+episodio_activo: 01
+titulo_canon: Angel Attack
+angel: Sachiel
+numero_angel: 3
+archivo_episodio: prompts/ep01_sachiel.txt
+secciones_totales: 12
+seccion_completada: 01
+seccion_siguiente: 02
+estado: en_curso
+ultima_entrega: docs/episodios/ep01_briefing.md
+ultima_nota: Sección 01 cerrada. Contrato del ep 01 escrito: tutorial de persistencia, victoria del lab = fallo reproducible, sin berserk ni contención. Sin código. Siguiente: recreación de la aparición (prosa, sin N² ni anatomía interna).
+bloqueadores: ninguno
