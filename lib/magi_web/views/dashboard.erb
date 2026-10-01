@@ -1,0 +1,97 @@
+<div class="magi-container">
+  <div class="magi-header">
+    <div>
+      <h1>MAGI SYSTEM</h1>
+      <div>TACTICAL RESPONSE SIMULATOR</div>
+    </div>
+    <div class="status">SYSTEM ONLINE</div>
+  </div>
+
+  <div class="controls">
+    <label for="episode-select">TARGET EPISODE:</label>
+    <select id="episode-select">
+      <% (1..26).each do |i| %>
+        <option value="<%= i.to_s.rjust(2, '0') %>">EP <%= i.to_s.rjust(2, '0') %></option>
+      <% end %>
+    </select>
+    
+    <button id="btn-deploy" class="danger">DEPLOY EVA (RUN LAB)</button>
+    <button id="btn-report">GENERATE THREAT REPORT</button>
+  </div>
+
+  <div class="terminal-window" id="terminal">
+    <div class="terminal-line">MAGI KERNEL v2.0 READY.</div>
+    <div class="terminal-line">AWAITING COMMAND...</div>
+  </div>
+
+  <div class="magi-eval-grid" id="magi-cores">
+    <div class="magi-core melchior">
+      <h3>MELCHIOR (1)</h3>
+      <div class="status-label">ANALYZING THREAT CANON...</div>
+      <div class="core-output" id="melchior-output">Awaiting data...</div>
+    </div>
+    <div class="magi-core balthasar">
+      <h3>BALTHASAR (2)</h3>
+      <div class="status-label">SECURITY POSTURE...</div>
+      <div class="core-output" id="balthasar-output">Awaiting data...</div>
+    </div>
+    <div class="magi-core casper">
+      <h3>CASPER (3)</h3>
+      <div class="status-label">LABORATORY STATE...</div>
+      <div class="core-output" id="casper-output">Awaiting data...</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('btn-deploy').addEventListener('click', async () => {
+    const ep = document.getElementById('episode-select').value;
+    const terminal = document.getElementById('terminal');
+    const magiGrid = document.getElementById('magi-cores');
+    
+    // Hide MAGI cores during new run
+    magiGrid.style.display = 'none';
+    
+    terminal.innerHTML += `<div class="terminal-line warning">> INITIATING SCENARIO EP ${ep}...</div>`;
+    
+    try {
+      const response = await fetch(`/run/${ep}`, { method: 'POST' });
+      const data = await response.json();
+      
+      const lines = data.output.split('\n');
+      lines.forEach(line => {
+        if (!line.trim()) return;
+        let className = 'terminal-line';
+        if (line.includes('outcome=unresolved') || line.includes('fail') || line.includes('pattern_blue')) {
+          className += ' error';
+        } else if (line.includes('outcome=contained') || line.includes('success')) {
+          className += ' success';
+        }
+        terminal.innerHTML += `<div class="${className}">${line}</div>`;
+      });
+      
+      terminal.innerHTML += `<div class="terminal-line">> EXIT CODE: ${data.exit_code}</div>`;
+      terminal.innerHTML += `<div class="terminal-line warning">> LAB TERMINATED. REQUESTING MAGI CONSENSUS...</div>`;
+      terminal.scrollTop = terminal.scrollHeight;
+
+      // Fetch MAGI evaluation
+      const evalResponse = await fetch(`/magi_eval/${ep}`);
+      const evalData = await evalResponse.json();
+
+      document.getElementById('melchior-output').innerText = evalData.melchior;
+      document.getElementById('balthasar-output').innerText = evalData.balthasar;
+      document.getElementById('casper-output').innerText = evalData.casper;
+      
+      // Show cores
+      magiGrid.style.display = 'grid';
+
+    } catch (e) {
+      terminal.innerHTML += `<div class="terminal-line error">> SYSTEM ERROR: ${e.message}</div>`;
+    }
+  });
+
+  document.getElementById('btn-report').addEventListener('click', () => {
+    const ep = document.getElementById('episode-select').value;
+    window.open(`/report/${ep}`, '_blank');
+  });
+</script>

@@ -18,6 +18,34 @@ $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 require "nerv"
 require_relative "../lib/nerv/scenarios/ep01"
 require_relative "../lib/nerv/scenarios/ep02"
+require_relative "../lib/nerv/scenarios/ep03"
+require_relative "../lib/nerv/scenarios/ep04"
+require_relative "../lib/nerv/scenarios/ep05"
+require_relative "../lib/nerv/scenarios/ep06"
+require_relative "../lib/nerv/scenarios/ep07"
+require_relative "../lib/nerv/scenarios/ep08"
+require_relative "../lib/nerv/scenarios/ep09"
+require_relative "../lib/nerv/scenarios/ep10"
+require_relative "../lib/nerv/scenarios/ep11"
+require_relative "../lib/nerv/scenarios/ep12"
+require_relative "../lib/nerv/scenarios/ep13"
+require_relative "../lib/nerv/scenarios/ep14"
+require_relative "../lib/nerv/scenarios/ep15"
+require_relative "../lib/nerv/scenarios/ep16"
+require_relative "../lib/nerv/scenarios/ep17"
+require_relative "../lib/nerv/scenarios/ep18"
+require_relative "../lib/nerv/scenarios/ep19"
+require_relative "../lib/nerv/scenarios/ep20"
+require_relative "../lib/nerv/scenarios/ep21"
+require_relative "../lib/nerv/scenarios/ep22"
+require_relative "../lib/nerv/scenarios/ep23"
+require_relative "../lib/nerv/scenarios/ep24"
+require_relative "../lib/nerv/scenarios/ep25"
+require_relative "../lib/nerv/scenarios/ep26"
+
+
+
+
 
 module Nerv
   module Runner
@@ -25,7 +53,25 @@ module Nerv
       contained_controlled: 0,
       contained: 0,
       contained_uncontrolled: 1,
-      unresolved: 2
+      unresolved: 2,
+      staffing_restored_fragile: 3,
+      staffing_failed: 4,
+      third_party_stopped: 5,
+      third_party_runaway: 6,
+      aar_complete: 7,
+      aar_failed: 8,
+      shadow_graph_mapped: 9,
+      shadow_graph_denied: 10,
+      trusted_intake_recorded: 11,
+      trusted_intake_detonated: 12,
+      operator_recovered_fragile: 13,
+      operator_lost_in_control: 14,
+      origin_recorded: 15,
+      origin_denied: 16,
+      instrumentality_in_progress: 17,
+      instrumentality_denied_skip: 18,
+      boundaries_restored_fragile: 19,
+      total_merge_accepted: 20
     }.freeze
 
     def self.main(argv)
@@ -35,10 +81,238 @@ module Nerv
         run_ep01
       when "02", "2"
         run_ep02
+      when "03", "3"
+        run_ep03
+      when "04", "4"
+        run_ep04
+      when "05", "5"
+        run_ep05
+      when "06", "6"
+        run_ep06
+      when "07", "7"
+        run_ep07
+      when "08", "8"
+        run_ep08
+      when "09", "9"
+        run_ep09
+      when "10", "10"
+        run_ep10
+      when "11", "11"
+        run_ep11
+      when "12", "12"
+        run_ep12
+      when "13", "13"
+        run_ep13
+      when "14", "14"
+        run_ep14
+      when "15", "15"
+        run_ep15
+      when "16", "16"
+        run_ep16
+      when "17", "17"
+        run_ep17
+      when "18", "18"
+        run_ep18
+      when "19", "19"
+        run_ep19
+      when "20", "20"
+        run_ep20
+      when "21", "21"
+        run_ep21
+      when "22", "22"
+        run_ep22
+      when "23", "23"
+        run_ep23
+      when "24", "24"
+        run_ep24
+      when "25", "25"
+        run_ep25
+      when "26", "26"
+        run_ep26
       else
         warn "unknown episode: #{episode} (try 01 or 02)"
         3
       end
+    end
+
+    def self.run_ep26
+      scenario = Scenarios::Ep26.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 26 Take care of yourself"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep25
+      scenario = Scenarios::Ep25.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 25 Do you love me?"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep24
+      scenario = Scenarios::Ep24.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 24 The Beginning and the End"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep23
+      scenario = Scenarios::Ep23.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 23 Rei III"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep22
+      scenario = Scenarios::Ep22.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 22 Don't Be"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep21
+      scenario = Scenarios::Ep21.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 21 He was aware that he was still a child"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep20
+      scenario = Scenarios::Ep20.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 20 Oral Stage"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep19
+      scenario = Scenarios::Ep19.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 19 Introjection"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep18
+      scenario = Scenarios::Ep18.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 18 Ambivalence"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep17
+      scenario = Scenarios::Ep17.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 17 The Fourth Child"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep16
+      scenario = Scenarios::Ep16.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 16 Splitting of the Breast (Leliel)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep15
+      scenario = Scenarios::Ep15.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 15 Those women longed for the touch of others' lips (Shadow Graph)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep14
+      scenario = Scenarios::Ep14.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 14 Weaving a Story (Tabletop)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep13
+      scenario = Scenarios::Ep13.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 13 Lilliputian Hitcher (Ireul)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep12
+      scenario = Scenarios::Ep12.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 12 She said, \"Don't make others suffer for your personal hatred.\" (Sahaquiel)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep11
+      scenario = Scenarios::Ep11.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 11 The Day Tokyo-3 Stood Still (Matarael)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep10
+      scenario = Scenarios::Ep10.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 10 Magma Diver (Sandalphon)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep09
+      scenario = Scenarios::Ep09.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 09 Both of You, Dance Like You Want to Win! (Israfel)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep08
+      scenario = Scenarios::Ep08.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 08 Asuka Strikes! (Gaghiel)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep07
+      scenario = Scenarios::Ep07.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 07 A Human Work (Jet Alone)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
     end
 
     def self.run_ep01
@@ -50,7 +324,47 @@ module Nerv
       EXIT.fetch(outcome, 3)
     end
 
+    def self.run_ep06
+      scenario = Scenarios::Ep06.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 06 Rei II (Showdown in Tokyo-3)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep05
+
+      scenario = Scenarios::Ep05.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 05 Rei I (Ramiel 1/2)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep04
+
+      scenario = Scenarios::Ep04.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 04 Hedgehog's Dilemma"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 5)
+    end
+
+    def self.run_ep03
+
+      scenario = Scenarios::Ep03.new
+      outcome = scenario.run
+      $stdout.puts "NERV lab — ep 03 A Transfer (Shamshel)"
+      scenario.events.each { |id| $stdout.puts id }
+      $stdout.puts "outcome=#{outcome}"
+      EXIT.fetch(outcome, 3)
+    end
+
     def self.run_ep02
+
       scenario = Scenarios::Ep02.new
       outcome = scenario.run
       $stdout.puts "NERV lab — ep 02 The Beast"

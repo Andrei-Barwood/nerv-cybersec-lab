@@ -1,0 +1,286 @@
+:root {
+  --nerv-black: #050505;
+  --nerv-orange: #FF9900;
+  --nerv-red: #FF0000;
+  --nerv-text: #E0E0E0;
+  --nerv-dim: #332200;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--nerv-black);
+  color: var(--nerv-orange);
+  font-family: var(--font-mono);
+  margin: 0;
+  padding: 2vw;
+  background-image: linear-gradient(rgba(255, 153, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 153, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.magi-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid var(--nerv-orange);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px var(--nerv-orange);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.magi-header {
+  border-bottom: 2px solid var(--nerv-orange);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.magi-header h1 {
+  color: var(--nerv-red);
+  margin: 0;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 2px;
+}
+
+.magi-header .status {
+  color: var(--nerv-orange);
+  font-weight: bold;
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+select, button {
+  background: var(--nerv-black);
+  color: var(--nerv-orange);
+  border: 1px solid var(--nerv-orange);
+  padding: 10px 15px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  flex: 1 1 auto;
+}
+
+button:hover {
+  background: var(--nerv-orange);
+  color: var(--nerv-black);
+}
+
+button.danger {
+  border-color: var(--nerv-red);
+  color: var(--nerv-red);
+}
+
+button.danger:hover {
+  background: var(--nerv-red);
+  color: var(--nerv-black);
+}
+
+.terminal-window {
+  background: #000;
+  border: 1px solid var(--nerv-dim);
+  padding: 15px;
+  height: 40vh;
+  min-height: 200px;
+  overflow-y: auto;
+  color: #00FF00;
+  margin-bottom: 20px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.terminal-line {
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.terminal-line.error {
+  color: var(--nerv-red);
+}
+
+.terminal-line.success {
+  color: #00FF00;
+}
+
+.terminal-line.warning {
+  color: var(--nerv-orange);
+}
+
+.magi-eval-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  display: none; /* Oculto hasta que termine la ejecución */
+}
+
+.magi-core {
+  border: 1px solid var(--nerv-orange);
+  background: rgba(255, 153, 0, 0.05);
+  padding: 15px;
+}
+
+.magi-core h3 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--nerv-orange);
+  padding-bottom: 5px;
+  color: var(--nerv-red);
+  font-family: var(--font-sans);
+}
+
+.magi-core .status-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.core-output {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+/* Custom Scrollbar for NERV theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--nerv-black);
+  border: 1px solid var(--nerv-dim);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--nerv-orange);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nerv-red);
+}
+
+.magi-core.melchior h3 { color: #00BFFF; border-color: #00BFFF; }
+.magi-core.melchior { border-color: #00BFFF; background: rgba(0, 191, 255, 0.05); color: #00BFFF; }
+.magi-core.melchior ::-webkit-scrollbar-thumb { background: #00BFFF; }
+
+.magi-core.balthasar h3 { color: #FF9900; border-color: #FF9900; }
+.magi-core.balthasar { border-color: #FF9900; background: rgba(255, 153, 0, 0.05); color: #FF9900; }
+
+.magi-core.casper h3 { color: #FF00FF; border-color: #FF00FF; }
+.magi-core.casper { border-color: #FF00FF; background: rgba(255, 0, 255, 0.05); color: #FF00FF; }
+.magi-core.casper ::-webkit-scrollbar-thumb { background: #FF00FF; }
+
+
+/* Report Styles */
+.report-container {
+  background: #fff;
+  color: #000;
+  font-family: var(--font-sans);
+  padding: clamp(20px, 4vw, 40px);
+  max-width: 1100px; /* Ampliado para acomodar tablas grandes */
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.report-header {
+  border-bottom: 5px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.report-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.report-header h2 {
+  margin: 5px 0 0;
+  color: #666;
+  font-weight: normal;
+}
+
+.report-section {
+  margin-bottom: 30px;
+  overflow-x: auto; /* Evita que el contenido desborde hacia el negro */
+}
+
+.report-section h3 {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.report-section pre {
+  background: #f4f4f4;
+  padding: 15px;
+  overflow-x: auto;
+  border-left: 4px solid #000;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.report-section code {
+  background: #f4f4f4;
+  padding: 2px 5px;
+  font-family: var(--font-mono);
+}
+
+.report-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  display: block;      /* Hace que la tabla sea scrolleable si es muy ancha */
+  overflow-x: auto;
+  white-space: normal;
+}
+
+.report-section th, .report-section td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  min-width: 150px; /* Fuerza un ancho mínimo decente para columnas */
+}
+
+.report-section th {
+  background-color: #f4f4f4;
+}
+
+/* Print optimizations */
+@media print {
+  body {
+    background: none;
+    color: #000;
+    padding: 0;
+  }
+  .magi-container {
+    display: none;
+  }
+  .report-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+  .report-section {
+    page-break-inside: avoid;
+  }
+}

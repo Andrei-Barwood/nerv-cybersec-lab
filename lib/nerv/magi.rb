@@ -21,10 +21,19 @@ module Nerv
       end
     end
 
+    attr_reader :gendo_override_registered
+    attr_accessor :builder
+
     def initialize
       @units = {}
       NAMES.each { |name| @units[name] = Unit.new(name) }
       @motions = {}
+      @gendo_override_registered = false
+      @builder = nil
+    end
+
+    def register_gendo_override!
+      @gendo_override_registered = true
     end
 
     def unit(name)
@@ -55,6 +64,19 @@ module Nerv
     # Compromised units still vote — that is the Ireul hook.
     def majority?(value = true)
       units.count { |u| u.vote == value } >= 2
+    end
+
+    def infected?
+      false
+    end
+
+    def compute_impact
+      true
+    end
+    
+    def vote_on_n2!
+      # En el ep 16, MAGI vota a favor de destruir la anomalia
+      true
     end
   end
 end

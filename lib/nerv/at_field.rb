@@ -6,6 +6,7 @@ module Nerv
     def initialize
       @lowered = false
       @penetrated = false
+      @absorbing = false
     end
 
     def lowered?
@@ -27,11 +28,19 @@ module Nerv
     end
 
     def blocks?
-      !lowered? && !penetrated?
+      !lowered? && !penetrated? && !absorbing?
     end
 
     def rebound(_attack)
       :rebounced
+    end
+
+    def invert!
+      @absorbing = true
+    end
+
+    def absorbing?
+      @absorbing
     end
   end
 end

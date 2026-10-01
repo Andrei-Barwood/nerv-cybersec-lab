@@ -25,6 +25,10 @@ module Nerv
       core.intact?
     end
 
+    def kill!
+      core.destroy!
+    end
+
     def receive(attack)
       if attack.is_a?(Attacks::BerserkChannel)
         at_field.penetrate!

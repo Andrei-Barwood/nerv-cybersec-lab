@@ -1,0 +1,65 @@
+################################################################################
+# NERV / RUBY — PROMPT MAESTRO DE ARQUITECTURA WEB (MAGI DASHBOARD)
+# Proyecto: Ángeles de Neon Genesis Evangelion como ciberseguridad (Fase 2)
+#
+# Este documento extiende las reglas de 00_SESION_MAESTRA.txt para habilitar
+# una interfaz gráfica (GUI) en el navegador sin perder el rigor técnico.
+################################################################################
+
+################################################################################
+# 1. OBJETIVO DEL DASHBOARD
+################################################################################
+
+Convertir el laboratorio CLI en un panel de control interactivo (MAGI Web Dashboard) que permita:
+1. Ejecutar los escenarios de los episodios (01 al 26) desde el navegador.
+2. Visualizar la traza de eventos del SIEM en tiempo real o simulado (estilo consola).
+3. Generar un "Threat Intelligence Report" (PDF/HTML imprimible) por cada episodio, consolidando los documentos Markdown (anatomía, TTPs, prevención, playbook, AAR).
+
+################################################################################
+# 2. PILA TECNOLÓGICA (STACK)
+################################################################################
+
+- Backend: Ruby 3.x con Sinatra (micro-framework). Ligero y directo.
+- Dependencias mínimas permitidas (Gemfile): `sinatra`, `webrick` o `puma` (servidor), `kramdown` o `redcarpet` (para renderizar los Markdowns de la carpeta docs/ a HTML).
+- Frontend: HTML5, CSS puro (sin frameworks pesados como React/Vue). JavaScript vainilla solo para interacciones básicas de la UI (botones de "Deploy", scroll de terminal).
+- Exportación a PDF: El reporte se renderiza como HTML optimizado con media queries (`@media print`) para que el navegador lo exporte a PDF nativamente. Evitamos gemas pesadas de PDF en el backend a menos que sea estrictamente necesario.
+
+################################################################################
+# 3. REGLAS DE DISEÑO (MODO FANDOM / NERV)
+################################################################################
+
+La UI debe simular la interfaz táctica del MAGI / NERV:
+- Paleta de colores: Fondo negro (#000000), textos y bordes en naranja neón (#FF9900) y rojo advertencia (#FF0000).
+- Tipografía: Fuentes monospace (Courier New, Fira Code) y fuentes sans-serif condensadas (Helvetica, Arial) para titulares.
+- Elementos visuales: Cajas con bordes duros, texto en mayúsculas, indicadores de "SYSTEM ONLINE", "PATTERN BLUE", "SYNC RATE". Patrones hexagonales si se requiere fondo.
+- Advertencia Canónica: "Las representaciones gráficas son estéticas; el comportamiento y las validaciones de seguridad residen en el backend Ruby (lib/nerv)".
+
+################################################################################
+# 4. ARQUITECTURA DE ARCHIVOS DE LA FASE WEB
+################################################################################
+
+Archivos nuevos a incorporar sin romper la estructura base:
+- `Gemfile` y `Gemfile.lock`
+- `bin/magi` (script ejecutable para levantar el servidor web)
+- `lib/magi_web/app.rb` (aplicación Sinatra principal)
+- `lib/magi_web/public/css/nerv.css` (estilos)
+- `lib/magi_web/public/js/dashboard.js` (comportamiento frontend)
+- `lib/magi_web/views/layout.erb` (plantilla maestra)
+- `lib/magi_web/views/dashboard.erb` (panel principal)
+- `lib/magi_web/views/report.erb` (plantilla para el Threat Intel Report imprimible a PDF)
+
+################################################################################
+# 5. CONTRATO DE INTEGRACIÓN
+################################################################################
+
+El servidor web (Sinatra) NO duplica la lógica de ciberseguridad. 
+Para correr un episodio, Sinatra invoca las clases de `lib/nerv` y los escenarios (`lib/nerv/scenarios/epXX.rb`), capturando la salida (los eventos del SIEM) para mostrarlos en el frontend.
+Para generar el reporte, Sinatra lee los archivos `docs/episodios/epXX_*.md`, los convierte a HTML, y los inyecta en `report.erb`.
+
+################################################################################
+# 6. CRITERIOS DE CALIDAD
+################################################################################
+
+- El CLI original (`ruby -Ilib bin/episodio XX`) debe seguir funcionando. La web es una capa adicional.
+- No se rompen tests anteriores.
+- El Threat Intelligence Report debe contener: Errores, aciertos, medidas preventivas (mitigación), reglas de detección y lecciones de arquitectura. Todo formateado como un documento serio de ciberseguridad.
