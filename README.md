@@ -79,6 +79,10 @@ outcome=unresolved
 
 El modo visual oficial para el análisis forense de incidentes y generación de *Threat Intelligence Reports*.
 
+![MAGI Web Dashboard - View 1](./demo_1.jpg)
+
+![MAGI Web Dashboard - View 2](./demo_2.jpg)
+
 **1. Lanzar el Servidor:**
 ```bash
 bundle exec bin/magi
