@@ -122,6 +122,7 @@ require_relative "nerv/free_will"
 require_relative "nerv/instrumentality"
 require_relative "nerv/at_field_self"
 require_relative "nerv/choice"
+require_relative "nerv/yui_masterplan"
 
 module Nerv
   VERSION = "0.26.0.ep26"

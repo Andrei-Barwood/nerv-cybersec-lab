@@ -8,5 +8,5 @@ seccion_completada: 12
 seccion_siguiente: FIN
 estado: serie_completa
 ultima_entrega: docs/episodios/ep26_aar.md
-ultima_nota: INC-INSTRUMENTALITY-001 cerrado boundaries_restored_fragile. TV 01–26 en disco. No hay ep 27. Deudas H2 abiertas a propósito. Take care of yourself. Screenshots de demo añadidas al README.md.
+ultima_nota: INC-INSTRUMENTALITY-001 cerrado boundaries_restored_fragile. TV 01–26 en disco. Nueva funcionalidad: YuiMasterplan APT añadida (reporte en docs/reportes/yui_masterplan.md y bin/episodio yui). Take care of yourself.
 bloqueadores: ninguno

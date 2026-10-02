@@ -258,6 +258,13 @@ TAKE_CARE = "siem.take_care"
 FALSE_CONGRATULATIONS_KPI = "siem.false_congratulations_kpi"
 INSTRUMENTALITY_CLOSED_FRAGILE = "siem.instrumentality_closed_fragile"
 
+# YUI APT Events
+BERSERK_INITIATED = "siem.berserk_initiated"
+YUI_INTERVENTION = "siem.yui_intervention"
+APT_YUI_ACTIVATED = "siem.apt_yui_activated"
+FORCED_INSTRUMENTALITY_REJECTED = "siem.forced_instrumentality_rejected"
+ROOT_ACCESS_TRANSFERRED_TO_CATALYST = "siem.root_access_transferred_to_catalyst"
+
 attr_reader :events
 
 

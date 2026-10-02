@@ -129,10 +129,57 @@ module Nerv
         run_ep25
       when "26", "26"
         run_ep26
+      when "yui"
+        run_yui
       else
         warn "unknown episode: #{episode} (try 01 or 02)"
         3
       end
+    end
+
+    def self.run_yui
+      $stdout.puts "NERV lab — Yui Ikari Masterplan (APT Analysis)"
+      $stdout.puts "Initializing Yui APT in EVA-01..."
+      siem = SIEM.new
+      shinji = Operator.new(name: "Shinji")
+      eva = Eva.new(designation: "EVA-01", operator: shinji)
+      yui = YuiMasterplan.new(eva: eva)
+      
+      $stdout.puts "Simulating Shinji's critical state (psyche broken)..."
+      shinji.psyche_broken = true
+      yui.berserk_override!(siem: siem)
+      
+      $stdout.puts "Simulating SEELE's forced instrumentality..."
+      yui.hijack_third_impact!(:seele, siem: siem)
+      yui.grant_choice_to_pilot
+      
+      $stdout.puts "Outcome: #{yui.monumentalize!}"
+      siem.events.each { |id| $stdout.puts id }
+      
+      $stdout.puts "\n========================================================"
+      $stdout.puts "TELEMETRÍA DE INFLUENCIA EN EL PLAN (SPOILERS COMPLETOS)"
+      $stdout.puts "========================================================"
+      $stdout.puts "EP 01-02 [Sachiel]: (+) Catalizador asume mando. (-) Daño masivo/trauma."
+      $stdout.puts "EP 03    [Shamshel]: (+) Shinji forma vínculos (Toji/Kensuke). (-) Insubordinación/riesgo energía."
+      $stdout.puts "EP 04    [Dilema]: (+) Elige regresar voluntariamente (agencia). (-) Riesgo de deserción."
+      $stdout.puts "EP 05-06 [Ramiel]: (+) Demuestra EVA-01 indispensable. (-) Núcleo casi perforado."
+      $stdout.puts "EP 07    [Jet Alone]: (+) Automatización probada inútil. (-) Riesgo colateral menor."
+      $stdout.puts "EP 08-10 [Asuka/Magma]: (+) Refuerzos (EVA-02). (-) Asuka trae volatilidad. Riesgo ambiental extremo."
+      $stdout.puts "EP 11-12 [Matarael/Sahaquiel]: (+) Resiliencia analógica probada. (-) Caída de energía casi fatal."
+      $stdout.puts "EP 13    [Ireul]: (+) MAGI defiende NERV. (-) Infección de red casi corrompe a EVA-01."
+      $stdout.puts "EP 14    [Dummy]: (+) Yui rechaza Dummy Plug. (-) SEELE acelera automatización sin alma."
+      $stdout.puts "EP 15    [Shadow Graph]: (+) Profundización psique piloto. (-) Kaji descubre secretos."
+      $stdout.puts "EP 16    [Leliel]: (+) Yui contacta mente del piloto. (-) Falla soporte vital. Berserk forzado."
+      $stdout.puts "EP 17-18 [Bardiel]: (+) Crueldad del Dummy demostrada. (-) Fractura severa en psique de Shinji."
+      $stdout.puts "EP 19    [Zeruel]: (+) HITO CRÍTICO: Asimila Motor S2. (-) Sincronización 400%, riesgo ego border."
+      $stdout.puts "EP 20    [Salvataje]: (+) Ensayo Tercer Impacto. (-) 1 mes inactivo. Riesgo asimilación."
+      $stdout.puts "EP 21-22 [Arael]: (+) Lanza de Longinus a la Luna (SEELE pierde arma). (-) Asuka destruida mentalmente."
+      $stdout.puts "EP 23    [Armisael]: (+) Rei II se sacrifica (falla plan de Gendo). (-) Trauma por duelo extremo."
+      $stdout.puts "EP 24    [Tabris]: (+) Conoce el amor incondicional, elige la humanidad. (-) Psique en nivel cero tras ejecutarlo."
+      $stdout.puts "EP 25-26 [Impacto]: (+) ÉXITO: Shinji elige individualidad. (-) Humanidad disuelta temporalmente."
+      $stdout.puts "========================================================\n"
+      
+      0
     end
 
     def self.run_ep26

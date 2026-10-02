@@ -13,7 +13,9 @@ module MagiWeb
     end
 
     post '/run/:episode' do
-      ep = params[:episode].to_s.rjust(2, '0')
+      ep = params[:episode].to_s
+      ep = ep.rjust(2, '0') unless ep == 'yui'
+      
       # Execute the original CLI script and capture output
       output = `ruby -I#{File.expand_path('../../lib', __dir__)} #{File.expand_path('../../bin/episodio', __dir__)} #{ep} 2>&1`
       exit_code = $?.exitstatus
@@ -23,10 +25,18 @@ module MagiWeb
     end
 
     get '/magi_eval/:episode' do
-      ep = params[:episode].to_s.rjust(2, '0')
+      ep = params[:episode].to_s
+      ep = ep.rjust(2, '0') unless ep == 'yui'
+      
       db_path = File.expand_path('magi_database.json', __dir__)
       
-      if File.exist?(db_path)
+      if ep == 'yui'
+        data = {
+          "melchior" => "AGREED. The 2004 contact was intentional. APT verified.",
+          "balthasar" => "AGREED. Positive Insider Threat securing Third Impact.",
+          "casper" => "AGREED. Ruby APT script implemented and tests pass."
+        }
+      elsif File.exist?(db_path)
         db = JSON.parse(File.read(db_path))
         data = db[ep] || { "melchior" => "NO DATA", "balthasar" => "NO DATA", "casper" => "NO DATA" }
       else
@@ -38,7 +48,8 @@ module MagiWeb
     end
 
     get '/report/:episode' do
-      @episode = params[:episode].to_s.rjust(2, '0')
+      @episode = params[:episode].to_s
+      @episode = @episode.rjust(2, '0') unless @episode == 'yui'
       
       ep_titles = {
         1 => "Angel_Attack", 2 => "The_Beast", 3 => "A_Transfer", 4 => "Hedgehogs_Dilemma",
@@ -52,28 +63,37 @@ module MagiWeb
         25 => "Do_you_love_me", 26 => "Take_care_of_yourself"
       }
       title = ep_titles[@episode.to_i] || "Threat_Report"
+      title = "Yui_Ikari_Masterplan" if @episode == 'yui'
       @page_title = "#{@episode}_#{title}_MAGI_Report"
 
-      # Helper to read and render markdown
-      docs_dir = File.expand_path("../../docs/episodios", __dir__)
       @sections = {}
-      
-      %w[briefing aparicion anatomia persistencia ttps deteccion prevencion playbook humanos lab aar].each do |section|
-        file_path = File.join(docs_dir, "ep#{@episode}_#{section}.md")
+      if @episode == 'yui'
+        file_path = File.expand_path("../../docs/reportes/yui_masterplan.md", __dir__)
         if File.exist?(file_path)
           content = File.read(file_path)
-          @sections[section] = Kramdown::Document.new(content).to_html
+          @sections['masterplan'] = Kramdown::Document.new(content).to_html
         end
+        @magi_consensus = { "melchior" => "APT Verified", "balthasar" => "Positive Insider Threat", "casper" => "Implemented" }
+      else
+        docs_dir = File.expand_path("../../docs/episodios", __dir__)
+        
+        %w[briefing aparicion anatomia persistencia ttps deteccion prevencion playbook humanos lab aar].each do |section|
+          file_path = File.join(docs_dir, "ep#{@episode}_#{section}.md")
+          if File.exist?(file_path)
+            content = File.read(file_path)
+            @sections[section] = Kramdown::Document.new(content).to_html
+          end
+        end
+        
+        # Load MAGI consensus
+        db_path = File.expand_path('magi_database.json', __dir__)
+        @magi_consensus = if File.exist?(db_path)
+                            db = JSON.parse(File.read(db_path))
+                            db[@episode]
+                          else
+                            nil
+                          end
       end
-      
-      # Load MAGI consensus
-      db_path = File.expand_path('magi_database.json', __dir__)
-      @magi_consensus = if File.exist?(db_path)
-                          db = JSON.parse(File.read(db_path))
-                          db[@episode]
-                        else
-                          nil
-                        end
 
       erb :report
     end
