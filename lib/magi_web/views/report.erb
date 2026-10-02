@@ -82,6 +82,13 @@
       </div>
     <% end %>
 
+    <% if @sections['accomplice'] %>
+      <div class="report-section">
+        <h3>REI AYANAMI: DIARIO DE CÓMPLICE</h3>
+        <%= @sections['accomplice'] %>
+      </div>
+    <% end %>
+
     <% if @sections['aar'] %>
       <div class="report-section">
         <h3>9. AFTER-ACTION REPORT (AAR) & PATCHES</h3>

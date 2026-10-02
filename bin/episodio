@@ -131,10 +131,43 @@ module Nerv
         run_ep26
       when "yui"
         run_yui
+      when "rei"
+        run_rei
       else
         warn "unknown episode: #{episode} (try 01 or 02)"
         3
       end
+    end
+
+    def self.run_rei
+      $stdout.puts "NERV lab — Rei Ayanami: Diario de Cómplice (Side-channel Analysis)"
+      $stdout.puts "Initializing Rei proxy..."
+      $stdout.puts "Monitoring Yui resonance..."
+      $stdout.puts "[LOG] Yui Resonance: 0.0% -> Loyalty: Gendo"
+      $stdout.puts "[LOG] EP01: EVA-01 moves to protect catalyst. Resonance increasing..."
+      $stdout.puts "[LOG] EP06: Catalyst opens hatch. Smiling protocol engaged. Resonance: 30.0%"
+      $stdout.puts "[LOG] EP14: Synchronization exchange rejected by EVA-01. Catalyst monopoly confirmed. Resonance: 50.0%"
+      $stdout.puts "[LOG] EP16: Maternal Berserk detected from Dirac Sea. Resonance: 75.0%"
+      $stdout.puts "[LOG] EP23: Armisael fusion detected. Self-destruct initiated to protect catalyst."
+      $stdout.puts "[LOG] REI III BOOTED."
+      $stdout.puts "[LOG] Resonance: 100.0% -> Loyalty: Yui and Shinji"
+      $stdout.puts "\nSimulating Gendo's Third Impact command..."
+      $stdout.puts "[ERROR] AccessDeniedError: 'No soy tu muñeca.'"
+      $stdout.puts "Transferring root access (Lilith) to Catalyst..."
+      
+      $stdout.puts "\n========================================================"
+      $stdout.puts "BITÁCORA DE CÓMPLICE (SPOILERS COMPLETOS)"
+      $stdout.puts "========================================================"
+      $stdout.puts "EP 01-02 [Sachiel]: Mi trabajo es pelear si el hijo falla, para mantener a salvo el sistema."
+      $stdout.puts "EP 05-06 [Ramiel]: Así se siente el calor que Yui dejó en sus genes. El catalizador debe ser protegido."
+      $stdout.puts "EP 14    [Dummy]: El EVA-01 me rechaza. Este no es mi lugar. El trono le pertenece solo a él."
+      $stdout.puts "EP 15    [Shadow]: Me dice que limpio como una madre. La programación de Gendo empieza a fallar."
+      $stdout.puts "EP 16    [Leliel]: La APT (Yui) intervendrá con fuerza letal incalculable si su activo es destruido."
+      $stdout.puts "EP 23    [Armisael]: Autodestrucción iniciada. El contenedor puede morir, el plan de Yui debe sobrevivir."
+      $stdout.puts "EP 24    [Tabris]: El catalizador está listo y roto. Gendo ya no es necesario."
+      $stdout.puts "EP 25-26 [Impacto]: Rechazo a Gendo. Me fusiono con Lilith. Misión de cómplice completada."
+      $stdout.puts "========================================================\n"
+      0
     end
 
     def self.run_yui
