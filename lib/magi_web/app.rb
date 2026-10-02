@@ -14,7 +14,7 @@ module MagiWeb
 
     post '/run/:episode' do
       ep = params[:episode].to_s
-      ep = ep.rjust(2, '0') unless ep == 'yui' || ep == 'rei'
+      ep = ep.rjust(2, '0') unless ep == 'yui' || ep == 'rei' || ep == 'shinji'
       
       # Execute the original CLI script and capture output
       output = `ruby -I#{File.expand_path('../../lib', __dir__)} #{File.expand_path('../../bin/episodio', __dir__)} #{ep} 2>&1`
@@ -26,7 +26,7 @@ module MagiWeb
 
     get '/magi_eval/:episode' do
       ep = params[:episode].to_s
-      ep = ep.rjust(2, '0') unless ep == 'yui' || ep == 'rei'
+      ep = ep.rjust(2, '0') unless ep == 'yui' || ep == 'rei' || ep == 'shinji'
       
       db_path = File.expand_path('magi_database.json', __dir__)
       
@@ -42,6 +42,12 @@ module MagiWeb
           "balthasar" => "AGREED. Agent turned double. 'No soy tu muñeca'.",
           "casper" => "AGREED. ReiAccomplice intercepted Third Impact successfully."
         }
+      elsif ep == 'shinji'
+        data = {
+          "melchior" => "AGREED. Operator trauma is a severe vulnerability.",
+          "balthasar" => "AGREED. Covert channels (patches) strongly recommended.",
+          "casper" => "AGREED. Final patch 'Stay on Earth' successfully applied."
+        }
       elsif File.exist?(db_path)
         db = JSON.parse(File.read(db_path))
         data = db[ep] || { "melchior" => "NO DATA", "balthasar" => "NO DATA", "casper" => "NO DATA" }
@@ -55,7 +61,7 @@ module MagiWeb
 
     get '/report/:episode' do
       @episode = params[:episode].to_s
-      @episode = @episode.rjust(2, '0') unless @episode == 'yui' || @episode == 'rei'
+      @episode = @episode.rjust(2, '0') unless @episode == 'yui' || @episode == 'rei' || @episode == 'shinji'
       
       ep_titles = {
         1 => "Angel_Attack", 2 => "The_Beast", 3 => "A_Transfer", 4 => "Hedgehogs_Dilemma",
@@ -71,6 +77,7 @@ module MagiWeb
       title = ep_titles[@episode.to_i] || "Threat_Report"
       title = "Yui_Ikari_Masterplan" if @episode == 'yui'
       title = "Rei_Ayanami_Accomplice" if @episode == 'rei'
+      title = "Shinji_Ikari_Telemetry" if @episode == 'shinji'
       @page_title = "#{@episode}_#{title}_MAGI_Report"
 
       @sections = {}
@@ -88,6 +95,13 @@ module MagiWeb
           @sections['accomplice'] = Kramdown::Document.new(content).to_html
         end
         @magi_consensus = { "melchior" => "Double Agent Verified", "balthasar" => "Loyalty Shifted to Yui", "casper" => "Intercepted" }
+      elsif @episode == 'shinji'
+        file_path = File.expand_path("../../docs/reportes/shinji_telemetry.md", __dir__)
+        if File.exist?(file_path)
+          content = File.read(file_path)
+          @sections['telemetry'] = Kramdown::Document.new(content).to_html
+        end
+        @magi_consensus = { "melchior" => "Trauma Audited", "balthasar" => "Covert Channels Proposed", "casper" => "Patched" }
       else
         docs_dir = File.expand_path("../../docs/episodios", __dir__)
         

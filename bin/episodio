@@ -133,10 +133,40 @@ module Nerv
         run_yui
       when "rei"
         run_rei
+      when "shinji"
+        run_shinji
       else
         warn "unknown episode: #{episode} (try 01 or 02)"
         3
       end
+    end
+
+    def self.run_shinji
+      $stdout.puts "NERV lab — Shinji Ikari: Telemetría de Daño y Parches Maternos"
+      $stdout.puts "Initializing Operator Psychological Audit..."
+      $stdout.puts "[WARNING] Operator psyche heavily fractured. Ignorance of APT presence detected."
+      $stdout.puts "Loading Yui's Covert Channels (Patches)..."
+      
+      $stdout.puts "\n========================================================"
+      $stdout.puts "AUDITORÍA DE DOLOR Y ESTRATEGIAS DE YUI"
+      $stdout.puts "========================================================"
+      $stdout.puts "EP 01-02: [Dolor] Terror al monstruo mecánico."
+      $stdout.puts "          [Parche Yui] Handshake empático en LCL: 'Estoy aquí, Shinji'."
+      $stdout.puts "EP 03-04: [Dolor] Feedback de daño físico y deserción."
+      $stdout.puts "          [Parche Yui] Absorción materna de impacto en nervios A10."
+      $stdout.puts "EP 16   : [Dolor] Terror existencial en Mar de Dirac."
+      $stdout.puts "          [Parche Yui] Acunar al operador en la oscuridad en vez de solo actuar al final."
+      $stdout.puts "EP 18   : [Dolor] Trauma por Dummy Plug mutilando a Toji."
+      $stdout.puts "          [Parche Yui] Bloqueo de hardware al Dummy Plug antes del ataque letal."
+      $stdout.puts "EP 19   : [Dolor] Trauma por asimilación caníbal de S2."
+      $stdout.puts "          [Parche Yui] Aislamiento sensorial del piloto durante el modo Berserk."
+      $stdout.puts "EP 24   : [Dolor] Ejecución forzada de Kaworu (Tabris)."
+      $stdout.puts "          [Parche Yui] Tomar control autónomo para liberar al piloto de la culpa."
+      $stdout.puts "EP 25-26: [Dolor] Abandono final post-Impacto."
+      $stdout.puts "          [Parche Yui] Cancelar 'Monumento en el Espacio'. Recrear forma humana y quedarse."
+      $stdout.puts "========================================================\n"
+      $stdout.puts "Applying patches to future Instrumentality runs... Done."
+      0
     end
 
     def self.run_rei

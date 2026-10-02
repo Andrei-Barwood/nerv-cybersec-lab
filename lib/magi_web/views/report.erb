@@ -89,6 +89,13 @@
       </div>
     <% end %>
 
+    <% if @sections['telemetry'] %>
+      <div class="report-section">
+        <h3>SHINJI IKARI: TELEMETRÍA Y PARCHES DE YUI</h3>
+        <%= @sections['telemetry'] %>
+      </div>
+    <% end %>
+
     <% if @sections['aar'] %>
       <div class="report-section">
         <h3>9. AFTER-ACTION REPORT (AAR) & PATCHES</h3>
