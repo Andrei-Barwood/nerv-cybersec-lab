@@ -135,10 +135,38 @@ module Nerv
         run_rei
       when "shinji"
         run_shinji
+      when "keel"
+        run_keel
       else
         warn "unknown episode: #{episode} (try 01 or 02)"
         3
       end
+    end
+
+    def self.run_keel
+      $stdout.puts "NERV lab — Lorenz Keel: Inteligencia Hostil y Auditoría de Junta Directiva"
+      $stdout.puts "Initializing SEELE Threat Model..."
+      $stdout.puts "[ALERT] State-Sponsored Threat detected: C-Level Override imminent."
+      $stdout.puts "Loading APT Countermeasures (Yui's stealth protocol)..."
+      
+      $stdout.puts "\n========================================================"
+      $stdout.puts "TELEMETRÍA DE AMENAZA: ESTRATEGIAS DE KEEL VS CONTRAMEDIDAS"
+      $stdout.puts "========================================================"
+      $stdout.puts "EP 01-13: [Keel] Financiación ciega y confianza en los Manuscritos."
+      $stdout.puts "          [Yui]  Modo Stealth: usar presupuesto para nivelar al EVA-01."
+      $stdout.puts "EP 14-18: [Keel] Dudas e inspecciones. Presión sobre automatización."
+      $stdout.puts "          [Yui]  Asegurar fracaso del Dummy Plug para proteger monopolio del catalizador."
+      $stdout.puts "EP 19   : [Keel] Bloqueo logístico. Amenaza estructural a NERV."
+      $stdout.puts "          [Yui]  HACKEO CRÍTICO: Asimilación de S2. Independencia energética lograda."
+      $stdout.puts "EP 21-22: [Keel] Auditorías extremas (secuestro). Pérdida de la Lanza."
+      $stdout.puts "          [Yui]  Amenaza desesperada; SEELE acelerará su plan B."
+      $stdout.puts "EP 24   : [Keel] Inyección de código malicioso: Tabris (Caballo de Troya)."
+      $stdout.puts "          [Yui]  Tabris es neutralizado por el cortafuegos humano (Shinji)."
+      $stdout.puts "EP 25-26: [Keel] Hard Reset (Fuerzas militares) + EVAs de Producción en Masa."
+      $stdout.puts "          [Yui]  Secuestro del ritual: Interceptar Árbol de la Vida, transferir ROOT a Shinji."
+      $stdout.puts "========================================================\n"
+      $stdout.puts "[LOG] Lorenz Keel dissolved into LCL. Override prevented."
+      0
     end
 
     def self.run_shinji
