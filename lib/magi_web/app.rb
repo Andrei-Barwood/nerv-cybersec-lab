@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'kramdown'
 require 'json'
+require_relative '../nerv'
 
 module MagiWeb
   class App < Sinatra::Base
@@ -14,7 +15,11 @@ module MagiWeb
 
     post '/run/:episode' do
       ep = params[:episode].to_s
-      ep = ep.rjust(2, '0') unless %w[yui rei shinji keel].include?(ep)
+      if ep =~ /^angel_?(\d+)$/i
+        ep = "angel_#{Regexp.last_match(1).rjust(2, '0')}"
+      elsif !%w[yui rei shinji keel].include?(ep) && ep !~ /^angel_/i && !Nerv::AngelDossier.find(ep)
+        ep = ep.rjust(2, '0')
+      end
       
       # Execute the original CLI script and capture output
       output = `ruby -I#{File.expand_path('../../lib', __dir__)} #{File.expand_path('../../bin/episodio', __dir__)} #{ep} 2>&1`
@@ -26,7 +31,14 @@ module MagiWeb
 
     get '/magi_eval/:episode' do
       ep = params[:episode].to_s
-      ep = ep.rjust(2, '0') unless %w[yui rei shinji keel].include?(ep)
+      
+      # Direct lookup for Angel targets
+      if (dossier = Nerv::AngelDossier.find(ep))
+        content_type :json
+        return dossier[:magi_consensus].to_json
+      end
+
+      ep = ep.rjust(2, '0') unless %w[yui rei shinji keel].include?(ep) || ep.start_with?('angel_')
       
       db_path = File.expand_path('magi_database.json', __dir__)
       
@@ -65,8 +77,26 @@ module MagiWeb
       data.to_json
     end
 
+    get '/report/angel/:id' do
+      @dossier = Nerv::AngelDossier.find(params[:id])
+      halt 404, "Angel dossier not found" unless @dossier
+      @page_title = "Angel_#{@dossier[:id]}_#{@dossier[:slug].capitalize}_MAGI_Report"
+      erb :angel_report
+    end
+
     get '/report/:episode' do
-      @episode = params[:episode].to_s
+      ep = params[:episode].to_s
+      
+      # Route to Angel Dossier if target matches angel
+      if ep =~ /^angel_?(\w+)$/i || (angel_dossier = Nerv::AngelDossier.find(ep))
+        @dossier = angel_dossier || Nerv::AngelDossier.find(ep)
+        if @dossier
+          @page_title = "Angel_#{@dossier[:id]}_#{@dossier[:slug].capitalize}_MAGI_Report"
+          return erb :angel_report
+        end
+      end
+
+      @episode = ep
       @episode = @episode.rjust(2, '0') unless %w[yui rei shinji keel].include?(@episode)
       
       ep_titles = {

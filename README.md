@@ -99,32 +99,32 @@ bundle exec bin/magi
 Abre tu navegador en: [http://localhost:4567](http://localhost:4567)
 
 **3. Simular un Incidente:**
-- Selecciona un episodio en el menú desplegable (ej. `EP 01`).
-- Haz clic en **DEPLOY EVA (RUN LAB)**.
-- Verás fluir en la consola visual de la web los eventos generados por el simulador backend. 
-- Al concluir, la MAGI evaluará los resultados (mostrando el dictamen simultáneo de Melchior, Balthasar y Casper).
+- **Canal A (Episodios y C-Level):** Selecciona un episodio (ej. `EP 01`) o amenaza (`YUI`, `REI`, `SHINJI`, `KEEL`), pulsa **DEPLOY EVA (RUN LAB)** o **GENERATE EPISODE REPORT**.
+- **Canal B (Ángeles Canónicos TV 01-18):** Selecciona el Ángel táctico en el nuevo menú desplegable (Adam a Lilim), pulsa **ANALYZE ANGEL (RUN LAB)** para ver la telemetría SIEM y el dictamen de los 3 núcleos, o pulsa **GENERATE ANGEL REPORT (PDF)** para abrir el dossier clasificado.
 
 ---
 
 ## 📄 Generación de Reportes Forenses (PDF)
 
-El proyecto documenta extensamente las vulnerabilidades, errores de los operadores (*Human Factors*), anatomía de la amenaza y *After Action Reports* (AAR) en documentos `.md` (ubicados en `docs/episodios/`).
+El proyecto documenta extensamente las vulnerabilidades, errores de los operadores (*Human Factors*), anatomía de la amenaza y *After Action Reports* (AAR) en documentos `.md` (ubicados en `docs/episodios/` y `docs/angeles/`).
 
-Para exportar la documentación completa de un incidente como un **Threat Intelligence Report** con formato PDF corporativo:
+Para exportar la documentación completa de un incidente o Ángel como un **Threat Intelligence Report** con formato PDF corporativo:
 
-1. Levanta el servidor del MAGI Dashboard.
-2. Haz clic en el botón **GENERATE THREAT REPORT** desde el dashboard (o ve directamente a `http://localhost:4567/report/01`).
-3. El sistema unificará todos los archivos (Playbooks, Prevención, Consenso de los 3 Núcleos) en una sola hoja web de fácil lectura.
-4. Presiona el botón **EXPORT TO PDF (PRINT)** o usa el menú de imprimir de tu navegador. El documento generado sugerirá de forma automática el nombre seguro, por ejemplo: `01_Angel_Attack_MAGI_Report.pdf`.
+1. Levanta el servidor del MAGI Dashboard (`./bin/magi_offline` o `bundle exec bin/magi`).
+2. Haz clic en el botón **GENERATE THREAT REPORT** (ej. `http://localhost:4567/report/01`) o **GENERATE ANGEL REPORT** (ej. `http://localhost:4567/report/angel/03` o `http://localhost:4567/report/angel/tabris`).
+3. El sistema unificará todos los datos (Mecánicas, Espoilers, Auditoría de Vulnerabilidades: *Honeypot de SEELE vs Defecto de Diseño*, Rol de Keel Lorenz y Consenso de los 3 Núcleos MAGI) en una sola hoja web de fácil lectura.
+4. Presiona el botón **EXPORT TO PDF (PRINT)** o usa el menú de imprimir de tu navegador. El documento sugerirá automáticamente el nombre seguro de exportación.
 
 ---
 
 ## 📚 Estructura de Directorios
 
-- `bin/`: Ejecutables del lab (`episodio`, `magi`).
-- `docs/episodios/`: Documentación técnica y forense de cada incidente.
-- `lib/nerv/`: Clases principales del motor Ruby (Angeles, Vectores de ataque, SIEM).
+- `bin/`: Ejecutables del lab (`episodio`, `magi`, `magi_offline`).
+- `docs/angeles/`: Dossiers clasificados de cada uno de los 18 Ángeles de la serie de TV (1995-1996).
+- `docs/episodios/`: Documentación técnica y forense de cada incidente por episodio.
+- `lib/nerv/`: Clases principales del motor Ruby (Ángeles, Vectores de ataque, SIEM, Dossiers).
+- `lib/nerv/angels/`: Implementación de los 18 Ángeles canónicos de TV como clases ejecutables.
 - `lib/nerv/scenarios/`: Escenarios orquestados por número de episodio.
-- `lib/magi_web/`: Aplicación Sinatra para la GUI, estilos (CSS) y plantillas de reportes (ERB).
-- `prompts/`: Reglamentos maestros y constituciones usadas para guiar a los agentes IA a construir este proyecto (*Constitución de NERV*).
-- `test/`: Tests unitarios bajo Minitest que aseguran que las mitigaciones "muerden" y que los modelos de amenaza persisten de forma realista.
+- `lib/magi_web/`: Aplicación Sinatra para la GUI, estilos (CSS), plantillas ERB y base de datos MAGI.
+- `prompts/`: Reglamentos maestros y constituciones usadas para guiar a los agentes IA (*Constitución de NERV*).
+- `test/`: Tests unitarios bajo Minitest que aseguran que las mitigaciones "muerden" y que los modelos persisten de forma realista.

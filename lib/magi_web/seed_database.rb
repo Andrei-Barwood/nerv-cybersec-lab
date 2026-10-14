@@ -62,5 +62,14 @@ end
 db["01"]["melchior"] = "ANÁLISIS CANÓNICO: EPISODIO 01 [Sachiel]\n\nLa entidad designada como Sachiel demuestra características de persistencia severa (Wipe Survival). Tras recibir el impacto de un explosivo N2, la entidad no fue erradicada; su AT Field absorbió el daño masivo, y procedió a regenerarse, desarrollando apéndices adicionales y armamento de energía (Adaptive Mutation). El core se encuentra protegido."
 db["01"]["balthasar"] = "POSTURA DE CIBERSEGURIDAD: PREVENCIÓN VS MITIGACIÓN\n\nError Crítico: El uso de fuerza bruta (N2) sin comprender la anatomía de la amenaza fortalece al atacante. Desplegar al Eva-01 con un operador en frío (Shinji) no es prevención, es una mitigación desesperada. La amenaza sigue sin contenerse, demostrando un fallo sistémico en la preparación (Incident Readiness) de NERV frente al Pattern Blue."
 
+# Incorporar análisis de consenso MAGI para todos los Ángeles (01-18)
+$LOAD_PATH.unshift(File.expand_path('../../lib', __dir__))
+require 'nerv'
+
+Nerv::AngelDossier.all.each do |d|
+  db["angel_#{d[:id]}"] = d[:magi_consensus]
+  db[d[:slug]] = d[:magi_consensus]
+end
+
 File.write(File.expand_path('magi_database.json', __dir__), JSON.pretty_generate(db))
-puts "MAGI Database (magi_database.json) generated successfully."
+puts "MAGI Database (magi_database.json) generated successfully with Angel dossiers."

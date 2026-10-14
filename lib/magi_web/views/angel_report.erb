@@ -1,0 +1,144 @@
+<div class="report-container">
+  <div class="report-header">
+    <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #cc0000; font-weight: bold; letter-spacing: 2px;">
+      NERV THREAT INTELLIGENCE // MAGI TACTICAL ARCHIVE
+    </div>
+    <h1 style="margin: 5px 0;"><%= @dossier[:name].upcase %></h1>
+    <h2 style="color: #444; font-size: 1.15rem; margin-top: 0;">
+      EXPEDIENTE DE INCIDENTE: ÁNGEL <%= @dossier[:id] %> (TV 1995-1996 CANON)
+    </h2>
+    <div style="font-family: var(--font-mono); font-size: 0.8rem; background: #000; color: #FF9900; display: inline-block; padding: 3px 8px; margin-top: 8px;">
+      SECURITY CLEARANCE: TOP SECRET // SEELE 01 & COMMAND HQ EYES ONLY
+    </div>
+  </div>
+
+  <div class="no-print" style="margin-bottom: 25px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+    <button onclick="window.print()" style="padding: 10px 20px; font-weight: bold; border: 2px solid #000; background: #FF9900; color: #000; cursor: pointer; text-transform: uppercase;">
+      📄 EXPORT TO PDF (PRINT)
+    </button>
+    <a href="/" style="color: #000; font-family: var(--font-mono); font-size: 0.9rem; text-decoration: underline;">
+      ← VOLVER AL MAGI DASHBOARD
+    </a>
+  </div>
+
+  <div class="report-section" style="border: 2px solid #000; padding: 15px; background: #fafafa; margin-bottom: 30px;">
+    <h3 style="margin-top: 0; border-bottom: 1px solid #ccc; padding-bottom: 5px;">FICHA TÁCTICA DEL ÁNGEL</h3>
+    <table style="margin-bottom: 0;">
+      <tr>
+        <th style="width: 25%;">Identificador Canónico</th>
+        <td><strong>Ángel <%= @dossier[:id] %>: <%= @dossier[:name] %></strong> (Slug: <code><%= @dossier[:slug] %></code>)</td>
+      </tr>
+      <tr>
+        <th>Episodios Canónicos (TV)</th>
+        <td>Episodio(s) <strong><%= @dossier[:episodes] %></strong></td>
+      </tr>
+      <tr>
+        <th>Clase de Amenaza</th>
+        <td><%= @dossier[:threat_class] %></td>
+      </tr>
+      <tr>
+        <th>Naturaleza de Vulnerabilidad</th>
+        <td>
+          <% if @dossier[:vulnerability_nature].include?('HONEYPOT') %>
+            <span style="background: #cc0000; color: #fff; padding: 4px 8px; font-weight: bold; font-size: 0.85rem; border-radius: 2px;">
+              ⚠️ <%= @dossier[:vulnerability_nature] %>
+            </span>
+          <% else %>
+            <span style="background: #d97706; color: #fff; padding: 4px 8px; font-weight: bold; font-size: 0.85rem; border-radius: 2px;">
+              ⚙️ <%= @dossier[:vulnerability_nature] %>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>Equivalencia Ciberseguridad</th>
+        <td><code><%= @dossier[:cybersec_equivalent] %></code></td>
+      </tr>
+      <tr>
+        <th>Resultado de Mitigación</th>
+        <td><code>outcome=<%= @dossier[:outcome] %></code> (Exit Code: <%= @dossier[:exit_code] %>)</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="report-section">
+    <h3>1. PROPÓSITOS MECÁNICOS Y VECTORES OFENSIVOS</h3>
+    <p style="line-height: 1.6; font-size: 1.05rem;">
+      <%= @dossier[:mechanical_purposes] %>
+    </p>
+  </div>
+
+  <div class="report-section">
+    <div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 12px; margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.85rem;">
+      <strong>⚠️ ALERTA DE ESPOILERS CANÓNICOS COMPLETOS (TV 1995-1996):</strong>
+      El siguiente análisis expone la totalidad de los giros de guion, secretos de la trama y el destino final de la entidad en la serie original.
+    </div>
+    <h3>2. ESPOILERS COMPLETOS Y TRAYECTORIA CANÓNICA</h3>
+    <p style="line-height: 1.6; font-size: 1.05rem;">
+      <%= @dossier[:spoilers] %>
+    </p>
+  </div>
+
+  <div class="report-section">
+    <h3>3. ANÁLISIS DE VULNERABILIDAD: ¿DEFECTO DE DISEÑO O HONEYPOT DE SEELE?</h3>
+    
+    <div style="border-left: 4px solid #000; padding-left: 15px; margin-bottom: 15px;">
+      <h4 style="margin: 0 0 5px 0; text-transform: uppercase;">Mecánica del Exploit (Ventana de Ataque):</h4>
+      <p style="line-height: 1.5; margin: 0;"><%= @dossier[:vulnerability] %></p>
+    </div>
+
+    <div style="border-left: 4px solid #cc0000; padding-left: 15px; margin-bottom: 15px; background: #fff5f5; padding: 10px 15px;">
+      <h4 style="margin: 0 0 5px 0; color: #cc0000; text-transform: uppercase;">
+        Auditoría de Intencionalidad: <%= @dossier[:vulnerability_nature] %>
+      </h4>
+      <p style="line-height: 1.6; margin: 0;"><%= @dossier[:vulnerability_explanation] %></p>
+    </div>
+  </div>
+
+  <div class="report-section">
+    <h3>4. ROL EN EL PLAN DE KEEL LORENZ Y LOS MANUSCRITOS DEL MAR MUERTO</h3>
+    <p style="line-height: 1.6; font-size: 1.05rem;">
+      <%= @dossier[:keel_seele_role] %>
+    </p>
+  </div>
+
+  <div class="report-section">
+    <h3>5. MODELO DE CIBERSEGURIDAD Y MITIGACIÓN EN EL LAB</h3>
+    <p style="line-height: 1.6;">
+      En el laboratorio táctico de NERV, este Ángel se modela formalmente como una subclase ejecutable de <code>Nerv::Angel</code> 
+      (ubicada en <code>lib/nerv/angels/<%= @dossier[:slug] %>.rb</code>). Su comportamiento replica las TTPs 
+      específicas del incidente bajo minitests unitarios estrictos y emite trazas al SIEM de NERV.
+    </p>
+    <div style="background: #000; color: #00FF00; padding: 15px; font-family: var(--font-mono); font-size: 0.85rem; border-radius: 3px;">
+      <div style="color: #888;">// Telemetría del Escenario de Laboratorio</div>
+      <% @dossier[:siem_events].each do |ev| %>
+        <div>> <%= ev %></div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="report-section" style="border: 3px solid #000; padding: 20px; background: #fafafa; margin-top: 35px;">
+    <h3 style="text-align: center; border-bottom: 3px solid #000; padding-bottom: 10px; margin-top: 0;">
+      DICTAMEN DE CONSENSO TRIPARTITO MAGI
+    </h3>
+    
+    <div style="margin-bottom: 20px;">
+      <h4 style="color: #0088cc; text-transform: uppercase; margin-bottom: 5px;">MELCHIOR-1 (Amenaza Canónica, Anatomía y Kill-Chain)</h4>
+      <pre style="white-space: pre-wrap; font-family: var(--font-mono); background: #f0f8ff; border: 1px solid #bce8f1; padding: 12px; margin: 0;"><%= @dossier[:magi_consensus]['melchior'] %></pre>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+      <h4 style="color: #cc6600; text-transform: uppercase; margin-bottom: 5px;">BALTHASAR-2 (Postura de Seguridad, Auditoría de Honeypot y Plan de Keel)</h4>
+      <pre style="white-space: pre-wrap; font-family: var(--font-mono); background: #fffaf0; border: 1px solid #faebcc; padding: 12px; margin: 0;"><%= @dossier[:magi_consensus]['balthasar'] %></pre>
+    </div>
+    
+    <div>
+      <h4 style="color: #cc00cc; text-transform: uppercase; margin-bottom: 5px;">CASPER-3 (Estado de Laboratorio Ruby, Tests y Contención)</h4>
+      <pre style="white-space: pre-wrap; font-family: var(--font-mono); background: #fff0f5; border: 1px solid #ebccd1; padding: 12px; margin: 0;"><%= @dossier[:magi_consensus]['casper'] %></pre>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; border-top: 2px solid #ccc; padding-top: 15px; font-family: var(--font-mono); font-size: 0.8rem; color: #888; text-align: center;">
+    DOCUMENTO OFICIAL DEL LABORATORIO NERV CYBERSEC // AUTENTICADO POR TRIPLE CONSENSO MAGI // NO REBUILD CANON (TV 1995-1996)
+  </div>
+</div>

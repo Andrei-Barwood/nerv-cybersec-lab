@@ -128,5 +128,185 @@
     "melchior": "ANÁLISIS CANÓNICO: EPISODIO 26 [Take care of yourself.]\n\nIdentificación de Amenaza: Patrón Azul confirmado.\nComportamiento: La entidad exhibe un AT Field de clase estándar. El comportamiento inicial sugiere una directiva orientada hacia el Geofront.\nEvolución: Tras el impacto inicial (ej. explosivos N2 u ofensiva convencional), la entidad muestra una rápida regeneración y adaptación estructural.\nEvaluación Táctica: Se requiere ataque directo al Núcleo (Core). Las armas convencionales son insuficientes. Probabilidad de éxito táctico con despliegue de unidad Eva: 45%.",
     "balthasar": "POSTURA DE CIBERSEGURIDAD Y MITIGACIÓN\n\nFallo de Contención: El perímetro exterior fue vulnerado. La estrategia de escalada estática demostró ser ineficaz contra una amenaza adaptativa.\nAnálisis del Operador: El recurso humano asignado presenta un Sync Rate marginal. Esto equivale a otorgar privilegios de administrador a un analista sin entrenamiento.\nControles Preventivos Ausentes: Falta de segmentación entre el exterior de Tokio-3 y el pozo del Geofront. \nVeredicto: Riesgo Crítico de seguridad aceptado por el Comando. El IC (Incident Commander) fue forzado a utilizar un 'parche en caliente' (Deploy Eva-01).",
     "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nVerificación de Test: Escenario de prueba para el Episodio 26 localizado y evaluado en el repositorio (test_scenario_ep26.rb).\nMétricas de Sistema: Object allocations dentro de la tolerancia. TTPs modeladas correctamente como subclases de Attack::Vector.\nAprobación de la Directiva: El sistema ha logrado instanciar el modelo de amenaza sin comprometer la memoria del proceso principal.\nConsenso final: El código reproduce con precisión el fallo de la doctrina de defensa de NERV."
+  },
+  "angel_01": {
+    "melchior": "ANÁLISIS CANÓNICO: ADAM (1ST ANGEL)\n\nEntidad fundacional. Portador del Fruto de la Vida y del Motor S2 original. El evento antártico del año 2000 confirma que su despertar sin contención equivale a la purga de la biosfera. Su estado actual como embrión baquelizado representa el congelamiento del kernel primordial.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: HONEYPOT DE SEELE\n\nVeredicto: Vulnerabilidad 100% inducida por SEELE. Keel Lorenz diseñó la intervención antártica para forzar el colapso del sistema antes del despertar natural de los Ángeles. El Segundo Impacto fue el costo colateral aceptado para neutralizar el Rootkit de Adán.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Adam operativa. Métodos contact_experiment!, second_impact! y revert_to_embryo!(spear:) validados. Simulación en memoria reproduce la reducción a embrión bajo Lanza de Longinus."
+  },
+  "adam": {
+    "melchior": "ANÁLISIS CANÓNICO: ADAM (1ST ANGEL)\n\nEntidad fundacional. Portador del Fruto de la Vida y del Motor S2 original. El evento antártico del año 2000 confirma que su despertar sin contención equivale a la purga de la biosfera. Su estado actual como embrión baquelizado representa el congelamiento del kernel primordial.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: HONEYPOT DE SEELE\n\nVeredicto: Vulnerabilidad 100% inducida por SEELE. Keel Lorenz diseñó la intervención antártica para forzar el colapso del sistema antes del despertar natural de los Ángeles. El Segundo Impacto fue el costo colateral aceptado para neutralizar el Rootkit de Adán.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Adam operativa. Métodos contact_experiment!, second_impact! y revert_to_embryo!(spear:) validados. Simulación en memoria reproduce la reducción a embrión bajo Lanza de Longinus."
+  },
+  "angel_02": {
+    "melchior": "ANÁLISIS CANÓNICO: LILITH (2ND ANGEL)\n\nFuente de la vida Lilim y de la Luna Negra. Su masa celular genera el fluido LCL. Su confinamiento crucificado con la Lanza en Central Dogma constituye el secreto mejor guardado de la jerarquía de NERV.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: HONEYPOT MAESTRO\n\nVeredicto: Honeypot intencional absoluto. Toda la infraestructura militar de Tokio-3 se diseñó alrededor de este Honeytoken. NERV usó a Lilith como cebo activo para canalizar las amenazas externas hacia un único cuello de botella táctico.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Lilith implementada. Variables @spear_impaled y @honeypot_active auditadas. Telemetría confirma atracción de vectores angélicos hacia Geofront."
+  },
+  "lilith": {
+    "melchior": "ANÁLISIS CANÓNICO: LILITH (2ND ANGEL)\n\nFuente de la vida Lilim y de la Luna Negra. Su masa celular genera el fluido LCL. Su confinamiento crucificado con la Lanza en Central Dogma constituye el secreto mejor guardado de la jerarquía de NERV.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: HONEYPOT MAESTRO\n\nVeredicto: Honeypot intencional absoluto. Toda la infraestructura militar de Tokio-3 se diseñó alrededor de este Honeytoken. NERV usó a Lilith como cebo activo para canalizar las amenazas externas hacia un único cuello de botella táctico.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Lilith implementada. Variables @spear_impaled y @honeypot_active auditadas. Telemetría confirma atracción de vectores angélicos hacia Geofront."
+  },
+  "angel_03": {
+    "melchior": "ANÁLISIS CANÓNICO: SACHIEL (3RD ANGEL)\n\nPrimera prueba de fuego tras 15 años. Su supervivencia al bombardeo N2 demostró la inutilidad de las fuerzas de defensa convencionales de la ONU. La destrucción de su núcleo requirió el estado Berserk no autorizado del EVA-01.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: DEFECTO DE DISEÑO\n\nVeredicto: Vulnerabilidad no intencional en el Ángel. Incidente de seguridad gestionado como mitigación desesperada (subir a un menor de 14 años sin entrenamiento). La contención fue descontrolada (:contained_uncontrolled).",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Sachiel en lib/nerv/angels/sachiel.rb. TTPs T-SACHIEL-01 a 05 verificadas. Test unitario test_sachiel.rb pasa con aserciones rigurosas."
+  },
+  "sachiel": {
+    "melchior": "ANÁLISIS CANÓNICO: SACHIEL (3RD ANGEL)\n\nPrimera prueba de fuego tras 15 años. Su supervivencia al bombardeo N2 demostró la inutilidad de las fuerzas de defensa convencionales de la ONU. La destrucción de su núcleo requirió el estado Berserk no autorizado del EVA-01.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: DEFECTO DE DISEÑO\n\nVeredicto: Vulnerabilidad no intencional en el Ángel. Incidente de seguridad gestionado como mitigación desesperada (subir a un menor de 14 años sin entrenamiento). La contención fue descontrolada (:contained_uncontrolled).",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Sachiel en lib/nerv/angels/sachiel.rb. TTPs T-SACHIEL-01 a 05 verificadas. Test unitario test_sachiel.rb pasa con aserciones rigurosas."
+  },
+  "angel_04": {
+    "melchior": "ANÁLISIS CANÓNICO: SHAMSHEL (4TH ANGEL)\n\nDerrota agónica en el segundo 00:01 de energía residual. El cadáver intacto proveyó a NERV el primer espécimen de investigación biomédica y datos sobre el órgano de energía continua S2.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: FALLO DE FACTOR HUMANO\n\nEl operador rompió la cadena de mando. Aunque la contención técnica fue exitosa, el riesgo de pérdida total de la unidad fue de 99.8%. No hubo control preventivo en la preservación del cable umbilical.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Shamshel operativa. Simulación de corte de cordón umbilical y estocada final reproduce el incidente del ep 03 con código de salida limpio."
+  },
+  "shamshel": {
+    "melchior": "ANÁLISIS CANÓNICO: SHAMSHEL (4TH ANGEL)\n\nDerrota agónica en el segundo 00:01 de energía residual. El cadáver intacto proveyó a NERV el primer espécimen de investigación biomédica y datos sobre el órgano de energía continua S2.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: FALLO DE FACTOR HUMANO\n\nEl operador rompió la cadena de mando. Aunque la contención técnica fue exitosa, el riesgo de pérdida total de la unidad fue de 99.8%. No hubo control preventivo en la preservación del cable umbilical.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Shamshel operativa. Simulación de corte de cordón umbilical y estocada final reproduce el incidente del ep 03 con código de salida limpio."
+  },
+  "angel_05": {
+    "melchior": "ANÁLISIS CANÓNICO: RAMIEL (5TH ANGEL)\n\nEl asedio más destructivo a nivel de infraestructura. La Operación Yashima requirió 180 millones de kilovatios y el sacrificio térmico del prototipo EVA-00 para lograr la penetración balística.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: COMPENSACIÓN POR FUERZA BRUTA\n\nFallo preventivo masivo: el sistema de detección temprana de Tokio-3 no anticipó el rango de fuego de partículas. La respuesta fue una mitigación industrial extrema con coste energético multimillonario.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Ramiel y módulo OperationYashima validados. Pruebas de absorción de escudo ablativo y penetración del rifle de positrones pasan exitosamente."
+  },
+  "ramiel": {
+    "melchior": "ANÁLISIS CANÓNICO: RAMIEL (5TH ANGEL)\n\nEl asedio más destructivo a nivel de infraestructura. La Operación Yashima requirió 180 millones de kilovatios y el sacrificio térmico del prototipo EVA-00 para lograr la penetración balística.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: COMPENSACIÓN POR FUERZA BRUTA\n\nFallo preventivo masivo: el sistema de detección temprana de Tokio-3 no anticipó el rango de fuego de partículas. La respuesta fue una mitigación industrial extrema con coste energético multimillonario.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Ramiel y módulo OperationYashima validados. Pruebas de absorción de escudo ablativo y penetración del rifle de positrones pasan exitosamente."
+  },
+  "angel_06": {
+    "melchior": "ANÁLISIS CANÓNICO: GAGHIEL (6TH ANGEL)\n\nCombate naval no convencional. Demostró la efectividad de las maniobras tácticas de Misato utilizando buques de guerra de la flota como arietes explosivos internos contra el núcleo.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: OPERACIÓN CON CEBO ACTIVO\n\nVeredicto: Operación encubierta de Gendo y Kaji. Se puso en riesgo una flota de la ONU de 12.000 millones de dólares para contrabandear a Adán como Honeytoken sin declarar a la Comisión de SEELE.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Gaghiel y FleetBattery operativas. Simulación de hundimiento y salva a bocajarro ejecutada con aserciones de Minitest limpias."
+  },
+  "gaghiel": {
+    "melchior": "ANÁLISIS CANÓNICO: GAGHIEL (6TH ANGEL)\n\nCombate naval no convencional. Demostró la efectividad de las maniobras tácticas de Misato utilizando buques de guerra de la flota como arietes explosivos internos contra el núcleo.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: OPERACIÓN CON CEBO ACTIVO\n\nVeredicto: Operación encubierta de Gendo y Kaji. Se puso en riesgo una flota de la ONU de 12.000 millones de dólares para contrabandear a Adán como Honeytoken sin declarar a la Comisión de SEELE.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Gaghiel y FleetBattery operativas. Simulación de hundimiento y salva a bocajarro ejecutada con aserciones de Minitest limpias."
+  },
+  "angel_07": {
+    "melchior": "ANÁLISIS CANÓNICO: ISRAFEL (7TH ANGEL)\n\nLa batalla más estética de la serie. Exigió 62 segundos de movimientos coordinados al milímetro para impactar los dos núcleos en el mismo fotograma.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: DEFECTO DE CLÚSTER\n\nVeredicto: Arquitectura distribuida sin quórum. Explotación de condición de carrera (race condition) mediante ejecución simultánea en paralelo de dos hilos (Eva-01 y Eva-02).",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Israfel y módulo DualPlug/SyncClock verificados. Simulación de ataque simultáneo implementada en lib/nerv/angels/israfel.rb."
+  },
+  "israfel": {
+    "melchior": "ANÁLISIS CANÓNICO: ISRAFEL (7TH ANGEL)\n\nLa batalla más estética de la serie. Exigió 62 segundos de movimientos coordinados al milímetro para impactar los dos núcleos en el mismo fotograma.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: DEFECTO DE CLÚSTER\n\nVeredicto: Arquitectura distribuida sin quórum. Explotación de condición de carrera (race condition) mediante ejecución simultánea en paralelo de dos hilos (Eva-01 y Eva-02).",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Israfel y módulo DualPlug/SyncClock verificados. Simulación de ataque simultáneo implementada en lib/nerv/angels/israfel.rb."
+  },
+  "angel_08": {
+    "melchior": "ANÁLISIS CANÓNICO: SANDALPHON (8TH ANGEL)\n\nIncursión en magma a alta presión. La captura biológica fracasó por el despertar súbito de la crisálida, forzando la destrucción in situ mediante refrigerante.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RIESGO INACEPTABLE DE CAPTURA\n\nIntento de adquisición de malware 'en caliente'. NERV casi pierde la unidad Eva-02 por una ambición de recolección de muestras sin protocolos de contención primaria.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Sandalphon y módulo MagmaEnvironment operativos. Pruebas de choque térmico y destrucción de núcleo en magma pasan en Minitest."
+  },
+  "sandalphon": {
+    "melchior": "ANÁLISIS CANÓNICO: SANDALPHON (8TH ANGEL)\n\nIncursión en magma a alta presión. La captura biológica fracasó por el despertar súbito de la crisálida, forzando la destrucción in situ mediante refrigerante.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RIESGO INACEPTABLE DE CAPTURA\n\nIntento de adquisición de malware 'en caliente'. NERV casi pierde la unidad Eva-02 por una ambición de recolección de muestras sin protocolos de contención primaria.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Sandalphon y módulo MagmaEnvironment operativos. Pruebas de choque térmico y destrucción de núcleo en magma pasan en Minitest."
+  },
+  "angel_09": {
+    "melchior": "ANÁLISIS CANÓNICO: MATARAEL (9TH ANGEL)\n\nNeutralizado durante un corte total de energía de Tokio-3. La coordinación física de los tres EVAs compensó la ausencia de soporte de las supercomputadoras MAGI.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RESILIENCIA EN MODO DEGRADADO\n\nVeredicto: Excelente ejercicio de BCP/DRP (Business Continuity Plan). El laboratorio sobrevivió a un apagón total gracias al protocolo analógico de contingencia.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Matarael y módulo AnalogLaunch validados. Código simula exitosamente la victoria con MAGI apagada y rifle palet manual."
+  },
+  "matarael": {
+    "melchior": "ANÁLISIS CANÓNICO: MATARAEL (9TH ANGEL)\n\nNeutralizado durante un corte total de energía de Tokio-3. La coordinación física de los tres EVAs compensó la ausencia de soporte de las supercomputadoras MAGI.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RESILIENCIA EN MODO DEGRADADO\n\nVeredicto: Excelente ejercicio de BCP/DRP (Business Continuity Plan). El laboratorio sobrevivió a un apagón total gracias al protocolo analógico de contingencia.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Matarael y módulo AnalogLaunch validados. Código simula exitosamente la victoria con MAGI apagada y rifle palet manual."
+  },
+  "angel_10": {
+    "melchior": "ANÁLISIS CANÓNICO: SAHAQUIEL (10TH ANGEL)\n\nAtaque orbital masivo. La intercepción a mano limpia de una masa cinético-gravitacional a velocidad de reentrada salvó al Geofront por una fracción de segundo.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RIESGO CRÍTICO NO MITIGADO\n\nOperación aprobada por NERV basada en azar estadístico (<1% de éxito). Demuestra la fragilidad de depender de intervenciones milagrosas de última hora.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Sahaquiel y módulo ImpactClock probados. Simulación de carrera a máxima velocidad y frenado de AT Field confirmada."
+  },
+  "sahaquiel": {
+    "melchior": "ANÁLISIS CANÓNICO: SAHAQUIEL (10TH ANGEL)\n\nAtaque orbital masivo. La intercepción a mano limpia de una masa cinético-gravitacional a velocidad de reentrada salvó al Geofront por una fracción de segundo.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RIESGO CRÍTICO NO MITIGADO\n\nOperación aprobada por NERV basada en azar estadístico (<1% de éxito). Demuestra la fragilidad de depender de intervenciones milagrosas de última hora.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Sahaquiel y módulo ImpactClock probados. Simulación de carrera a máxima velocidad y frenado de AT Field confirmada."
+  },
+  "angel_11": {
+    "melchior": "ANÁLISIS CANÓNICO: IREUL (11TH ANGEL)\n\nInfección informática nanobiológica directa en el núcleo de las MAGI. La supervivencia de NERV dependió del código de evolución forzada programado por la Dra. Ritsuko Akagi.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: BUFFER OVERFLOW EVOLUTIVO\n\nVeredicto: Explotación magistral de la lógica del atacante. Se transformó la fortaleza del malware (su sed de adaptación) en su vector de exterminio.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Ireul y módulo ForcedEvolution probados. Inyección de código suicida en Casper verify_infection_cleared pasa al 100%."
+  },
+  "ireul": {
+    "melchior": "ANÁLISIS CANÓNICO: IREUL (11TH ANGEL)\n\nInfección informática nanobiológica directa en el núcleo de las MAGI. La supervivencia de NERV dependió del código de evolución forzada programado por la Dra. Ritsuko Akagi.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: BUFFER OVERFLOW EVOLUTIVO\n\nVeredicto: Explotación magistral de la lógica del atacante. Se transformó la fortaleza del malware (su sed de adaptación) en su vector de exterminio.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Ireul y módulo ForcedEvolution probados. Inyección de código suicida en Casper verify_infection_cleared pasa al 100%."
+  },
+  "angel_12": {
+    "melchior": "ANÁLISIS CANÓNICO: LELIEL (12TH ANGEL)\n\nEl Mar de Dirac desafió la física euclidiana. La liberación del Eva-01 desde el interior demostró que la voluntad de Yui Ikari supera cualquier contención cuántica.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: SALIDA DE SANDBOX VIOLENTA\n\nEl atacante creyó aislar el proceso en una máquina virtual sellada (sandbox). La entidad contenida ejecutó un escape de privilegios absoluto (jailbreak) quebrando el hipervisor.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Leliel y módulo DiracSea validados. Simulación de ruptura interna y código de retorno :contained_uncontrolled pasan en el lab."
+  },
+  "leliel": {
+    "melchior": "ANÁLISIS CANÓNICO: LELIEL (12TH ANGEL)\n\nEl Mar de Dirac desafió la física euclidiana. La liberación del Eva-01 desde el interior demostró que la voluntad de Yui Ikari supera cualquier contención cuántica.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: SALIDA DE SANDBOX VIOLENTA\n\nEl atacante creyó aislar el proceso en una máquina virtual sellada (sandbox). La entidad contenida ejecutó un escape de privilegios absoluto (jailbreak) quebrando el hipervisor.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Leliel y módulo DiracSea validados. Simulación de ruptura interna y código de retorno :contained_uncontrolled pasan en el lab."
+  },
+  "angel_13": {
+    "melchior": "ANÁLISIS CANÓNICO: BARDIEL (13TH ANGEL)\n\nEl incidente más trágico de la serie. El secuestro biológico del EVA-03 forzó el despliegue del Dummy Plug y la mutilación de Toji Suzuhara a manos del Eva-01.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: ATAQUE DE SUPPLY CHAIN\n\nVeredicto: Compromiso deliberado de la cadena de suministro gestionado por SEELE. El Dummy Plug es un vector de deshumanización que violó todos los principios éticos de seguridad.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Bardiel y módulo DummyPlug verificados en lib/nerv/angels/bardiel.rb. Asignación de Toji y ejecución del Dummy Plug validadas."
+  },
+  "bardiel": {
+    "melchior": "ANÁLISIS CANÓNICO: BARDIEL (13TH ANGEL)\n\nEl incidente más trágico de la serie. El secuestro biológico del EVA-03 forzó el despliegue del Dummy Plug y la mutilación de Toji Suzuhara a manos del Eva-01.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: ATAQUE DE SUPPLY CHAIN\n\nVeredicto: Compromiso deliberado de la cadena de suministro gestionado por SEELE. El Dummy Plug es un vector de deshumanización que violó todos los principios éticos de seguridad.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Bardiel y módulo DummyPlug verificados en lib/nerv/angels/bardiel.rb. Asignación de Toji y ejecución del Dummy Plug validadas."
+  },
+  "angel_14": {
+    "melchior": "ANÁLISIS CANÓNICO: ZERUEL (14TH ANGEL)\n\nAsalto directo al Centro de Mando. Culminó con el canibalismo predatorio del Eva-01 devorando el Motor S2, rompiendo toda subordinación a la red de energía externa.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: BRECHA FÍSICA Y ADQUISICIÓN DE ROOT\n\nVeredicto: La mayor victoria de la APT de Yui Ikari. Al alimentarse de Zeruel, el Eva-01 adquirió privilegios de superusuario (Root) absolutos e irrevocables frente a SEELE.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Zeruel y módulo S2Organ validados en lib/nerv/angels/zeruel.rb. Telemetría de asimilación biológica y ganancia de energía continua verificada."
+  },
+  "zeruel": {
+    "melchior": "ANÁLISIS CANÓNICO: ZERUEL (14TH ANGEL)\n\nAsalto directo al Centro de Mando. Culminó con el canibalismo predatorio del Eva-01 devorando el Motor S2, rompiendo toda subordinación a la red de energía externa.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: BRECHA FÍSICA Y ADQUISICIÓN DE ROOT\n\nVeredicto: La mayor victoria de la APT de Yui Ikari. Al alimentarse de Zeruel, el Eva-01 adquirió privilegios de superusuario (Root) absolutos e irrevocables frente a SEELE.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Zeruel y módulo S2Organ validados en lib/nerv/angels/zeruel.rb. Telemetría de asimilación biológica y ganancia de energía continua verificada."
+  },
+  "angel_15": {
+    "melchior": "ANÁLISIS CANÓNICO: ARAEL (15TH ANGEL)\n\nAtaque psicológico a distancia orbital. Forzó la extracción de la Lanza de Longinus de Lilith y su posterior pérdida en la gravedad lunar.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: GAMBITO DE GENDO IKARI\n\nVeredicto: Operación de contramedida asimétrica. Gendo aprovechó la amenaza para deshacerse de la Lanza de Longinus, saboteando el plan de contingencia de Keel Lorenz.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Arael y módulos MentalBeam y SpearOfLonginus operativos en lib/nerv/angels/arael.rb. Simulación de lanzamiento orbital pasa."
+  },
+  "arael": {
+    "melchior": "ANÁLISIS CANÓNICO: ARAEL (15TH ANGEL)\n\nAtaque psicológico a distancia orbital. Forzó la extracción de la Lanza de Longinus de Lilith y su posterior pérdida en la gravedad lunar.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: GAMBITO DE GENDO IKARI\n\nVeredicto: Operación de contramedida asimétrica. Gendo aprovechó la amenaza para deshacerse de la Lanza de Longinus, saboteando el plan de contingencia de Keel Lorenz.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Arael y módulos MentalBeam y SpearOfLonginus operativos en lib/nerv/angels/arael.rb. Simulación de lanzamiento orbital pasa."
+  },
+  "angel_16": {
+    "melchior": "ANÁLISIS CANÓNICO: ARMISAEL (16TH ANGEL)\n\nFusión biológica en anillo helicoidal. Concluyó con la inmolación del prototipo Eva-00 y el sacrificio heroico de la segunda Rei Ayanami para proteger a Shinji.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: SACRIFICIO DE NODO\n\nVeredicto: Mitigación destructiva extrema (Node Sacrifice). Ante una infección total de la memoria del proceso, el operador detonó la máquina para evitar el desbordamiento hacia la red principal.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Armisael y módulo NodeSacrifice probados en lib/nerv/angels/armisael.rb. Aserciones de sacrificio de Rei II validadas."
+  },
+  "armisael": {
+    "melchior": "ANÁLISIS CANÓNICO: ARMISAEL (16TH ANGEL)\n\nFusión biológica en anillo helicoidal. Concluyó con la inmolación del prototipo Eva-00 y el sacrificio heroico de la segunda Rei Ayanami para proteger a Shinji.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: SACRIFICIO DE NODO\n\nVeredicto: Mitigación destructiva extrema (Node Sacrifice). Ante una infección total de la memoria del proceso, el operador detonó la máquina para evitar el desbordamiento hacia la red principal.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Armisael y módulo NodeSacrifice probados en lib/nerv/angels/armisael.rb. Aserciones de sacrificio de Rei II validadas."
+  },
+  "angel_17": {
+    "melchior": "ANÁLISIS CANÓNICO: TABRIS / KAWORU NAGISA (17TH ANGEL)\n\nEl último Ángel enviado por SEELE. Al constatar que el ser en el Dogma era Lilith y no Adán, eligió el autosacrificio para legar el futuro a la humanidad.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: CABALLO DE TROYA DE SEELE\n\nVeredicto: Infiltración de alto nivel de SEELE frustrada por el libre albedrío del auditor. La negativa de Tabris a activar el exploit forzó a Keel a recurrir a la violencia militar en The End of Evangelion.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Tabris y módulos FifthChild/FreeWill implementados. Prueba test_target_confusion y crushed_by! pasan con 100% de éxito."
+  },
+  "tabris": {
+    "melchior": "ANÁLISIS CANÓNICO: TABRIS / KAWORU NAGISA (17TH ANGEL)\n\nEl último Ángel enviado por SEELE. Al constatar que el ser en el Dogma era Lilith y no Adán, eligió el autosacrificio para legar el futuro a la humanidad.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: CABALLO DE TROYA DE SEELE\n\nVeredicto: Infiltración de alto nivel de SEELE frustrada por el libre albedrío del auditor. La negativa de Tabris a activar el exploit forzó a Keel a recurrir a la violencia militar en The End of Evangelion.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Tabris y módulos FifthChild/FreeWill implementados. Prueba test_target_confusion y crushed_by! pasan con 100% de éxito."
+  },
+  "angel_18": {
+    "melchior": "ANÁLISIS CANÓNICO: LILIM (18TH ANGEL / HUMANIDAD)\n\nLa culminación canónica de Evangelion. La humanidad es el 18º Ángel. La resolución de Shinji rechazando la Instrumentalidad restaura los límites individuales a pesar del dolor de existir.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RESTAURACIÓN DE LÍMITES PERIMETRALES\n\nVeredicto: La disolución total del perímetro de red (Zero-Trust colapsado en sopa homogénea) fue revertida. Shinji restableció los firewalls individuales: boundaries_restored_fragile.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Lilim y módulo Instrumentality probados. Telemetría de reversión de Instrumentalidad confirmada."
+  },
+  "lilim": {
+    "melchior": "ANÁLISIS CANÓNICO: LILIM (18TH ANGEL / HUMANIDAD)\n\nLa culminación canónica de Evangelion. La humanidad es el 18º Ángel. La resolución de Shinji rechazando la Instrumentalidad restaura los límites individuales a pesar del dolor de existir.",
+    "balthasar": "AUDITORÍA DE SEGURIDAD: RESTAURACIÓN DE LÍMITES PERIMETRALES\n\nVeredicto: La disolución total del perímetro de red (Zero-Trust colapsado en sopa homogénea) fue revertida. Shinji restableció los firewalls individuales: boundaries_restored_fragile.",
+    "casper": "ESTADO DEL LABORATORIO (RUBY SYSTEM)\n\nClase Nerv::Angels::Lilim y módulo Instrumentality probados. Telemetría de reversión de Instrumentalidad confirmada."
   }
 }

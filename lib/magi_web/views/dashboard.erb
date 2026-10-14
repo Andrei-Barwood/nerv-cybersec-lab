@@ -2,89 +2,135 @@
   <div class="magi-header">
     <div>
       <h1>MAGI SYSTEM</h1>
-      <div>TACTICAL RESPONSE SIMULATOR</div>
+      <div>TACTICAL RESPONSE SIMULATOR // NERV HQ</div>
     </div>
-    <div class="status">SYSTEM ONLINE</div>
+    <div class="status">SYSTEM ONLINE // MAGI-01 TOKYO-3</div>
   </div>
 
-  <div class="controls">
-    <label for="episode-select">TARGET EPISODE:</label>
-    <select id="episode-select">
-      <% (1..26).each do |i| %>
-        <option value="<%= i.to_s.rjust(2, '0') %>">EP <%= i.to_s.rjust(2, '0') %></option>
-      <% end %>
-      <option value="yui">YUI MASTERPLAN APT</option>
-      <option value="rei">REI: CÓMPLICE (AGENTE DOBLE)</option>
-      <option value="shinji">SHINJI: TELEMETRÍA (PARCHES DE YUI)</option>
-      <option value="keel">KEEL: INTELIGENCIA HOSTIL (C-LEVEL)</option>
-    </select>
-    
-    <button id="btn-deploy" class="danger">DEPLOY EVA (RUN LAB)</button>
-    <button id="btn-report">GENERATE THREAT REPORT</button>
+  <!-- Operational Sector 1: Episodes -->
+  <div class="control-panel" style="border: 1px solid var(--nerv-dim); padding: 12px; margin-bottom: 15px; background: rgba(0,0,0,0.5);">
+    <div style="font-size: 0.8rem; color: var(--nerv-orange); margin-bottom: 6px; font-weight: bold; letter-spacing: 1px;">
+      [CANAL A] SIMULADOR DE INCIDENTES POR EPISODIO & AMENAZAS C-LEVEL
+    </div>
+    <div class="controls" style="margin-bottom: 0;">
+      <label for="episode-select" style="font-weight: bold;">TARGET EPISODE:</label>
+      <select id="episode-select" style="min-width: 260px;">
+        <% (1..26).each do |i| %>
+          <option value="<%= i.to_s.rjust(2, '0') %>">EP <%= i.to_s.rjust(2, '0') %></option>
+        <% end %>
+        <option value="yui">YUI MASTERPLAN APT</option>
+        <option value="rei">REI: CÓMPLICE (AGENTE DOBLE)</option>
+        <option value="shinji">SHINJI: TELEMETRÍA (PARCHES DE YUI)</option>
+        <option value="keel">KEEL: INTELIGENCIA HOSTIL (C-LEVEL)</option>
+      </select>
+      
+      <button id="btn-deploy" class="danger">DEPLOY EVA (RUN LAB)</button>
+      <button id="btn-report">GENERATE EPISODE REPORT</button>
+    </div>
+  </div>
+
+  <!-- Operational Sector 2: Angels (TV Canon 01-18) -->
+  <div class="control-panel" style="border: 1px solid #FF0000; padding: 12px; margin-bottom: 20px; background: rgba(255,0,0,0.05); box-shadow: 0 0 8px rgba(255,0,0,0.25);">
+    <div style="font-size: 0.8rem; color: var(--nerv-red); margin-bottom: 6px; font-weight: bold; letter-spacing: 1px;">
+      [CANAL B] PERFIL DE AMENAZAS POR ÁNGEL (TV SERIES 1995-1996 CANON // HONEYPOT & VULNERABILIDAD)
+    </div>
+    <div class="controls" style="margin-bottom: 0;">
+      <label for="angel-select" style="color: var(--nerv-red); font-weight: bold;">TARGET ANGEL:</label>
+      <select id="angel-select" style="min-width: 320px; border-color: var(--nerv-red);">
+        <option value="angel_01">01: ADAM (1st Angel / Semilla de Vida - Antártida)</option>
+        <option value="angel_02">02: LILITH (2nd Angel / Honeypot Pasivo del Dogma Central)</option>
+        <option value="angel_03">03: SACHIEL (3rd Angel / Asedio Anfibio & Wipe Survival)</option>
+        <option value="angel_04">04: SHAMSHEL (4th Angel / Fusta de Plasma & Extracción S2)</option>
+        <option value="angel_05">05: RAMIEL (5th Angel / Fortaleza Geométrica & Operación Yashima)</option>
+        <option value="angel_06">06: GAGHIEL (6th Angel / Depredador Acuático & Cebo Adam Kaji)</option>
+        <option value="angel_07">07: ISRAFEL (7th Angel / Núcleos Gemelos & Fisión Coreografiada)</option>
+        <option value="angel_08">08: SANDALPHON (8th Angel / Crisálida Ígnea & Choque Térmico)</option>
+        <option value="angel_09">09: MATARAEL (9th Angel / Lluvia Ácida & Infiltración en Apagón)</option>
+        <option value="angel_10">10: SAHAQUIEL (10th Angel / Bombardero Cinético Orbital Guiado)</option>
+        <option value="angel_11">11: IREUL (11th Angel / Malware Nanotecnológico en las MAGI)</option>
+        <option value="angel_12">12: LELIEL (12th Angel / Entidad Cuántica & Mar de Dirac)</option>
+        <option value="angel_13">13: BARDIEL (13th Angel / Parásito Fúngico & Infección Eva-03)</option>
+        <option value="angel_14">14: ZERUEL (14th Angel / Destructor de Fortaleza & Devorado por Eva-01)</option>
+        <option value="angel_15">15: ARAEL (15th Angel / Sonda Psíquica Orbital & Expulsión de la Lanza)</option>
+        <option value="angel_16">16: ARMISAEL (16th Angel / Bio-Fusión ADN & Inmolación de Rei II)</option>
+        <option value="angel_17">17: TABRIS (17th Angel / Kaworu Nagisa & Auditor Troyano SEELE)</option>
+        <option value="angel_18">18: LILIM (18th Angel / Humanidad & Tercer Impacto / Egos)</option>
+      </select>
+      
+      <button id="btn-deploy-angel" class="danger" style="background: #330000; border-color: #ff3333; color: #ff3333;">
+        ANALYZE ANGEL (RUN LAB)
+      </button>
+      <button id="btn-report-angel" style="border-color: #ff9900; color: #ff9900;">
+        GENERATE ANGEL REPORT (PDF)
+      </button>
+    </div>
   </div>
 
   <div class="terminal-window" id="terminal">
-    <div class="terminal-line">MAGI KERNEL v2.0 READY.</div>
-    <div class="terminal-line">AWAITING COMMAND...</div>
+    <div class="terminal-line">MAGI KERNEL v2.5 TACTICAL MONITOR ONLINE.</div>
+    <div class="terminal-line">CANAL A: EPISODIOS 01–26 (CADENA DE ATAQUE & PLAYBOOKS DISPONIBLES)</div>
+    <div class="terminal-line">CANAL B: ÁNGELES CANÓNICOS 01–18 (AUDITORÍA DE VULNERABILIDAD & HONEYPOTS SEELE)</div>
+    <div class="terminal-line">AWAITING TARGET SELECTION...</div>
   </div>
 
   <div class="magi-eval-grid" id="magi-cores">
     <div class="magi-core melchior">
       <h3>MELCHIOR (1)</h3>
-      <div class="status-label">ANALYZING THREAT CANON...</div>
+      <div class="status-label">ANALYZING THREAT CANON & MECHANICS...</div>
       <div class="core-output" id="melchior-output">Awaiting data...</div>
     </div>
     <div class="magi-core balthasar">
       <h3>BALTHASAR (2)</h3>
-      <div class="status-label">SECURITY POSTURE...</div>
+      <div class="status-label">SECURITY POSTURE & HONEYPOT AUDIT...</div>
       <div class="core-output" id="balthasar-output">Awaiting data...</div>
     </div>
     <div class="magi-core casper">
       <h3>CASPER (3)</h3>
-      <div class="status-label">LABORATORY STATE...</div>
+      <div class="status-label">LABORATORY STATE & SIEM TELEMETRY...</div>
       <div class="core-output" id="casper-output">Awaiting data...</div>
     </div>
   </div>
 </div>
 
 <script>
-  document.getElementById('btn-deploy').addEventListener('click', async () => {
-    const ep = document.getElementById('episode-select').value;
+  async function runSimulation(target, label) {
     const terminal = document.getElementById('terminal');
     const magiGrid = document.getElementById('magi-cores');
     
     // Hide MAGI cores during new run
     magiGrid.style.display = 'none';
     
-    terminal.innerHTML += `<div class="terminal-line warning">> INITIATING SCENARIO EP ${ep}...</div>`;
+    terminal.innerHTML += `<div class="terminal-line warning">> INITIATING ANALYSIS [${label}]: ${target}...</div>`;
     
     try {
-      const response = await fetch(`/run/${ep}`, { method: 'POST' });
+      const response = await fetch(`/run/${target}`, { method: 'POST' });
       const data = await response.json();
       
       const lines = data.output.split('\n');
       lines.forEach(line => {
         if (!line.trim()) return;
         let className = 'terminal-line';
-        if (line.includes('outcome=unresolved') || line.includes('fail') || line.includes('pattern_blue')) {
+        if (line.includes('outcome=unresolved') || line.includes('fail') || line.includes('pattern_blue') || line.includes('error') || line.includes('ALERT')) {
           className += ' error';
         } else if (line.includes('outcome=contained') || line.includes('success')) {
           className += ' success';
+        } else if (line.includes('warning') || line.includes('Naturaleza') || line.includes('Clase') || line.includes('INITIATING')) {
+          className += ' warning';
         }
         terminal.innerHTML += `<div class="${className}">${line}</div>`;
       });
       
       terminal.innerHTML += `<div class="terminal-line">> EXIT CODE: ${data.exit_code}</div>`;
-      terminal.innerHTML += `<div class="terminal-line warning">> LAB TERMINATED. REQUESTING MAGI CONSENSUS...</div>`;
+      terminal.innerHTML += `<div class="terminal-line warning">> LAB TERMINATED. REQUESTING MAGI CONSENSUS FOR ${target}...</div>`;
       terminal.scrollTop = terminal.scrollHeight;
 
       // Fetch MAGI evaluation
-      const evalResponse = await fetch(`/magi_eval/${ep}`);
+      const evalResponse = await fetch(`/magi_eval/${target}`);
       const evalData = await evalResponse.json();
 
-      document.getElementById('melchior-output').innerText = evalData.melchior;
-      document.getElementById('balthasar-output').innerText = evalData.balthasar;
-      document.getElementById('casper-output').innerText = evalData.casper;
+      document.getElementById('melchior-output').innerText = evalData.melchior || "NO DATA";
+      document.getElementById('balthasar-output').innerText = evalData.balthasar || "NO DATA";
+      document.getElementById('casper-output').innerText = evalData.casper || "NO DATA";
       
       // Show cores
       magiGrid.style.display = 'grid';
@@ -92,10 +138,25 @@
     } catch (e) {
       terminal.innerHTML += `<div class="terminal-line error">> SYSTEM ERROR: ${e.message}</div>`;
     }
+  }
+
+  document.getElementById('btn-deploy').addEventListener('click', () => {
+    const ep = document.getElementById('episode-select').value;
+    runSimulation(ep, 'EPISODIO');
   });
 
   document.getElementById('btn-report').addEventListener('click', () => {
     const ep = document.getElementById('episode-select').value;
     window.open(`/report/${ep}`, '_blank');
+  });
+
+  document.getElementById('btn-deploy-angel').addEventListener('click', () => {
+    const angel = document.getElementById('angel-select').value;
+    runSimulation(angel, 'ÁNGEL TÁCTICO');
+  });
+
+  document.getElementById('btn-report-angel').addEventListener('click', () => {
+    const angel = document.getElementById('angel-select').value;
+    window.open(`/report/angel/${angel}`, '_blank');
   });
 </script>
