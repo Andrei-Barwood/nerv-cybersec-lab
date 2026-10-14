@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Lanzador offline para MAGI Dashboard
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$DIR"
+
+# Priorizar Ruby 3.x si está instalado en Homebrew o gestores
+if [[ -x "/opt/homebrew/bin/ruby" ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+elif [[ -x "/usr/local/bin/ruby" ]]; then
+  export PATH="/usr/local/bin:$PATH"
+fi
+
+echo "=========================================================="
+echo "    MAGI SYSTEM // NERV HQ — OFFLINE DASHBOARD"
+echo "=========================================================="
+echo "Accede en tu navegador a: http://localhost:4567"
+echo "Presiona Ctrl+C para detener el servidor."
+echo "=========================================================="
+exec bundle exec bin/magi

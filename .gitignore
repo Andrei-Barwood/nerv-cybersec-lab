@@ -15,6 +15,7 @@
 .bundle/
 vendor/bundle/
 *.gem
+!vendor/cache/*.gem
 *.rbc
 .ruby-gemset
 coverage/

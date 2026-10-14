@@ -34,13 +34,20 @@ El laboratorio está diseñado bajo el modelo de triple consenso de las supercom
 
 2. **Instalar dependencias locales:**
    Se utiliza Sinatra y Kramdown para levantar la interfaz gráfica y procesar los reportes.
+   
+   *Instalación estándar:*
    ```bash
    bundle config set --local path 'vendor/bundle'
    bundle install
    ```
 
+   *O instalación 100% offline (sin conexión a internet):*
+   ```bash
+   ./install_offline.sh
+   ```
+
 3. **Inicializar la Enciclopedia MAGI (Base de datos de consenso):**
-   Genera el diccionario de respuestas y análisis de los 3 núcleos.
+   Genera el diccionario de respuestas y análisis de los 3 núcleos (el script offline lo hace automáticamente).
    ```bash
    ruby lib/magi_web/seed_database.rb
    ```
